@@ -2,13 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { contacts, productImage, series } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { WellImage } from "@/components/product-art";
 import { Kicker, Reveal, Section, TextLink, ZaloButton } from "@/components/ui";
-
-const ease = [0.22, 1, 0.36, 1] as const;
 
 /**
  * Full-bleed opening photograph. Point `src` at another file under /public
@@ -23,7 +20,6 @@ const heroPhoto = Object.values(productImage)
 export function HomePage() {
   const { lang, t } = useLanguage();
   const home = t.home;
-  const reduce = useReducedMotion();
 
   return (
     <div>
@@ -38,12 +34,7 @@ export function HomePage() {
           className="object-cover object-center"
         />
         <div className="hero-scrim pointer-events-none absolute inset-0" aria-hidden />
-        <motion.div
-          className="relative z-10 flex h-full flex-col items-center justify-center px-5 text-center text-white"
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease }}
-        >
+        <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-center px-5 text-center text-white">
           <p className="text-[11px] uppercase tracking-[0.42em] text-white/80">YANG SUPPLY</p>
           <h1 className="mt-6 max-w-5xl text-balance font-display text-[clamp(2.25rem,5.4vw,5.25rem)] font-medium leading-[1.16]">
             {home.title[0]}
@@ -57,7 +48,7 @@ export function HomePage() {
             </span>
             {home.routeTo}
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <Section>

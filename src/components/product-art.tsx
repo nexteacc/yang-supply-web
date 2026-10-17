@@ -27,7 +27,15 @@ export function WellImage({
     >
       <div className={`absolute ${insetClass}`}>
         <div className="relative h-full w-full">
-          <Image src={src} alt={alt} fill quality={75} sizes={imageSizes} className="object-contain media-zoom" />
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            quality={75}
+            sizes={imageSizes}
+            loading="eager"
+            className="object-contain media-zoom"
+          />
         </div>
       </div>
     </div>
@@ -50,6 +58,7 @@ export function ProductArt({ id }: { id: SeriesId }) {
               height={photo.height}
               quality={75}
               sizes={`${photo.width}px`}
+              loading="eager"
               className="h-auto w-full media-zoom"
             />
           </figure>
