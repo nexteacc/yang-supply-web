@@ -2,7 +2,7 @@
 
 @theme inline {
   --color-ink: #1c1916;
-  --color-mute: #595959;
+  --color-mute: #4a4a4a;
   --color-line: #e4dfd6;
   --color-well: #f2f0ec;
   --color-paper: #ffffff;
@@ -28,6 +28,7 @@ body {
   color: #1c1916;
   font-family: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
   font-size: 16px;
+  font-weight: 400;
   line-height: 1.7;
 }
 
@@ -135,18 +136,38 @@ html.lang-boot body {
   align-items: center;
   justify-content: center;
   height: 48px;
-  border: 1px solid #1c1916;
+  min-height: 48px;
+  border: 1px solid #111111;
   padding: 0 24px;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: 500;
   line-height: 1;
   letter-spacing: 0.04em;
-  color: #1c1916;
+  color: #111111;
   background: transparent;
 }
 
 .btn-quiet:hover {
-  background: #1c1916;
+  background: #111111;
   color: #ffffff;
+}
+
+.fact-value {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .fact-value {
+    font-size: 32px;
+  }
+}
+
+.fact-label {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
 }
 
 @keyframes hero-in {

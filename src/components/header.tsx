@@ -81,7 +81,7 @@ export function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-40 bg-paper">
+    <header className="fixed inset-x-0 top-0 z-40 bg-paper">
       <div className="box-border h-[72px] border-b border-line">
       <a
         href="#content"
@@ -110,7 +110,7 @@ export function Header() {
           <LangSwitch />
           <button
             type="button"
-            className="cursor-pointer text-[13px] uppercase tracking-[0.1em] text-ink md:hidden"
+            className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center text-[13px] uppercase tracking-[0.1em] text-ink md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}

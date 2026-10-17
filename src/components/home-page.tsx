@@ -23,7 +23,7 @@ export function HomePage() {
 
   return (
     <div>
-      <section className="relative h-[85svh] min-h-[32rem] overflow-hidden bg-ink md:h-[100svh]">
+      <section className="relative -mt-[72px] h-[85svh] min-h-[32rem] overflow-hidden bg-ink md:h-[100svh]">
         <Image
           src={HERO_SRC}
           alt={heroPhoto ? heroPhoto[lang] : "Yang Supply"}
@@ -34,7 +34,7 @@ export function HomePage() {
           className="object-cover object-center"
         />
         <div className="hero-scrim pointer-events-none absolute inset-0" aria-hidden />
-        <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-center px-5 text-center text-white">
+        <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-center px-5 pt-[72px] text-center text-white">
           <p className="eyebrow text-white">Yang Supply</p>
           <h1 className="heading-1-hero mx-auto mt-6 max-w-[12em] text-balance md:max-w-[14em]">
             <span className="md:block">{home.title[0]}</span>{" "}
@@ -58,11 +58,11 @@ export function HomePage() {
               <ZaloButton />
               <TextLink href="/cooperation">{home.seeProcess}</TextLink>
             </div>
-            <dl className="mt-16 grid grid-cols-2 gap-x-6 gap-y-8">
+            <dl className="mt-16 grid gap-x-8 gap-y-8 py-12 sm:grid-cols-3">
               {home.rows.map((row) => (
                 <div key={row.label}>
-                  <dt className="eyebrow text-mute">{row.label}</dt>
-                  <dd className="mt-2 text-[15px] text-ink">{row.value}</dd>
+                  <dd className="fact-value text-ink">{row.value}</dd>
+                  <dt className="fact-label mt-2 text-mute">{row.label}</dt>
                 </div>
               ))}
             </dl>

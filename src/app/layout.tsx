@@ -10,14 +10,14 @@ import "./globals.css";
 
 const viet = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-viet",
   display: "swap",
 });
 
 const cjk = Noto_Sans_SC({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-cjk",
   display: "swap",
   preload: false,
@@ -61,7 +61,7 @@ export default async function RootLayout({
         </Script>
         <LanguageProvider initialLang={lang}>
           <Header />
-          <div id="content" className="flex-1">
+          <div id="content" className="flex-1 pt-[72px]">
             {children}
           </div>
           <Footer />
