@@ -2,17 +2,17 @@
 
 @theme inline {
   --color-ink: #1c1916;
-  --color-mute: #6a645c;
+  --color-mute: #595959;
   --color-line: #e4dfd6;
-  --color-well: #f3f0ea;
+  --color-well: #f2f0ec;
   --color-paper: #ffffff;
   --font-sans: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
-  --font-display: var(--font-cormorant), var(--font-cjk-serif), "Songti SC", "Noto Serif SC", serif;
+  --font-display: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 4.5rem;
+  scroll-padding-top: 80px;
   background: #ffffff;
   -webkit-tap-highlight-color: transparent;
 }
@@ -27,6 +27,14 @@ body {
   background: #ffffff;
   color: #1c1916;
   font-family: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17px;
+  }
 }
 
 ::selection {
@@ -39,19 +47,68 @@ body {
   outline-offset: 3px;
 }
 
-a {
-  color: inherit;
+@layer base {
+  a {
+    color: inherit;
+  }
 }
 
 html.lang-boot body {
   visibility: hidden;
 }
 
-/* Keeps a white headline readable on whatever photograph is dropped into the hero. */
+.heading-1 {
+  font-weight: 600;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.05;
+}
+
+.heading-1-hero {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.05;
+}
+
+@media (min-width: 768px) {
+  .heading-1-hero {
+    font-size: clamp(40px, 6vw, 80px);
+  }
+}
+
+.heading-2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .heading-2 {
+    font-size: 40px;
+  }
+}
+
+.heading-3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .heading-3 {
+    font-size: 24px;
+  }
+}
+
+.eyebrow {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Flat black veil. Dark enough for the current product photo; swap HERO_SRC later. */
 .hero-scrim {
-  background:
-    linear-gradient(to bottom, rgba(22, 18, 14, 0.22), rgba(22, 18, 14, 0.16) 28%, rgba(22, 18, 14, 0.38)),
-    radial-gradient(ellipse 70% 52% at 50% 46%, rgba(22, 18, 14, 0.58), rgba(22, 18, 14, 0.08) 72%);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .link-under {
@@ -77,11 +134,12 @@ html.lang-boot body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  height: 48px;
   border: 1px solid #1c1916;
-  padding: 0.8rem 1.35rem;
-  font-size: 12px;
-  letter-spacing: 0.14em;
+  padding: 0 24px;
+  font-size: 14px;
   line-height: 1;
+  letter-spacing: 0.04em;
   color: #1c1916;
   background: transparent;
 }
@@ -93,7 +151,7 @@ html.lang-boot body {
 
 @keyframes hero-in {
   from {
-    transform: translateY(12px);
+    transform: translateY(8px);
   }
   to {
     transform: none;

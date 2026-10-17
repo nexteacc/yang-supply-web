@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Cormorant_Garamond, Noto_Sans_SC, Noto_Serif_SC } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Sans_SC } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -8,36 +8,20 @@ import { blockSearchIndexing, previewRobots } from "@/lib/preview-indexing";
 import { descriptions, langBoot, requestLang } from "@/lib/seo";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
-  subsets: ["latin", "vietnamese"],
-  weight: ["500", "600"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
 const viet = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "600", "700"],
   variable: "--font-viet",
   display: "swap",
 });
 
 const cjk = Noto_Sans_SC({
   subsets: ["latin", "vietnamese"],
-  weight: ["400", "500"],
+  weight: ["400", "600", "700"],
   variable: "--font-cjk",
   display: "swap",
   preload: false,
   fallback: ["PingFang SC", "Microsoft YaHei", "sans-serif"],
-});
-
-const cjkDisplay = Noto_Serif_SC({
-  subsets: ["latin", "vietnamese"],
-  weight: ["500", "600"],
-  variable: "--font-cjk-serif",
-  display: "swap",
-  preload: false,
-  fallback: ["Songti SC", "Noto Serif SC", "serif"],
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -71,9 +55,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang === "zh" ? "zh-CN" : "vi"} data-lang={lang} suppressHydrationWarning>
-      <body
-        className={`${display.variable} ${viet.variable} ${cjk.variable} ${cjkDisplay.variable} flex min-h-screen flex-col bg-paper text-ink antialiased`}
-      >
+      <body className={`${viet.variable} ${cjk.variable} flex min-h-screen flex-col bg-paper text-ink antialiased`}>
         <Script id="yang-lang-boot" strategy="beforeInteractive">
           {langBoot}
         </Script>

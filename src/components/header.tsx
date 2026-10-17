@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/language";
-import { Wordmark } from "@/components/ui";
+import { Container, Wordmark } from "@/components/ui";
 import type { Lang } from "@/lib/content";
 
 const languages: { id: Lang; label: string; name: string }[] = [
@@ -16,7 +16,7 @@ const languages: { id: Lang; label: string; name: string }[] = [
 function LangSwitch() {
   const { lang, setLang } = useLanguage();
   return (
-    <div className="flex items-center gap-2 text-[11px] tracking-[0.12em]" role="group" aria-label="Language">
+    <div className="flex items-center gap-2 text-[13px]" role="group" aria-label="Language">
       {languages.map((item, index) => {
         const active = lang === item.id;
         return (
@@ -62,15 +62,15 @@ export function Header() {
   }, [open]);
 
   const links = (
-    <ul className="mx-auto flex w-full max-w-[1320px] flex-col px-5 py-2">
+    <ul className="flex flex-col">
       {t.nav.map((item) => {
         const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
         return (
-          <li key={item.href} className="border-b border-line last:border-b-0">
+          <li key={item.href}>
             <Link
               href={item.href}
               aria-current={active ? "page" : undefined}
-              className={`block py-4 font-display text-3xl ${active ? "text-ink" : "text-mute"}`}
+              className={`flex h-12 items-center text-[16px] uppercase tracking-[0.1em] ${active ? "text-ink" : "text-mute"}`}
             >
               {item.label}
             </Link>
@@ -81,14 +81,15 @@ export function Header() {
   );
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-paper">
+    <header className="sticky top-0 z-40 bg-paper">
+      <div className="box-border h-[72px] border-b border-line">
       <a
         href="#content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-white"
       >
         {t.skip}
       </a>
-      <div className="mx-auto flex h-14 w-full max-w-[1320px] items-center justify-between gap-3 px-5 md:px-8">
+      <Container className="flex h-full items-center justify-between gap-4">
         <Wordmark />
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {t.nav.map((item) => {
@@ -98,18 +99,18 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`link-under py-1 text-[11px] uppercase tracking-[0.18em] hover:text-ink ${active ? "is-active text-ink" : "text-mute"}`}
+                className={`link-under py-1 text-[13px] uppercase tracking-[0.1em] hover:text-ink ${active ? "is-active text-ink" : "text-mute"}`}
               >
                 {item.label}
               </Link>
             );
           })}
         </nav>
-        <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex items-center gap-4">
           <LangSwitch />
           <button
             type="button"
-            className="cursor-pointer text-[11px] uppercase tracking-[0.16em] text-ink md:hidden"
+            className="cursor-pointer text-[13px] uppercase tracking-[0.1em] text-ink md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -117,6 +118,7 @@ export function Header() {
             {open ? t.close : t.menu}
           </button>
         </div>
+      </Container>
       </div>
       <AnimatePresence>
         {open ? (
@@ -127,9 +129,9 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={reduce ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
             transition={{ duration: reduce ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-line md:hidden"
+            className="overflow-hidden border-b border-line md:hidden"
           >
-            {links}
+            <Container className="py-2">{links}</Container>
           </motion.nav>
         ) : null}
       </AnimatePresence>

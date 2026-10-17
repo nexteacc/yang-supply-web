@@ -2,7 +2,7 @@
 
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
-import { Container, CopyButton, Kicker, Reveal, ZaloButton } from "@/components/ui";
+import { Container, CopyButton, PageIntro, ZaloButton } from "@/components/ui";
 
 export function ContactPage() {
   const { t } = useLanguage();
@@ -10,27 +10,16 @@ export function ContactPage() {
 
   return (
     <div>
-      <Container className="pb-4 pt-16 md:pt-24">
-        <Reveal>
-          <Kicker>
-            <span className="mr-4">{page.kicker}</span>
-            {page.title}
-          </Kicker>
-          <h1 className="mt-6 max-w-3xl font-display text-[clamp(2.75rem,6vw,4.75rem)] font-medium leading-[1.12]">
-            {page.title}
-          </h1>
-          <p className="mt-6 max-w-xl text-base leading-7 text-mute">{page.lead}</p>
-        </Reveal>
-      </Container>
+      <PageIntro kicker={page.kicker} title={page.title} lead={page.lead} />
 
-      <Container className="mt-12 grid gap-14 border-t border-line py-12 md:mt-16 md:py-16 lg:grid-cols-2 lg:gap-20">
-        <Reveal>
-          <Kicker>{page.zaloRole}</Kicker>
+      <Container className="grid gap-[72px] py-[72px] md:grid-cols-12 md:gap-6 md:py-[120px]">
+        <section className="md:col-span-6">
+          <h2 className="heading-2">{page.zaloRole}</h2>
           <a
             href={contacts.zaloUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="link-under mt-6 inline-block font-display text-[clamp(2.6rem,7vw,4.25rem)] leading-none"
+            className="heading-3 link-under mt-6 inline-block"
           >
             {contacts.zalo}
           </a>
@@ -38,31 +27,29 @@ export function ContactPage() {
             <ZaloButton />
             <CopyButton value={contacts.zalo} />
           </div>
-        </Reveal>
+        </section>
 
-        <Reveal delay={0.06}>
-          <Kicker>{page.emailRole}</Kicker>
-          <ul className="mt-4">
+        <section className="md:col-span-6">
+          <h2 className="heading-2">{page.emailRole}</h2>
+          <ul className="mt-6 flex flex-col gap-8">
             {contacts.emails.map((person) => (
-              <li key={person.email} className="flex flex-col gap-3 border-b border-line py-5 sm:flex-row sm:items-end sm:justify-between">
-                <div className="min-w-0">
-                  <p className="font-display text-[1.7rem] leading-tight">{person.name}</p>
-                  <a href={`mailto:${person.email}`} className="link-under mt-1 inline-block break-all text-sm text-mute">
-                    {person.email}
-                  </a>
+              <li key={person.email}>
+                <p className="heading-3">{person.name}</p>
+                <a href={`mailto:${person.email}`} className="link-under mt-1 inline-block break-all text-[14px] text-mute">
+                  {person.email}
+                </a>
+                <div className="mt-2">
+                  <CopyButton value={person.email} />
                 </div>
-                <CopyButton value={person.email} />
               </li>
             ))}
           </ul>
-        </Reveal>
-      </Container>
+        </section>
 
-      <Container className="border-t border-line py-14 md:py-20">
-        <Reveal>
-          <Kicker>{page.addressLabel}</Kicker>
-          <p className="mt-5 font-display text-4xl leading-tight md:text-5xl">{page.address}</p>
-        </Reveal>
+        <section className="md:col-span-12">
+          <h2 className="heading-2">{page.addressLabel}</h2>
+          <p className="heading-3 mt-4">{page.address}</p>
+        </section>
       </Container>
     </div>
   );

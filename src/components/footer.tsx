@@ -9,20 +9,20 @@ export function Footer() {
   const { t } = useLanguage();
   return (
     <footer className="border-t border-line">
-      <Container className="grid gap-10 py-14 md:grid-cols-[1.3fr_0.8fr_1.1fr] md:py-16">
+      <Container className="grid gap-10 py-[72px] text-[14px] leading-[1.7] md:grid-cols-3 md:py-[80px]">
         <div>
           <Wordmark />
-          <p className="mt-5 max-w-xs text-sm leading-6 text-mute">{t.footer.line}</p>
-          <p className="mt-3 text-sm text-ink">{t.footer.address}</p>
+          <p className="mt-5 max-w-[28ch] text-mute">{t.footer.line}</p>
+          <p className="mt-2 text-ink">{t.footer.address}</p>
         </div>
-        <nav aria-label="Footer" className="flex flex-col gap-2.5 text-[13px]">
+        <nav aria-label="Footer" className="flex flex-col gap-2">
           {t.nav.map((item) => (
             <Link key={item.href} href={item.href} className="link-under w-fit text-ink">
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="flex flex-col gap-2.5 text-sm">
+        <div className="flex flex-col gap-2">
           <a href={contacts.zaloUrl} target="_blank" rel="noopener noreferrer" className="link-under w-fit">
             Zalo {contacts.zalo}
           </a>

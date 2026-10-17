@@ -13,22 +13,22 @@ export function Container({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={`mx-auto w-full max-w-[1320px] px-5 md:px-8 ${className}`}>{children}</div>;
+  return <div className={`mx-auto w-full max-w-[1200px] px-5 md:px-10 ${className}`}>{children}</div>;
 }
 
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`link-under inline-block shrink-0 whitespace-nowrap text-[12px] font-semibold uppercase leading-none tracking-[0.26em] text-ink sm:text-[13px] sm:tracking-[0.34em] ${className}`}
+      className={`inline-block shrink-0 whitespace-nowrap text-[16px] font-bold uppercase leading-none tracking-[0.14em] text-ink md:text-[22px] ${className}`}
     >
-      YANG SUPPLY
+      Yang Supply
     </Link>
   );
 }
 
 export function Kicker({ children }: { children: ReactNode }) {
-  return <p className="text-[11px] uppercase tracking-[0.28em] text-mute">{children}</p>;
+  return <p className="eyebrow text-mute">{children}</p>;
 }
 
 export function Section({
@@ -39,8 +39,8 @@ export function Section({
   className?: string;
 }) {
   return (
-    <section className={`border-t border-line ${className}`}>
-      <Container className="py-16 md:py-24">{children}</Container>
+    <section className={className}>
+      <Container className="py-[72px] md:py-[120px]">{children}</Container>
     </section>
   );
 }
@@ -55,7 +55,7 @@ export function TextLink({
   className?: string;
 }) {
   return (
-    <Link href={href} className={`link-under text-[13px] text-ink ${className}`}>
+    <Link href={href} className={`link-under text-ink ${className}`}>
       {children}
     </Link>
   );
@@ -85,20 +85,26 @@ export function CopyButton({ value }: { value: string }) {
   }
 
   return (
-    <button type="button" onClick={onCopy} className="link-under cursor-pointer text-[11px] uppercase tracking-[0.18em] text-mute">
+    <button type="button" onClick={onCopy} className="link-under cursor-pointer text-[14px] text-mute">
       {done ? t.copied : t.copy}
     </button>
   );
 }
 
-/** Layout wrapper. Content stays visible without JS, motion preferences, or scroll observers. */
-export function Reveal({
-  children,
-  className = "",
+export function PageIntro({
+  kicker,
+  title,
+  lead,
 }: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
+  kicker: string;
+  title: string;
+  lead: string;
 }) {
-  return <div className={className}>{children}</div>;
+  return (
+    <Container className="pt-[72px] md:pt-[120px]">
+      <Kicker>{kicker}</Kicker>
+      <h1 className="heading-1 mt-4">{title}</h1>
+      <p className="mt-6 max-w-[60ch] text-mute">{lead}</p>
+    </Container>
+  );
 }

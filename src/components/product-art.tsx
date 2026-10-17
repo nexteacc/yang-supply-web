@@ -1,38 +1,68 @@
 "use client";
 
 import Image from "next/image";
-import { productImage, type SeriesId } from "@/lib/content";
+import { useState } from "react";
+import { productImage, type ProductPhoto, type SeriesId } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 
-const sizes = "(min-width: 1024px) 320px, 92vw";
-
-export function WellImage({
+export function SquareThumb({
   src,
   alt,
-  sizes: imageSizes,
-  aspect = "square",
-  insetClass = "inset-6 sm:inset-8",
   className = "",
+  sizes = "180px",
 }: {
   src: string;
   alt: string;
-  sizes: string;
-  aspect?: "square" | "portrait";
-  insetClass?: string;
   className?: string;
+  sizes?: string;
 }) {
   return (
-    <div
-      className={`relative overflow-hidden ${aspect === "portrait" ? "aspect-[3/4]" : "aspect-square"} ${className}`}
-    >
-      <div className={`absolute ${insetClass}`}>
+    <div className={`relative aspect-square overflow-hidden bg-well ${className}`}>
+      <div className="absolute inset-[12%]">
         <div className="relative h-full w-full">
           <Image
             src={src}
             alt={alt}
             fill
             quality={75}
-            sizes={imageSizes}
+            sizes={sizes}
+            loading="eager"
+            className="object-contain media-zoom"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MainPanel({ photo, alt, small }: { photo: ProductPhoto; alt: string; small: boolean }) {
+  if (small) {
+    return (
+      <div className="flex aspect-[4/3] items-center justify-center bg-well px-[12%] py-[12%]">
+        <Image
+          src={photo.src}
+          alt={alt}
+          width={photo.width}
+          height={photo.height}
+          quality={75}
+          sizes={`${photo.width}px`}
+          loading="eager"
+          className="h-auto max-h-full w-auto max-w-full"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div className="group relative aspect-[4/3] overflow-hidden bg-well">
+      <div className="absolute inset-[12%]">
+        <div className="relative h-full w-full">
+          <Image
+            src={photo.src}
+            alt={alt}
+            fill
+            quality={75}
+            sizes="(min-width: 768px) 880px, 100vw"
             loading="eager"
             className="object-contain media-zoom"
           />
@@ -45,51 +75,34 @@ export function WellImage({
 export function ProductArt({ id }: { id: SeriesId }) {
   const { lang } = useLanguage();
   const photos = productImage[id];
-
-  if (photos.every((photo) => photo.small)) {
-    return (
-      <div className="flex min-h-72 flex-wrap items-center justify-center gap-8 bg-well px-6 py-12 sm:gap-12 sm:px-10">
-        {photos.map((photo) => (
-          <figure key={photo.src} className="group overflow-hidden" style={{ width: photo.width, maxWidth: "100%" }}>
-            <Image
-              src={photo.src}
-              alt={photo[lang]}
-              width={photo.width}
-              height={photo.height}
-              quality={75}
-              sizes={`${photo.width}px`}
-              loading="eager"
-              className="h-auto w-full media-zoom"
-            />
-          </figure>
-        ))}
-      </div>
-    );
-  }
-
-  const columns =
-    photos.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : photos.length === 2 ? "sm:grid-cols-2" : "grid-cols-1";
+  const [active, setActive] = useState(0);
+  const photo = photos[active] ?? photos[0];
+  const small = photos.every((item) => item.small);
 
   return (
-    <div className="bg-well p-3 sm:p-5">
-      <div className={`grid items-start gap-4 ${columns}`}>
-        {photos.map((photo) => (
-          <figure key={photo.src} className="group">
-            <WellImage
-              src={photo.src}
-              alt={photo[lang]}
-              sizes={sizes}
-              aspect={photo.portrait ? "portrait" : "square"}
-              insetClass="inset-3 sm:inset-5"
-            />
-            {photo.label ? (
-              <figcaption className="px-2 pb-2 pt-3 text-center text-[11px] uppercase tracking-[0.18em] text-mute">
-                {photo.label[lang]}
-              </figcaption>
-            ) : null}
-          </figure>
-        ))}
-      </div>
+    <div>
+      <MainPanel photo={photo} alt={photo[lang]} small={small} />
+      {photos.length > 1 ? (
+        <ul className="mt-6 flex flex-wrap gap-6">
+          {photos.map((item, index) => {
+            const selected = index === active;
+            return (
+              <li key={item.src} className="w-20 md:w-24">
+                <button
+                  type="button"
+                  onClick={() => setActive(index)}
+                  aria-pressed={selected}
+                  aria-label={item[lang]}
+                  className={`block w-full cursor-pointer ${selected ? "ring-1 ring-ink ring-offset-2" : ""}`}
+                >
+                  <SquareThumb src={item.src} alt="" sizes="96px" />
+                </button>
+                {item.label ? <p className="eyebrow mt-2 text-center text-mute">{item.label[lang]}</p> : null}
+              </li>
+            );
+          })}
+        </ul>
+      ) : null}
     </div>
   );
 }
