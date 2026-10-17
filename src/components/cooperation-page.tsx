@@ -1,76 +1,55 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/language";
-import { CropFrame, Label, Reveal, ZaloButton } from "@/components/ui";
+import { Container, PageIntro, ZaloButton } from "@/components/ui";
 
 export function CooperationPage() {
   const { t } = useLanguage();
   const page = t.cooperation;
-  const reduce = useReducedMotion();
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-      <Reveal>
-        <Label index={page.kicker}>{page.title}</Label>
-        <h1 className="mt-5 font-display text-4xl text-paper sm:text-6xl">{page.title}</h1>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-dim">{page.lead}</p>
-      </Reveal>
+    <div>
+      <PageIntro kicker={page.kicker} title={page.title} lead={page.lead} />
 
-      <ol className="relative mt-14">
-        <motion.span
-          aria-hidden
-          className="absolute bottom-4 left-[1.15rem] top-2 w-px origin-top bg-amber/40"
-          initial={reduce ? false : { scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        />
-        {page.steps.map((step, index) => (
-          <li key={step.title} className="relative grid grid-cols-[2.5rem_1fr] gap-4 pb-10 sm:gap-6">
-            <span className="relative z-10 grid size-10 place-items-center bg-ink font-display text-sm text-amber ring-1 ring-amber/50">
-              0{index + 1}
-            </span>
-            <Reveal className="pt-1">
-              <h2 className="font-display text-2xl text-paper">{step.title}</h2>
-              <p className="mt-2 max-w-2xl text-sm leading-6 text-dim">{step.body}</p>
-            </Reveal>
-          </li>
-        ))}
-      </ol>
-
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
-        <Reveal>
-          <CropFrame className="h-full p-6">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-amber">{page.feeTitle}</p>
-            <p className="mt-4 font-display text-5xl text-paper">{page.feeFigure}</p>
-            <p className="mt-4 text-sm leading-6 text-dim">{page.feeBody}</p>
-          </CropFrame>
-        </Reveal>
-        <Reveal delay={0.06}>
-          <CropFrame className="h-full p-6">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-amber">{page.payTitle}</p>
-            <p className="mt-4 font-display text-5xl text-paper">{page.payFigure}</p>
-            <p className="mt-4 text-sm leading-6 text-dim">{page.payBody}</p>
-          </CropFrame>
-        </Reveal>
-      </div>
-
-      <section className="mt-14">
-        <Label>{page.notesTitle}</Label>
-        <ul className="mt-4">
-          {page.notes.map((note) => (
-            <li key={note} className="flex gap-3 border-t border-amber/15 py-4 text-sm leading-6 text-paper">
-              <span className="mt-2 size-1.5 shrink-0 bg-amber" aria-hidden />
-              <span>{note}</span>
+      <Container className="flex flex-col gap-[72px] py-[72px] md:gap-[120px] md:py-[120px]">
+        <ol className="flex flex-col gap-12 md:gap-16">
+          {page.steps.map((step, index) => (
+            <li key={step.title} className="grid grid-cols-[3rem_minmax(0,1fr)] gap-6 md:grid-cols-12 md:gap-6">
+              <span className="eyebrow pt-2 text-mute md:col-span-2">0{index + 1}</span>
+              <div className="md:col-span-7">
+                <h2 className="heading-2">{step.title}</h2>
+                <p className="mt-4 max-w-[60ch] text-mute">{step.body}</p>
+              </div>
             </li>
           ))}
-        </ul>
-      </section>
+        </ol>
 
-      <div className="mt-10">
-        <ZaloButton />
-      </div>
+        <div className="grid gap-16 md:grid-cols-12 md:gap-6">
+          <section className="md:col-span-6">
+            <h2 className="heading-3">{page.feeTitle}</h2>
+            <p className="heading-2 mt-4">{page.feeFigure}</p>
+            <p className="mt-6 max-w-[60ch] text-mute">{page.feeBody}</p>
+          </section>
+          <section className="md:col-span-6">
+            <h2 className="heading-3">{page.payTitle}</h2>
+            <p className="heading-2 mt-4">{page.payFigure}</p>
+            <p className="mt-6 max-w-[60ch] text-mute">{page.payBody}</p>
+          </section>
+        </div>
+
+        <section>
+          <h2 className="heading-2">{page.notesTitle}</h2>
+          <ul className="mt-8 flex max-w-[60ch] flex-col gap-4">
+            {page.notes.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+        </section>
+
+        <div>
+          <ZaloButton />
+        </div>
+      </Container>
     </div>
   );
 }

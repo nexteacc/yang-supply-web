@@ -1,36 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import type { ReactNode } from "react";
 import { useState } from "react";
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+export function Container({
+  children,
+  className = "",
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return <div className={`mx-auto w-full max-w-[1200px] px-5 md:px-10 ${className}`}>{children}</div>;
+}
 
 export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link
       href="/"
-      className={`inline-block font-display text-[12px] font-bold uppercase leading-none tracking-[0.18em] text-paper transition-colors hover:text-amber sm:text-[13px] sm:tracking-[0.26em] ${className}`}
+      className={`inline-block shrink-0 whitespace-nowrap text-[16px] font-bold uppercase leading-none tracking-[0.14em] text-ink md:text-[22px] ${className}`}
     >
-      YANG SUPPLY
+      Yang Supply
     </Link>
   );
 }
 
-export function Label({ index, children }: { index?: string; children: ReactNode }) {
-  return (
-    <p className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-amber">
-      {index ? <span className="font-display tracking-[0.18em]">{index}</span> : null}
-      <span className="h-px w-8 bg-amber/80" aria-hidden />
-      <span>{children}</span>
-    </p>
-  );
+export function Kicker({ children }: { children: ReactNode }) {
+  return <p className="eyebrow text-mute">{children}</p>;
 }
 
-export function CropFrame({
+export function Section({
   children,
   className = "",
 }: {
@@ -38,29 +39,34 @@ export function CropFrame({
   className?: string;
 }) {
   return (
-    <div className={`relative border border-amber/25 ${className}`}>
-      <span className="pointer-events-none absolute -left-px -top-px h-3 w-3 border-l border-t border-amber" />
-      <span className="pointer-events-none absolute -right-px -top-px h-3 w-3 border-r border-t border-amber" />
-      <span className="pointer-events-none absolute -bottom-px -left-px h-3 w-3 border-b border-l border-amber" />
-      <span className="pointer-events-none absolute -bottom-px -right-px h-3 w-3 border-b border-r border-amber" />
+    <section className={className}>
+      <Container className="py-[72px] md:py-[120px]">{children}</Container>
+    </section>
+  );
+}
+
+export function TextLink({
+  href,
+  children,
+  className = "",
+}: {
+  href: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <Link href={href} className={`link-under text-ink ${className}`}>
       {children}
-    </div>
+    </Link>
   );
 }
 
 export function ZaloButton({ className = "" }: { className?: string }) {
   const { t } = useLanguage();
   return (
-    <motion.a
-      href={contacts.zaloUrl}
-      target="_blank"
-      rel="noopener noreferrer"
-      whileHover={{ y: -2 }}
-      whileTap={{ scale: 0.98 }}
-      className={`inline-flex items-center justify-center bg-amber px-5 py-3 text-sm font-medium tracking-wide text-ink ${className}`}
-    >
+    <a href={contacts.zaloUrl} target="_blank" rel="noopener noreferrer" className={`btn-quiet ${className}`}>
       {t.zaloAdd}
-    </motion.a>
+    </a>
   );
 }
 
@@ -72,7 +78,7 @@ export function CopyButton({ value }: { value: string }) {
     try {
       await navigator.clipboard.writeText(value);
       setDone(true);
-      window.setTimeout(() => setDone(false), 1600);
+      window.setTimeout(() => setDone(false), 1500);
     } catch {
       setDone(false);
     }
@@ -82,58 +88,27 @@ export function CopyButton({ value }: { value: string }) {
     <button
       type="button"
       onClick={onCopy}
-      className="text-[11px] uppercase tracking-[0.18em] text-dim transition-colors hover:text-amber"
+      className="inline-flex h-11 min-h-11 cursor-pointer items-center text-[14px] font-normal leading-none text-mute"
     >
       {done ? t.copied : t.copy}
     </button>
   );
 }
 
-export function RouteLine({ from, to }: { from: string; to: string }) {
-  const reduce = useReducedMotion();
-  return (
-    <div className="mx-auto flex w-full max-w-6xl items-center gap-4 px-5 pb-12 md:px-8">
-      <span className="shrink-0 text-[11px] uppercase tracking-[0.18em] text-dim">{from}</span>
-      <div className="relative h-px flex-1 bg-amber/35">
-        {reduce ? (
-          <span className="absolute left-1/2 top-1/2 size-1.5 -translate-x-1/2 -translate-y-1/2 bg-amber" />
-        ) : (
-          <motion.span
-            className="absolute top-1/2 size-1.5 -translate-y-1/2 bg-amber"
-            animate={{ left: ["0%", "calc(100% - 6px)"] }}
-            transition={{
-              duration: 4.2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              repeatType: "reverse",
-            }}
-          />
-        )}
-      </div>
-      <span className="shrink-0 text-[11px] uppercase tracking-[0.18em] text-dim">{to}</span>
-    </div>
-  );
-}
-
-export function Reveal({
-  children,
-  className = "",
-  delay = 0,
+export function PageIntro({
+  kicker,
+  title,
+  lead,
 }: {
-  children: ReactNode;
-  className?: string;
-  delay?: number;
+  kicker: string;
+  title: string;
+  lead: string;
 }) {
-  const reduce = useReducedMotion();
   return (
-    <motion.div
-      className={className}
-      initial={reduce ? false : { opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
-      transition={{ duration: 0.55, delay, ease }}
-    >
-      {children}
-    </motion.div>
+    <Container className="pt-[72px] md:pt-[120px]">
+      <Kicker>{kicker}</Kicker>
+      <h1 className="heading-1 mt-4">{title}</h1>
+      <p className="mt-6 max-w-[60ch] text-mute">{lead}</p>
+    </Container>
   );
 }

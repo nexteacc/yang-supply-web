@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Be_Vietnam_Pro, Noto_Sans_SC, Syne } from "next/font/google";
+import { Be_Vietnam_Pro, Noto_Sans_SC } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -8,23 +8,16 @@ import { blockSearchIndexing, previewRobots } from "@/lib/preview-indexing";
 import { descriptions, langBoot, requestLang } from "@/lib/seo";
 import "./globals.css";
 
-const syne = Syne({
-  subsets: ["latin", "latin-ext"],
-  weight: ["500", "600", "700", "800"],
-  variable: "--font-syne",
-  display: "swap",
-});
-
 const viet = Be_Vietnam_Pro({
-  subsets: ["latin", "latin-ext"],
+  subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-viet",
   display: "swap",
 });
 
 const cjk = Noto_Sans_SC({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-cjk",
   display: "swap",
   preload: false,
@@ -62,13 +55,13 @@ export default async function RootLayout({
 
   return (
     <html lang={lang === "zh" ? "zh-CN" : "vi"} data-lang={lang} suppressHydrationWarning>
-      <body className={`${syne.variable} ${viet.variable} ${cjk.variable} flex min-h-screen flex-col antialiased`}>
+      <body className={`${viet.variable} ${cjk.variable} flex min-h-screen flex-col bg-paper text-ink antialiased`}>
         <Script id="yang-lang-boot" strategy="beforeInteractive">
           {langBoot}
         </Script>
         <LanguageProvider initialLang={lang}>
           <Header />
-          <div id="content" className="flex-1">
+          <div id="content" className="flex-1 pt-[72px]">
             {children}
           </div>
           <Footer />

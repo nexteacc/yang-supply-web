@@ -1,86 +1,108 @@
 "use client";
 
 import Image from "next/image";
-import { productImage, type SeriesId } from "@/lib/content";
+import { useState } from "react";
+import { productImage, type ProductPhoto, type SeriesId } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 
-const sizes = "(min-width: 768px) 280px, (min-width: 640px) 45vw, 92vw";
-
-export function ProductArt({
-  id,
+export function SquareThumb({
+  src,
   alt,
-  size = "lg",
+  className = "",
+  sizes = "180px",
 }: {
-  id: SeriesId;
+  src: string;
   alt: string;
-  size?: "sm" | "lg";
+  className?: string;
+  sizes?: string;
 }) {
-  const { lang } = useLanguage();
-  const photos = productImage[id];
-  const lead = photos[0];
-
-  if (size === "sm") {
-    return (
-      <div className="relative aspect-square w-16 overflow-hidden border border-amber/20 bg-soft sm:w-20">
-        <Image src={lead.src} alt={alt} fill sizes="80px" className="object-cover" />
+  return (
+    <div className={`relative aspect-square overflow-hidden bg-well ${className}`}>
+      <div className="absolute inset-[12%]">
+        <div className="relative h-full w-full">
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            quality={75}
+            sizes={sizes}
+            loading="eager"
+            className="object-contain media-zoom"
+          />
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
+}
 
-  if (photos.every((photo) => photo.small)) {
+function MainPanel({ photo, alt, small }: { photo: ProductPhoto; alt: string; small: boolean }) {
+  if (small) {
     return (
-      <div className="flex flex-wrap items-start gap-3">
-        {photos.map((photo) => (
-          <div key={photo.src} className="relative size-24 overflow-hidden border border-amber/20 bg-soft sm:size-28">
-            <Image
-              src={photo.src}
-              alt={photo[lang]}
-              fill
-              quality={75}
-              sizes="112px"
-              className="object-cover object-center"
-            />
-          </div>
-        ))}
+      <div className="flex aspect-[4/3] items-center justify-center bg-well px-[12%] py-[12%]">
+        <Image
+          src={photo.src}
+          alt={alt}
+          width={photo.width}
+          height={photo.height}
+          quality={75}
+          sizes={`${photo.width}px`}
+          loading="eager"
+          className="h-auto max-h-full w-auto max-w-full"
+        />
       </div>
     );
   }
 
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {photos.map((photo) => (
-        <figure key={photo.src} className="border border-amber/20 bg-soft">
-          {photo.portrait ? (
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
-                src={photo.src}
-                alt={photo[lang]}
-                fill
-                quality={75}
-                sizes={sizes}
-                className="object-contain transition-transform duration-500 hover:scale-[1.02]"
-              />
-            </div>
-          ) : (
-            <div className="overflow-hidden">
-              <Image
-                src={photo.src}
-                alt={photo[lang]}
-                width={photo.width}
-                height={photo.height}
-                quality={75}
-                sizes={sizes}
-                className="h-auto w-full transition-transform duration-500 hover:scale-[1.03]"
-              />
-            </div>
-          )}
-          {photo.label ? (
-            <figcaption className="px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-dim">
-              {photo.label[lang]}
-            </figcaption>
-          ) : null}
-        </figure>
-      ))}
+    <div className="group relative aspect-[4/3] overflow-hidden bg-well">
+      <div className="absolute inset-[12%]">
+        <div className="relative h-full w-full">
+          <Image
+            src={photo.src}
+            alt={alt}
+            fill
+            quality={75}
+            sizes="(min-width: 768px) 880px, 100vw"
+            loading="eager"
+            className="object-contain media-zoom"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ProductArt({ id }: { id: SeriesId }) {
+  const { lang } = useLanguage();
+  const photos = productImage[id];
+  const [active, setActive] = useState(0);
+  const photo = photos[active] ?? photos[0];
+  const small = photos.every((item) => item.small);
+
+  return (
+    <div>
+      <MainPanel photo={photo} alt={photo[lang]} small={small} />
+      {photos.length > 1 ? (
+        <ul className="mt-6 flex flex-wrap gap-6">
+          {photos.map((item, index) => {
+            const selected = index === active;
+            return (
+              <li key={item.src} className="w-20 md:w-24">
+                <button
+                  type="button"
+                  onClick={() => setActive(index)}
+                  aria-pressed={selected}
+                  aria-label={item[lang]}
+                  className={`block w-full cursor-pointer ${selected ? "ring-1 ring-ink ring-offset-2" : ""}`}
+                >
+                  <SquareThumb src={item.src} alt="" sizes="96px" />
+                </button>
+                {item.label ? <p className="eyebrow mt-2 text-center text-mute">{item.label[lang]}</p> : null}
+              </li>
+            );
+          })}
+        </ul>
+      ) : null}
     </div>
   );
 }

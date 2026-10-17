@@ -3,9 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/language";
-import { Wordmark } from "@/components/ui";
+import { Container, Wordmark } from "@/components/ui";
 import type { Lang } from "@/lib/content";
 
 const languages: { id: Lang; label: string; name: string }[] = [
@@ -16,27 +16,26 @@ const languages: { id: Lang; label: string; name: string }[] = [
 function LangSwitch() {
   const { lang, setLang } = useLanguage();
   return (
-    <div className="flex border border-amber/35" role="group" aria-label="Language">
-      {languages.map((item) => {
+    <div className="flex items-center gap-2 text-[13px]" role="group" aria-label="Language">
+      {languages.map((item, index) => {
         const active = lang === item.id;
         return (
-          <button
-            key={item.id}
-            type="button"
-            onClick={() => setLang(item.id)}
-            aria-pressed={active}
-            aria-label={item.name}
-            className="relative whitespace-nowrap px-2 py-1.5 text-[11px] tracking-normal sm:px-2.5"
-          >
-            {active ? (
-              <motion.span
-                layoutId="lang-pill"
-                className="absolute inset-0 bg-amber"
-                transition={{ type: "spring", stiffness: 420, damping: 34 }}
-              />
+          <span key={item.id} className="flex items-center gap-2">
+            {index > 0 ? (
+              <span className="text-line" aria-hidden>
+                /
+              </span>
             ) : null}
-            <span className={`relative z-10 ${active ? "text-ink" : "text-paper"}`}>{item.label}</span>
-          </button>
+            <button
+              type="button"
+              onClick={() => setLang(item.id)}
+              aria-pressed={active}
+              aria-label={item.name}
+              className={`cursor-pointer whitespace-nowrap ${active ? "text-ink" : "text-mute hover:text-ink"}`}
+            >
+              {item.label}
+            </button>
+          </span>
         );
       })}
     </div>
@@ -47,22 +46,52 @@ export function Header() {
   const { t } = useLanguage();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    if (!open) return;
+    function onKey(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  const links = (
+    <ul className="flex flex-col">
+      {t.nav.map((item) => {
+        const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+        return (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              aria-current={active ? "page" : undefined}
+              className={`flex h-12 items-center text-[16px] uppercase tracking-[0.1em] ${active ? "text-ink" : "text-mute"}`}
+            >
+              {item.label}
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
   return (
-    <header className="sticky top-0 z-40 border-b border-amber/15 bg-ink/85 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-40 bg-paper">
+      <div className="box-border h-[72px] border-b border-line">
       <a
         href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-amber focus:px-3 focus:py-2 focus:text-ink"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-white"
       >
         {t.skip}
       </a>
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-5 md:px-8">
+      <Container className="flex h-full items-center justify-between gap-4">
         <Wordmark />
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {t.nav.map((item) => {
             const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
@@ -70,24 +99,18 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className="relative py-1 text-sm text-paper/90 transition-colors hover:text-amber"
+                className={`link-under py-1 text-[13px] uppercase tracking-[0.1em] hover:text-ink ${active ? "is-active text-ink" : "text-mute"}`}
               >
                 {item.label}
-                {active ? (
-                  <motion.span
-                    layoutId="nav-underline"
-                    className="absolute -bottom-1 left-0 right-0 h-px bg-amber"
-                  />
-                ) : null}
               </Link>
             );
           })}
         </nav>
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-4">
           <LangSwitch />
           <button
             type="button"
-            className="border border-amber/35 px-2.5 py-1.5 text-[11px] tracking-[0.14em] text-paper md:hidden"
+            className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center text-[13px] uppercase tracking-[0.1em] text-ink md:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -95,34 +118,20 @@ export function Header() {
             {open ? t.close : t.menu}
           </button>
         </div>
+      </Container>
       </div>
       <AnimatePresence>
         {open ? (
           <motion.nav
             id="mobile-nav"
             aria-label="Primary"
-            initial={{ height: 0, opacity: 0 }}
+            initial={reduce ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-amber/15 md:hidden"
+            exit={reduce ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+            transition={{ duration: reduce ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border-b border-line md:hidden"
           >
-            <ul className="mx-auto flex max-w-6xl flex-col px-5 py-2">
-              {t.nav.map((item) => {
-                const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-                return (
-                  <li key={item.href} className="border-b border-amber/10 last:border-b-0">
-                    <Link
-                      href={item.href}
-                      aria-current={active ? "page" : undefined}
-                      className={`block py-3 text-base ${active ? "text-amber" : "text-paper"}`}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <Container className="py-2">{links}</Container>
           </motion.nav>
         ) : null}
       </AnimatePresence>

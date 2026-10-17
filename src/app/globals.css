@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #12100e;
-  --color-raised: #1b1714;
-  --color-soft: #26201b;
-  --color-paper: #f3ece4;
-  --color-dim: #cbbba9;
-  --color-amber: #e4b15a;
-  --color-amber-soft: #f0d7a8;
-  --font-display: var(--font-syne), var(--font-cjk), ui-sans-serif, sans-serif;
-  --font-body: var(--font-viet), var(--font-cjk), ui-sans-serif, sans-serif;
+  --color-ink: #1c1916;
+  --color-mute: #4a4a4a;
+  --color-line: #e4dfd6;
+  --color-well: #f2f0ec;
+  --color-paper: #ffffff;
+  --font-sans: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  --font-display: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 88px;
+  background: #ffffff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -24,35 +24,182 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-body);
+  background: #ffffff;
+  color: #1c1916;
+  font-family: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
 }
 
-body::before {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  opacity: 0.09;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+@media (min-width: 768px) {
+  body {
+    font-size: 17px;
+  }
 }
 
 ::selection {
-  background: #e4b15a;
-  color: #12100e;
+  background: #1c1916;
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #e4b15a;
+  outline: 1px solid #1c1916;
   outline-offset: 3px;
 }
 
-a {
-  color: inherit;
+@layer base {
+  a {
+    color: inherit;
+  }
 }
 
 html.lang-boot body {
   visibility: hidden;
+}
+
+.heading-1 {
+  font-weight: 600;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.05;
+}
+
+.heading-1-hero {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 1.05;
+}
+
+@media (min-width: 768px) {
+  .heading-1-hero {
+    font-size: clamp(40px, 6vw, 80px);
+  }
+}
+
+.heading-2 {
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .heading-2 {
+    font-size: 40px;
+  }
+}
+
+.heading-3 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .heading-3 {
+    font-size: 24px;
+  }
+}
+
+.eyebrow {
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* Flat black veil. Dark enough for the current product photo; swap HERO_SRC later. */
+.hero-scrim {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.link-under {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  padding-bottom: 2px;
+}
+
+.link-under.is-active,
+.link-under:hover,
+.link-under:focus-visible,
+.group:hover .link-under {
+  background-size: 100% 1px;
+}
+
+.media-zoom {
+  transform: scale(1);
+}
+
+.btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  height: 48px;
+  min-height: 48px;
+  border: 1px solid #111111;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: #111111;
+  background: transparent;
+}
+
+.btn-quiet:hover {
+  background: #111111;
+  color: #ffffff;
+}
+
+.fact-value {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.fact-label {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+}
+
+@keyframes hero-in {
+  from {
+    transform: translateY(8px);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy {
+    animation: hero-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .link-under {
+    transition:
+      background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.3s ease;
+  }
+
+  .media-zoom {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group:hover .media-zoom,
+  .group:focus-visible .media-zoom {
+    transform: scale(1.045);
+  }
+
+  .btn-quiet {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
 }
