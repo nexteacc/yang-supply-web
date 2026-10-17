@@ -78,14 +78,18 @@ export function CopyButton({ value }: { value: string }) {
     try {
       await navigator.clipboard.writeText(value);
       setDone(true);
-      window.setTimeout(() => setDone(false), 1600);
+      window.setTimeout(() => setDone(false), 1500);
     } catch {
       setDone(false);
     }
   }
 
   return (
-    <button type="button" onClick={onCopy} className="link-under cursor-pointer text-[14px] text-mute">
+    <button
+      type="button"
+      onClick={onCopy}
+      className="inline-flex h-11 min-h-11 cursor-pointer items-center text-[14px] font-normal leading-none text-mute"
+    >
       {done ? t.copied : t.copy}
     </button>
   );

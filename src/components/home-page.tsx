@@ -58,15 +58,17 @@ export function HomePage() {
               <ZaloButton />
               <TextLink href="/cooperation">{home.seeProcess}</TextLink>
             </div>
-            <dl className="mt-16 grid gap-x-8 gap-y-8 py-12 sm:grid-cols-3">
+            <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 lg:grid-cols-[repeat(4,max-content)]">
               {home.rows.map((row) => (
                 <div key={row.label}>
                   <dd className="fact-value text-ink">{row.value}</dd>
                   <dt className="fact-label mt-2 text-mute">{row.label}</dt>
+                  {row.value === "90 / 10" ? (
+                    <p className="mt-2 w-[22ch] text-[13px] font-normal leading-snug text-mute">{home.noteCaption}</p>
+                  ) : null}
                 </div>
               ))}
             </dl>
-            <p className="mt-8 text-[14px] text-mute">{home.noteCaption}</p>
           </div>
 
           <div>

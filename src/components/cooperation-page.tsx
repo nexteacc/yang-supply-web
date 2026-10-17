@@ -46,7 +46,9 @@ export function CooperationPage() {
           </ul>
         </section>
 
-        <ZaloButton />
+        <div>
+          <ZaloButton />
+        </div>
       </Container>
     </div>
   );

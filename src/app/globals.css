@@ -12,7 +12,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 88px;
   background: #ffffff;
   -webkit-tap-highlight-color: transparent;
 }
@@ -135,6 +135,8 @@ html.lang-boot body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: fit-content;
+  max-width: 100%;
   height: 48px;
   min-height: 48px;
   border: 1px solid #111111;
@@ -153,20 +155,16 @@ html.lang-boot body {
 }
 
 .fact-value {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
-}
-
-@media (min-width: 768px) {
-  .fact-value {
-    font-size: 32px;
-  }
+  white-space: nowrap;
 }
 
 .fact-label {
   font-size: 13px;
   font-weight: 400;
+  line-height: 1.4;
   letter-spacing: 0.08em;
 }
 
