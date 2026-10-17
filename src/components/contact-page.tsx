@@ -2,65 +2,68 @@
 
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
-import { CopyButton, CropFrame, Label, Reveal, ZaloButton } from "@/components/ui";
+import { Container, CopyButton, Kicker, Reveal, ZaloButton } from "@/components/ui";
 
 export function ContactPage() {
   const { t } = useLanguage();
   const page = t.contact;
 
   return (
-    <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 md:py-20">
-      <Reveal>
-        <Label index={page.kicker}>{page.title}</Label>
-        <h1 className="mt-5 font-display text-4xl text-paper sm:text-6xl">{page.title}</h1>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-dim">{page.lead}</p>
-      </Reveal>
-
-      <div className="mt-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+    <div>
+      <Container className="pb-4 pt-16 md:pt-24">
         <Reveal>
-          <CropFrame className="h-full p-6 sm:p-8">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-amber">{page.zaloRole}</p>
-            <a
-              href={contacts.zaloUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 block font-display text-4xl tracking-wide text-paper transition-colors hover:text-amber sm:text-5xl"
-            >
-              {contacts.zalo}
-            </a>
-            <div className="mt-6 flex flex-wrap items-center gap-4">
-              <ZaloButton />
-              <CopyButton value={contacts.zalo} />
-            </div>
-          </CropFrame>
+          <Kicker>
+            <span className="mr-4">{page.kicker}</span>
+            {page.title}
+          </Kicker>
+          <h1 className="mt-6 max-w-3xl font-display text-[clamp(2.75rem,6vw,4.75rem)] font-medium leading-[1.12]">
+            {page.title}
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-7 text-mute">{page.lead}</p>
+        </Reveal>
+      </Container>
+
+      <Container className="mt-12 grid gap-14 border-t border-line py-12 md:mt-16 md:py-16 lg:grid-cols-2 lg:gap-20">
+        <Reveal>
+          <Kicker>{page.zaloRole}</Kicker>
+          <a
+            href={contacts.zaloUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-under mt-6 inline-block font-display text-[clamp(2.6rem,7vw,4.25rem)] leading-none"
+          >
+            {contacts.zalo}
+          </a>
+          <div className="mt-8 flex flex-wrap items-center gap-6">
+            <ZaloButton />
+            <CopyButton value={contacts.zalo} />
+          </div>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <div className="h-full border border-amber/25 p-6 sm:p-8">
-            <p className="text-[11px] uppercase tracking-[0.2em] text-amber">{page.emailRole}</p>
-            <ul className="mt-2">
-              {contacts.emails.map((person) => (
-                <li key={person.email} className="flex items-end justify-between gap-4 border-b border-amber/15 py-4">
-                  <div>
-                    <p className="font-display text-xl text-paper">{person.name}</p>
-                    <a href={`mailto:${person.email}`} className="mt-1 block text-sm text-dim hover:text-amber">
-                      {person.email}
-                    </a>
-                  </div>
-                  <CopyButton value={person.email} />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Kicker>{page.emailRole}</Kicker>
+          <ul className="mt-4">
+            {contacts.emails.map((person) => (
+              <li key={person.email} className="flex flex-col gap-3 border-b border-line py-5 sm:flex-row sm:items-end sm:justify-between">
+                <div className="min-w-0">
+                  <p className="font-display text-[1.7rem] leading-tight">{person.name}</p>
+                  <a href={`mailto:${person.email}`} className="link-under mt-1 inline-block break-all text-sm text-mute">
+                    {person.email}
+                  </a>
+                </div>
+                <CopyButton value={person.email} />
+              </li>
+            ))}
+          </ul>
         </Reveal>
-      </div>
+      </Container>
 
-      <Reveal className="mt-6">
-        <div className="border border-amber/25 px-6 py-8 sm:px-8">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-amber">{page.addressLabel}</p>
-          <p className="mt-3 font-display text-3xl text-paper sm:text-4xl">{page.address}</p>
-        </div>
-      </Reveal>
+      <Container className="border-t border-line py-14 md:py-20">
+        <Reveal>
+          <Kicker>{page.addressLabel}</Kicker>
+          <p className="mt-5 font-display text-4xl leading-tight md:text-5xl">{page.address}</p>
+        </Reveal>
+      </Container>
     </div>
   );
 }

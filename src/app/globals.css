@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ink: #12100e;
-  --color-raised: #1b1714;
-  --color-soft: #26201b;
-  --color-paper: #f3ece4;
-  --color-dim: #cbbba9;
-  --color-amber: #e4b15a;
-  --color-amber-soft: #f0d7a8;
-  --font-display: var(--font-syne), var(--font-cjk), ui-sans-serif, sans-serif;
-  --font-body: var(--font-viet), var(--font-cjk), ui-sans-serif, sans-serif;
+  --color-ink: #1c1916;
+  --color-mute: #6a645c;
+  --color-line: #e4dfd6;
+  --color-well: #f3f0ea;
+  --color-paper: #ffffff;
+  --font-sans: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
+  --font-display: var(--font-cormorant), var(--font-cjk-serif), "Songti SC", "Noto Serif SC", serif;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
+  background: #ffffff;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -24,28 +24,18 @@ html {
 }
 
 body {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  font-family: var(--font-body);
-}
-
-body::before {
-  content: "";
-  pointer-events: none;
-  position: fixed;
-  inset: 0;
-  z-index: 60;
-  opacity: 0.09;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+  background: #ffffff;
+  color: #1c1916;
+  font-family: var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei", ui-sans-serif, sans-serif;
 }
 
 ::selection {
-  background: #e4b15a;
-  color: #12100e;
+  background: #1c1916;
+  color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #e4b15a;
+  outline: 1px solid #1c1916;
   outline-offset: 3px;
 }
 
@@ -55,4 +45,71 @@ a {
 
 html.lang-boot body {
   visibility: hidden;
+}
+
+/* Keeps a white headline readable on whatever photograph is dropped into the hero. */
+.hero-scrim {
+  background:
+    linear-gradient(to bottom, rgba(22, 18, 14, 0.22), rgba(22, 18, 14, 0.16) 28%, rgba(22, 18, 14, 0.38)),
+    radial-gradient(ellipse 70% 52% at 50% 46%, rgba(22, 18, 14, 0.58), rgba(22, 18, 14, 0.08) 72%);
+}
+
+.link-under {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  padding-bottom: 2px;
+}
+
+.link-under.is-active,
+.link-under:hover,
+.link-under:focus-visible,
+.group:hover .link-under {
+  background-size: 100% 1px;
+}
+
+.media-zoom {
+  transform: scale(1);
+}
+
+.btn-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1c1916;
+  padding: 0.8rem 1.35rem;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  line-height: 1;
+  color: #1c1916;
+  background: transparent;
+}
+
+.btn-quiet:hover {
+  background: #1c1916;
+  color: #ffffff;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .link-under {
+    transition:
+      background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.3s ease;
+  }
+
+  .media-zoom {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .group:hover .media-zoom,
+  .group:focus-visible .media-zoom {
+    transform: scale(1.045);
+  }
+
+  .btn-quiet {
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
 }

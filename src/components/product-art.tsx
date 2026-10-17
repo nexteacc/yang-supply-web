@@ -4,83 +4,83 @@ import Image from "next/image";
 import { productImage, type SeriesId } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 
-const sizes = "(min-width: 768px) 280px, (min-width: 640px) 45vw, 92vw";
+const sizes = "(min-width: 1024px) 320px, 92vw";
 
-export function ProductArt({
-  id,
+export function WellImage({
+  src,
   alt,
-  size = "lg",
+  sizes: imageSizes,
+  aspect = "square",
+  insetClass = "inset-6 sm:inset-8",
+  className = "",
 }: {
-  id: SeriesId;
+  src: string;
   alt: string;
-  size?: "sm" | "lg";
+  sizes: string;
+  aspect?: "square" | "portrait";
+  insetClass?: string;
+  className?: string;
 }) {
+  return (
+    <div
+      className={`relative overflow-hidden ${aspect === "portrait" ? "aspect-[3/4]" : "aspect-square"} ${className}`}
+    >
+      <div className={`absolute ${insetClass}`}>
+        <div className="relative h-full w-full">
+          <Image src={src} alt={alt} fill quality={75} sizes={imageSizes} className="object-contain media-zoom" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ProductArt({ id }: { id: SeriesId }) {
   const { lang } = useLanguage();
   const photos = productImage[id];
-  const lead = photos[0];
-
-  if (size === "sm") {
-    return (
-      <div className="relative aspect-square w-16 overflow-hidden border border-amber/20 bg-soft sm:w-20">
-        <Image src={lead.src} alt={alt} fill sizes="80px" className="object-cover" />
-      </div>
-    );
-  }
 
   if (photos.every((photo) => photo.small)) {
     return (
-      <div className="flex flex-wrap items-start gap-3">
+      <div className="flex min-h-72 flex-wrap items-center justify-center gap-8 bg-well px-6 py-12 sm:gap-12 sm:px-10">
         {photos.map((photo) => (
-          <div key={photo.src} className="relative size-24 overflow-hidden border border-amber/20 bg-soft sm:size-28">
+          <figure key={photo.src} className="group overflow-hidden" style={{ width: photo.width, maxWidth: "100%" }}>
             <Image
               src={photo.src}
               alt={photo[lang]}
-              fill
+              width={photo.width}
+              height={photo.height}
               quality={75}
-              sizes="112px"
-              className="object-cover object-center"
+              sizes={`${photo.width}px`}
+              className="h-auto w-full media-zoom"
             />
-          </div>
+          </figure>
         ))}
       </div>
     );
   }
 
+  const columns =
+    photos.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : photos.length === 2 ? "sm:grid-cols-2" : "grid-cols-1";
+
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {photos.map((photo) => (
-        <figure key={photo.src} className="border border-amber/20 bg-soft">
-          {photo.portrait ? (
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
-                src={photo.src}
-                alt={photo[lang]}
-                fill
-                quality={75}
-                sizes={sizes}
-                className="object-contain transition-transform duration-500 hover:scale-[1.02]"
-              />
-            </div>
-          ) : (
-            <div className="overflow-hidden">
-              <Image
-                src={photo.src}
-                alt={photo[lang]}
-                width={photo.width}
-                height={photo.height}
-                quality={75}
-                sizes={sizes}
-                className="h-auto w-full transition-transform duration-500 hover:scale-[1.03]"
-              />
-            </div>
-          )}
-          {photo.label ? (
-            <figcaption className="px-3 py-2 text-[11px] uppercase tracking-[0.16em] text-dim">
-              {photo.label[lang]}
-            </figcaption>
-          ) : null}
-        </figure>
-      ))}
+    <div className="bg-well p-3 sm:p-5">
+      <div className={`grid items-start gap-4 ${columns}`}>
+        {photos.map((photo) => (
+          <figure key={photo.src} className="group">
+            <WellImage
+              src={photo.src}
+              alt={photo[lang]}
+              sizes={sizes}
+              aspect={photo.portrait ? "portrait" : "square"}
+              insetClass="inset-3 sm:inset-5"
+            />
+            {photo.label ? (
+              <figcaption className="px-2 pb-2 pt-3 text-center text-[11px] uppercase tracking-[0.18em] text-mute">
+                {photo.label[lang]}
+              </figcaption>
+            ) : null}
+          </figure>
+        ))}
+      </div>
     </div>
   );
 }
