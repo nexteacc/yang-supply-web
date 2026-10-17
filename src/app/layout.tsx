@@ -1,0 +1,79 @@
+import type { Metadata } from "next";
+import { Be_Vietnam_Pro, Noto_Sans_SC, Syne } from "next/font/google";
+import Script from "next/script";
+import { Footer } from "@/components/footer";
+import { Header } from "@/components/header";
+import { LanguageProvider } from "@/components/language";
+import { blockSearchIndexing, previewRobots } from "@/lib/preview-indexing";
+import { descriptions, langBoot, requestLang } from "@/lib/seo";
+import "./globals.css";
+
+const syne = Syne({
+  subsets: ["latin", "latin-ext"],
+  weight: ["500", "600", "700", "800"],
+  variable: "--font-syne",
+  display: "swap",
+});
+
+const viet = Be_Vietnam_Pro({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-viet",
+  display: "swap",
+});
+
+const cjk = Noto_Sans_SC({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-cjk",
+  display: "swap",
+  preload: false,
+  fallback: ["PingFang SC", "Microsoft YaHei", "sans-serif"],
+});
+
+export async function generateMetadata(): Promise<Metadata> {
+  const lang = await requestLang();
+  const description = descriptions.home[lang];
+  return {
+    title: {
+      default: "YANG SUPPLY",
+      template: "%s · YANG SUPPLY",
+    },
+    description,
+    openGraph: {
+      title: "YANG SUPPLY",
+      description,
+      siteName: "YANG SUPPLY",
+      locale: lang === "zh" ? "zh_CN" : "vi_VN",
+      alternateLocale: lang === "zh" ? ["vi_VN"] : ["zh_CN"],
+      type: "website",
+    },
+    // PREVIEW ONLY — remove with src/lib/preview-indexing.ts at official launch.
+    ...(blockSearchIndexing ? { robots: previewRobots } : {}),
+  };
+}
+
+export default async function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const lang = await requestLang();
+
+  return (
+    <html lang={lang === "zh" ? "zh-CN" : "vi"} data-lang={lang} suppressHydrationWarning>
+      <body className={`${syne.variable} ${viet.variable} ${cjk.variable} flex min-h-screen flex-col antialiased`}>
+        <Script id="yang-lang-boot" strategy="beforeInteractive">
+          {langBoot}
+        </Script>
+        <LanguageProvider initialLang={lang}>
+          <Header />
+          <div id="content" className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </LanguageProvider>
+      </body>
+    </html>
+  );
+}

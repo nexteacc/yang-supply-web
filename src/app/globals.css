@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-ink: #12100e;
+  --color-raised: #1b1714;
+  --color-soft: #26201b;
+  --color-paper: #f3ece4;
+  --color-dim: #cbbba9;
+  --color-amber: #e4b15a;
+  --color-amber-soft: #f0d7a8;
+  --font-display: var(--font-syne), var(--font-cjk), ui-sans-serif, sans-serif;
+  --font-body: var(--font-viet), var(--font-cjk), ui-sans-serif, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+}
+
+::selection {
+  background: #e4b15a;
+  color: #12100e;
+}
+
+:focus-visible {
+  outline: 2px solid #e4b15a;
+  outline-offset: 3px;
+}
+
+a {
+  color: inherit;
+}
+
+html.lang-boot body {
+  visibility: hidden;
+}
