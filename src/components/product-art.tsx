@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { productImage, type ProductPhoto, type SeriesId } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 
@@ -72,6 +72,20 @@ function MainPanel({ photo, alt, small }: { photo: ProductPhoto; alt: string; sm
   );
 }
 
+function moveThumb(
+  event: KeyboardEvent<HTMLButtonElement>,
+  index: number,
+  count: number,
+  setActive: (index: number) => void,
+) {
+  if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+  event.preventDefault();
+  const next = event.key === "ArrowRight" ? (index + 1) % count : (index - 1 + count) % count;
+  setActive(next);
+  const buttons = event.currentTarget.closest("ul")?.querySelectorAll("button");
+  buttons?.[next]?.focus();
+}
+
 export function ProductArt({ id }: { id: SeriesId }) {
   const { lang } = useLanguage();
   const photos = productImage[id];
@@ -83,19 +97,22 @@ export function ProductArt({ id }: { id: SeriesId }) {
     <div>
       <MainPanel photo={photo} alt={photo[lang]} small={small} />
       {photos.length > 1 ? (
-        <ul className="mt-6 flex flex-wrap gap-6">
+        <ul className="mt-6 flex gap-4 overflow-x-auto px-0.5 py-1 md:flex-wrap md:gap-6">
           {photos.map((item, index) => {
             const selected = index === active;
+            const alt = item[lang];
             return (
-              <li key={item.src} className="w-20 md:w-24">
+              <li key={item.src} className="w-20 shrink-0 md:w-24">
                 <button
                   type="button"
                   onClick={() => setActive(index)}
+                  onKeyDown={(event) => moveThumb(event, index, photos.length, setActive)}
                   aria-pressed={selected}
-                  aria-label={item[lang]}
-                  className={`block w-full cursor-pointer ${selected ? "ring-1 ring-ink ring-offset-2" : ""}`}
+                  aria-current={selected ? "true" : undefined}
+                  aria-label={alt}
+                  className={`block w-full cursor-pointer focus-visible:ring-1 focus-visible:ring-ink focus-visible:ring-offset-2 ${selected ? "ring-1 ring-ink ring-offset-2" : ""}`}
                 >
-                  <SquareThumb src={item.src} alt="" sizes="96px" />
+                  <SquareThumb src={item.src} alt={alt} sizes="96px" />
                 </button>
                 {item.label ? <p className="eyebrow mt-2 text-center text-mute">{item.label[lang]}</p> : null}
               </li>
