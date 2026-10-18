@@ -11,7 +11,7 @@ import { Section, TextLink, ZaloButton } from "@/components/ui";
  * Full-bleed opening photograph. Point this at a calm workbench or petal
  * scene when one exists. The scrim and the HTML headline stay as they are.
  */
-const HERO_SRC = "/products/rhinestone-large-2.jpg";
+const HERO_SRC = "/products/sticker-dinh-da-co-lon-hop-qua.jpg";
 
 const heroPhoto = Object.values(productImage)
   .flat()
@@ -102,6 +102,7 @@ export function HomePage() {
               {series.map((item, index) => {
                 const text = item[lang];
                 const photo = productImage[item.id][0];
+                if (!photo) return null;
                 return (
                   <li key={item.id}>
                     <Link href={`/products#${item.id}`} className="group grid grid-cols-12 items-center gap-6">
