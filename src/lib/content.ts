@@ -24,7 +24,23 @@ export type ProductPhoto = {
   /** Taller than wide; keep the full frame instead of cropping. */
   portrait?: boolean;
   label?: { zh: string; vi: string };
+  /**
+   * Visible colour name, or a short non-colour description already in the alt.
+   * Shown under the main photo and under that thumbnail. Petals, vase, and
+   * starfish only — stickers and charm leave this unset.
+   */
+  colour?: { vi: string; zh: string };
+  /** This photo is one available single colour and may be selected from the list. */
+  swatch?: boolean;
 };
+
+export const colourAvailableLabel = {
+  vi: "Màu có sẵn:",
+  zh: "可选颜色：",
+} as const;
+
+/** In the 9-colour petal spec, with no photograph. Listed as text, not a swatch. */
+export const petalYellow = { vi: "vàng", zh: "黄色" } as const;
 
 export const productImage: Record<SeriesId, ProductPhoto[]> = {
   petals: [
@@ -34,6 +50,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "亚克力花瓣多色样品",
       vi: "Mẫu cánh hoa acrylic nhiều màu",
+      colour: { vi: "Nhiều màu", zh: "多色" },
     },
     {
       src: "/products/kich-thuoc-canh-hoa-acrylic.jpg",
@@ -41,6 +58,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1000,
       zh: "亚克力花瓣尺寸样品",
       vi: "Mẫu kích thước cánh hoa acrylic",
+      colour: { vi: "Kích thước", zh: "尺寸" },
     },
     {
       src: "/products/canh-hoa-acrylic-hong.jpg",
@@ -48,6 +66,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1495,
       zh: "粉色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu hồng",
+      colour: { vi: "hồng", zh: "粉色" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-hong-anh-dao.jpg",
@@ -55,6 +75,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "樱花粉亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu hồng anh đào",
+      colour: { vi: "hồng anh đào", zh: "樱花粉" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-do.jpg",
@@ -62,6 +84,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "红色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu đỏ",
+      colour: { vi: "đỏ", zh: "红色" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-tim.jpg",
@@ -69,6 +93,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "紫色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu tím",
+      colour: { vi: "tím", zh: "紫色" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-xanh-duong.jpg",
@@ -76,6 +102,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "蓝色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu xanh dương",
+      colour: { vi: "xanh dương", zh: "蓝色" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-xanh-la.jpg",
@@ -83,6 +111,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "绿色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu xanh lá",
+      colour: { vi: "xanh lá", zh: "绿色" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-trong-suot.jpg",
@@ -90,6 +120,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "透明亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily trong suốt",
+      colour: { vi: "trong suốt", zh: "透明" },
+      swatch: true,
     },
     {
       src: "/products/canh-hoa-acrylic-trang.jpg",
@@ -97,6 +129,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "白色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu trắng",
+      colour: { vi: "trắng", zh: "白色" },
+      swatch: true,
     },
   ],
   stickers: [
@@ -164,6 +198,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1307,
       zh: "透明亚克力插花花瓶框，插着粉色小菊花",
       vi: "Khung bình hoa acrylic trong suốt, cắm hoa cúc hồng",
+      colour: { vi: "trong suốt", zh: "透明" },
+      swatch: true,
     },
     {
       src: "/products/khung-binh-hoa-acrylic-hong.jpg",
@@ -171,6 +207,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "粉色亚克力插花花瓶框",
       vi: "Khung bình hoa acrylic màu hồng",
+      colour: { vi: "hồng", zh: "粉色" },
+      swatch: true,
     },
     {
       src: "/products/khung-binh-hoa-acrylic-trong-suot-2.jpg",
@@ -178,6 +216,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "透明亚克力花瓶相框（空框）",
       vi: "Khung bình hoa acrylic trong suốt, để trống",
+      colour: { vi: "trong suốt", zh: "透明" },
+      swatch: true,
     },
     {
       src: "/products/khung-binh-hoa-acrylic-xam.jpg",
@@ -185,6 +225,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "灰色亚克力花瓶相框（空框）",
       vi: "Khung bình hoa acrylic màu xám, để trống",
+      colour: { vi: "xám", zh: "灰色" },
+      swatch: true,
     },
     {
       src: "/products/khung-binh-hoa-acrylic-xanh-da-troi.jpg",
@@ -192,6 +234,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "天蓝色亚克力花瓶相框（空框）",
       vi: "Khung bình hoa acrylic màu xanh da trời, để trống",
+      colour: { vi: "xanh da trời", zh: "天蓝色" },
+      swatch: true,
     },
   ],
   starfish: [
@@ -201,13 +245,15 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "树脂海星多色样品",
       vi: "Mẫu sao biển resin nhiều màu",
+      colour: { vi: "Nhiều màu", zh: "多色" },
     },
     {
       src: "/products/sao-bien-resin-nhieu-mau-2.jpg",
       width: 1600,
       height: 1600,
-      zh: "七只多色马卡龙色树脂海星",
-      vi: "Bảy sao biển resin nhiều màu pastel",
+      zh: "七只多色树脂海星",
+      vi: "Bảy sao biển resin nhiều màu",
+      colour: { vi: "Nhiều màu", zh: "多色" },
     },
     {
       src: "/products/sao-bien-resin-trang.jpg",
@@ -215,6 +261,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1220,
       zh: "白色树脂海星",
       vi: "Sao biển resin màu trắng",
+      colour: { vi: "trắng", zh: "白色" },
+      swatch: true,
     },
     {
       src: "/products/sao-bien-resin-mau-nga.jpg",
@@ -222,6 +270,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1222,
       zh: "象牙色树脂海星",
       vi: "Sao biển resin màu ngà",
+      colour: { vi: "ngà", zh: "象牙色" },
+      swatch: true,
     },
     {
       src: "/products/sao-bien-resin-hong.jpg",
@@ -229,6 +279,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1285,
       zh: "粉色树脂海星",
       vi: "Sao biển resin màu hồng",
+      colour: { vi: "hồng", zh: "粉色" },
+      swatch: true,
     },
     {
       src: "/products/sao-bien-resin-tim-nhat.jpg",
@@ -236,6 +288,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1157,
       zh: "浅紫色树脂海星",
       vi: "Sao biển resin màu tím nhạt",
+      colour: { vi: "tím nhạt", zh: "浅紫色" },
+      swatch: true,
     },
     {
       src: "/products/sao-bien-resin-xanh-nhat.jpg",
@@ -243,6 +297,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1090,
       zh: "浅蓝色树脂海星",
       vi: "Sao biển resin màu xanh nhạt",
+      colour: { vi: "xanh nhạt", zh: "浅蓝色" },
+      swatch: true,
     },
     {
       src: "/products/sao-bien-resin-xanh-navy.jpg",
@@ -250,6 +306,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1177,
       zh: "深蓝色树脂海星",
       vi: "Sao biển resin màu xanh navy",
+      colour: { vi: "xanh navy", zh: "深蓝色" },
+      swatch: true,
     },
   ],
   charm: [
