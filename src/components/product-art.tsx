@@ -91,6 +91,7 @@ export function ProductArt({ id }: { id: SeriesId }) {
   const photos = productImage[id];
   const [active, setActive] = useState(0);
   const photo = photos[active] ?? photos[0];
+  if (!photo) return null;
   const small = photos.every((item) => item.small);
 
   return (

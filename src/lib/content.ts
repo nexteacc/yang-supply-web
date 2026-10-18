@@ -13,6 +13,12 @@ export const contacts = {
   ],
 } as const;
 
+/** Shown where a series has no photo yet. Links to the existing Zalo contact. */
+export const samplePhotoLine = {
+  zh: "联系 Zalo 查看样品图",
+  vi: "Liên hệ Zalo để xem ảnh mẫu",
+} as const;
+
 export type ProductPhoto = {
   src: string;
   width: number;
@@ -36,7 +42,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       vi: "Mẫu cánh hoa acrylic nhiều màu",
     },
     {
-      src: "/products/petal-size.jpg",
+      src: "/products/kich-thuoc-canh-hoa-acrylic.jpg",
       width: 1000,
       height: 1000,
       zh: "亚克力花瓣尺寸样品",
@@ -109,7 +115,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       label: { zh: "大张", vi: "Cỡ lớn" },
     },
     {
-      src: "/products/rhinestone-large-2.jpg",
+      src: "/products/sticker-dinh-da-co-lon-hop-qua.jpg",
       width: 800,
       height: 800,
       zh: "大张水钻贴纸，贴在礼盒上",
@@ -252,32 +258,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       vi: "Sao biển resin màu xanh navy",
     },
   ],
-  charm: [
-    {
-      src: "/products/charm-hearts-words-1.jpg",
-      width: 309,
-      height: 286,
-      small: true,
-      zh: "意大利 Charm 手链样品",
-      vi: "Mẫu vòng tay charm Ý",
-    },
-    {
-      src: "/products/charm-hearts-words-3.jpg",
-      width: 321,
-      height: 286,
-      small: true,
-      zh: "意大利 Charm 手链样品",
-      vi: "Mẫu vòng tay charm Ý",
-    },
-    {
-      src: "/products/charm-general-1.jpg",
-      width: 221,
-      height: 189,
-      small: true,
-      zh: "意大利 Charm 手链样品",
-      vi: "Mẫu vòng tay charm Ý",
-    },
-  ],
+  charm: [],
 };
 
 export const series: {
