@@ -12,50 +12,46 @@ export async function requestLang(): Promise<Lang> {
 export const pageMeta = {
   home: {
     zh: {
-      title: "中国 DIY 材料，发往越南",
-      description:
-        "DIY 材料供应商。自有系列从中国发往越南的手作工坊、店铺和学校。联系询价。订金 70%，货到 30%。质量由我们负责。",
+      title: "中国 DIY 手作材料批发",
+      description: "DIY 材料供应商，从中国发往越南的手作工坊、店铺和学校。联系询价。",
     },
     vi: {
-      title: "Nguyên liệu DIY từ Trung Quốc. Giao hàng Việt Nam",
+      title: "Nguyên liệu DIY, handmade giá sỉ từ Trung Quốc",
       description:
-        "Nhà cung cấp nguyên liệu DIY. Các dòng của chúng tôi gửi từ Trung Quốc tới xưởng thủ công, cửa hàng và trường học tại Việt Nam. Liên hệ để hỏi giá. Cọc 70%, nhận hàng 30%. Chất lượng do chúng tôi chịu trách nhiệm.",
+        "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam. Liên hệ để nhận báo giá.",
     },
   },
   products: {
     zh: {
-      title: "产品",
-      description:
-        "DIY 材料供应商的自有系列：亚克力花瓣、水钻贴纸、插花花瓶框、树脂海星、意大利 Charm 手链。站内不标价，联系询价。",
+      title: "亚克力花瓣、水钻贴纸、意大利 Charm 批发",
+      description: "DIY 材料供应商，从中国发往越南的手作工坊、店铺和学校。看自有系列，联系询价。",
     },
     vi: {
-      title: "Sản phẩm",
+      title: "Cánh hoa acrylic, sticker đính đá, charm Ý giá sỉ",
       description:
-        "Dòng sản phẩm của nhà cung cấp nguyên liệu DIY: cánh hoa acrylic, sticker đính đá, khung bình hoa acrylic, sao biển resin và vòng tay charm Ý. Không niêm yết giá; liên hệ để hỏi giá.",
+        "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam. Xem các dòng và liên hệ báo giá.",
     },
   },
   cooperation: {
     zh: {
-      title: "合作",
-      description:
-        "DIY 材料供应商的直销流程：询价、确认规格与数量、到手报价、订金 70%、发往越南、货到付 30%。质量由我们负责。",
+      title: "DIY 材料批发下单流程",
+      description: "DIY 材料供应商，从中国发往越南的手作工坊、店铺和学校。联系询价后确认规格与数量。",
     },
     vi: {
-      title: "Hợp tác",
+      title: "Cách đặt hàng sỉ nguyên liệu DIY",
       description:
-        "Quy trình bán thẳng của nhà cung cấp nguyên liệu DIY: hỏi giá, xác nhận quy cách và số lượng, báo giá trọn gói, cọc 70%, gửi về Việt Nam, thanh toán 30% khi nhận hàng. Chất lượng do chúng tôi chịu trách nhiệm.",
+        "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam. Liên hệ để nhận báo giá trước khi đặt.",
     },
   },
   contact: {
     zh: {
-      title: "联系",
-      description:
-        "联系 DIY 材料供应商 Yang Supply。Zalo 0986245780。an.yangsupply@agentmail.to、minh.yangsupply@agentmail.to、linh.yangsupply@agentmail.to。中国深圳。",
+      title: "DIY 材料批发询价",
+      description: "DIY 材料供应商，从中国发往越南的手作工坊、店铺和学校。通过 Zalo 或邮件联系询价。",
     },
     vi: {
-      title: "Liên hệ",
+      title: "Liên hệ báo giá sỉ nguyên liệu DIY",
       description:
-        "Liên hệ nhà cung cấp nguyên liệu DIY Yang Supply. Zalo 0986245780. an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to, linh.yangsupply@agentmail.to. Thâm Quyến, Trung Quốc.",
+        "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam. Liên hệ Zalo hoặc email để báo giá.",
     },
   },
 } as const;
