@@ -100,7 +100,12 @@ function colourChoices(id: SeriesId, photos: ProductPhoto[]) {
     seen.add(item.colour.vi);
     items.push({ vi: item.colour.vi, zh: item.colour.zh, index });
   });
-  if (id === "petals") items.push({ vi: petalYellow.vi, zh: petalYellow.zh, index: null });
+  if (id === "petals") {
+    const yellow = { vi: petalYellow.vi, zh: petalYellow.zh, index: null };
+    const clear = items.findIndex((item) => item.vi === "trong suốt");
+    if (clear === -1) items.push(yellow);
+    else items.splice(clear, 0, yellow);
+  }
   return items;
 }
 

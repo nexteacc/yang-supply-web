@@ -66,7 +66,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1495,
       zh: "粉色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu hồng",
-      colour: { vi: "màu hồng", zh: "粉色" },
+      colour: { vi: "hồng", zh: "粉色" },
       swatch: true,
     },
     {
@@ -75,7 +75,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "樱花粉亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu hồng anh đào",
-      colour: { vi: "màu hồng anh đào", zh: "樱花粉" },
+      colour: { vi: "hồng anh đào", zh: "樱花粉" },
       swatch: true,
     },
     {
@@ -84,7 +84,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "红色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu đỏ",
-      colour: { vi: "màu đỏ", zh: "红色" },
+      colour: { vi: "đỏ", zh: "红色" },
       swatch: true,
     },
     {
@@ -93,7 +93,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "紫色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu tím",
-      colour: { vi: "màu tím", zh: "紫色" },
+      colour: { vi: "tím", zh: "紫色" },
       swatch: true,
     },
     {
@@ -102,7 +102,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "蓝色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu xanh dương",
-      colour: { vi: "màu xanh dương", zh: "蓝色" },
+      colour: { vi: "xanh dương", zh: "蓝色" },
       swatch: true,
     },
     {
@@ -111,7 +111,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "绿色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu xanh lá",
-      colour: { vi: "màu xanh lá", zh: "绿色" },
+      colour: { vi: "xanh lá", zh: "绿色" },
       swatch: true,
     },
     {
@@ -129,7 +129,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "白色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu trắng",
-      colour: { vi: "màu trắng", zh: "白色" },
+      colour: { vi: "trắng", zh: "白色" },
       swatch: true,
     },
   ],
@@ -251,9 +251,9 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       src: "/products/sao-bien-resin-nhieu-mau-2.jpg",
       width: 1600,
       height: 1600,
-      zh: "七只多色马卡龙色树脂海星",
-      vi: "Bảy sao biển resin nhiều màu pastel",
-      colour: { vi: "Nhiều màu pastel", zh: "多色马卡龙色" },
+      zh: "七只多色树脂海星",
+      vi: "Bảy sao biển resin nhiều màu",
+      colour: { vi: "Nhiều màu", zh: "多色" },
     },
     {
       src: "/products/sao-bien-resin-trang.jpg",
@@ -270,7 +270,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1222,
       zh: "象牙色树脂海星",
       vi: "Sao biển resin màu ngà",
-      colour: { vi: "màu ngà", zh: "象牙色" },
+      colour: { vi: "ngà", zh: "象牙色" },
       swatch: true,
     },
     {
