@@ -353,8 +353,8 @@ export const dictionary: Record<Lang, Copy> = {
       notes: [
         "报价有效期 7 天。",
         "可以混色、混款。起订量按每一款、每一色分别计算。",
-        "样品按当次到手报价购买。",
-        "收货后 1 天内拍照反馈。破损产品可退款或补发。",
+        "样品收费，按当次到手报价购买。",
+        "收货后 1 天内拍照反馈。破损产品补发，不退款。",
       ],
     },
     contact: {
@@ -489,8 +489,8 @@ export const dictionary: Record<Lang, Copy> = {
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
         "Có thể trộn màu, trộn mẫu. Mức tối thiểu tính theo từng mẫu và từng màu.",
-        "Mua mẫu theo đơn giá trọn gói của lần báo giá đó.",
-        "Trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại để được hoàn tiền hoặc gửi bù.",
+        "Mẫu có tính phí, theo đơn giá trọn gói của lần báo giá đó.",
+        "Trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
     },
     contact: {
