@@ -53,6 +53,14 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       label: { zh: "小张", vi: "Cỡ nhỏ" },
     },
     {
+      src: "/products/sticker-dinh-da-co-lon.jpg",
+      width: 1600,
+      height: 1600,
+      zh: "大张水钻贴纸，爱心、星星、花朵、圆钻多款",
+      vi: "Sticker đính đá cỡ lớn nhiều hình dạng",
+      label: { zh: "大张", vi: "Cỡ lớn" },
+    },
+    {
       src: "/products/rhinestone-large-2.jpg",
       width: 800,
       height: 800,
