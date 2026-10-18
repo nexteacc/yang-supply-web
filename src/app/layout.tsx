@@ -5,7 +5,7 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { LanguageProvider } from "@/components/language";
 import { blockSearchIndexing, previewRobots } from "@/lib/preview-indexing";
-import { descriptions, langBoot, requestLang } from "@/lib/seo";
+import { langBoot, pageMeta, requestLang } from "@/lib/seo";
 import "./globals.css";
 
 const viet = Be_Vietnam_Pro({
@@ -26,16 +26,16 @@ const cjk = Noto_Sans_SC({
 
 export async function generateMetadata(): Promise<Metadata> {
   const lang = await requestLang();
-  const description = descriptions.home[lang];
+  const home = pageMeta.home[lang];
   return {
     title: {
       default: "YANG SUPPLY",
       template: "%s · YANG SUPPLY",
     },
-    description,
+    description: home.description,
     openGraph: {
-      title: "YANG SUPPLY",
-      description,
+      title: `${home.title} · YANG SUPPLY`,
+      description: home.description,
       siteName: "YANG SUPPLY",
       locale: lang === "zh" ? "zh_CN" : "vi_VN",
       alternateLocale: lang === "zh" ? ["vi_VN"] : ["zh_CN"],

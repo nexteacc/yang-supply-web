@@ -9,39 +9,70 @@ export async function requestLang(): Promise<Lang> {
   return value === "zh" || value === "vi" ? value : "vi";
 }
 
-export const descriptions = {
+export const pageMeta = {
   home: {
-    zh: "中国采购代理：代购、代付，并安排从中国运到越南。",
-    vi: "Đại lý thu mua Trung Quốc: tìm nguồn, thanh toán hộ và giao hàng về Việt Nam.",
+    zh: {
+      title: "中国 DIY 材料，发往越南",
+      description:
+        "DIY 材料供应商。自有系列从中国发往越南的手作工坊、店铺和学校。联系询价。订金 70%，货到 30%。质量由我们负责。",
+    },
+    vi: {
+      title: "Nguyên liệu DIY từ Trung Quốc. Giao hàng Việt Nam",
+      description:
+        "Nhà cung cấp nguyên liệu DIY. Các dòng của chúng tôi gửi từ Trung Quốc tới xưởng thủ công, cửa hàng và trường học tại Việt Nam. Liên hệ để hỏi giá. Cọc 70%, nhận hàng 30%. Chất lượng do chúng tôi chịu trách nhiệm.",
+    },
   },
   products: {
-    zh: "亚克力花瓣、水钻贴纸、插花花瓶框、树脂海星、意大利 Charm 手链。站内不标价。",
-    vi: "Cánh hoa acrylic, sticker đính đá, khung bình hoa acrylic, sao biển resin và vòng tay charm Ý. Không niêm yết giá.",
+    zh: {
+      title: "产品",
+      description:
+        "DIY 材料供应商的自有系列：亚克力花瓣、水钻贴纸、插花花瓶框、树脂海星、意大利 Charm 手链。站内不标价，联系询价。",
+    },
+    vi: {
+      title: "Sản phẩm",
+      description:
+        "Dòng sản phẩm của nhà cung cấp nguyên liệu DIY: cánh hoa acrylic, sticker đính đá, khung bình hoa acrylic, sao biển resin và vòng tay charm Ý. Không niêm yết giá; liên hệ để hỏi giá.",
+    },
   },
   cooperation: {
-    zh: "发图或链接、比价、报价、定金、交付。手续费约 5%。越南银行转账，定金 90%，货到 10%。",
-    vi: "Gửi ảnh hoặc liên kết, so giá, báo giá, đặt cọc, giao hàng. Phí khoảng 5%. Chuyển khoản ngân hàng Việt Nam, cọc 90%, nhận hàng 10%.",
+    zh: {
+      title: "合作",
+      description:
+        "DIY 材料供应商的直销流程：询价、确认规格与数量、到手报价、订金 70%、发往越南、货到付 30%。质量由我们负责。",
+    },
+    vi: {
+      title: "Hợp tác",
+      description:
+        "Quy trình bán thẳng của nhà cung cấp nguyên liệu DIY: hỏi giá, xác nhận quy cách và số lượng, báo giá trọn gói, cọc 70%, gửi về Việt Nam, thanh toán 30% khi nhận hàng. Chất lượng do chúng tôi chịu trách nhiệm.",
+    },
   },
   contact: {
-    zh: "Zalo 0986245780。an.yangsupply@agentmail.to、minh.yangsupply@agentmail.to、linh.yangsupply@agentmail.to。中国深圳。",
-    vi: "Zalo 0986245780. an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to, linh.yangsupply@agentmail.to. Thâm Quyến, Trung Quốc.",
+    zh: {
+      title: "联系",
+      description:
+        "联系 DIY 材料供应商 Yang Supply。Zalo 0986245780。an.yangsupply@agentmail.to、minh.yangsupply@agentmail.to、linh.yangsupply@agentmail.to。中国深圳。",
+    },
+    vi: {
+      title: "Liên hệ",
+      description:
+        "Liên hệ nhà cung cấp nguyên liệu DIY Yang Supply. Zalo 0986245780. an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to, linh.yangsupply@agentmail.to. Thâm Quyến, Trung Quốc.",
+    },
   },
 } as const;
 
-export function buildMetadata(
-  lang: Lang,
-  page: keyof typeof descriptions,
-  title?: string,
-): Metadata {
-  const description = descriptions[page][lang];
-  const ogTitle = title ? `${title} · YANG SUPPLY` : "YANG SUPPLY";
+export type PageKey = keyof typeof pageMeta;
+
+export function buildMetadata(lang: Lang, page: PageKey): Metadata {
+  const { title, description } = pageMeta[page][lang];
+  const fullTitle = `${title} · YANG SUPPLY`;
   return {
-    ...(title ? { title } : {}),
+    // absolute: the root page shares a segment with the root layout, so title.template does not apply there.
+    title: { absolute: fullTitle },
     description,
     // PREVIEW ONLY — remove with src/lib/preview-indexing.ts at official launch.
     ...(blockSearchIndexing ? { robots: previewRobots } : {}),
     openGraph: {
-      title: ogTitle,
+      title: fullTitle,
       description,
       siteName: "YANG SUPPLY",
       locale: lang === "zh" ? "zh_CN" : "vi_VN",
