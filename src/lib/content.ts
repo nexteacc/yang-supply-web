@@ -45,12 +45,12 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
   ],
   stickers: [
     {
-      src: "/products/rhinestone-large-1.jpg",
-      width: 800,
-      height: 800,
-      zh: "大张水钻贴纸，贴在瓶身和杯垫上",
-      vi: "Sticker đính đá cỡ lớn trên chai và lót ly",
-      label: { zh: "大张", vi: "Cỡ lớn" },
+      src: "/products/sticker-dinh-da-trai-tim.jpg",
+      width: 1600,
+      height: 1600,
+      zh: "小张水钻贴纸，彩色爱心",
+      vi: "Sticker đính đá cỡ nhỏ hình tim màu",
+      label: { zh: "小张", vi: "Cỡ nhỏ" },
     },
     {
       src: "/products/rhinestone-large-2.jpg",
@@ -59,14 +59,6 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       zh: "大张水钻贴纸，贴在礼盒上",
       vi: "Sticker đính đá cỡ lớn trên hộp quà",
       label: { zh: "大张", vi: "Cỡ lớn" },
-    },
-    {
-      src: "/products/sticker-dinh-da-trai-tim.jpg",
-      width: 1600,
-      height: 1600,
-      zh: "小张水钻贴纸，彩色爱心",
-      vi: "Sticker đính đá cỡ nhỏ hình tim màu",
-      label: { zh: "小张", vi: "Cỡ nhỏ" },
     },
   ],
   vase: [
