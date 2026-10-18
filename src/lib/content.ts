@@ -218,8 +218,6 @@ export type Copy = {
     seeProducts: string;
     noteCaption: string;
     rows: { label: string; value: string; note?: boolean }[];
-    routeFrom: string;
-    routeTo: string;
     valuesTitle: string;
     values: { title: string; body: string }[];
     audienceTitle: string;
@@ -278,7 +276,7 @@ export const dictionary: Record<Lang, Copy> = {
       { href: "/contact", label: "联系" },
     ],
     home: {
-      title: ["中国 DIY 材料，", "发往越南。"],
+      title: ["中国 DIY 材料", "发往越南"],
       lead: "Yang Supply 是 DIY 材料供应商。我们把自有系列卖给越南的手作工坊、店铺和学校：报到手单价，安排发货，质量由我们负责。",
       seeProcess: "合作流程",
       seeProducts: "看产品",
@@ -289,8 +287,6 @@ export const dictionary: Record<Lang, Copy> = {
         { label: "定金 / 货到", value: "70 / 30", note: true },
         { label: "质量", value: "我们负责" },
       ],
-      routeFrom: "中国",
-      routeTo: "越南",
       valuesTitle: "三件事",
       values: [
         { title: "选品供货", body: "按您要的系列、规格和数量供货。" },
@@ -396,7 +392,7 @@ export const dictionary: Record<Lang, Copy> = {
       { href: "/contact", label: "Liên hệ" },
     ],
     home: {
-      title: ["Nguyên liệu DIY từ Trung Quốc.", "Giao hàng Việt Nam."],
+      title: ["Nguyên liệu DIY từ Trung Quốc", "Giao hàng Việt Nam"],
       lead: "Yang Supply là nhà cung cấp nguyên liệu DIY. Chúng tôi bán các dòng của mình cho xưởng thủ công, cửa hàng và trường học tại Việt Nam: báo đơn giá trọn gói, sắp xếp giao hàng, và chịu trách nhiệm về chất lượng.",
       seeProcess: "Quy trình hợp tác",
       seeProducts: "Xem sản phẩm",
@@ -407,8 +403,6 @@ export const dictionary: Record<Lang, Copy> = {
         { label: "Cọc / nhận hàng", value: "70 / 30", note: true },
         { label: "Chất lượng", value: "Chúng tôi chịu trách nhiệm" },
       ],
-      routeFrom: "Trung Quốc",
-      routeTo: "Việt Nam",
       valuesTitle: "Ba việc",
       values: [
         {

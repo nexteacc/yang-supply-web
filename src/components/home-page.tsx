@@ -35,18 +35,10 @@ export function HomePage() {
         />
         <div className="hero-scrim pointer-events-none absolute inset-0" aria-hidden />
         <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-center px-5 pt-[72px] text-center text-white">
-          <p className="eyebrow text-white">Yang Supply</p>
-          <h1 className="heading-1-hero mx-auto mt-6 max-w-[12em] text-balance md:max-w-[14em]">
+          <h1 className="heading-1-hero mx-auto max-w-[12em] text-balance md:max-w-[14em]">
             <span className="md:block">{home.title[0]}</span>{" "}
             <span className="md:block">{home.title[1]}</span>
           </h1>
-          <p className="eyebrow mt-8 text-white">
-            {home.routeFrom}
-            <span className="px-3 normal-case" aria-hidden>
-              —
-            </span>
-            {home.routeTo}
-          </p>
         </div>
       </section>
 
