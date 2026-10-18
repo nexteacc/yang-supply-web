@@ -35,18 +35,10 @@ export function HomePage() {
         />
         <div className="hero-scrim pointer-events-none absolute inset-0" aria-hidden />
         <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-center px-5 pt-[72px] text-center text-white">
-          <p className="eyebrow text-white">Yang Supply</p>
-          <h1 className="heading-1-hero mx-auto mt-6 max-w-[12em] text-balance md:max-w-[14em]">
+          <h1 className="heading-1-hero mx-auto max-w-[12em] text-balance md:max-w-[14em]">
             <span className="md:block">{home.title[0]}</span>{" "}
             <span className="md:block">{home.title[1]}</span>
           </h1>
-          <p className="eyebrow mt-8 text-white">
-            {home.routeFrom}
-            <span className="px-3 normal-case" aria-hidden>
-              —
-            </span>
-            {home.routeTo}
-          </p>
         </div>
       </section>
 
@@ -58,13 +50,13 @@ export function HomePage() {
               <ZaloButton />
               <TextLink href="/cooperation">{home.seeProcess}</TextLink>
             </div>
-            <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 lg:grid-cols-[repeat(4,max-content)]">
+            <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
               {home.rows.map((row) => (
                 <div key={row.label}>
                   <dd className="fact-value text-ink">{row.value}</dd>
                   <dt className="fact-label mt-2 text-mute">{row.label}</dt>
-                  {row.value === "90 / 10" ? (
-                    <p className="mt-2 w-[22ch] text-[13px] font-normal leading-snug text-mute">{home.noteCaption}</p>
+                  {row.note ? (
+                    <p className="mt-2 max-w-[22ch] text-[13px] font-normal leading-snug text-mute">{home.noteCaption}</p>
                   ) : null}
                 </div>
               ))}

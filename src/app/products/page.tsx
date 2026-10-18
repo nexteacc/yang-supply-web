@@ -3,7 +3,7 @@ import { ProductsPage } from "@/components/products-page";
 import { buildMetadata, requestLang } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata(await requestLang(), "products", "产品 / Sản phẩm");
+  return buildMetadata(await requestLang(), "products");
 }
 
 export default function Page() {

@@ -26,9 +26,9 @@ export function CooperationPage() {
 
         <div className="grid gap-16 md:grid-cols-12 md:gap-6">
           <section className="md:col-span-6">
-            <h2 className="heading-3">{page.feeTitle}</h2>
-            <p className="heading-2 mt-4">{page.feeFigure}</p>
-            <p className="mt-6 max-w-[60ch] text-mute">{page.feeBody}</p>
+            <h2 className="heading-3">{page.qualityTitle}</h2>
+            <p className="heading-2 mt-4">{page.qualityFigure}</p>
+            <p className="mt-6 max-w-[60ch] text-mute">{page.qualityBody}</p>
           </section>
           <section className="md:col-span-6">
             <h2 className="heading-3">{page.payTitle}</h2>

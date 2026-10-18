@@ -3,7 +3,7 @@ import { CooperationPage } from "@/components/cooperation-page";
 import { buildMetadata, requestLang } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata(await requestLang(), "cooperation", "合作 / Hợp tác");
+  return buildMetadata(await requestLang(), "cooperation");
 }
 
 export default function Page() {

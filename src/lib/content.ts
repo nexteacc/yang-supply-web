@@ -217,9 +217,7 @@ export type Copy = {
     seeProcess: string;
     seeProducts: string;
     noteCaption: string;
-    rows: { label: string; value: string }[];
-    routeFrom: string;
-    routeTo: string;
+    rows: { label: string; value: string; note?: boolean }[];
     valuesTitle: string;
     values: { title: string; body: string }[];
     audienceTitle: string;
@@ -239,9 +237,9 @@ export type Copy = {
     title: string;
     lead: string;
     steps: { title: string; body: string }[];
-    feeTitle: string;
-    feeFigure: string;
-    feeBody: string;
+    qualityTitle: string;
+    qualityFigure: string;
+    qualityBody: string;
     payTitle: string;
     payFigure: string;
     payBody: string;
@@ -270,7 +268,7 @@ export const dictionary: Record<Lang, Copy> = {
     copied: "已复制",
     copy: "复制",
     zaloAdd: "添加 Zalo",
-    inquiry: "更多产品可咨询",
+    inquiry: "联系询价",
     nav: [
       { href: "/", label: "首页" },
       { href: "/products", label: "产品" },
@@ -278,81 +276,81 @@ export const dictionary: Record<Lang, Copy> = {
       { href: "/contact", label: "联系" },
     ],
     home: {
-      title: ["中国采购。", "越南收货。"],
-      lead: "Yang Supply 做采购代理，不做零售。您把产品图片或链接发来，我们在中国找货源、比价、代付给供应商，再安排运到越南。",
+      title: ["中国 DIY 材料", "发往越南"],
+      lead: "Yang Supply 是 DIY 材料供应商。我们把自有系列卖给越南的手作工坊、店铺和学校：报到手单价，安排发货，质量由我们负责。",
       seeProcess: "合作流程",
       seeProducts: "看产品",
-      noteCaption: "运费另计，不在站内列价。",
+      noteCaption: "到手单价，联系询价。",
       rows: [
         { label: "出发 — 送达", value: "中国 → 越南" },
-        { label: "角色", value: "采购代理" },
-        { label: "定金 / 货到", value: "90 / 10" },
-        { label: "手续费", value: "约 5%" },
+        { label: "角色", value: "DIY 材料供应商" },
+        { label: "定金 / 货到", value: "70 / 30", note: true },
+        { label: "质量", value: "我们负责" },
       ],
-      routeFrom: "中国",
-      routeTo: "越南",
       valuesTitle: "三件事",
       values: [
-        { title: "找货源", body: "按图片或链接，在中国比对供应商。" },
-        { title: "代付款", body: "报价确认后，我们向供应商付款。" },
-        { title: "安排运输", body: "从中国运到越南。运费写入当次报价。" },
+        { title: "选品供货", body: "按您要的系列、规格和数量供货。" },
+        { title: "到手报价与发货", body: "一次报含运费的到手单价，并从中国发往越南。" },
+        { title: "质量约定", body: "质量由我们负责。长期合作的工厂支撑供货和品质。" },
       ],
       audienceTitle: "给谁供货",
-      audienceBody: "面向在越南做手作体验、课程或创意零售的团队。",
-      audience: ["手作工作室", "咖啡馆", "零售店", "学校与教培"],
+      audienceBody: "面向越南的手作工坊、店铺和学校。",
+      audience: ["手作工坊", "店铺", "学校"],
       seriesTitle: "产品一览",
-      seriesLead: "五组样品。其他中国商品也可以代采。",
-      processTitle: "合作五步",
-      processLead: "先报价，再决定是否下单。运费另计。",
-      steps: ["发送图片或链接", "比对价格", "出具报价", "支付定金", "安排交付"],
-      ctaTitle: "把图片或链接发到 Zalo",
-      ctaBody: "合作、报价、跟单，加这一个号。",
+      seriesLead: "五组自有系列。",
+      processTitle: "合作步骤",
+      processLead: "确认规格和数量后，报到手单价，再决定是否下单。",
+      steps: ["询价", "确认规格与数量", "到手报价", "下单（订金 70%）", "发往越南", "货到付 30%"],
+      ctaTitle: "把规格和数量发到 Zalo",
+      ctaBody: "询价、报价和跟单，加这一个号。",
     },
     products: {
       kicker: "02",
       title: "产品",
-      lead: "五组手作材料。价格不在站内公布，以当次报价为准。",
+      lead: "五组自有系列。价格不在站内公布，联系询价。",
     },
     cooperation: {
       kicker: "03",
       title: "合作",
-      lead: "您发来图片或链接。我们找货源、比价、报价。确认后再付定金。",
+      lead: "直销自有系列。确认规格和数量后报到手单价。质量由我们负责。",
       steps: [
         {
-          title: "发送图片或链接",
-          body: "把产品照片，或中国商品链接，发给我们。",
+          title: "询价",
+          body: "告诉我们要哪一系列、什么规格。",
         },
         {
-          title: "比对价格",
-          body: "我们在中国找货源，并比较价格。",
+          title: "确认规格与数量",
+          body: "颜色、尺寸和数量以沟通时确认为准。",
         },
         {
-          title: "出具报价",
-          body: "报价含产品金额和约 5% 手续费。运费另计，不列在本站。",
+          title: "到手报价",
+          body: "报价是含运费的到手单价。站内不标价。",
         },
         {
-          title: "支付定金",
-          body: "确认后，用越南当地银行转账支付 90% 定金。",
+          title: "下单（订金 70%）",
+          body: "确认后，用越南当地银行转账支付 70% 订金。",
         },
         {
-          title: "安排交付",
-          body: "货到后付清剩余 10%。",
+          title: "发往越南",
+          body: "我们安排从中国发往越南。",
+        },
+        {
+          title: "货到付 30%",
+          body: "货到后付清剩余 30%。",
         },
       ],
-      feeTitle: "手续费",
-      feeFigure: "≈ 5%",
-      feeBody:
-        "约为产品金额的 5%，不含运费。普通商品按此计算；特殊品类在报价里另行说明。代采不设最低金额。",
+      qualityTitle: "质量",
+      qualityFigure: "我们负责",
+      qualityBody: "供货和品质由我们负责。长期合作的工厂支撑供应和品质。",
       payTitle: "付款",
-      payFigure: "90 / 10",
-      payBody: "越南当地银行转账。下单支付 90% 定金，货到付清剩余 10%。",
+      payFigure: "70 / 30",
+      payBody: "越南当地银行转账。下单支付 70% 订金，货到付清剩余 30%。",
       notesTitle: "报价时一并说明",
       notes: [
         "报价有效期 7 天。",
         "可以混色、混款。起订量按每一款、每一色分别计算。",
-        "样品按实际货价购买。数量少时，运费占比会更高。",
-        "收货后 1 天内拍照反馈。破损产品可退款或补发。",
-        "除页面上的系列外，其他中国商品也可以代采。",
+        "样品收费，按当次到手报价购买。",
+        "收货后 1 天内拍照反馈。破损产品补发，不退款。",
       ],
     },
     contact: {
@@ -365,7 +363,7 @@ export const dictionary: Record<Lang, Copy> = {
       address: "中国深圳",
     },
     footer: {
-      line: "采购代理，不是零售商。",
+      line: "DIY 材料供应商。",
       address: "中国深圳",
     },
     notFound: {
@@ -386,7 +384,7 @@ export const dictionary: Record<Lang, Copy> = {
     copied: "Đã chép",
     copy: "Chép",
     zaloAdd: "Thêm Zalo",
-    inquiry: "Cần thêm sản phẩm, hãy hỏi chúng tôi",
+    inquiry: "Liên hệ để hỏi giá",
     nav: [
       { href: "/", label: "Trang chủ" },
       { href: "/products", label: "Sản phẩm" },
@@ -394,98 +392,99 @@ export const dictionary: Record<Lang, Copy> = {
       { href: "/contact", label: "Liên hệ" },
     ],
     home: {
-      title: ["Thu mua tại Trung Quốc.", "Giao hàng tại Việt Nam."],
-      lead: "Yang Supply là đại lý thu mua, không phải cửa hàng bán lẻ. Bạn gửi ảnh hoặc liên kết; chúng tôi tìm nguồn ở Trung Quốc, so giá, thanh toán hộ cho nhà cung cấp, rồi sắp xếp chuyển hàng về Việt Nam.",
+      title: ["Nguyên liệu DIY từ Trung Quốc", "Giao hàng Việt Nam"],
+      lead: "Yang Supply là nhà cung cấp nguyên liệu DIY. Chúng tôi bán các dòng của mình cho xưởng thủ công, cửa hàng và trường học tại Việt Nam: báo đơn giá trọn gói, sắp xếp giao hàng, và chịu trách nhiệm về chất lượng.",
       seeProcess: "Quy trình hợp tác",
       seeProducts: "Xem sản phẩm",
-      noteCaption: "Cước tính riêng, không niêm yết trên website.",
+      noteCaption: "Đơn giá trọn gói. Liên hệ để hỏi giá.",
       rows: [
         { label: "Đi — Đến", value: "Trung Quốc → Việt Nam" },
-        { label: "Vai trò", value: "Đại lý thu mua" },
-        { label: "Cọc / nhận hàng", value: "90 / 10" },
-        { label: "Phí dịch vụ", value: "Khoảng 5%" },
+        { label: "Vai trò", value: "Nhà cung cấp nguyên liệu DIY" },
+        { label: "Cọc / nhận hàng", value: "70 / 30", note: true },
+        { label: "Chất lượng", value: "Chúng tôi chịu trách nhiệm" },
       ],
-      routeFrom: "Trung Quốc",
-      routeTo: "Việt Nam",
       valuesTitle: "Ba việc",
       values: [
         {
-          title: "Tìm nguồn",
-          body: "Đối chiếu nhà cung cấp tại Trung Quốc theo ảnh hoặc liên kết.",
+          title: "Chọn hàng và cung cấp",
+          body: "Cung cấp theo dòng, quy cách và số lượng bạn cần.",
         },
         {
-          title: "Thanh toán hộ",
-          body: "Sau khi chốt báo giá, chúng tôi trả tiền cho nhà cung cấp.",
+          title: "Báo giá trọn gói và giao hàng",
+          body: "Báo một đơn giá đã gồm vận chuyển, rồi gửi từ Trung Quốc về Việt Nam.",
         },
         {
-          title: "Vận chuyển",
-          body: "Từ Trung Quốc về Việt Nam. Cước ghi trong báo giá lần đó.",
+          title: "Cam kết chất lượng",
+          body: "Chất lượng do chúng tôi chịu trách nhiệm. Nhà máy hợp tác lâu dài hỗ trợ nguồn hàng và chất lượng.",
         },
       ],
       audienceTitle: "Phục vụ ai",
-      audienceBody:
-        "Dành cho đơn vị tại Việt Nam có trải nghiệm thủ công, lớp học hoặc bán lẻ sáng tạo.",
-      audience: ["Xưởng DIY", "Quán cà phê", "Cửa hàng bán lẻ", "Trường học"],
+      audienceBody: "Dành cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
+      audience: ["Xưởng DIY", "Cửa hàng", "Trường học"],
       seriesTitle: "Sản phẩm",
-      seriesLead: "Năm nhóm mẫu. Hàng Trung Quốc khác cũng có thể đặt mua hộ.",
-      processTitle: "Năm bước hợp tác",
-      processLead: "Báo giá trước, rồi mới quyết định đặt. Cước tính riêng.",
+      seriesLead: "Năm dòng sản phẩm của chúng tôi.",
+      processTitle: "Các bước hợp tác",
+      processLead: "Sau khi chốt quy cách và số lượng, nhận đơn giá trọn gói, rồi mới quyết định đặt.",
       steps: [
-        "Gửi ảnh hoặc liên kết",
-        "So sánh giá",
-        "Báo giá",
-        "Đặt cọc",
-        "Giao hàng",
+        "Hỏi giá",
+        "Xác nhận quy cách và số lượng",
+        "Báo giá trọn gói",
+        "Đặt hàng (cọc 70%)",
+        "Gửi về Việt Nam",
+        "Thanh toán 30% khi nhận hàng",
       ],
-      ctaTitle: "Gửi ảnh hoặc liên kết qua Zalo",
-      ctaBody: "Hợp tác, báo giá và theo đơn — thêm số này.",
+      ctaTitle: "Gửi quy cách và số lượng qua Zalo",
+      ctaBody: "Hỏi giá, báo giá và theo đơn — thêm số này.",
     },
     products: {
       kicker: "02",
       title: "Sản phẩm",
-      lead: "Năm nhóm vật liệu thủ công. Giá không đăng trên website, lấy theo báo giá từng lần.",
+      lead: "Năm dòng sản phẩm của chúng tôi. Giá không đăng trên website; liên hệ để nhận báo giá.",
     },
     cooperation: {
       kicker: "03",
       title: "Hợp tác",
-      lead: "Bạn gửi ảnh hoặc liên kết. Chúng tôi tìm nguồn, so giá và báo giá. Đặt cọc sau khi đã chốt.",
+      lead: "Bán thẳng các dòng của chúng tôi. Sau khi chốt quy cách và số lượng, chúng tôi báo đơn giá trọn gói. Chất lượng do chúng tôi chịu trách nhiệm.",
       steps: [
         {
-          title: "Gửi ảnh hoặc liên kết",
-          body: "Gửi ảnh sản phẩm hoặc liên kết hàng Trung Quốc.",
+          title: "Hỏi giá",
+          body: "Cho chúng tôi biết dòng hàng và quy cách bạn cần.",
         },
         {
-          title: "So sánh giá",
-          body: "Chúng tôi tìm nguồn tại Trung Quốc và so giá.",
+          title: "Xác nhận quy cách và số lượng",
+          body: "Màu, kích thước và số lượng chốt khi trao đổi.",
         },
         {
-          title: "Báo giá",
-          body: "Báo giá gồm tiền hàng và phí dịch vụ khoảng 5%. Cước vận chuyển tính riêng, không đăng trên website.",
+          title: "Báo giá trọn gói",
+          body: "Báo giá là đơn giá đã gồm vận chuyển. Website không niêm yết giá.",
         },
         {
-          title: "Đặt cọc",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam, đặt cọc 90%.",
+          title: "Đặt hàng (cọc 70%)",
+          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam, đặt cọc 70%.",
         },
         {
-          title: "Giao hàng",
-          body: "Khi nhận hàng, thanh toán 10% còn lại.",
+          title: "Gửi về Việt Nam",
+          body: "Chúng tôi sắp xếp gửi từ Trung Quốc về Việt Nam.",
+        },
+        {
+          title: "Thanh toán 30% khi nhận hàng",
+          body: "Khi nhận hàng, thanh toán 30% còn lại.",
         },
       ],
-      feeTitle: "Phí dịch vụ",
-      feeFigure: "≈ 5%",
-      feeBody:
-        "Khoảng 5% giá trị hàng, chưa gồm cước vận chuyển. Hàng thông thường tính theo mức này; nhóm đặc biệt được ghi riêng khi báo giá. Đặt mua hộ không có mức giá trị tối thiểu.",
+      qualityTitle: "Chất lượng",
+      qualityFigure: "Do chúng tôi",
+      qualityBody:
+        "Nguồn hàng và chất lượng do chúng tôi chịu trách nhiệm. Nhà máy hợp tác lâu dài hỗ trợ việc cung cấp và chất lượng.",
       payTitle: "Thanh toán",
-      payFigure: "90 / 10",
+      payFigure: "70 / 30",
       payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Khi đặt hàng trả 90%, khi nhận hàng trả nốt 10%.",
+        "Chuyển khoản ngân hàng tại Việt Nam. Khi đặt hàng trả 70%, khi nhận hàng trả nốt 30%.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
         "Có thể trộn màu, trộn mẫu. Mức tối thiểu tính theo từng mẫu và từng màu.",
-        "Mua mẫu theo đúng giá hàng. Lô nhỏ thì tiền cước chiếm tỷ lệ cao hơn.",
-        "Trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại để được hoàn tiền hoặc gửi bù.",
-        "Ngoài các dòng trên trang, hàng hóa khác từ Trung Quốc cũng có thể nhờ mua hộ.",
+        "Mẫu có tính phí, theo đơn giá trọn gói của lần báo giá đó.",
+        "Trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
     },
     contact: {
@@ -498,7 +497,7 @@ export const dictionary: Record<Lang, Copy> = {
       address: "Thâm Quyến, Trung Quốc",
     },
     footer: {
-      line: "Đại lý thu mua, không phải nhà bán lẻ.",
+      line: "Nhà cung cấp nguyên liệu DIY.",
       address: "Thâm Quyến, Trung Quốc",
     },
     notFound: {
