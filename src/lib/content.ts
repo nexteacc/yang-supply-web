@@ -71,11 +71,11 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
   ],
   vase: [
     {
-      src: "/products/vase-frame-main.jpg",
-      width: 800,
-      height: 800,
-      zh: "亚克力插花花瓶框样品",
-      vi: "Mẫu khung bình hoa acrylic",
+      src: "/products/khung-binh-hoa-acrylic-trong-suot.jpg",
+      width: 1307,
+      height: 1307,
+      zh: "透明亚克力插花花瓶框，插着粉色小菊花",
+      vi: "Khung bình hoa acrylic trong suốt, cắm hoa cúc hồng",
     },
     {
       src: "/products/khung-binh-hoa-acrylic-hong.jpg",
