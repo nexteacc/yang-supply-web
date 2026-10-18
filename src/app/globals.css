@@ -107,9 +107,9 @@ html.lang-boot body {
   text-transform: uppercase;
 }
 
-/* Flat black veil. 55% so the white headline stays clear on the bright pink sticker photo. */
+/* Flat black veil. Dark enough for the current product photo; swap HERO_SRC later. */
 .hero-scrim {
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .link-under {

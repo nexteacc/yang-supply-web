@@ -8,9 +8,10 @@ import { SquareThumb } from "@/components/product-art";
 import { Section, TextLink, ZaloButton } from "@/components/ui";
 
 /**
- * Full-bleed opening photograph. The scrim and the HTML headline stay over it.
+ * Full-bleed opening photograph. Point this at a calm workbench or petal
+ * scene when one exists. The scrim and the HTML headline stay as they are.
  */
-const HERO_SRC = "/products/sticker-dinh-da-co-lon.jpg";
+const HERO_SRC = "/products/rhinestone-large-2.jpg";
 
 const heroPhoto = Object.values(productImage)
   .flat()
