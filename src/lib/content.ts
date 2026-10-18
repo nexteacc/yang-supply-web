@@ -13,19 +13,13 @@ export const contacts = {
   ],
 } as const;
 
-/** Shown where a series has no photo yet. Links to the existing Zalo contact. */
-export const samplePhotoLine = {
-  zh: "联系 Zalo 查看样品图",
-  vi: "Liên hệ Zalo để xem ảnh mẫu",
-} as const;
-
 export type ProductPhoto = {
   src: string;
   width: number;
   height: number;
   zh: string;
   vi: string;
-  /** Charm samples are low-resolution and must not be scaled up. */
+  /** Keep a low-resolution sample at its own pixel size. */
   small?: boolean;
   /** Taller than wide; keep the full frame instead of cropping. */
   portrait?: boolean;
@@ -258,7 +252,64 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       vi: "Sao biển resin màu xanh navy",
     },
   ],
-  charm: [],
+  charm: [
+    {
+      src: "/products/vong-tay-charm-y.jpg",
+      width: 1600,
+      height: 1600,
+      zh: "意大利 Charm 手链成品",
+      vi: "Vòng tay charm Ý",
+    },
+    {
+      src: "/products/charm-y-men-nhieu-hinh.jpg",
+      width: 1280,
+      height: 1280,
+      zh: "多款图案珐琅意大利 Charm",
+      vi: "Charm Ý tráng men nhiều hình",
+    },
+    {
+      src: "/products/charm-y-trai-tim-dinh-da.jpg",
+      width: 1280,
+      height: 1280,
+      zh: "爱心镶钻意大利 Charm",
+      vi: "Charm Ý trái tim đính đá",
+    },
+    {
+      src: "/products/charm-y-giang-sinh.jpg",
+      width: 1200,
+      height: 1200,
+      zh: "圣诞主题意大利 Charm",
+      vi: "Charm Ý chủ đề Giáng Sinh",
+    },
+    {
+      src: "/products/vong-tay-charm-y-giang-sinh.jpg",
+      width: 1200,
+      height: 1200,
+      zh: "圣诞主题意大利 Charm 手链",
+      vi: "Vòng tay charm Ý chủ đề Giáng Sinh",
+    },
+    {
+      src: "/products/charm-y-giang-sinh-2.jpg",
+      width: 1200,
+      height: 1200,
+      zh: "多款圣诞主题意大利 Charm",
+      vi: "Charm Ý chủ đề Giáng Sinh nhiều mẫu",
+    },
+    {
+      src: "/products/charm-y-da-zircon.jpg",
+      width: 1200,
+      height: 1200,
+      zh: "锆石意大利 Charm",
+      vi: "Charm Ý đính đá zircon",
+    },
+    {
+      src: "/products/charm-y-da-zircon-2.jpg",
+      width: 1600,
+      height: 1600,
+      zh: "多款锆石意大利 Charm",
+      vi: "Charm Ý đính đá zircon nhiều mẫu",
+    },
+  ],
 };
 
 export const series: {

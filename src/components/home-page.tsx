@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { contacts, productImage, samplePhotoLine, series } from "@/lib/content";
+import { contacts, productImage, series } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { SquareThumb } from "@/components/product-art";
 import { Section, TextLink, ZaloButton } from "@/components/ui";
@@ -102,29 +102,7 @@ export function HomePage() {
               {series.map((item, index) => {
                 const text = item[lang];
                 const photo = productImage[item.id][0];
-                if (!photo) {
-                  return (
-                    <li key={item.id} className="grid grid-cols-12 items-center gap-6">
-                      <div className="col-span-12 flex aspect-square items-center justify-center bg-well px-6 text-center sm:col-span-5 md:col-span-4">
-                        <a
-                          href={contacts.zaloUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="link-under max-w-[18ch] text-[15px] leading-snug"
-                        >
-                          {samplePhotoLine[lang]}
-                        </a>
-                      </div>
-                      <div className="col-span-12 sm:col-span-7 md:col-span-6">
-                        <Link href={`/products#${item.id}`} className="group">
-                          <p className="eyebrow text-mute">0{index + 1}</p>
-                          <h3 className="heading-3 link-under mt-3">{text.name}</h3>
-                          <p className="mt-3 max-w-[60ch] text-[14px] text-mute">{text.summary}</p>
-                        </Link>
-                      </div>
-                    </li>
-                  );
-                }
+                if (!photo) return null;
                 return (
                   <li key={item.id}>
                     <Link href={`/products#${item.id}`} className="group grid grid-cols-12 items-center gap-6">
