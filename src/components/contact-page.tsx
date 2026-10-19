@@ -38,14 +38,13 @@ export function ContactPage() {
         <section className="md:col-span-6">
           <h2 className="heading-2">{page.emailRole}</h2>
           <ul className="mt-6 flex flex-col gap-8">
-            {contacts.emails.map((person) => (
-              <li key={person.email}>
-                <p className="heading-3">{person.name}</p>
-                <a href={`mailto:${person.email}`} className="link-under mt-1 inline-block break-all text-[14px] text-mute">
-                  {person.email}
+            {contacts.emails.map((email) => (
+              <li key={email}>
+                <a href={`mailto:${email}`} className="link-under inline-block break-all text-[14px] text-mute">
+                  {email}
                 </a>
                 <div className="mt-2">
-                  <CopyButton value={person.email} />
+                  <CopyButton value={email} />
                 </div>
               </li>
             ))}

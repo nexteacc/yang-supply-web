@@ -26,9 +26,9 @@ export function Footer() {
           <a href={contacts.zaloUrl} target="_blank" rel="noopener noreferrer" className="link-under w-fit">
             Zalo {contacts.zalo}
           </a>
-          {contacts.emails.map((person) => (
-            <a key={person.email} href={`mailto:${person.email}`} className="link-under w-fit break-all text-mute">
-              {person.email}
+          {contacts.emails.map((email) => (
+            <a key={email} href={`mailto:${email}`} className="link-under w-fit break-all text-mute">
+              {email}
             </a>
           ))}
         </div>
