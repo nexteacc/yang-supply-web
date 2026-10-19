@@ -46,6 +46,34 @@ export function CooperationPage() {
           </ul>
         </section>
 
+        <section>
+          <h2 className="heading-2">{page.faqTitle}</h2>
+          <dl className="mt-8 flex max-w-[65ch] flex-col gap-10">
+            {page.faq.map((item) => (
+              <div key={item.q}>
+                <dt>
+                  <h3 className="heading-3">{item.q}</h3>
+                </dt>
+                <dd className="mt-3 text-mute">{item.a}</dd>
+              </div>
+            ))}
+          </dl>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: page.faq.map((item) => ({
+                  "@type": "Question",
+                  name: item.q,
+                  acceptedAnswer: { "@type": "Answer", text: item.a },
+                })),
+              }).replace(/</g, "\\u003c"),
+            }}
+          />
+        </section>
+
         <div>
           <ZaloButton />
         </div>

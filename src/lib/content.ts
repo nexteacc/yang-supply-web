@@ -7,9 +7,9 @@ export const contacts = {
   zalo: "0986245780",
   zaloUrl: "https://zalo.me/0986245780",
   emails: [
-    { name: "An", email: "an.yangsupply@agentmail.to" },
-    { name: "Minh", email: "minh.yangsupply@agentmail.to" },
-    { name: "Linh", email: "linh.yangsupply@agentmail.to" },
+    "an.yangsupply@agentmail.to",
+    "minh.yangsupply@agentmail.to",
+    "linh.yangsupply@agentmail.to",
   ],
 } as const;
 
@@ -485,6 +485,8 @@ export type Copy = {
     payBody: string;
     notesTitle: string;
     notes: string[];
+    faqTitle: string;
+    faq: { q: string; a: string }[];
   };
   contact: {
     kicker: string;
@@ -517,20 +519,20 @@ export const dictionary: Record<Lang, Copy> = {
     ],
     home: {
       title: ["中国 DIY 材料", "发往越南"],
-      lead: "Yang Supply 是 DIY 材料供应商。我们把自有系列卖给越南的手作工坊、店铺和学校：报到手单价，安排发货，质量由我们负责。",
+      lead: "Yang Supply 是 DIY 材料供应商。我们把自有系列卖给越南的手作工坊、店铺和学校：报产品单价，运费另计，质量由我们负责。",
       seeProcess: "合作流程",
       seeProducts: "看产品",
-      noteCaption: "到手单价，联系询价。",
+      noteCaption: "报价，联系询价。",
       rows: [
         { label: "出发 — 送达", value: "中国 → 越南" },
         { label: "角色", value: "DIY 材料供应商" },
-        { label: "定金 / 货到", value: "70 / 30", note: true },
+        { label: "定金 / 货到", value: "80 / 20", note: true },
         { label: "质量", value: "我们负责" },
       ],
       valuesTitle: "三件事",
       values: [
         { title: "选品供货", body: "按您要的系列、规格和数量供货。" },
-        { title: "到手报价与发货", body: "一次报含运费的到手单价，并从中国发往越南。" },
+        { title: "报价与运输", body: "报产品单价，运费另计。可以用您自己的货代，也可以由我们安排从中国运到越南。" },
         { title: "质量约定", body: "质量由我们负责。长期合作的工厂支撑供货和品质。" },
       ],
       audienceTitle: "给谁供货",
@@ -539,8 +541,8 @@ export const dictionary: Record<Lang, Copy> = {
       seriesTitle: "产品一览",
       seriesLead: "五组自有系列。",
       processTitle: "合作步骤",
-      processLead: "确认规格和数量后，报到手单价，再决定是否下单。",
-      steps: ["询价", "确认规格与数量", "到手报价", "下单（订金 70%）", "发往越南", "货到付 30%"],
+      processLead: "确认规格和数量后，报产品单价，再决定是否下单。",
+      steps: ["询价", "确认规格与数量", "报价", "下单（订金 80%）", "运输", "货到付 20%"],
       ctaTitle: "把规格和数量发到 Zalo",
       ctaBody: "询价、报价和跟单，加这一个号。",
     },
@@ -552,7 +554,7 @@ export const dictionary: Record<Lang, Copy> = {
     cooperation: {
       kicker: "03",
       title: "合作",
-      lead: "直销自有系列。确认规格和数量后报到手单价。质量由我们负责。",
+      lead: "直销自有系列。确认规格和数量后报产品单价，运费另计。质量由我们负责。",
       steps: [
         {
           title: "询价",
@@ -563,40 +565,56 @@ export const dictionary: Record<Lang, Copy> = {
           body: "颜色、尺寸和数量以沟通时确认为准。",
         },
         {
-          title: "到手报价",
-          body: "报价是含运费的到手单价。站内不标价。",
+          title: "报价",
+          body: "报产品单价，运费另计。网站不标价。",
         },
         {
-          title: "下单（订金 70%）",
-          body: "确认后，用越南当地银行转账支付 70% 订金。",
+          title: "下单（订金 80%）",
+          body: "确认后，用越南当地银行转账。定金为订单总额的 80%，到货付 20%。",
         },
         {
-          title: "发往越南",
-          body: "我们安排从中国发往越南。",
+          title: "运输",
+          body: "可以用您自己的货代，也可以由我们安排从中国运到越南。由我们安排运输时，运费已含清关和关税。使用您自己的货代时，我们把货交给您的货代即完成交付。",
         },
         {
-          title: "货到付 30%",
-          body: "货到后付清剩余 30%。",
+          title: "货到付 20%",
+          body: "到货付 20%。",
         },
       ],
       qualityTitle: "质量",
       qualityFigure: "我们负责",
       qualityBody: "供货和品质由我们负责。长期合作的工厂支撑供应和品质。",
       payTitle: "付款",
-      payFigure: "70 / 30",
-      payBody: "越南当地银行转账。下单支付 70% 订金，货到付清剩余 30%。",
+      payFigure: "80 / 20",
+      payBody:
+        "越南当地银行转账。定金为订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
       notesTitle: "报价时一并说明",
       notes: [
         "报价有效期 7 天。",
         "可以混色、混款。起订量按每一款、每一色分别计算。",
-        "样品收费，按当次到手报价购买。",
-        "收货后 1 天内拍照反馈。破损产品补发，不退款。",
+        "样品收费，按当次报价的单价。",
+        "由我们运输的订单，收货后1天内拍照反馈，破损产品补发，不退款。",
+      ],
+      faqTitle: "常见问题",
+      faq: [
+        {
+          q: "运费含清关和关税吗？",
+          a: "含。由我们安排运输时，运费已含清关和关税。",
+        },
+        {
+          q: "可以用自己的货代吗？",
+          a: "可以。我们把货交给您的货代即完成交付。",
+        },
+        {
+          q: "定金是多少？",
+          a: "订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
+        },
       ],
     },
     contact: {
       kicker: "04",
       title: "联系",
-      lead: "合作、报价和跟单请加 Zalo。销售邮件由 An、Minh、Linh 处理。",
+      lead: "合作、报价和跟单请加 Zalo。",
       zaloRole: "Zalo",
       emailRole: "销售邮件",
       addressLabel: "地址",
@@ -633,14 +651,14 @@ export const dictionary: Record<Lang, Copy> = {
     ],
     home: {
       title: ["Nguyên liệu DIY từ Trung Quốc", "Giao hàng Việt Nam"],
-      lead: "Yang Supply là nhà cung cấp nguyên liệu DIY. Chúng tôi bán các dòng của mình cho xưởng thủ công, cửa hàng và trường học tại Việt Nam: báo đơn giá trọn gói, sắp xếp giao hàng, và chịu trách nhiệm về chất lượng.",
+      lead: "Yang Supply là nhà cung cấp nguyên liệu DIY. Chúng tôi bán các dòng của mình cho xưởng thủ công, cửa hàng và trường học tại Việt Nam: báo giá sản phẩm, phí vận chuyển tính riêng, và chịu trách nhiệm về chất lượng.",
       seeProcess: "Quy trình hợp tác",
       seeProducts: "Xem sản phẩm",
-      noteCaption: "Đơn giá trọn gói. Liên hệ để hỏi giá.",
+      noteCaption: "Báo giá. Liên hệ để hỏi giá.",
       rows: [
         { label: "Đi — Đến", value: "Trung Quốc → Việt Nam" },
         { label: "Vai trò", value: "Nhà cung cấp nguyên liệu DIY" },
-        { label: "Cọc / nhận hàng", value: "70 / 30", note: true },
+        { label: "Cọc / nhận hàng", value: "80 / 20", note: true },
         { label: "Chất lượng", value: "Chúng tôi chịu trách nhiệm" },
       ],
       valuesTitle: "Ba việc",
@@ -650,8 +668,8 @@ export const dictionary: Record<Lang, Copy> = {
           body: "Cung cấp theo dòng, quy cách và số lượng bạn cần.",
         },
         {
-          title: "Báo giá trọn gói và giao hàng",
-          body: "Báo một đơn giá đã gồm vận chuyển, rồi gửi từ Trung Quốc về Việt Nam.",
+          title: "Báo giá và vận chuyển",
+          body: "Báo giá sản phẩm; phí vận chuyển tính riêng. Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam.",
         },
         {
           title: "Cam kết chất lượng",
@@ -664,14 +682,14 @@ export const dictionary: Record<Lang, Copy> = {
       seriesTitle: "Sản phẩm",
       seriesLead: "Năm dòng sản phẩm của chúng tôi.",
       processTitle: "Các bước hợp tác",
-      processLead: "Sau khi chốt quy cách và số lượng, nhận đơn giá trọn gói, rồi mới quyết định đặt.",
+      processLead: "Sau khi chốt quy cách và số lượng, nhận báo giá sản phẩm, rồi mới quyết định đặt.",
       steps: [
         "Hỏi giá",
         "Xác nhận quy cách và số lượng",
-        "Báo giá trọn gói",
-        "Đặt hàng (cọc 70%)",
-        "Gửi về Việt Nam",
-        "Thanh toán 30% khi nhận hàng",
+        "Báo giá",
+        "Đặt hàng (cọc 80%)",
+        "Vận chuyển",
+        "Thanh toán 20% khi nhận hàng",
       ],
       ctaTitle: "Gửi quy cách và số lượng qua Zalo",
       ctaBody: "Hỏi giá, báo giá và theo đơn — thêm số này.",
@@ -684,7 +702,7 @@ export const dictionary: Record<Lang, Copy> = {
     cooperation: {
       kicker: "03",
       title: "Hợp tác",
-      lead: "Bán thẳng các dòng của chúng tôi. Sau khi chốt quy cách và số lượng, chúng tôi báo đơn giá trọn gói. Chất lượng do chúng tôi chịu trách nhiệm.",
+      lead: "Bán thẳng các dòng của chúng tôi. Sau khi chốt quy cách và số lượng, chúng tôi báo giá sản phẩm; phí vận chuyển tính riêng. Chất lượng do chúng tôi chịu trách nhiệm.",
       steps: [
         {
           title: "Hỏi giá",
@@ -695,20 +713,20 @@ export const dictionary: Record<Lang, Copy> = {
           body: "Màu, kích thước và số lượng chốt khi trao đổi.",
         },
         {
-          title: "Báo giá trọn gói",
-          body: "Báo giá là đơn giá đã gồm vận chuyển. Website không niêm yết giá.",
+          title: "Báo giá",
+          body: "Báo giá sản phẩm; phí vận chuyển tính riêng. Website không niêm yết giá.",
         },
         {
-          title: "Đặt hàng (cọc 70%)",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam, đặt cọc 70%.",
+          title: "Đặt hàng (cọc 80%)",
+          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng.",
         },
         {
-          title: "Gửi về Việt Nam",
-          body: "Chúng tôi sắp xếp gửi từ Trung Quốc về Việt Nam.",
+          title: "Vận chuyển",
+          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
         },
         {
-          title: "Thanh toán 30% khi nhận hàng",
-          body: "Khi nhận hàng, thanh toán 30% còn lại.",
+          title: "Thanh toán 20% khi nhận hàng",
+          body: "Thanh toán 20% khi nhận hàng.",
         },
       ],
       qualityTitle: "Chất lượng",
@@ -716,21 +734,36 @@ export const dictionary: Record<Lang, Copy> = {
       qualityBody:
         "Nguồn hàng và chất lượng do chúng tôi chịu trách nhiệm. Nhà máy hợp tác lâu dài hỗ trợ việc cung cấp và chất lượng.",
       payTitle: "Thanh toán",
-      payFigure: "70 / 30",
+      payFigure: "80 / 20",
       payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Khi đặt hàng trả 70%, khi nhận hàng trả nốt 30%.",
+        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
         "Có thể trộn màu, trộn mẫu. Mức tối thiểu tính theo từng mẫu và từng màu.",
-        "Mẫu có tính phí, theo đơn giá trọn gói của lần báo giá đó.",
-        "Trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
+        "Mẫu có tính phí, theo đơn giá của lần báo giá đó.",
+        "Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
+      ],
+      faqTitle: "Câu hỏi thường gặp",
+      faq: [
+        {
+          q: "Phí vận chuyển đã bao gồm thông quan và thuế nhập khẩu chưa?",
+          a: "Có. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu.",
+        },
+        {
+          q: "Tôi có thể dùng đơn vị vận chuyển riêng không?",
+          a: "Có. Chúng tôi giao hàng cho đơn vị vận chuyển của bạn là hoàn tất.",
+        },
+        {
+          q: "Đặt cọc bao nhiêu phần trăm?",
+          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+        },
       ],
     },
     contact: {
       kicker: "04",
       title: "Liên hệ",
-      lead: "Muốn hợp tác, báo giá hoặc theo dõi đơn, hãy thêm Zalo. Email bán hàng do An, Minh và Linh phụ trách.",
+      lead: "Muốn hợp tác, báo giá hoặc theo dõi đơn, hãy thêm Zalo.",
       zaloRole: "Zalo",
       emailRole: "Email bán hàng",
       addressLabel: "Địa chỉ",
