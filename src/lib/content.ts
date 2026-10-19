@@ -485,6 +485,8 @@ export type Copy = {
     payBody: string;
     notesTitle: string;
     notes: string[];
+    faqTitle: string;
+    faq: { q: string; a: string }[];
   };
   contact: {
     kicker: string;
@@ -568,15 +570,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "下单（订金 80%）",
-          body: "确认后，用越南当地银行转账支付 80% 订金。",
+          body: "确认后，用越南当地银行转账。定金为订单总额的 80%，到货付 20%。",
         },
         {
           title: "运输",
-          body: "可以用您自己的货代，也可以由我们安排从中国运到越南。",
+          body: "可以用您自己的货代，也可以由我们安排从中国运到越南。由我们安排运输时，运费已含清关和关税。使用您自己的货代时，我们把货交给您的货代即完成交付。",
         },
         {
           title: "货到付 20%",
-          body: "货到后付清剩余 20%。",
+          body: "到货付 20%。",
         },
       ],
       qualityTitle: "质量",
@@ -584,13 +586,29 @@ export const dictionary: Record<Lang, Copy> = {
       qualityBody: "供货和品质由我们负责。长期合作的工厂支撑供应和品质。",
       payTitle: "付款",
       payFigure: "80 / 20",
-      payBody: "越南当地银行转账。下单支付 80% 订金，货到付清剩余 20%。",
+      payBody:
+        "越南当地银行转账。定金为订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
       notesTitle: "报价时一并说明",
       notes: [
         "报价有效期 7 天。",
         "可以混色、混款。起订量按每一款、每一色分别计算。",
         "样品收费，按当次报价的单价。",
-        "收货后拍照反馈。破损产品补发，不退款。",
+        "由我们运输的订单，收货后拍照反馈，破损产品补发，不退款。",
+      ],
+      faqTitle: "常见问题",
+      faq: [
+        {
+          q: "运费含清关和关税吗？",
+          a: "含。由我们安排运输时，运费已含清关和关税。",
+        },
+        {
+          q: "可以用自己的货代吗？",
+          a: "可以。我们把货交给您的货代即完成交付。",
+        },
+        {
+          q: "定金是多少？",
+          a: "订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
+        },
       ],
     },
     contact: {
@@ -700,15 +718,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Đặt hàng (cọc 80%)",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam, đặt cọc 80%.",
+          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng.",
         },
         {
           title: "Vận chuyển",
-          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam.",
+          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
         },
         {
           title: "Thanh toán 20% khi nhận hàng",
-          body: "Khi nhận hàng, thanh toán 20% còn lại.",
+          body: "Thanh toán 20% khi nhận hàng.",
         },
       ],
       qualityTitle: "Chất lượng",
@@ -718,13 +736,28 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Thanh toán",
       payFigure: "80 / 20",
       payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Khi đặt hàng trả 80%, khi nhận hàng trả nốt 20%.",
+        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
         "Có thể trộn màu, trộn mẫu. Mức tối thiểu tính theo từng mẫu và từng màu.",
         "Mẫu có tính phí, theo đơn giá của lần báo giá đó.",
-        "Sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
+        "Với đơn do chúng tôi vận chuyển: sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
+      ],
+      faqTitle: "Câu hỏi thường gặp",
+      faq: [
+        {
+          q: "Phí vận chuyển đã bao gồm thông quan và thuế nhập khẩu chưa?",
+          a: "Có. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu.",
+        },
+        {
+          q: "Tôi có thể dùng đơn vị vận chuyển riêng không?",
+          a: "Có. Chúng tôi giao hàng cho đơn vị vận chuyển của bạn là hoàn tất.",
+        },
+        {
+          q: "Đặt cọc bao nhiêu phần trăm?",
+          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+        },
       ],
     },
     contact: {
