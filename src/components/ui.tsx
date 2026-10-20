@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
+import { localizedPath } from "@/lib/i18n";
 
 export function Container({
   children,
@@ -13,14 +14,18 @@ export function Container({
   children: ReactNode;
   className?: string;
 }) {
-  return <div className={`mx-auto w-full max-w-[1200px] px-5 md:px-10 ${className}`}>{children}</div>;
+  return (
+    <div className={`mx-auto w-full max-w-[1200px] px-5 md:px-10 ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 export function Wordmark({ className = "" }: { className?: string }) {
   const { lang } = useLanguage();
   return (
     <Link
-      href={lang === "zh" ? "/zh" : "/"}
+      href={localizedPath(lang)}
       className={`inline-block shrink-0 whitespace-nowrap text-[16px] font-bold uppercase leading-none tracking-[0.14em] text-ink md:text-[22px] ${className}`}
     >
       Yang Supply
@@ -65,7 +70,12 @@ export function TextLink({
 export function ZaloButton({ className = "" }: { className?: string }) {
   const { t } = useLanguage();
   return (
-    <a href={contacts.zaloUrl} target="_blank" rel="noopener noreferrer" className={`btn-quiet ${className}`}>
+    <a
+      href={contacts.zaloUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`btn-quiet ${className}`}
+    >
       {t.zaloAdd}
     </a>
   );

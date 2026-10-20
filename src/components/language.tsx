@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, type ReactNode } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { dictionary, type Copy, type Lang } from "@/lib/content";
+import { languageFromPath, languageTags, localizedPath } from "@/lib/i18n";
 
 const STORAGE_KEY = "yang-lang";
 
@@ -19,36 +15,29 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-export function LanguageProvider({
-  initialLang = "vi",
-  children,
-}: {
-  initialLang?: Lang;
-  children: ReactNode;
-}) {
+export function LanguageProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
 
-  // If the URL starts with /zh, the language is always Chinese. Otherwise Vietnamese.
-  const isZhPath = pathname === "/zh" || pathname.startsWith("/zh/");
-  const lang: Lang = isZhPath ? "zh" : initialLang;
+  const lang = languageFromPath(pathname);
 
   useEffect(() => {
-    document.documentElement.lang = lang === "zh" ? "zh-CN" : "vi";
+    document.documentElement.lang = languageTags[lang];
     document.documentElement.dataset.lang = lang;
-    window.localStorage.setItem(STORAGE_KEY, lang);
+    try {
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    } catch {
+      /* Storage may be disabled. */
+    }
   }, [lang]);
 
   const setLang = (next: Lang) => {
     if (next === lang) return;
-    window.localStorage.setItem(STORAGE_KEY, next);
-    if (next === "zh") {
-      const target = `/zh${pathname === "/" ? "" : pathname}`;
-      router.push(target);
-    } else {
-      const stripped = pathname.replace(/^\/zh/, "");
-      router.push(stripped || "/");
-    }
+    router.push(
+      localizedPath(next, pathname) +
+        window.location.search +
+        window.location.hash,
+    );
   };
 
   return (

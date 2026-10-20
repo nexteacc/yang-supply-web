@@ -8,6 +8,7 @@ import {
   productImage,
   type ProductPhoto,
   type SeriesId,
+  type Lang,
 } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 
@@ -23,7 +24,9 @@ export function SquareThumb({
   sizes?: string;
 }) {
   return (
-    <div className={`relative aspect-square overflow-hidden bg-well ${className}`}>
+    <div
+      className={`relative aspect-square overflow-hidden bg-well ${className}`}
+    >
       <div className="absolute inset-[12%]">
         <div className="relative h-full w-full">
           <Image
@@ -41,7 +44,15 @@ export function SquareThumb({
   );
 }
 
-function MainPanel({ photo, alt, small }: { photo: ProductPhoto; alt: string; small: boolean }) {
+function MainPanel({
+  photo,
+  alt,
+  small,
+}: {
+  photo: ProductPhoto;
+  alt: string;
+  small: boolean;
+}) {
   if (small) {
     return (
       <div className="flex aspect-[4/3] items-center justify-center bg-well px-[12%] py-[12%]">
@@ -86,7 +97,10 @@ function moveThumb(
 ) {
   if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
   event.preventDefault();
-  const next = event.key === "ArrowRight" ? (index + 1) % count : (index - 1 + count) % count;
+  const next =
+    event.key === "ArrowRight"
+      ? (index + 1) % count
+      : (index - 1 + count) % count;
   setActive(next);
   const buttons = event.currentTarget.closest("ul")?.querySelectorAll("button");
   buttons?.[next]?.focus();
@@ -94,14 +108,14 @@ function moveThumb(
 
 function colourChoices(id: SeriesId, photos: ProductPhoto[]) {
   const seen = new Set<string>();
-  const items: { vi: string; zh: string; index: number | null }[] = [];
+  const items: (Record<Lang, string> & { index: number | null })[] = [];
   photos.forEach((item, index) => {
     if (!item.swatch || !item.colour || seen.has(item.colour.vi)) return;
     seen.add(item.colour.vi);
-    items.push({ vi: item.colour.vi, zh: item.colour.zh, index });
+    items.push({ ...item.colour, index });
   });
   if (id === "petals") {
-    const yellow = { vi: petalYellow.vi, zh: petalYellow.zh, index: null };
+    const yellow = { ...petalYellow, index: null };
     const clear = items.findIndex((item) => item.vi === "trong suốt");
     if (clear === -1) items.push(yellow);
     else items.splice(clear, 0, yellow);
@@ -126,7 +140,10 @@ export function ProductArt({ id }: { id: SeriesId }) {
           <span>{colourAvailableLabel[lang]} </span>
           {choices.map((item, index) => {
             const name = item[lang];
-            const selected = item.index !== null && photo.swatch === true && photo.colour?.vi === item.vi;
+            const selected =
+              item.index !== null &&
+              photo.swatch === true &&
+              photo.colour?.vi === item.vi;
             return (
               <span key={item.vi}>
                 {index > 0 ? <span aria-hidden="true">, </span> : null}
@@ -160,19 +177,31 @@ export function ProductArt({ id }: { id: SeriesId }) {
                 <button
                   type="button"
                   onClick={() => setActive(index)}
-                  onKeyDown={(event) => moveThumb(event, index, photos.length, setActive)}
+                  onKeyDown={(event) =>
+                    moveThumb(event, index, photos.length, setActive)
+                  }
                   aria-pressed={selected}
                   aria-current={selected ? "true" : undefined}
                   aria-label={alt}
                   className={`block w-full cursor-pointer focus-visible:ring-1 focus-visible:ring-ink focus-visible:ring-offset-2 ${selected ? "ring-1 ring-ink ring-offset-2" : ""}`}
                 >
-                  <SquareThumb src={item.src} alt={alt} sizes="(min-width: 768px) 128px, 112px" />
+                  <SquareThumb
+                    src={item.src}
+                    alt={alt}
+                    sizes="(min-width: 768px) 128px, 112px"
+                  />
                 </button>
                 {thumbLabel ? (
-                  <p className="mt-2 text-center text-[12px] leading-snug text-mute">{thumbLabel}</p>
+                  <p className="mt-2 text-center text-[12px] leading-snug text-mute">
+                    {thumbLabel}
+                  </p>
                 ) : null}
                 {item.label ? (
-                  <p className={`eyebrow text-center text-mute ${thumbLabel ? "mt-1" : "mt-2"}`}>{item.label[lang]}</p>
+                  <p
+                    className={`eyebrow text-center text-mute ${thumbLabel ? "mt-1" : "mt-2"}`}
+                  >
+                    {item.label[lang]}
+                  </p>
                 ) : null}
               </li>
             );

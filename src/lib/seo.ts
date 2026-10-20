@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Lang } from "@/lib/content";
+import { localizedPath } from "@/lib/i18n";
 
 export const SITE_URL = "https://www.yangsupply.com";
 
@@ -14,6 +15,11 @@ export type PageKey = keyof typeof pagePaths;
 
 export const pageMeta = {
   home: {
+    en: {
+      title: "Wholesale DIY Craft Materials from China to Vietnam",
+      description:
+        "Yang Supply supplies DIY craft materials to workshops, shops and schools in Vietnam. Explore our product range and contact us for a wholesale quote.",
+    },
     zh: {
       title: "中国 DIY 手作材料批发 · 越南直发源头供应商",
       description:
@@ -26,6 +32,11 @@ export const pageMeta = {
     },
   },
   products: {
+    en: {
+      title: "Acrylic Petals, Rhinestone Stickers & Italian Charms",
+      description:
+        "Explore our acrylic petals, rhinestone stickers, acrylic flower vase frames, resin starfish and Italian charm bracelets. Contact us for specifications and quotes.",
+    },
     zh: {
       title: "亚克力花瓣、水钻贴纸、意大利 Charm 批发产品目录",
       description:
@@ -38,6 +49,11 @@ export const pageMeta = {
     },
   },
   cooperation: {
+    en: {
+      title: "How to Order Wholesale DIY Materials",
+      description:
+        "Learn how to order from Yang Supply: confirm specifications and quantities, receive a quote, pay an 80% deposit and the remaining 20% on receipt. Shipping charged separately.",
+    },
     zh: {
       title: "DIY 材料跨境批发下单与合作流程",
       description:
@@ -50,6 +66,11 @@ export const pageMeta = {
     },
   },
   contact: {
+    en: {
+      title: "Contact Yang Supply for Wholesale Quotes",
+      description:
+        "Contact Yang Supply on Zalo or by email for DIY materials quotes and order enquiries. We serve Vietnam and support English, Vietnamese and Chinese enquiries.",
+    },
     zh: {
       title: "联系我们获取批发报价 · Zalo 与邮件咨询",
       description:
@@ -69,7 +90,8 @@ export function buildMetadata(lang: Lang, page: PageKey): Metadata {
   const subPath = pagePaths[page];
   const viUrl = `${SITE_URL}${subPath || "/"}`;
   const zhUrl = `${SITE_URL}/zh${subPath}`;
-  const currentUrl = lang === "zh" ? zhUrl : viUrl;
+  const enUrl = `${SITE_URL}/en${subPath}`;
+  const currentUrl = `${SITE_URL}${localizedPath(lang, subPath || "/")}`;
 
   return {
     title: { absolute: fullTitle },
@@ -80,6 +102,7 @@ export function buildMetadata(lang: Lang, page: PageKey): Metadata {
       languages: {
         "vi-VN": viUrl,
         "zh-Hans": zhUrl,
+        en: enUrl,
         "x-default": viUrl,
       },
     },
@@ -88,8 +111,10 @@ export function buildMetadata(lang: Lang, page: PageKey): Metadata {
       description,
       url: currentUrl,
       siteName: "YANG SUPPLY",
-      locale: lang === "zh" ? "zh_CN" : "vi_VN",
-      alternateLocale: lang === "zh" ? ["vi_VN"] : ["zh_CN"],
+      locale: { zh: "zh_CN", vi: "vi_VN", en: "en_US" }[lang],
+      alternateLocale: ["zh_CN", "vi_VN", "en_US"].filter(
+        (locale) => locale !== { zh: "zh_CN", vi: "vi_VN", en: "en_US" }[lang],
+      ),
       type: "website",
       images: [
         {
@@ -118,6 +143,3 @@ export function buildMetadata(lang: Lang, page: PageKey): Metadata {
     },
   };
 }
-
-/** Lightweight sync script without triggering page reloads. */
-export const langBoot = `(function(){try{var s=localStorage.getItem("yang-lang");var p=window.location.pathname;var isZh=p==="/zh"||p.indexOf("/zh/")===0;var lang=isZh?"zh":(s==="zh"||s==="vi"?s:"vi");document.documentElement.lang=isZh?"zh-CN":"vi";document.documentElement.dataset.lang=isZh?"zh":"vi";}catch(e){}})();`;

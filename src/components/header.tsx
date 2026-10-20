@@ -7,32 +7,27 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/language";
 import { Container, Wordmark } from "@/components/ui";
 import type { Lang } from "@/lib/content";
+import { localizedPath } from "@/lib/i18n";
 
 const languages: { id: Lang; label: string; name: string }[] = [
   { id: "zh", label: "中文", name: "中文" },
   { id: "vi", label: "Tiếng Việt", name: "Tiếng Việt" },
+  { id: "en", label: "English", name: "English" },
 ];
 
 function LangSwitch() {
-  const { lang } = useLanguage();
+  const { lang, setLang } = useLanguage();
   const pathname = usePathname();
 
-  function getTargetUrl(targetLang: Lang) {
-    if (targetLang === "zh") {
-      if (pathname === "/zh" || pathname.startsWith("/zh/")) return pathname;
-      return `/zh${pathname === "/" ? "" : pathname}`;
-    } else {
-      if (!pathname.startsWith("/zh")) return pathname;
-      const stripped = pathname.replace(/^\/zh/, "");
-      return stripped || "/";
-    }
-  }
-
   return (
-    <div className="flex items-center gap-2 text-[13px]" role="group" aria-label="Language">
+    <div
+      className="flex items-center gap-2 text-[12px] sm:text-[13px]"
+      role="group"
+      aria-label="Language"
+    >
       {languages.map((item, index) => {
         const active = lang === item.id;
-        const targetHref = getTargetUrl(item.id);
+        const targetHref = localizedPath(item.id, pathname);
         return (
           <span key={item.id} className="flex items-center gap-2">
             {index > 0 ? (
@@ -42,6 +37,18 @@ function LangSwitch() {
             ) : null}
             <Link
               href={targetHref}
+              hrefLang={item.id === "zh" ? "zh-Hans" : item.id}
+              onClick={(event) => {
+                if (
+                  !event.metaKey &&
+                  !event.ctrlKey &&
+                  !event.shiftKey &&
+                  !event.altKey
+                ) {
+                  event.preventDefault();
+                  setLang(item.id);
+                }
+              }}
               aria-current={active ? "page" : undefined}
               aria-label={item.name}
               className={`whitespace-nowrap transition-colors ${active ? "font-medium text-ink" : "text-mute hover:text-ink"}`}
@@ -77,8 +84,11 @@ export function Header() {
   const links = (
     <ul className="flex flex-col">
       {t.nav.map((item) => {
-        const isHome = item.href === "/" || item.href === "/zh";
-        const active = isHome ? pathname === item.href : pathname.startsWith(item.href);
+        const isHome =
+          item.href === "/" || item.href === "/zh" || item.href === "/en";
+        const active = isHome
+          ? pathname === item.href
+          : pathname.startsWith(item.href);
         return (
           <li key={item.href}>
             <Link
@@ -96,44 +106,50 @@ export function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-40 bg-paper">
-      <div className="box-border h-[72px] border-b border-line">
-      <a
-        href="#content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-white"
-      >
-        {t.skip}
-      </a>
-      <Container className="flex h-full items-center justify-between gap-4">
-        <Wordmark />
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
-          {t.nav.map((item) => {
-            const isHome = item.href === "/" || item.href === "/zh";
-        const active = isHome ? pathname === item.href : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={active ? "page" : undefined}
-                className={`link-under py-1 text-[13px] uppercase tracking-[0.1em] hover:text-ink ${active ? "is-active text-ink" : "text-mute"}`}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="flex items-center gap-4">
-          <LangSwitch />
-          <button
-            type="button"
-            className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center text-[13px] uppercase tracking-[0.1em] text-ink md:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            onClick={() => setOpen((value) => !value)}
+      <div className="box-border h-[104px] border-b sm:h-[72px] border-line">
+        <a
+          href="#content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-ink focus:px-3 focus:py-2 focus:text-white"
+        >
+          {t.skip}
+        </a>
+        <Container className="header-inner flex h-full flex-wrap items-center justify-between gap-x-3 gap-y-0 sm:flex-nowrap sm:gap-4">
+          <Wordmark />
+          <nav
+            className="hidden items-center gap-8 lg:flex"
+            aria-label="Primary"
           >
-            {open ? t.close : t.menu}
-          </button>
-        </div>
-      </Container>
+            {t.nav.map((item) => {
+              const isHome =
+                item.href === "/" || item.href === "/zh" || item.href === "/en";
+              const active = isHome
+                ? pathname === item.href
+                : pathname.startsWith(item.href);
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={active ? "page" : undefined}
+                  className={`link-under py-1 text-[13px] uppercase tracking-[0.1em] hover:text-ink ${active ? "is-active text-ink" : "text-mute"}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+          </nav>
+          <div className="header-controls flex items-center gap-3 sm:gap-4">
+            <LangSwitch />
+            <button
+              type="button"
+              className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center text-[13px] uppercase tracking-[0.1em] text-ink lg:hidden"
+              aria-expanded={open}
+              aria-controls="mobile-nav"
+              onClick={() => setOpen((value) => !value)}
+            >
+              {open ? t.close : t.menu}
+            </button>
+          </div>
+        </Container>
       </div>
       <AnimatePresence>
         {open ? (
@@ -142,9 +158,16 @@ export function Header() {
             aria-label="Primary"
             initial={reduce ? false : { height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
-            exit={reduce ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
-            transition={{ duration: reduce ? 0 : 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-b border-line md:hidden"
+            exit={
+              reduce
+                ? { height: "auto", opacity: 1 }
+                : { height: 0, opacity: 0 }
+            }
+            transition={{
+              duration: reduce ? 0 : 0.28,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+            className="overflow-hidden border-b border-line lg:hidden"
           >
             <Container className="py-2">{links}</Container>
           </motion.nav>

@@ -1,6 +1,12 @@
-export type Lang = "zh" | "vi";
+export type Lang = "zh" | "vi" | "en";
 
-export const seriesIds = ["petals", "stickers", "vase", "starfish", "charm"] as const;
+export const seriesIds = [
+  "petals",
+  "stickers",
+  "vase",
+  "starfish",
+  "charm",
+] as const;
 export type SeriesId = (typeof seriesIds)[number];
 
 export const contacts = {
@@ -19,28 +25,30 @@ export type ProductPhoto = {
   height: number;
   zh: string;
   vi: string;
+  en: string;
   /** Keep a low-resolution sample at its own pixel size. */
   small?: boolean;
   /** Taller than wide; keep the full frame instead of cropping. */
   portrait?: boolean;
-  label?: { zh: string; vi: string };
+  label?: Record<Lang, string>;
   /**
    * Visible colour name, or a short non-colour description already in the alt.
    * Shown under the main photo and under that thumbnail. Petals, vase, and
    * starfish only — stickers and charm leave this unset.
    */
-  colour?: { vi: string; zh: string };
+  colour?: Record<Lang, string>;
   /** This photo is one available single colour and may be selected from the list. */
   swatch?: boolean;
 };
 
 export const colourAvailableLabel = {
+  en: "Available colours:",
   vi: "Màu có sẵn:",
   zh: "可选颜色：",
 } as const;
 
 /** In the 9-colour petal spec, with no photograph. Listed as text, not a swatch. */
-export const petalYellow = { vi: "vàng", zh: "黄色" } as const;
+export const petalYellow = { vi: "vàng", zh: "黄色", en: "yellow" } as const;
 
 export const productImage: Record<SeriesId, ProductPhoto[]> = {
   petals: [
@@ -50,7 +58,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "亚克力花瓣多色样品",
       vi: "Mẫu cánh hoa acrylic nhiều màu",
-      colour: { vi: "Nhiều màu", zh: "多色" },
+      en: "Assorted acrylic petal samples",
+      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colours" },
     },
     {
       src: "/products/kich-thuoc-canh-hoa-acrylic.jpg",
@@ -58,7 +67,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1000,
       zh: "亚克力花瓣尺寸样品",
       vi: "Mẫu kích thước cánh hoa acrylic",
-      colour: { vi: "Kích thước", zh: "尺寸" },
+      en: "Acrylic petal dimensions",
+      colour: { vi: "Kích thước", zh: "尺寸", en: "Dimensions" },
     },
     {
       src: "/products/canh-hoa-acrylic-hong.jpg",
@@ -66,7 +76,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1495,
       zh: "粉色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu hồng",
-      colour: { vi: "hồng", zh: "粉色" },
+      en: "Pink acrylic lily petals",
+      colour: { vi: "hồng", zh: "粉色", en: "pink" },
       swatch: true,
     },
     {
@@ -75,7 +86,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "樱花粉亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu hồng anh đào",
-      colour: { vi: "hồng anh đào", zh: "樱花粉" },
+      en: "Cherry blossom pink acrylic lily petals",
+      colour: { vi: "hồng anh đào", zh: "樱花粉", en: "cherry blossom pink" },
       swatch: true,
     },
     {
@@ -84,7 +96,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "红色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu đỏ",
-      colour: { vi: "đỏ", zh: "红色" },
+      en: "Red acrylic lily petals",
+      colour: { vi: "đỏ", zh: "红色", en: "red" },
       swatch: true,
     },
     {
@@ -93,7 +106,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "紫色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu tím",
-      colour: { vi: "tím", zh: "紫色" },
+      en: "Purple acrylic lily petals",
+      colour: { vi: "tím", zh: "紫色", en: "purple" },
       swatch: true,
     },
     {
@@ -102,7 +116,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "蓝色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu xanh dương",
-      colour: { vi: "xanh dương", zh: "蓝色" },
+      en: "Blue acrylic lily petals",
+      colour: { vi: "xanh dương", zh: "蓝色", en: "blue" },
       swatch: true,
     },
     {
@@ -111,7 +126,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "绿色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu xanh lá",
-      colour: { vi: "xanh lá", zh: "绿色" },
+      en: "Green acrylic lily petals",
+      colour: { vi: "xanh lá", zh: "绿色", en: "green" },
       swatch: true,
     },
     {
@@ -120,7 +136,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "透明亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily trong suốt",
-      colour: { vi: "trong suốt", zh: "透明" },
+      en: "Clear acrylic lily petals",
+      colour: { vi: "trong suốt", zh: "透明", en: "clear" },
       swatch: true,
     },
     {
@@ -129,7 +146,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "白色亚克力百合花瓣",
       vi: "Cánh hoa acrylic hình hoa lily màu trắng",
-      colour: { vi: "trắng", zh: "白色" },
+      en: "White acrylic lily petals",
+      colour: { vi: "trắng", zh: "白色", en: "white" },
       swatch: true,
     },
   ],
@@ -140,7 +158,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "大张水钻贴纸，爱心、星星、花朵、圆钻多款",
       vi: "Sticker đính đá cỡ lớn nhiều hình dạng",
-      label: { zh: "大张", vi: "Cỡ lớn" },
+      en: "Large rhinestone sticker sheets in heart, star, flower and round designs",
+      label: { zh: "大张", vi: "Cỡ lớn", en: "Large sheet" },
     },
     {
       src: "/products/sticker-dinh-da-co-lon-hop-qua.jpg",
@@ -148,7 +167,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 800,
       zh: "大张水钻贴纸，贴在礼盒上",
       vi: "Sticker đính đá cỡ lớn trên hộp quà",
-      label: { zh: "大张", vi: "Cỡ lớn" },
+      en: "Large rhinestone stickers on a gift box",
+      label: { zh: "大张", vi: "Cỡ lớn", en: "Large sheet" },
     },
     {
       src: "/products/sticker-dinh-da-co-lon-trai-tim-88.jpg",
@@ -156,7 +176,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "多色爱心水钻贴纸整张，88 颗，三种尺寸",
       vi: "Tấm sticker đính đá hình trái tim nhiều màu, 88 viên, ba cỡ",
-      label: { zh: "大张", vi: "Cỡ lớn" },
+      en: "Assorted heart rhinestone sticker sheet with 88 pieces in three sizes",
+      label: { zh: "大张", vi: "Cỡ lớn", en: "Large sheet" },
     },
     {
       src: "/products/sticker-dinh-da-trai-tim.jpg",
@@ -164,7 +185,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张水钻贴纸，彩色爱心",
       vi: "Sticker đính đá cỡ nhỏ hình tim màu",
-      label: { zh: "小张", vi: "Cỡ nhỏ" },
+      en: "Small rhinestone sticker sheet with colourful hearts",
+      label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
       src: "/products/sticker-dinh-da-co-nho-hoa-mai-nhieu-mau.jpg",
@@ -172,7 +194,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张彩色梅花圆钻水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình hoa mai và hạt tròn nhiều màu",
-      label: { zh: "小张", vi: "Cỡ nhỏ" },
+      en: "Small rhinestone sticker sheet with colourful plum blossoms and round gems",
+      label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
       src: "/products/sticker-dinh-da-co-nho-ngoi-sao-nhieu-mau.jpg",
@@ -180,7 +203,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张彩色星星圆钻水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình ngôi sao và hạt tròn nhiều màu",
-      label: { zh: "小张", vi: "Cỡ nhỏ" },
+      en: "Small rhinestone sticker sheet with colourful stars and round gems",
+      label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
       src: "/products/sticker-dinh-da-co-nho-trai-tim-hong-trang.jpg",
@@ -188,7 +212,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张粉白爱心水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình trái tim màu hồng và trắng",
-      label: { zh: "小张", vi: "Cỡ nhỏ" },
+      en: "Small rhinestone sticker sheet with pink and white hearts",
+      label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
   ],
   vase: [
@@ -198,7 +223,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1307,
       zh: "透明亚克力插花花瓶框，插着粉色小菊花",
       vi: "Khung bình hoa acrylic trong suốt, cắm hoa cúc hồng",
-      colour: { vi: "trong suốt", zh: "透明" },
+      en: "Clear acrylic flower vase frame with pink daisies",
+      colour: { vi: "trong suốt", zh: "透明", en: "clear" },
       swatch: true,
     },
     {
@@ -207,7 +233,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "粉色亚克力插花花瓶框",
       vi: "Khung bình hoa acrylic màu hồng",
-      colour: { vi: "hồng", zh: "粉色" },
+      en: "Pink acrylic flower vase frame",
+      colour: { vi: "hồng", zh: "粉色", en: "pink" },
       swatch: true,
     },
     {
@@ -216,7 +243,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "透明亚克力插花花瓶框（空框）",
       vi: "Khung bình hoa acrylic trong suốt, để trống",
-      colour: { vi: "trong suốt", zh: "透明" },
+      en: "Empty clear acrylic flower vase frame",
+      colour: { vi: "trong suốt", zh: "透明", en: "clear" },
       swatch: true,
     },
     {
@@ -225,7 +253,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "灰色亚克力插花花瓶框（空框）",
       vi: "Khung bình hoa acrylic màu xám, để trống",
-      colour: { vi: "xám", zh: "灰色" },
+      en: "Empty grey acrylic flower vase frame",
+      colour: { vi: "xám", zh: "灰色", en: "grey" },
       swatch: true,
     },
     {
@@ -234,7 +263,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "天蓝色亚克力插花花瓶框（空框）",
       vi: "Khung bình hoa acrylic màu xanh da trời, để trống",
-      colour: { vi: "xanh da trời", zh: "天蓝色" },
+      en: "Empty sky blue acrylic flower vase frame",
+      colour: { vi: "xanh da trời", zh: "天蓝色", en: "sky blue" },
       swatch: true,
     },
   ],
@@ -245,7 +275,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "树脂海星多色样品",
       vi: "Mẫu sao biển resin nhiều màu",
-      colour: { vi: "Nhiều màu", zh: "多色" },
+      en: "Assorted resin starfish samples",
+      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colours" },
     },
     {
       src: "/products/sao-bien-resin-nhieu-mau-2.jpg",
@@ -253,7 +284,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "七只多色树脂海星",
       vi: "Bảy sao biển resin nhiều màu",
-      colour: { vi: "Nhiều màu", zh: "多色" },
+      en: "Seven resin starfish in assorted colours",
+      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colours" },
     },
     {
       src: "/products/sao-bien-resin-trang.jpg",
@@ -261,7 +293,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1220,
       zh: "白色树脂海星",
       vi: "Sao biển resin màu trắng",
-      colour: { vi: "trắng", zh: "白色" },
+      en: "White resin starfish",
+      colour: { vi: "trắng", zh: "白色", en: "white" },
       swatch: true,
     },
     {
@@ -270,7 +303,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1222,
       zh: "象牙色树脂海星",
       vi: "Sao biển resin màu ngà",
-      colour: { vi: "ngà", zh: "象牙色" },
+      en: "Ivory resin starfish",
+      colour: { vi: "ngà", zh: "象牙色", en: "ivory" },
       swatch: true,
     },
     {
@@ -279,7 +313,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1285,
       zh: "粉色树脂海星",
       vi: "Sao biển resin màu hồng",
-      colour: { vi: "hồng", zh: "粉色" },
+      en: "Pink resin starfish",
+      colour: { vi: "hồng", zh: "粉色", en: "pink" },
       swatch: true,
     },
     {
@@ -288,7 +323,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1157,
       zh: "浅紫色树脂海星",
       vi: "Sao biển resin màu tím nhạt",
-      colour: { vi: "tím nhạt", zh: "浅紫色" },
+      en: "Light purple resin starfish",
+      colour: { vi: "tím nhạt", zh: "浅紫色", en: "light purple" },
       swatch: true,
     },
     {
@@ -297,7 +333,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1090,
       zh: "浅蓝色树脂海星",
       vi: "Sao biển resin màu xanh nhạt",
-      colour: { vi: "xanh nhạt", zh: "浅蓝色" },
+      en: "Light blue resin starfish",
+      colour: { vi: "xanh nhạt", zh: "浅蓝色", en: "light blue" },
       swatch: true,
     },
     {
@@ -306,7 +343,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1177,
       zh: "深蓝色树脂海星",
       vi: "Sao biển resin màu xanh navy",
-      colour: { vi: "xanh navy", zh: "深蓝色" },
+      en: "Navy blue resin starfish",
+      colour: { vi: "xanh navy", zh: "深蓝色", en: "navy blue" },
       swatch: true,
     },
   ],
@@ -317,6 +355,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "意大利 Charm 手链成品",
       vi: "Vòng tay charm Ý",
+      en: "Assembled Italian charm bracelet",
     },
     {
       src: "/products/charm-y-men-nhieu-hinh.jpg",
@@ -324,6 +363,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1280,
       zh: "多款图案珐琅意大利 Charm",
       vi: "Charm Ý tráng men nhiều hình",
+      en: "Italian enamel charms in assorted designs",
     },
     {
       src: "/products/charm-y-trai-tim-dinh-da.jpg",
@@ -331,6 +371,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1280,
       zh: "爱心镶钻意大利 Charm",
       vi: "Charm Ý trái tim đính đá",
+      en: "Heart Italian charm with gem embellishments",
     },
     {
       src: "/products/charm-y-giang-sinh.jpg",
@@ -338,6 +379,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1200,
       zh: "圣诞主题意大利 Charm",
       vi: "Charm Ý chủ đề Giáng Sinh",
+      en: "Christmas Italian charms",
     },
     {
       src: "/products/vong-tay-charm-y-giang-sinh.jpg",
@@ -345,6 +387,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1200,
       zh: "圣诞主题意大利 Charm 手链",
       vi: "Vòng tay charm Ý chủ đề Giáng Sinh",
+      en: "Christmas Italian charm bracelet",
     },
     {
       src: "/products/charm-y-giang-sinh-2.jpg",
@@ -352,6 +395,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1200,
       zh: "多款圣诞主题意大利 Charm",
       vi: "Charm Ý chủ đề Giáng Sinh nhiều mẫu",
+      en: "Assorted Christmas Italian charms",
     },
     {
       src: "/products/charm-y-da-zircon.jpg",
@@ -359,6 +403,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1200,
       zh: "锆石意大利 Charm",
       vi: "Charm Ý đính đá zircon",
+      en: "Italian charms with zircon stones",
     },
     {
       src: "/products/charm-y-da-zircon-2.jpg",
@@ -366,6 +411,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "多款锆石意大利 Charm",
       vi: "Charm Ý đính đá zircon nhiều mẫu",
+      en: "Assorted Italian charms with zircon stones",
     },
   ],
 };
@@ -376,9 +422,34 @@ export const series: {
   id: SeriesId;
   zh: { name: string; summary: string; detail: string; specs: SeriesSpec[] };
   vi: { name: string; summary: string; detail: string; specs: SeriesSpec[] };
+  en: { name: string; summary: string; detail: string; specs: SeriesSpec[] };
 }[] = [
   {
     id: "petals",
+    en: {
+      name: "Acrylic Petals",
+      summary: "Lily-shaped petals, 45 × 40 mm, in 9 colours.",
+      detail: "Transparent petals for crafts and classes.",
+      specs: [
+        {
+          label: "Shape",
+          value: "Transparent lily petal",
+        },
+        {
+          label: "Size",
+          value: "45 × 40 mm",
+        },
+        {
+          label: "Colours",
+          value:
+            "9 colours: red, pink, cherry blossom pink, purple, blue, green, yellow, clear and white",
+        },
+        {
+          label: "Use",
+          value: "Crafts and classes",
+        },
+      ],
+    },
     zh: {
       name: "亚克力花瓣",
       summary: "百合花瓣形，45×40mm，9 种颜色。",
@@ -386,7 +457,10 @@ export const series: {
       specs: [
         { label: "造型", value: "透明百合花瓣形" },
         { label: "尺寸", value: "45×40mm" },
-        { label: "颜色", value: "9 种颜色（红、粉、樱花粉、紫、蓝、绿、黄、透明、白）" },
+        {
+          label: "颜色",
+          value: "9 种颜色（红、粉、樱花粉、紫、蓝、绿、黄、透明、白）",
+        },
         { label: "用途", value: "手作与课程" },
       ],
     },
@@ -397,13 +471,39 @@ export const series: {
       specs: [
         { label: "Kiểu dáng", value: "Hình cánh hoa lily trong" },
         { label: "Kích thước", value: "45×40mm" },
-        { label: "Màu sắc", value: "9 màu (đỏ, hồng, hồng anh đào, tím, xanh dương, xanh lá, vàng, trong suốt, trắng)" },
+        {
+          label: "Màu sắc",
+          value:
+            "9 màu (đỏ, hồng, hồng anh đào, tím, xanh dương, xanh lá, vàng, trong suốt, trắng)",
+        },
         { label: "Ứng dụng", value: "Thủ công và học liệu" },
       ],
     },
   },
   {
     id: "stickers",
+    en: {
+      name: "Rhinestone Stickers",
+      summary:
+        "Large sheets: 7.5 × 13 cm. Small-sheet dimensions are not listed. Assorted designs, supplied by the sheet.",
+      detail: "Designs are subject to the samples confirmed when you enquire.",
+      specs: [
+        {
+          label: "Size",
+          value:
+            "Large sheets: 7.5 × 13 cm; small-sheet dimensions are not listed",
+        },
+        {
+          label: "Designs",
+          value:
+            "Assorted designs, subject to the samples confirmed when you enquire",
+        },
+        {
+          label: "Supply unit",
+          value: "Per sheet",
+        },
+      ],
+    },
     zh: {
       name: "水钻贴纸",
       summary: "大张 7.5×13cm，小张不标尺寸。多种图案，按张供应。",
@@ -416,17 +516,44 @@ export const series: {
     },
     vi: {
       name: "Sticker đính đá",
-      summary: "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước. Nhiều họa tiết, bán theo tờ.",
+      summary:
+        "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước. Nhiều họa tiết, bán theo tờ.",
       detail: "Họa tiết chốt theo mẫu khi trao đổi.",
       specs: [
-        { label: "Quy cách", value: "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước" },
-        { label: "Họa tiết", value: "Nhiều họa tiết (chốt theo mẫu khi trao đổi)" },
+        {
+          label: "Quy cách",
+          value: "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước",
+        },
+        {
+          label: "Họa tiết",
+          value: "Nhiều họa tiết (chốt theo mẫu khi trao đổi)",
+        },
         { label: "Đơn vị", value: "Bán theo tờ" },
       ],
     },
   },
   {
     id: "vase",
+    en: {
+      name: "Acrylic Flower Vase Frames",
+      summary: "For flower arrangements. 18 × 15 cm.",
+      detail:
+        "Available in grey, sky blue, pink and clear. Suitable for flower arrangements and in-store displays.",
+      specs: [
+        {
+          label: "Size",
+          value: "18 × 15 cm",
+        },
+        {
+          label: "Colours",
+          value: "Grey, sky blue, pink and clear",
+        },
+        {
+          label: "Use",
+          value: "Flower arrangements and in-store displays; not photo frames",
+        },
+      ],
+    },
     zh: {
       name: "亚克力插花花瓶框",
       summary: "用来插花，不是照片相框。18×15cm。",
@@ -440,16 +567,39 @@ export const series: {
     vi: {
       name: "Khung bình hoa acrylic",
       summary: "Dùng để cắm hoa, không phải khung ảnh. 18×15cm.",
-      detail: "Màu xám, xanh da trời, hồng và trong suốt. Phù hợp cắm hoa và trưng bày.",
+      detail:
+        "Màu xám, xanh da trời, hồng và trong suốt. Phù hợp cắm hoa và trưng bày.",
       specs: [
         { label: "Kích thước", value: "18×15cm" },
         { label: "Màu sắc", value: "Xám, xanh da trời, hồng, trong suốt" },
-        { label: "Công dụng", value: "Cắm hoa và trưng bày (không phải khung ảnh)" },
+        {
+          label: "Công dụng",
+          value: "Cắm hoa và trưng bày (không phải khung ảnh)",
+        },
       ],
     },
   },
   {
     id: "starfish",
+    en: {
+      name: "Resin Starfish",
+      summary: "Decorative pieces with no holes. Large: 5 cm; small: 2.6 cm.",
+      detail: "Available in assorted colours.",
+      specs: [
+        {
+          label: "Size",
+          value: "Large: 5 cm; small: 2.6 cm. No holes.",
+        },
+        {
+          label: "Colours",
+          value: "Pink, ivory, light purple, white, light blue and navy blue",
+        },
+        {
+          label: "Use",
+          value: "Decoration and display",
+        },
+      ],
+    },
     zh: {
       name: "树脂海星",
       summary: "摆件。大号 5cm，小号 2.6cm，无孔。",
@@ -466,13 +616,36 @@ export const series: {
       detail: "Nhiều màu.",
       specs: [
         { label: "Kích thước", value: "Cỡ lớn 5cm, cỡ nhỏ 2,6cm (không lỗ)" },
-        { label: "Màu sắc", value: "Nhiều màu (hồng, màu ngà, tím nhạt, trắng, xanh nhạt, xanh navy)" },
+        {
+          label: "Màu sắc",
+          value:
+            "Nhiều màu (hồng, màu ngà, tím nhạt, trắng, xanh nhạt, xanh navy)",
+        },
         { label: "Công dụng", value: "Đồ trưng bày" },
       ],
     },
   },
   {
     id: "charm",
+    en: {
+      name: "Italian Charm Bracelets",
+      summary:
+        "Modular bracelets, quoted individually according to your selected designs.",
+      detail:
+        "A full design catalogue is not listed on this website. Send the designs you would like for a quote.",
+      specs: [
+        {
+          label: "Type",
+          value:
+            "Modular bracelets and charms: enamel, zircon and Christmas designs",
+        },
+        {
+          label: "Quotation",
+          value:
+            "Quoted individually by selected design; send your preferred designs to enquire",
+        },
+      ],
+    },
     zh: {
       name: "意大利 Charm 手链",
       summary: "模块化手链，按所选款式单独报价。",
@@ -485,10 +658,18 @@ export const series: {
     vi: {
       name: "Vòng tay charm Ý",
       summary: "Vòng charm Ý ghép theo mẫu, báo giá theo mẫu bạn chọn.",
-      detail: "Website không đăng bảng danh mục. Gửi họa tiết bạn muốn để hỏi giá.",
+      detail:
+        "Website không đăng bảng danh mục. Gửi họa tiết bạn muốn để hỏi giá.",
       specs: [
-        { label: "Loại", value: "Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh)" },
-        { label: "Báo giá", value: "Báo giá riêng theo mẫu chọn (gửi họa tiết để hỏi giá)" },
+        {
+          label: "Loại",
+          value:
+            "Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh)",
+        },
+        {
+          label: "Báo giá",
+          value: "Báo giá riêng theo mẫu chọn (gửi họa tiết để hỏi giá)",
+        },
       ],
     },
   },
@@ -555,6 +736,153 @@ export type Copy = {
 };
 
 export const dictionary: Record<Lang, Copy> = {
+  en: {
+    skip: "Skip to content",
+    menu: "Menu",
+    close: "Close",
+    copied: "Copied",
+    copy: "Copy",
+    zaloAdd: "Add on Zalo",
+    inquiry: "Get a Quote",
+    nav: [
+      { href: "/en", label: "Home" },
+      { href: "/en/products", label: "Products" },
+      { href: "/en/cooperation", label: "Ordering" },
+      { href: "/en/contact", label: "Contact" },
+    ],
+    home: {
+      title: ["DIY Materials from China", "Delivered to Vietnam"],
+      lead: "Yang Supply is a DIY materials supplier. We sell our product range to craft workshops, shops and schools in Vietnam. We quote product unit prices with shipping charged separately, and take responsibility for product quality.",
+      seeProcess: "How to Order",
+      seeProducts: "View Products",
+      noteCaption: "Quoted per order. Contact us for a quote.",
+      rows: [
+        { label: "From — to", value: "China → Vietnam" },
+        { label: "Our role", value: "DIY materials supplier" },
+        { label: "Deposit / on receipt", value: "80 / 20", note: true },
+        { label: "Product quality", value: "Our responsibility" },
+      ],
+      valuesTitle: "What We Provide",
+      values: [
+        {
+          title: "Product supply",
+          body: "We supply the product lines, specifications and quantities you need.",
+        },
+        {
+          title: "Quotes and shipping",
+          body: "We quote product unit prices with shipping charged separately. You can use your own freight forwarder, or we can arrange shipping from China to Vietnam.",
+        },
+        {
+          title: "Quality commitment",
+          body: "We take responsibility for product quality. Our long-term factory partners support our supply and quality.",
+        },
+      ],
+      audienceTitle: "Who We Supply",
+      audienceBody: "We supply craft workshops, shops and schools in Vietnam.",
+      audience: ["Craft workshops", "Shops", "Schools"],
+      seriesTitle: "Our Product Range",
+      seriesLead: "Five product lines from our range.",
+      processTitle: "Ordering",
+      processLead:
+        "Once specifications and quantities are confirmed, we quote product unit prices. You can then decide whether to place an order.",
+      steps: [
+        "Enquire",
+        "Confirm specifications and quantities",
+        "Receive a quote",
+        "Place your order with an 80% deposit",
+        "Shipping",
+        "Pay the remaining 20% on receipt",
+      ],
+      ctaTitle: "Send Your Specifications and Quantities on Zalo",
+      ctaBody: "Use this number for enquiries, quotes and order updates.",
+    },
+    products: {
+      kicker: "02",
+      title: "Products",
+      lead: "Five product lines from our range. Prices are not listed on this website. Contact us for a quote.",
+    },
+    cooperation: {
+      kicker: "03",
+      title: "Ordering",
+      lead: "We sell our product range directly. Once specifications and quantities are confirmed, we quote product unit prices with shipping charged separately. We take responsibility for product quality.",
+      steps: [
+        {
+          title: "Enquire",
+          body: "Tell us which product line and specifications you need.",
+        },
+        {
+          title: "Confirm Specifications and Quantities",
+          body: "Colours, sizes and quantities are confirmed when we discuss your order.",
+        },
+        {
+          title: "Receive a Quote",
+          body: "We quote product unit prices with shipping charged separately. Prices are not listed on this website.",
+        },
+        {
+          title: "Place Your Order",
+          body: "Once confirmed, pay by local bank transfer in Vietnam. An 80% deposit of the order total is required, with the remaining 20% payable on receipt of the goods.",
+        },
+        {
+          title: "Shipping",
+          body: "You can use your own freight forwarder, or we can arrange shipping from China to Vietnam. When we arrange shipping, the shipping charge includes customs clearance and import duties. If you use your own freight forwarder, our delivery obligation is fulfilled when we hand the goods over to your forwarder.",
+        },
+        {
+          title: "Pay the Balance",
+          body: "Pay the remaining 20% on receipt of the goods.",
+        },
+      ],
+      qualityTitle: "Quality",
+      qualityFigure: "Our Responsibility",
+      qualityBody:
+        "We take responsibility for product supply and quality, supported by our long-term factory partners.",
+      payTitle: "Payment",
+      payFigure: "80 / 20",
+      payBody:
+        "Pay by local bank transfer in Vietnam: 80% of the order total as a deposit and 20% on receipt. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+      notesTitle: "Quotation Terms",
+      notes: [
+        "Quotes are valid for 7 days.",
+        "You can mix colours and designs. Minimum order quantities apply separately to each design and each colour.",
+        "Samples are charged at the unit price in the relevant quote.",
+        "For orders shipped by us, report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
+      ],
+      faqTitle: "FAQs",
+      faq: [
+        {
+          q: "Does shipping include customs clearance and import duties?",
+          a: "Yes. When we arrange shipping, the shipping charge includes customs clearance and import duties.",
+        },
+        {
+          q: "Can I use my own freight forwarder?",
+          a: "Yes. Our delivery obligation is fulfilled when we hand the goods over to your freight forwarder.",
+        },
+        {
+          q: "How much is the deposit?",
+          a: "80% of the order total, with the remaining 20% payable on receipt. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+        },
+      ],
+    },
+    contact: {
+      kicker: "04",
+      title: "Contact",
+      lead: "Add us on Zalo for enquiries, quotes and order updates. You can contact us in English.",
+      zaloRole: "Zalo",
+      emailRole: "Sales Email",
+      addressLabel: "Location",
+      address: "Shenzhen, China",
+    },
+    footer: { line: "DIY materials supplier.", address: "Shenzhen, China" },
+    notFound: {
+      title: "Page Not Found",
+      body: "Return to the home page to explore our products or learn how to order.",
+      back: "Back to Home",
+    },
+    error: {
+      title: "Page Could Not Load",
+      body: "Please try again.",
+      retry: "Try Again",
+    },
+  },
   zh: {
     skip: "跳到内容",
     menu: "菜单",
@@ -584,8 +912,14 @@ export const dictionary: Record<Lang, Copy> = {
       valuesTitle: "三件事",
       values: [
         { title: "选品供货", body: "按您要的系列、规格和数量供货。" },
-        { title: "报价与运输", body: "报产品单价，运费另计。可以用您自己的货代，也可以由我们安排从中国运到越南。" },
-        { title: "质量约定", body: "质量由我们负责。长期合作的工厂支撑供货和品质。" },
+        {
+          title: "报价与运输",
+          body: "报产品单价，运费另计。可以用您自己的货代，也可以由我们安排从中国运到越南。",
+        },
+        {
+          title: "质量约定",
+          body: "质量由我们负责。长期合作的工厂支撑供货和品质。",
+        },
       ],
       audienceTitle: "给谁供货",
       audienceBody: "面向越南的手作工坊、店铺和学校。",
@@ -594,7 +928,14 @@ export const dictionary: Record<Lang, Copy> = {
       seriesLead: "五组自有系列。",
       processTitle: "合作步骤",
       processLead: "确认规格和数量后，报产品单价，再决定是否下单。",
-      steps: ["询价", "确认规格与数量", "报价", "下单（定金 80%）", "运输", "货到付 20%"],
+      steps: [
+        "询价",
+        "确认规格与数量",
+        "报价",
+        "下单（定金 80%）",
+        "运输",
+        "货到付 20%",
+      ],
       ctaTitle: "把规格和数量发到 Zalo",
       ctaBody: "询价、报价和跟单，加这一个号。",
     },
@@ -729,12 +1070,14 @@ export const dictionary: Record<Lang, Copy> = {
         },
       ],
       audienceTitle: "Phục vụ ai",
-      audienceBody: "Dành cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
+      audienceBody:
+        "Dành cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
       audience: ["Xưởng DIY", "Cửa hàng", "Trường học"],
       seriesTitle: "Sản phẩm",
       seriesLead: "Năm dòng sản phẩm của chúng tôi.",
       processTitle: "Các bước hợp tác",
-      processLead: "Sau khi chốt quy cách và số lượng, nhận báo giá sản phẩm, rồi mới quyết định đặt.",
+      processLead:
+        "Sau khi chốt quy cách và số lượng, nhận báo giá sản phẩm, rồi mới quyết định đặt.",
       steps: [
         "Hỏi giá",
         "Xác nhận quy cách và số lượng",

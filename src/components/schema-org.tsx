@@ -1,4 +1,11 @@
-import { contacts, series, productImage, type Lang } from "@/lib/content";
+import {
+  contacts,
+  series,
+  productImage,
+  dictionary,
+  type Lang,
+} from "@/lib/content";
+import { localizedPath } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/seo";
 
 export function OrganizationSchema() {
@@ -29,7 +36,7 @@ export function OrganizationSchema() {
             email: contacts.emails[0],
             contactType: "sales",
             areaServed: "VN",
-            availableLanguage: ["vi", "zh"],
+            availableLanguage: ["vi", "zh", "en"],
           },
         ],
       },
@@ -57,7 +64,7 @@ export function OrganizationSchema() {
         publisher: {
           "@id": `${SITE_URL}/#organization`,
         },
-        inLanguage: ["vi", "zh-Hans"],
+        inLanguage: ["vi", "zh-Hans", "en"],
       },
     ],
   };
@@ -71,14 +78,18 @@ export function OrganizationSchema() {
 }
 
 export function ProductsListSchema({ lang }: { lang: Lang }) {
-  const pageUrl = `${SITE_URL}${lang === "zh" ? "/zh/products" : "/products"}`;
-  const homeUrl = `${SITE_URL}${lang === "zh" ? "/zh" : "/"}`;
+  const pageUrl = `${SITE_URL}${localizedPath(lang, "/products")}`;
+  const homeUrl = `${SITE_URL}${localizedPath(lang)}`;
 
   const items = series.map((item, index) => {
     const text = item[lang];
     const photos = productImage[item.id] || [];
-    const firstPhoto = photos[0]?.src ? `${SITE_URL}${photos[0].src}` : undefined;
-    const specsSummary = text.specs.map((s) => `${s.label}: ${s.value}`).join(" | ");
+    const firstPhoto = photos[0]?.src
+      ? `${SITE_URL}${photos[0].src}`
+      : undefined;
+    const specsSummary = text.specs
+      .map((s) => `${s.label}: ${s.value}`)
+      .join(" | ");
 
     return {
       "@type": "ListItem",
@@ -97,17 +108,17 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
         "@type": "CollectionPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: lang === "zh" ? "YANG SUPPLY 批发产品系列" : "Danh mục sản phẩm sỉ YANG SUPPLY",
+        name: `${dictionary[lang].products.title} · YANG SUPPLY`,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         about: {
           "@id": `${SITE_URL}/#organization`,
         },
-        inLanguage: lang === "zh" ? "zh-Hans" : "vi",
+        inLanguage: lang === "zh" ? "zh-Hans" : lang,
         mainEntity: {
           "@type": "ItemList",
-          name: lang === "zh" ? "YANG SUPPLY 批发产品系列" : "Danh mục sản phẩm sỉ YANG SUPPLY",
+          name: `${dictionary[lang].products.title} · YANG SUPPLY`,
           numberOfItems: items.length,
           itemListElement: items,
         },
@@ -115,18 +126,18 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        name: lang === "zh" ? "产品 · YANG SUPPLY" : "Sản phẩm · YANG SUPPLY",
+        name: `${dictionary[lang].products.title} · YANG SUPPLY`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: lang === "zh" ? "首页" : "Trang chủ",
+            name: dictionary[lang].nav[0].label,
             item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: lang === "zh" ? "产品" : "Sản phẩm",
+            name: dictionary[lang].products.title,
             item: pageUrl,
           },
         ],
@@ -143,8 +154,8 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
 }
 
 export function CooperationPageSchema({ lang }: { lang: Lang }) {
-  const pageUrl = `${SITE_URL}${lang === "zh" ? "/zh/cooperation" : "/cooperation"}`;
-  const homeUrl = `${SITE_URL}${lang === "zh" ? "/zh" : "/"}`;
+  const pageUrl = `${SITE_URL}${localizedPath(lang, "/cooperation")}`;
+  const homeUrl = `${SITE_URL}${localizedPath(lang)}`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -153,30 +164,30 @@ export function CooperationPageSchema({ lang }: { lang: Lang }) {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: lang === "zh" ? "合作流程 · YANG SUPPLY" : "Hợp tác · YANG SUPPLY",
+        name: `${dictionary[lang].cooperation.title} · YANG SUPPLY`,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         about: {
           "@id": `${SITE_URL}/#service`,
         },
-        inLanguage: lang === "zh" ? "zh-Hans" : "vi",
+        inLanguage: lang === "zh" ? "zh-Hans" : lang,
       },
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        name: lang === "zh" ? "合作 · YANG SUPPLY" : "Hợp tác · YANG SUPPLY",
+        name: `${dictionary[lang].cooperation.title} · YANG SUPPLY`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: lang === "zh" ? "首页" : "Trang chủ",
+            name: dictionary[lang].nav[0].label,
             item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: lang === "zh" ? "合作" : "Hợp tác",
+            name: dictionary[lang].cooperation.title,
             item: pageUrl,
           },
         ],
@@ -193,8 +204,8 @@ export function CooperationPageSchema({ lang }: { lang: Lang }) {
 }
 
 export function ContactPageSchema({ lang }: { lang: Lang }) {
-  const pageUrl = `${SITE_URL}${lang === "zh" ? "/zh/contact" : "/contact"}`;
-  const homeUrl = `${SITE_URL}${lang === "zh" ? "/zh" : "/"}`;
+  const pageUrl = `${SITE_URL}${localizedPath(lang, "/contact")}`;
+  const homeUrl = `${SITE_URL}${localizedPath(lang)}`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -203,30 +214,30 @@ export function ContactPageSchema({ lang }: { lang: Lang }) {
         "@type": "ContactPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: lang === "zh" ? "联系询价 · YANG SUPPLY" : "Liên hệ · YANG SUPPLY",
+        name: `${dictionary[lang].contact.title} · YANG SUPPLY`,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         mainEntity: {
           "@id": `${SITE_URL}/#organization`,
         },
-        inLanguage: lang === "zh" ? "zh-Hans" : "vi",
+        inLanguage: lang === "zh" ? "zh-Hans" : lang,
       },
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        name: lang === "zh" ? "联系 · YANG SUPPLY" : "Liên hệ · YANG SUPPLY",
+        name: `${dictionary[lang].contact.title} · YANG SUPPLY`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: lang === "zh" ? "首页" : "Trang chủ",
+            name: dictionary[lang].nav[0].label,
             item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: lang === "zh" ? "联系" : "Liên hệ",
+            name: dictionary[lang].contact.title,
             item: pageUrl,
           },
         ],
