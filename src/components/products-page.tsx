@@ -21,6 +21,14 @@ export function ProductsPage() {
               <h2 className="heading-2 mt-4 max-w-[20ch]">{text.name}</h2>
               <p className="mt-6 max-w-[60ch]">{text.summary}</p>
               <p className="mt-3 max-w-[60ch] text-[14px] text-mute">{text.detail}</p>
+              <dl className="mt-6 grid max-w-[65ch] grid-cols-1 gap-y-2 border-t border-line pt-4 text-[14px] sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-x-6">
+                {text.specs.map((spec) => (
+                  <div key={spec.label} className="contents">
+                    <dt className="text-mute">{spec.label}</dt>
+                    <dd className="text-ink">{spec.value}</dd>
+                  </div>
+                ))}
+              </dl>
               <div className="mt-10 md:mt-12">
                 <ProductArt id={item.id} />
               </div>

@@ -370,10 +370,12 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
   ],
 };
 
+export type SeriesSpec = { label: string; value: string };
+
 export const series: {
   id: SeriesId;
-  zh: { name: string; summary: string; detail: string };
-  vi: { name: string; summary: string; detail: string };
+  zh: { name: string; summary: string; detail: string; specs: SeriesSpec[] };
+  vi: { name: string; summary: string; detail: string; specs: SeriesSpec[] };
 }[] = [
   {
     id: "petals",
@@ -381,11 +383,23 @@ export const series: {
       name: "亚克力花瓣",
       summary: "百合花瓣形，45×40mm，9 种颜色。",
       detail: "透明花片，用于手作和课程。",
+      specs: [
+        { label: "造型", value: "透明百合花瓣形" },
+        { label: "尺寸", value: "45×40mm" },
+        { label: "颜色", value: "9 种颜色（红、粉、樱花粉、紫、蓝、绿、黄、透明、白）" },
+        { label: "用途", value: "手作与课程" },
+      ],
     },
     vi: {
       name: "Cánh hoa acrylic",
       summary: "Hình cánh hoa lily, 45×40mm, 9 màu.",
       detail: "Cánh hoa trong, dùng cho thủ công và học liệu.",
+      specs: [
+        { label: "Kiểu dáng", value: "Hình cánh hoa lily trong" },
+        { label: "Kích thước", value: "45×40mm" },
+        { label: "Màu sắc", value: "9 màu (đỏ, hồng, hồng anh đào, tím, xanh dương, xanh lá, vàng, trong suốt, trắng)" },
+        { label: "Ứng dụng", value: "Thủ công và học liệu" },
+      ],
     },
   },
   {
@@ -394,11 +408,21 @@ export const series: {
       name: "水钻贴纸",
       summary: "大张 7.5×13cm，小张不标尺寸。多种图案，按张供应。",
       detail: "具体图案以沟通时确认的样品为准。",
+      specs: [
+        { label: "规格", value: "大张 7.5×13cm；小张不标尺寸" },
+        { label: "款式", value: "多种图案（以沟通时确认的样品为准）" },
+        { label: "供应方式", value: "按张供应" },
+      ],
     },
     vi: {
       name: "Sticker đính đá",
       summary: "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước. Nhiều họa tiết, bán theo tờ.",
       detail: "Họa tiết chốt theo mẫu khi trao đổi.",
+      specs: [
+        { label: "Quy cách", value: "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước" },
+        { label: "Họa tiết", value: "Nhiều họa tiết (chốt theo mẫu khi trao đổi)" },
+        { label: "Đơn vị", value: "Bán theo tờ" },
+      ],
     },
   },
   {
@@ -407,11 +431,21 @@ export const series: {
       name: "亚克力插花花瓶框",
       summary: "用来插花，不是照片相框。18×15cm。",
       detail: "颜色有灰、天蓝、粉、透明。适合花艺和店内陈列。",
+      specs: [
+        { label: "尺寸", value: "18×15cm" },
+        { label: "颜色", value: "灰、天蓝、粉、透明" },
+        { label: "用途", value: "插花与店内陈列（非照片相框）" },
+      ],
     },
     vi: {
       name: "Khung bình hoa acrylic",
       summary: "Dùng để cắm hoa, không phải khung ảnh. 18×15cm.",
       detail: "Màu xám, xanh da trời, hồng và trong suốt. Phù hợp cắm hoa và trưng bày.",
+      specs: [
+        { label: "Kích thước", value: "18×15cm" },
+        { label: "Màu sắc", value: "Xám, xanh da trời, hồng, trong suốt" },
+        { label: "Công dụng", value: "Cắm hoa và trưng bày (không phải khung ảnh)" },
+      ],
     },
   },
   {
@@ -420,11 +454,21 @@ export const series: {
       name: "树脂海星",
       summary: "摆件。大号 5cm，小号 2.6cm，无孔。",
       detail: "多色。",
+      specs: [
+        { label: "尺寸", value: "大号 5cm，小号 2.6cm（无孔）" },
+        { label: "颜色", value: "多色（粉、象牙白、浅紫、白、浅蓝、深蓝）" },
+        { label: "用途", value: "摆件与陈列" },
+      ],
     },
     vi: {
       name: "Sao biển resin",
       summary: "Đồ trưng bày. Cỡ lớn 5cm, cỡ nhỏ 2,6cm, không lỗ.",
       detail: "Nhiều màu.",
+      specs: [
+        { label: "Kích thước", value: "Cỡ lớn 5cm, cỡ nhỏ 2,6cm (không lỗ)" },
+        { label: "Màu sắc", value: "Nhiều màu (hồng, màu ngà, tím nhạt, trắng, xanh nhạt, xanh navy)" },
+        { label: "Công dụng", value: "Đồ trưng bày" },
+      ],
     },
   },
   {
@@ -433,11 +477,19 @@ export const series: {
       name: "意大利 Charm 手链",
       summary: "模块化手链，按所选款式单独报价。",
       detail: "本站不列款式目录。把想要的图案发来即可询价。",
+      specs: [
+        { label: "类型", value: "模块化手链与配件（珐琅、锆石、圣诞主题）" },
+        { label: "报价方式", value: "按所选款式单独报价（发图案询价）" },
+      ],
     },
     vi: {
       name: "Vòng tay charm Ý",
       summary: "Vòng charm Ý ghép theo mẫu, báo giá theo mẫu bạn chọn.",
       detail: "Website không đăng bảng danh mục. Gửi họa tiết bạn muốn để hỏi giá.",
+      specs: [
+        { label: "Loại", value: "Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh)" },
+        { label: "Báo giá", value: "Báo giá riêng theo mẫu chọn (gửi họa tiết để hỏi giá)" },
+      ],
     },
   },
 ];
