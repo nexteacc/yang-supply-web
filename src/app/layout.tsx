@@ -4,8 +4,8 @@ import Script from "next/script";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { LanguageProvider } from "@/components/language";
-import { blockSearchIndexing, previewRobots } from "@/lib/preview-indexing";
-import { langBoot, pageMeta, requestLang } from "@/lib/seo";
+import { OrganizationSchema } from "@/components/schema-org";
+import { SITE_URL, langBoot } from "@/lib/seo";
 import "./globals.css";
 
 const viet = Be_Vietnam_Pro({
@@ -24,42 +24,32 @@ const cjk = Noto_Sans_SC({
   fallback: ["PingFang SC", "Microsoft YaHei", "sans-serif"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const lang = await requestLang();
-  const home = pageMeta.home[lang];
-  return {
-    title: {
-      default: "YANG SUPPLY",
-      template: "%s · YANG SUPPLY",
-    },
-    description: home.description,
-    openGraph: {
-      title: `${home.title} · YANG SUPPLY`,
-      description: home.description,
-      siteName: "YANG SUPPLY",
-      locale: lang === "zh" ? "zh_CN" : "vi_VN",
-      alternateLocale: lang === "zh" ? ["vi_VN"] : ["zh_CN"],
-      type: "website",
-    },
-    // PREVIEW ONLY — remove with src/lib/preview-indexing.ts at official launch.
-    ...(blockSearchIndexing ? { robots: previewRobots } : {}),
-  };
-}
+export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "YANG SUPPLY",
+    template: "%s · YANG SUPPLY",
+  },
+  icons: {
+    icon: "/icon.svg",
+  },
+};
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const lang = await requestLang();
-
   return (
-    <html lang={lang === "zh" ? "zh-CN" : "vi"} data-lang={lang} suppressHydrationWarning>
+    <html lang="vi" data-lang="vi" suppressHydrationWarning>
+      <head>
+        <OrganizationSchema />
+      </head>
       <body className={`${viet.variable} ${cjk.variable} flex min-h-screen flex-col bg-paper text-ink antialiased`}>
         <Script id="yang-lang-boot" strategy="beforeInteractive">
           {langBoot}
         </Script>
-        <LanguageProvider initialLang={lang}>
+        <LanguageProvider initialLang="vi">
           <Header />
           <div id="content" className="flex-1 pt-[72px]">
             {children}

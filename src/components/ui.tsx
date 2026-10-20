@@ -17,9 +17,10 @@ export function Container({
 }
 
 export function Wordmark({ className = "" }: { className?: string }) {
+  const { lang } = useLanguage();
   return (
     <Link
-      href="/"
+      href={lang === "zh" ? "/zh" : "/"}
       className={`inline-block shrink-0 whitespace-nowrap text-[16px] font-bold uppercase leading-none tracking-[0.14em] text-ink md:text-[22px] ${className}`}
     >
       Yang Supply

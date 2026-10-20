@@ -48,7 +48,7 @@ export function HomePage() {
             <p className="max-w-[60ch]">{home.lead}</p>
             <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
               <ZaloButton />
-              <TextLink href="/cooperation">{home.seeProcess}</TextLink>
+              <TextLink href={lang === "zh" ? "/zh/cooperation" : "/cooperation"}>{home.seeProcess}</TextLink>
             </div>
             <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
               {home.rows.map((row) => (
@@ -96,7 +96,7 @@ export function HomePage() {
                 <h2 className="heading-2">{home.seriesTitle}</h2>
                 <p className="mt-6 max-w-[60ch] text-mute">{home.seriesLead}</p>
               </div>
-              <TextLink href="/products">{home.seeProducts}</TextLink>
+              <TextLink href={lang === "zh" ? "/zh/products" : "/products"}>{home.seeProducts}</TextLink>
             </div>
             <ul className="mt-12 flex flex-col gap-16 md:mt-16 md:gap-20">
               {series.map((item, index) => {
@@ -105,7 +105,10 @@ export function HomePage() {
                 if (!photo) return null;
                 return (
                   <li key={item.id}>
-                    <Link href={`/products#${item.id}`} className="group grid grid-cols-12 items-center gap-6">
+                    <Link
+                      href={lang === "zh" ? `/zh/products#${item.id}` : `/products#${item.id}`}
+                      className="group grid grid-cols-12 items-center gap-6"
+                    >
                       <SquareThumb
                         src={photo.src}
                         alt={photo[lang]}
@@ -135,7 +138,7 @@ export function HomePage() {
                 </li>
               ))}
             </ol>
-            <TextLink href="/cooperation" className="mt-10 inline-block">
+            <TextLink href={lang === "zh" ? "/zh/cooperation" : "/cooperation"} className="mt-10 inline-block">
               {home.seeProcess}
             </TextLink>
           </div>

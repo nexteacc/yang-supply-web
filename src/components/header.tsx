@@ -14,11 +14,25 @@ const languages: { id: Lang; label: string; name: string }[] = [
 ];
 
 function LangSwitch() {
-  const { lang, setLang } = useLanguage();
+  const { lang } = useLanguage();
+  const pathname = usePathname();
+
+  function getTargetUrl(targetLang: Lang) {
+    if (targetLang === "zh") {
+      if (pathname === "/zh" || pathname.startsWith("/zh/")) return pathname;
+      return `/zh${pathname === "/" ? "" : pathname}`;
+    } else {
+      if (!pathname.startsWith("/zh")) return pathname;
+      const stripped = pathname.replace(/^\/zh/, "");
+      return stripped || "/";
+    }
+  }
+
   return (
     <div className="flex items-center gap-2 text-[13px]" role="group" aria-label="Language">
       {languages.map((item, index) => {
         const active = lang === item.id;
+        const targetHref = getTargetUrl(item.id);
         return (
           <span key={item.id} className="flex items-center gap-2">
             {index > 0 ? (
@@ -26,15 +40,14 @@ function LangSwitch() {
                 /
               </span>
             ) : null}
-            <button
-              type="button"
-              onClick={() => setLang(item.id)}
-              aria-pressed={active}
+            <Link
+              href={targetHref}
+              aria-current={active ? "page" : undefined}
               aria-label={item.name}
-              className={`cursor-pointer whitespace-nowrap ${active ? "text-ink" : "text-mute hover:text-ink"}`}
+              className={`whitespace-nowrap transition-colors ${active ? "font-medium text-ink" : "text-mute hover:text-ink"}`}
             >
               {item.label}
-            </button>
+            </Link>
           </span>
         );
       })}
@@ -64,7 +77,8 @@ export function Header() {
   const links = (
     <ul className="flex flex-col">
       {t.nav.map((item) => {
-        const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+        const isHome = item.href === "/" || item.href === "/zh";
+        const active = isHome ? pathname === item.href : pathname.startsWith(item.href);
         return (
           <li key={item.href}>
             <Link
@@ -93,7 +107,8 @@ export function Header() {
         <Wordmark />
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {t.nav.map((item) => {
-            const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+            const isHome = item.href === "/" || item.href === "/zh";
+        const active = isHome ? pathname === item.href : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}

@@ -512,10 +512,10 @@ export const dictionary: Record<Lang, Copy> = {
     zaloAdd: "添加 Zalo",
     inquiry: "联系询价",
     nav: [
-      { href: "/", label: "首页" },
-      { href: "/products", label: "产品" },
-      { href: "/cooperation", label: "合作" },
-      { href: "/contact", label: "联系" },
+      { href: "/zh", label: "首页" },
+      { href: "/zh/products", label: "产品" },
+      { href: "/zh/cooperation", label: "合作" },
+      { href: "/zh/contact", label: "联系" },
     ],
     home: {
       title: ["中国 DIY 材料", "发往越南"],

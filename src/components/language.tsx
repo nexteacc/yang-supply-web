@@ -4,9 +4,9 @@ import {
   createContext,
   useContext,
   useEffect,
-  useSyncExternalStore,
   type ReactNode,
 } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { dictionary, type Copy, type Lang } from "@/lib/content";
 
 const STORAGE_KEY = "yang-lang";
@@ -19,45 +19,40 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-function subscribe(onStoreChange: () => void) {
-  window.addEventListener("storage", onStoreChange);
-  window.addEventListener("yang-lang", onStoreChange);
-  return () => {
-    window.removeEventListener("storage", onStoreChange);
-    window.removeEventListener("yang-lang", onStoreChange);
-  };
-}
-
-function readLang(): Lang {
-  const saved = window.localStorage.getItem(STORAGE_KEY);
-  return saved === "zh" || saved === "vi" ? saved : "vi";
-}
-
-function writeLang(next: Lang) {
-  window.localStorage.setItem(STORAGE_KEY, next);
-  document.cookie = `${STORAGE_KEY}=${next};path=/;max-age=31536000;SameSite=Lax`;
-  document.documentElement.lang = next === "zh" ? "zh-CN" : "vi";
-  document.documentElement.dataset.lang = next;
-  window.dispatchEvent(new Event("yang-lang"));
-}
-
 export function LanguageProvider({
-  initialLang,
+  initialLang = "vi",
   children,
 }: {
-  initialLang: Lang;
+  initialLang?: Lang;
   children: ReactNode;
 }) {
-  const lang = useSyncExternalStore(subscribe, readLang, () => initialLang);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // If the URL starts with /zh, the language is always Chinese. Otherwise Vietnamese.
+  const isZhPath = pathname === "/zh" || pathname.startsWith("/zh/");
+  const lang: Lang = isZhPath ? "zh" : initialLang;
 
   useEffect(() => {
     document.documentElement.lang = lang === "zh" ? "zh-CN" : "vi";
     document.documentElement.dataset.lang = lang;
-    document.documentElement.classList.remove("lang-boot");
+    window.localStorage.setItem(STORAGE_KEY, lang);
   }, [lang]);
 
+  const setLang = (next: Lang) => {
+    if (next === lang) return;
+    window.localStorage.setItem(STORAGE_KEY, next);
+    if (next === "zh") {
+      const target = `/zh${pathname === "/" ? "" : pathname}`;
+      router.push(target);
+    } else {
+      const stripped = pathname.replace(/^\/zh/, "");
+      router.push(stripped || "/");
+    }
+  };
+
   return (
-    <LanguageContext.Provider value={{ lang, setLang: writeLang, t: dictionary[lang] }}>
+    <LanguageContext.Provider value={{ lang, setLang, t: dictionary[lang] }}>
       {children}
     </LanguageContext.Provider>
   );
