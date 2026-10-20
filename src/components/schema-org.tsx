@@ -53,6 +53,9 @@ export function OrganizationSchema() {
 }
 
 export function ProductsListSchema({ lang }: { lang: Lang }) {
+  const pageUrl = `${SITE_URL}${lang === "zh" ? "/zh/products" : "/products"}`;
+  const homeUrl = `${SITE_URL}${lang === "zh" ? "/zh" : "/"}`;
+
   const items = series.map((item, index) => {
     const text = item[lang];
     const photos = productImage[item.id] || [];
@@ -61,26 +64,54 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
     return {
       "@type": "ListItem",
       position: index + 1,
-      item: {
-        "@type": "Product",
-        name: text.name,
-        description: `${text.summary} ${text.detail}`,
-        ...(firstPhoto ? { image: firstPhoto } : {}),
-        brand: {
-          "@type": "Brand",
-          name: "YANG SUPPLY",
-        },
-      },
+      name: text.name,
+      description: `${text.summary} ${text.detail}`,
+      url: `${pageUrl}#${item.id}`,
+      ...(firstPhoto ? { image: firstPhoto } : {}),
     };
   });
 
   const schema = {
     "@context": "https://schema.org",
-    "@type": "ItemList",
-    name: lang === "zh" ? "YANG SUPPLY 批发产品系列" : "Danh mục sản phẩm sỉ YANG SUPPLY",
-    url: `${SITE_URL}${lang === "zh" ? "/zh/products" : "/products"}`,
-    numberOfItems: items.length,
-    itemListElement: items,
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: lang === "zh" ? "YANG SUPPLY 批发产品系列" : "Danh mục sản phẩm sỉ YANG SUPPLY",
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        about: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        inLanguage: lang === "zh" ? "zh-Hans" : "vi",
+        mainEntity: {
+          "@type": "ItemList",
+          name: lang === "zh" ? "YANG SUPPLY 批发产品系列" : "Danh mục sản phẩm sỉ YANG SUPPLY",
+          numberOfItems: items.length,
+          itemListElement: items,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: lang === "zh" ? "首页" : "Trang chủ",
+            item: homeUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: lang === "zh" ? "产品" : "Sản phẩm",
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
   };
 
   return (
