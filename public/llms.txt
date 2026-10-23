@@ -35,7 +35,7 @@
 
 ## Quy trình đặt hàng sỉ (Ordering Process)
 
-1. **Tư vấn và báo giá**: Khách gửi mẫu, quy cách và số lượng dự kiến qua Zalo hoặc Email.
+1. **Tư vấn và báo giá**: Khách gửi mẫu, quy cách và số lượng dự kiến qua Zalo.
 2. **Xác nhận đơn**: Chốt đơn giá, chi phí vận chuyển quốc tế và thời gian giao hàng.
 3. **Đặt cọc**: Đặt cọc 80% giá trị đơn hàng để tiến hành đóng gói và vận chuyển.
 4. **Vận chuyển**: Hàng được gửi trực tiếp từ Thâm Quyến về địa chỉ khách hàng tại Việt Nam.
@@ -45,8 +45,6 @@
 ## Kênh liên hệ (Contact)
 
 - Zalo tư vấn sỉ: 0986245780 (https://zalo.me/0986245780)
-- Email: an.yangsupply@agentmail.to
-- Email dự phòng: minh.yangsupply@agentmail.to, linh.yangsupply@agentmail.to
 - Ngôn ngữ hỗ trợ: Tiếng Việt, Tiếng Trung (Tiếng Phổ Thông), English
 
 ## English ordering terms
