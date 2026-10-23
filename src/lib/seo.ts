@@ -57,7 +57,7 @@ export const pageMeta = {
     zh: {
       title: "DIY 材料跨境批发下单与合作流程",
       description:
-        "DIY 材料批发下单流程：确认规格数量、报价、80% 定金。由我们运输时到货付 20% 尾款；自找货代时交货给货代前付清尾款。运费另报。",
+        "DIY 材料批发下单流程：确认规格数量、报价、80% 定金。我们安排运输：到货付清剩余 20%；客户自找货代：交货给货代前付清剩余 20%。运费另报。",
     },
     vi: {
       title: "Cách đặt hàng sỉ nguyên liệu DIY và quy trình hợp tác",
