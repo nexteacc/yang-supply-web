@@ -791,7 +791,7 @@ export const dictionary: Record<Lang, Copy> = {
         "Receive a quote",
         "Place your order with an 80% deposit",
         "Shipping",
-        "Pay the remaining 20% on receipt",
+        "Pay the remaining 20%",
       ],
       ctaTitle: "Send Your Specifications and Quantities on Zalo",
       ctaBody: "Use this number for enquiries, quotes and order updates.",
@@ -820,7 +820,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Place Your Order",
-          body: "Once confirmed, pay by local bank transfer in Vietnam. An 80% deposit of the order total is required, with the remaining 20% payable on receipt of the goods.",
+          body: "Once confirmed, pay by local bank transfer in Vietnam. An 80% deposit of the order total is required, with the remaining 20% payable on receipt if we arrange shipping, or before handover to your freight forwarder if you arrange shipping.",
         },
         {
           title: "Shipping",
@@ -828,7 +828,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Pay the Balance",
-          body: "Pay the remaining 20% on receipt of the goods.",
+          body: "If we arrange shipping, pay the remaining 20% on receipt of the goods. If you use your own freight forwarder, pay the remaining 20% before we hand the goods over to your forwarder.",
         },
       ],
       qualityTitle: "Quality",
@@ -838,7 +838,7 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Payment",
       payFigure: "80 / 20",
       payBody:
-        "Pay by local bank transfer in Vietnam: 80% of the order total as a deposit and 20% on receipt. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+        "Pay by local bank transfer in Vietnam: 80% of the order total as a deposit. Pay the remaining 20% on receipt if we arrange shipping, or before handover to your freight forwarder if you arrange shipping. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
       notesTitle: "Quotation Terms",
       notes: [
         "Quotes are valid for 7 days.",
@@ -858,7 +858,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "How much is the deposit?",
-          a: "80% of the order total, with the remaining 20% payable on receipt. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+          a: "80% of the order total, with the remaining 20% payable on receipt if we arrange shipping, or before handover to your freight forwarder if you arrange shipping. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
         },
       ],
     },
@@ -934,7 +934,7 @@ export const dictionary: Record<Lang, Copy> = {
         "报价",
         "下单（定金 80%）",
         "运输",
-        "货到付 20%",
+        "支付 20% 尾款",
       ],
       ctaTitle: "把规格和数量发到 Zalo",
       ctaBody: "询价、报价和跟单，加这一个号。",
@@ -963,15 +963,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "下单（定金 80%）",
-          body: "确认后，用越南当地银行转账。定金为订单总额的 80%，到货付 20%。",
+          body: "确认后，用越南当地银行转账。定金为订单总额的 80%。由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。",
         },
         {
           title: "运输",
           body: "可以用您自己的货代，也可以由我们安排从中国运到越南。由我们安排运输时，运费已含清关和关税。使用您自己的货代时，我们把货交给您的货代即完成交付。",
         },
         {
-          title: "货到付 20%",
-          body: "到货付 20%。",
+          title: "支付 20% 尾款",
+          body: "由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。",
         },
       ],
       qualityTitle: "质量",
@@ -980,7 +980,7 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "付款",
       payFigure: "80 / 20",
       payBody:
-        "越南当地银行转账。定金为订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
+        "越南当地银行转账。定金为订单总额的 80%。由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
       notesTitle: "报价时一并说明",
       notes: [
         "报价有效期 7 天。",
@@ -1000,7 +1000,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "定金是多少？",
-          a: "订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
+          a: "订单总额的 80%。由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
         },
       ],
     },
@@ -1084,7 +1084,7 @@ export const dictionary: Record<Lang, Copy> = {
         "Báo giá",
         "Đặt hàng (cọc 80%)",
         "Vận chuyển",
-        "Thanh toán 20% khi nhận hàng",
+        "Thanh toán 20% còn lại",
       ],
       ctaTitle: "Gửi quy cách và số lượng qua Zalo",
       ctaBody: "Hỏi giá, báo giá và theo đơn — thêm số này.",
@@ -1113,15 +1113,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Đặt hàng (cọc 80%)",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng.",
+          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.",
         },
         {
           title: "Vận chuyển",
           body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
         },
         {
-          title: "Thanh toán 20% khi nhận hàng",
-          body: "Thanh toán 20% khi nhận hàng.",
+          title: "Thanh toán 20% còn lại",
+          body: "Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng. Nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.",
         },
       ],
       qualityTitle: "Chất lượng",
@@ -1131,7 +1131,7 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Thanh toán",
       payFigure: "80 / 20",
       payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
@@ -1151,7 +1151,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "Đặt cọc bao nhiêu phần trăm?",
-          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
         },
       ],
     },
