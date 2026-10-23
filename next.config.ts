@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
     deviceSizes: [640, 828, 1080, 1280, 1920],
     imageSizes: [48, 64, 80, 128, 256, 320, 384],
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host" as const, value: "yang-supply.vercel.app" }],
+        destination: "https://www.yangsupply.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

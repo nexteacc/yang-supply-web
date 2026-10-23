@@ -69,17 +69,17 @@ export const pageMeta = {
     en: {
       title: "Contact Yang Supply for Wholesale Quotes",
       description:
-        "Contact Yang Supply on Zalo or by email for DIY materials quotes and order enquiries. We serve Vietnam and support English, Vietnamese and Chinese enquiries.",
+        "Contact Yang Supply on Zalo for DIY materials quotes and order enquiries. We serve Vietnam and support English, Vietnamese and Chinese enquiries.",
     },
     zh: {
-      title: "联系我们获取批发报价 · Zalo 与邮件咨询",
+      title: "联系我们获取批发报价 · Zalo 咨询",
       description:
-        "直接联系销售代表获取最新批发报价。支持 Zalo（0986245780）及专属邮箱洽谈，提供中越双语无障碍沟通。",
+        "直接联系销售代表获取最新批发报价。通过 Zalo（0986245780）咨询，支持中文、越南语和英语。",
     },
     vi: {
-      title: "Liên hệ báo giá sỉ nguyên liệu DIY qua Zalo và Email",
+      title: "Liên hệ báo giá sỉ nguyên liệu DIY qua Zalo",
       description:
-        "Kênh liên hệ báo giá sỉ trực tiếp qua Zalo 0986245780 hoặc email đại diện. Hỗ trợ tư vấn bằng tiếng Việt và tiếng Trung nhanh chóng.",
+        "Kênh liên hệ báo giá sỉ trực tiếp qua Zalo 0986245780. Hỗ trợ tư vấn bằng tiếng Việt, tiếng Trung và tiếng Anh.",
     },
   },
 } as const;
