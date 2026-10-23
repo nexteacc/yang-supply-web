@@ -52,17 +52,17 @@ export const pageMeta = {
     en: {
       title: "How to Order Wholesale DIY Materials",
       description:
-        "Learn how to order from Yang Supply: confirm specifications and quantities, receive a quote, pay an 80% deposit and the remaining 20% on receipt. Shipping charged separately.",
+        "Learn how to order from Yang Supply: confirm specifications and quantities, receive a quote, and pay an 80% deposit. Orders we ship: pay the 20% balance on delivery. Orders using your own forwarder: pay the 20% in full before we hand the goods to your forwarder.",
     },
     zh: {
       title: "DIY 材料跨境批发下单与合作流程",
       description:
-        "跨境批发采购直销流程说明：规格数量确认、正式报价、80% 定金排产、国际物流发货、收货后付 20% 尾款。到货破损核实补发。",
+        "跨境批发采购直销流程说明：规格数量确认、正式报价、80% 定金。由我们运输的订单，货到付 20%；客户自己安排货代的订单，交货给货代前付清 20%。收货后拍照反馈，破损补发，不退款。",
     },
     vi: {
       title: "Cách đặt hàng sỉ nguyên liệu DIY và quy trình hợp tác",
       description:
-        "Quy trình đặt hàng sỉ rõ ràng: tư vấn quy cách, chốt số lượng, báo giá, đặt cọc 80%, vận chuyển và thanh toán 20% khi nhận hàng. Cam kết bù hàng nếu bể vỡ.",
+        "Quy trình đặt hàng sỉ rõ ràng: tư vấn quy cách, chốt số lượng, báo giá, đặt cọc 80%. Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó.",
     },
   },
   contact: {

@@ -53,7 +53,7 @@ export function OrganizationSchema() {
           name: "Vietnam",
         },
         description:
-          "Báo giá theo quy cách và số lượng, đặt cọc 80%, vận chuyển từ Thâm Quyến về Việt Nam, thanh toán 20% khi nhận hàng. Bù hàng nếu bể vỡ trong vận chuyển (báo kèm ảnh trong 1 ngày sau khi nhận).",
+          "Báo giá theo quy cách và số lượng, đặt cọc 80%, vận chuyển từ Thâm Quyến về Việt Nam. Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó. Với đơn do chúng tôi vận chuyển: sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
         termsOfService: `${SITE_URL}/cooperation`,
       },
       {

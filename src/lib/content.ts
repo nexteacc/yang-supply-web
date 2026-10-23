@@ -759,7 +759,7 @@ export const dictionary: Record<Lang, Copy> = {
       rows: [
         { label: "From — to", value: "China → Vietnam" },
         { label: "Our role", value: "DIY materials supplier" },
-        { label: "Deposit / on receipt", value: "80 / 20", note: true },
+        { label: "Deposit / balance", value: "80 / 20", note: true },
         { label: "Product quality", value: "Our responsibility" },
       ],
       valuesTitle: "What We Provide",
@@ -791,7 +791,7 @@ export const dictionary: Record<Lang, Copy> = {
         "Receive a quote",
         "Place your order with an 80% deposit",
         "Shipping",
-        "Pay the remaining 20% on receipt",
+        "Orders we ship: pay the 20% balance on delivery. Orders using your own forwarder: pay the 20% in full before we hand the goods to your forwarder.",
       ],
       ctaTitle: "Send Your Specifications and Quantities on Zalo",
       ctaBody: "Use this number for enquiries, quotes and order updates.",
@@ -820,7 +820,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Place Your Order",
-          body: "Once confirmed, pay by local bank transfer in Vietnam. An 80% deposit of the order total is required, with the remaining 20% payable on receipt of the goods.",
+          body: "Once confirmed, pay by local bank transfer in Vietnam. An 80% deposit of the order total is required. Orders we ship: pay the 20% balance on delivery. Orders using your own forwarder: pay the 20% in full before we hand the goods to your forwarder.",
         },
         {
           title: "Shipping",
@@ -828,7 +828,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Pay the Balance",
-          body: "Pay the remaining 20% on receipt of the goods.",
+          body: "Orders we ship: pay the 20% balance on delivery. Orders using your own forwarder: pay the 20% in full before we hand the goods to your forwarder.",
         },
       ],
       qualityTitle: "Quality",
@@ -838,13 +838,13 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Payment",
       payFigure: "80 / 20",
       payBody:
-        "Pay by local bank transfer in Vietnam: 80% of the order total as a deposit and 20% on receipt. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+        "Pay by local bank transfer in Vietnam: 80% of the order total as a deposit. Orders we ship: pay the 20% balance on delivery. Orders using your own forwarder: pay the 20% in full before we hand the goods to your forwarder. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
       notesTitle: "Quotation Terms",
       notes: [
         "Quotes are valid for 7 days.",
         "You can mix colours and designs. Minimum order quantities apply separately to each design and each colour.",
         "Samples are charged at the unit price in the relevant quote.",
-        "For orders shipped by us, report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
+        "For orders shipped by us, report any damage with photos after receiving the goods. Damaged products will be replaced, not refunded.",
       ],
       faqTitle: "FAQs",
       faq: [
@@ -858,7 +858,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "How much is the deposit?",
-          a: "80% of the order total, with the remaining 20% payable on receipt. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+          a: "80% of the order total. Orders we ship: pay the 20% balance on delivery. Orders using your own forwarder: pay the 20% in full before we hand the goods to your forwarder. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
         },
       ],
     },
@@ -906,7 +906,7 @@ export const dictionary: Record<Lang, Copy> = {
       rows: [
         { label: "出发 — 送达", value: "中国 → 越南" },
         { label: "角色", value: "DIY 材料供应商" },
-        { label: "定金 / 货到", value: "80 / 20", note: true },
+        { label: "定金 / 尾款", value: "80 / 20", note: true },
         { label: "质量", value: "我们负责" },
       ],
       valuesTitle: "三件事",
@@ -934,7 +934,7 @@ export const dictionary: Record<Lang, Copy> = {
         "报价",
         "下单（定金 80%）",
         "运输",
-        "货到付 20%",
+        "由我们运输的订单，货到付 20%；客户自己安排货代的订单，交货给货代前付清 20%。",
       ],
       ctaTitle: "把规格和数量发到 Zalo",
       ctaBody: "询价、报价和跟单，加这一个号。",
@@ -963,15 +963,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "下单（定金 80%）",
-          body: "确认后，用越南当地银行转账。定金为订单总额的 80%，到货付 20%。",
+          body: "确认后，用越南当地银行转账。定金为订单总额的 80%。由我们运输的订单，货到付 20%；客户自己安排货代的订单，交货给货代前付清 20%。",
         },
         {
           title: "运输",
           body: "可以用您自己的货代，也可以由我们安排从中国运到越南。由我们安排运输时，运费已含清关和关税。使用您自己的货代时，我们把货交给您的货代即完成交付。",
         },
         {
-          title: "货到付 20%",
-          body: "到货付 20%。",
+          title: "支付 20% 尾款",
+          body: "由我们运输的订单，货到付 20%；客户自己安排货代的订单，交货给货代前付清 20%。",
         },
       ],
       qualityTitle: "质量",
@@ -980,13 +980,13 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "付款",
       payFigure: "80 / 20",
       payBody:
-        "越南当地银行转账。定金为订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
+        "越南当地银行转账。定金为订单总额的 80%。由我们运输的订单，货到付 20%；客户自己安排货代的订单，交货给货代前付清 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
       notesTitle: "报价时一并说明",
       notes: [
         "报价有效期 7 天。",
         "可以混色、混款。起订量按每一款、每一色分别计算。",
         "样品收费，按当次报价的单价。",
-        "由我们运输的订单，收货后1天内拍照反馈，破损产品补发，不退款。",
+        "由我们运输的订单，收货后拍照反馈，破损产品补发，不退款。",
       ],
       faqTitle: "常见问题",
       faq: [
@@ -1000,7 +1000,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "定金是多少？",
-          a: "订单总额的 80%，到货付 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
+          a: "订单总额的 80%。由我们运输的订单，货到付 20%；客户自己安排货代的订单，交货给货代前付清 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
         },
       ],
     },
@@ -1051,7 +1051,7 @@ export const dictionary: Record<Lang, Copy> = {
       rows: [
         { label: "Đi — Đến", value: "Trung Quốc → Việt Nam" },
         { label: "Vai trò", value: "Nhà cung cấp nguyên liệu DIY" },
-        { label: "Cọc / nhận hàng", value: "80 / 20", note: true },
+        { label: "Cọc / phần còn lại", value: "80 / 20", note: true },
         { label: "Chất lượng", value: "Chúng tôi chịu trách nhiệm" },
       ],
       valuesTitle: "Ba việc",
@@ -1084,7 +1084,7 @@ export const dictionary: Record<Lang, Copy> = {
         "Báo giá",
         "Đặt hàng (cọc 80%)",
         "Vận chuyển",
-        "Thanh toán 20% khi nhận hàng",
+        "Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó.",
       ],
       ctaTitle: "Gửi quy cách và số lượng qua Zalo",
       ctaBody: "Hỏi giá, báo giá và theo đơn — thêm số này.",
@@ -1113,15 +1113,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Đặt hàng (cọc 80%)",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng.",
+          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó.",
         },
         {
           title: "Vận chuyển",
           body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
         },
         {
-          title: "Thanh toán 20% khi nhận hàng",
-          body: "Thanh toán 20% khi nhận hàng.",
+          title: "Thanh toán 20%",
+          body: "Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó.",
         },
       ],
       qualityTitle: "Chất lượng",
@@ -1131,13 +1131,13 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Thanh toán",
       payFigure: "80 / 20",
       payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng, thanh toán 20% khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
         "Có thể trộn màu, trộn mẫu. Mức tối thiểu tính theo từng mẫu và từng màu.",
         "Mẫu có tính phí, theo đơn giá của lần báo giá đó.",
-        "Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
+        "Với đơn do chúng tôi vận chuyển: sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
       faqTitle: "Câu hỏi thường gặp",
       faq: [
@@ -1151,7 +1151,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "Đặt cọc bao nhiêu phần trăm?",
-          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+          a: "80% tổng giá trị đơn. Đơn do chúng tôi vận chuyển: thanh toán 20% khi nhận hàng. Đơn bạn tự thuê đơn vị vận chuyển: thanh toán đủ 20% trước khi chúng tôi giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
         },
       ],
     },
