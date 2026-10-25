@@ -5,6 +5,7 @@ import {
   dictionary,
   type Lang,
 } from "@/lib/content";
+import { guides, type GuideSlug } from "@/lib/guides";
 import { localizedPath } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/seo";
 
@@ -238,6 +239,65 @@ export function ContactPageSchema({ lang }: { lang: Lang }) {
             "@type": "ListItem",
             position: 2,
             name: dictionary[lang].contact.title,
+            item: pageUrl,
+          },
+        ],
+      },
+    ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+export function GuideArticleSchema({ slug }: { slug: GuideSlug }) {
+  const guide = guides[slug];
+  const pageUrl = `${SITE_URL}${guide.href}`;
+  const homeUrl = `${SITE_URL}/`;
+  const imageUrl = `${SITE_URL}${guide.heroImage.src}`;
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "@id": `${pageUrl}#article`,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+        },
+        headline: guide.title,
+        description: guide.description,
+        image: [imageUrl],
+        datePublished: guide.datePublished,
+        dateModified: guide.dateModified,
+        author: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        publisher: {
+          "@id": `${SITE_URL}/#organization`,
+        },
+        inLanguage: "vi",
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        name: `${guide.title} · YANG SUPPLY`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: dictionary.vi.nav[0].label,
+            item: homeUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: guide.title,
             item: pageUrl,
           },
         ],

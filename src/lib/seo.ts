@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { Lang } from "@/lib/content";
+import { guides, type GuideSlug } from "@/lib/guides";
 import { localizedPath } from "@/lib/i18n";
 
 export const SITE_URL = "https://www.yangsupply.com";
@@ -130,6 +131,56 @@ export function buildMetadata(lang: Lang, page: PageKey): Metadata {
       title: fullTitle,
       description,
       images: [`${SITE_URL}/products/sticker-dinh-da-co-lon-hop-qua.jpg`],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+  };
+}
+
+export function buildGuideMetadata(slug: GuideSlug): Metadata {
+  const guide = guides[slug];
+  const fullTitle = `${guide.title} · YANG SUPPLY`;
+  const currentUrl = `${SITE_URL}${guide.href}`;
+  const ogImageUrl = `${SITE_URL}${guide.heroImage.src}`;
+
+  return {
+    title: { absolute: fullTitle },
+    description: guide.description,
+    metadataBase: new URL(SITE_URL),
+    alternates: {
+      canonical: currentUrl,
+    },
+    openGraph: {
+      title: fullTitle,
+      description: guide.description,
+      url: currentUrl,
+      siteName: "YANG SUPPLY",
+      locale: "vi_VN",
+      type: "article",
+      publishedTime: guide.datePublished,
+      modifiedTime: guide.dateModified,
+      images: [
+        {
+          url: ogImageUrl,
+          width: guide.heroImage.width,
+          height: guide.heroImage.height,
+          alt: guide.heroImage.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: fullTitle,
+      description: guide.description,
+      images: [ogImageUrl],
     },
     robots: {
       index: true,

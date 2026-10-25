@@ -398,6 +398,14 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       en: "Assorted Christmas Italian charms",
     },
     {
+      src: "/products/vong-tay-charm-y-giang-sinh-cay-thong.jpg",
+      width: 1300,
+      height: 1300,
+      zh: "圣诞树与圣诞袜吊坠意大利 Charm 手链成品",
+      vi: "Vòng tay charm Ý Giáng Sinh phối mặt cây thông và tất",
+      en: "Christmas Italian charm bracelet with tree and stocking pendants",
+    },
+    {
       src: "/products/charm-y-da-zircon.jpg",
       width: 1200,
       height: 1200,

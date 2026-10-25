@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL, pagePaths, type PageKey } from "@/lib/seo";
+import { guideList } from "@/lib/guides";
 import { localizedPath } from "@/lib/i18n";
 import type { Lang } from "@/lib/content";
 
@@ -13,7 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     contact: 0.8,
   };
 
-  return languages.flatMap((lang) =>
+  const mainEntries = languages.flatMap((lang) =>
     pages.map((page) => {
       const path = pagePaths[page] || "/";
       const viUrl = `${SITE_URL}${localizedPath("vi", path)}`;
@@ -32,4 +33,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       };
     }),
   );
+
+  const guideEntries: MetadataRoute.Sitemap = guideList.map((guide) => ({
+    url: `${SITE_URL}${guide.href}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.85,
+  }));
+
+  return [...mainEntries, ...guideEntries];
 }

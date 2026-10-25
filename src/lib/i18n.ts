@@ -15,6 +15,9 @@ export function languageFromPath(pathname: string): Lang {
 /** Preserve the page, query and fragment when switching languages. */
 export function localizedPath(lang: Lang, path = "/"): string {
   const unprefixed = path.replace(/^\/(zh|en)(?=\/|[?#]|$)/, "") || "/";
+  if (unprefixed.startsWith("/huong-dan") && lang !== "vi") {
+    return `/${lang}/products`;
+  }
   const prefix = lang === "vi" ? "" : `/${lang}`;
   return prefix
     ? `${prefix}${unprefixed === "/" ? "" : unprefixed}`

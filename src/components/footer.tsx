@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import { contacts } from "@/lib/content";
+import { guideList } from "@/lib/guides";
 import { useLanguage } from "@/components/language";
 import { Container, Wordmark } from "@/components/ui";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { lang, t } = useLanguage();
   return (
     <footer className="border-t border-line">
-      <Container className="grid gap-10 py-[72px] text-[14px] leading-[1.7] md:grid-cols-3 md:py-[80px]">
+      <Container className="grid gap-10 py-[72px] text-[14px] leading-[1.7] sm:grid-cols-2 md:grid-cols-4 md:py-[80px]">
         <div>
           <Wordmark />
           <p className="mt-5 max-w-[28ch] text-mute">{t.footer.line}</p>
@@ -19,6 +20,13 @@ export function Footer() {
           {t.nav.map((item) => (
             <Link key={item.href} href={item.href} className="link-under w-fit text-ink">
               {item.label}
+            </Link>
+          ))}
+        </nav>
+        <nav aria-label="Guides" className="flex flex-col gap-2">
+          {guideList.map((guide) => (
+            <Link key={guide.slug} href={guide.href} className="link-under w-fit text-ink">
+              {guide.shortTitle[lang]}
             </Link>
           ))}
         </nav>
