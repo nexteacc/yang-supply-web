@@ -52,7 +52,7 @@ npm start
 - an.yangsupply@agentmail.to
 - minh.yangsupply@agentmail.to
 - linh.yangsupply@agentmail.to
-- 地址：中国深圳
+- 地址：中国
 
 ## 语言与英文内容
 

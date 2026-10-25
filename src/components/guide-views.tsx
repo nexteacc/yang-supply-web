@@ -305,16 +305,19 @@ export function WorkshopGuideView() {
             <div className="contents">
               <dt className="font-medium text-ink">Thanh toán 80 / 20</dt>
               <dd className="text-mute">
-                Chuyển khoản ngân hàng tại Việt Nam: đặt cọc 80% tổng giá trị
-                đơn hàng, thanh toán 20% còn lại khi nhận hàng (tổng giá trị gồm
-                tiền hàng + phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền
-                hàng nếu bạn dùng đơn vị vận chuyển riêng).
+                Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị
+                đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại
+                khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh
+                toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho
+                đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu
+                chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận
+                chuyển riêng.
               </dd>
             </div>
             <div className="contents">
               <dt className="font-medium text-ink">Vận chuyển</dt>
               <dd className="text-mute">
-                Nếu chúng tôi sắp xếp vận chuyển từ Thâm Quyến về Việt Nam, phí
+                Nếu chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam, phí
                 vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu dùng
                 đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là
                 hoàn tất. Không cam kết trước mốc giao hàng cố định khi chưa
@@ -580,8 +583,11 @@ export function CharmGuideView() {
               <dt className="font-medium text-ink">4. Số lượng & MOQ</dt>
               <dd className="text-mute">
                 Có thể trộn mẫu, trộn màu; mức tối thiểu tính riêng cho từng mẫu
-                và từng màu. Đặt cọc 80%, thanh toán 20% khi nhận hàng; phí vận
-                chuyển tính riêng.
+                và từng màu. Đặt cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi
+                vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng
+                đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi
+                chúng tôi bàn giao hàng cho đơn vị đó. Phí vận chuyển tính
+                riêng.
               </dd>
             </div>
           </dl>

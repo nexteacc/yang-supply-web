@@ -877,9 +877,9 @@ export const dictionary: Record<Lang, Copy> = {
       zaloRole: "Zalo",
       emailRole: "Sales Email",
       addressLabel: "Location",
-      address: "Shenzhen, China",
+      address: "China",
     },
-    footer: { line: "DIY materials supplier.", address: "Shenzhen, China" },
+    footer: { line: "DIY materials supplier.", address: "China" },
     notFound: {
       title: "Page Not Found",
       body: "Return to the home page to explore our products or learn how to order.",
@@ -1019,11 +1019,11 @@ export const dictionary: Record<Lang, Copy> = {
       zaloRole: "Zalo",
       emailRole: "销售邮件",
       addressLabel: "地址",
-      address: "中国深圳",
+      address: "中国",
     },
     footer: {
       line: "DIY 材料供应商。",
-      address: "中国深圳",
+      address: "中国",
     },
     notFound: {
       title: "没有这一页",
@@ -1170,11 +1170,11 @@ export const dictionary: Record<Lang, Copy> = {
       zaloRole: "Zalo",
       emailRole: "Email bán hàng",
       addressLabel: "Địa chỉ",
-      address: "Thâm Quyến, Trung Quốc",
+      address: "Trung Quốc",
     },
     footer: {
       line: "Nhà cung cấp nguyên liệu DIY.",
-      address: "Thâm Quyến, Trung Quốc",
+      address: "Trung Quốc",
     },
     notFound: {
       title: "Không có trang này",
