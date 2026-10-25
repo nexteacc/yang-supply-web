@@ -23,7 +23,6 @@ export function OrganizationSchema() {
           "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Shenzhen",
           addressCountry: "CN",
         },
         areaServed: {
@@ -54,7 +53,7 @@ export function OrganizationSchema() {
           name: "Vietnam",
         },
         description:
-          "Báo giá theo quy cách và số lượng, đặt cọc 80%, vận chuyển từ Thâm Quyến về Việt Nam, thanh toán 20% còn lại khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Bù hàng nếu bể vỡ trong vận chuyển (báo kèm ảnh trong 1 ngày sau khi nhận).",
+          "Báo giá theo quy cách và số lượng, đặt cọc 80%, từ Trung Quốc về Việt Nam, thanh toán 20% còn lại khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Bù hàng nếu bể vỡ trong vận chuyển (báo kèm ảnh trong 1 ngày sau khi nhận).",
         termsOfService: `${SITE_URL}/cooperation`,
       },
       {
