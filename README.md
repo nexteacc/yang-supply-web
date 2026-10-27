@@ -1,6 +1,6 @@
 # YANG SUPPLY
 
-面向越南手作工坊、店铺和学校的中文、越南语和英文站点。Yang Supply 是 DIY 材料供应商：供应自有系列，从中国发往越南。
+越南语站面向越南手作工坊、店铺和学校。中文站是品牌页，介绍从中国发往全球的自有系列。英文站面向美国，路径为 `/en-us`。
 
 页面：首页、产品、合作、联系。右上角可在中文 / Tiếng Việt / English 之间切换，选择会记在这台浏览器里。
 
@@ -56,10 +56,9 @@ npm start
 
 ## 语言与英文内容
 
-- 越南语使用 `/`、`/products`、`/cooperation`、`/contact`。
-- 中文使用 `/zh` 前缀，英文使用 `/en` 前缀。
-- 英文以中文业务事实为准，仍服务越南市场；可用英文通过现有 Zalo 和邮箱咨询。
+- 越南语使用 `/`、`/san-pham`、`/hop-tac`、`/lien-he`。旧路径 `/products`、`/cooperation`、`/contact` 永久跳转到新路径。
+- 中文使用 `/zh` 前缀（首页、产品、联系）。`/zh/cooperation` 跳转到 `/zh/contact`。中文站只展示产品和既有联系方式。
+- 英文使用 `/en-us` 前缀，面向美国。旧路径 `/en` 跳转到 `/en-us`。咨询走站内已有邮箱；付款为 80% 定金和 20% 尾款，国际 SWIFT 或 USDT/USDC；尺寸用英寸。
 - 直接销售产品系列使用 “our product range / our product lines”；不暗示自有工厂或意大利原产。
-- 三种语言共用页面与图片。文案、产品规格、颜色和图片描述在 `src/lib/content.ts`，语言路径在 `src/lib/i18n.ts`。
-- 导航固定为 Home / Products / Ordering / Contact。首次响应的文档语言由 middleware 传给服务端布局；页面通过服务端渲染输出，语言切换保留当前页面、查询参数与产品锚点。
-- 每种语言有独立 canonical，三种语言互相声明 hreflang，站点地图包含全部 12 个页面。
+- 三种语言共用页面与图片。市场配置（路径、hero、meta、联系方式、条款）在 `src/lib/markets.ts`。产品规格在 `src/lib/content.ts`。
+- 首次响应的文档语言由 middleware 传给服务端布局。hreflang 为 vi-VN、zh-Hans、en-US，x-default 指向中文。

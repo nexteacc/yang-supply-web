@@ -1,12 +1,12 @@
 "use client";
 
-import { series } from "@/lib/content";
+import { contacts, series } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { ProductArt } from "@/components/product-art";
 import { Container, PageIntro, ZaloButton } from "@/components/ui";
 
 export function ProductsPage() {
-  const { lang, t } = useLanguage();
+  const { copyLang, market, t } = useLanguage();
 
   return (
     <div>
@@ -14,7 +14,7 @@ export function ProductsPage() {
 
       <Container className="flex flex-col gap-[120px] py-[72px] md:gap-[144px] md:py-[120px]">
         {series.map((item, index) => {
-          const text = item[lang];
+          const text = item[copyLang];
           return (
             <article key={item.id} id={item.id} className="scroll-mt-24">
               <p className="eyebrow text-mute">0{index + 1}</p>
@@ -39,6 +39,17 @@ export function ProductsPage() {
         <div className="flex flex-col items-start gap-8">
           <h2 className="heading-2 max-w-[20ch]">{t.inquiry}</h2>
           <ZaloButton />
+          {market.contact === "email" ? (
+            <ul className="flex flex-col items-start gap-3">
+              {contacts.emails.map((email) => (
+                <li key={email}>
+                  <a href={`mailto:${email}`} className="link-under break-all text-[14px]">
+                    {email}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
         </div>
       </Container>
     </div>

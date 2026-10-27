@@ -6,14 +6,11 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useLanguage } from "@/components/language";
 import { Container, Wordmark } from "@/components/ui";
-import type { Lang } from "@/lib/content";
 import { localizedPath } from "@/lib/i18n";
+import { marketList, markets, switcherOrder } from "@/lib/markets";
 
-const languages: { id: Lang; label: string; name: string }[] = [
-  { id: "zh", label: "中文", name: "中文" },
-  { id: "vi", label: "Tiếng Việt", name: "Tiếng Việt" },
-  { id: "en", label: "English", name: "English" },
-];
+const languages = switcherOrder.map((id) => markets[id]);
+const homeHrefs = new Set(marketList.map((market) => market.pages.home));
 
 function LangSwitch() {
   const { lang, setLang } = useLanguage();
@@ -37,7 +34,7 @@ function LangSwitch() {
             ) : null}
             <Link
               href={targetHref}
-              hrefLang={item.id === "zh" ? "zh-Hans" : item.id}
+              hrefLang={item.hreflang}
               onClick={(event) => {
                 if (
                   !event.metaKey &&
@@ -50,10 +47,10 @@ function LangSwitch() {
                 }
               }}
               aria-current={active ? "page" : undefined}
-              aria-label={item.name}
+              aria-label={item.switchName}
               className={`whitespace-nowrap transition-colors ${active ? "font-medium text-ink" : "text-mute hover:text-ink"}`}
             >
-              {item.label}
+              {item.switchLabel}
             </Link>
           </span>
         );
@@ -84,8 +81,7 @@ export function Header() {
   const links = (
     <ul className="flex flex-col">
       {t.nav.map((item) => {
-        const isHome =
-          item.href === "/" || item.href === "/zh" || item.href === "/en";
+        const isHome = homeHrefs.has(item.href);
         const active = isHome
           ? pathname === item.href
           : pathname.startsWith(item.href);
@@ -120,8 +116,7 @@ export function Header() {
             aria-label="Primary"
           >
             {t.nav.map((item) => {
-              const isHome =
-                item.href === "/" || item.href === "/zh" || item.href === "/en";
+              const isHome = homeHrefs.has(item.href);
               const active = isHome
                 ? pathname === item.href
                 : pathname.startsWith(item.href);

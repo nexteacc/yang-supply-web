@@ -5,7 +5,7 @@ import { useLanguage } from "@/components/language";
 import { Container, CopyButton, PageIntro, ZaloButton } from "@/components/ui";
 
 export function ContactPage() {
-  const { t } = useLanguage();
+  const { market, t } = useLanguage();
   const page = t.contact;
 
   return (
@@ -14,6 +14,7 @@ export function ContactPage() {
 
       <Container className="grid items-start gap-[72px] py-[72px] md:grid-cols-12 md:gap-6 md:py-[120px]">
         <div className="flex flex-col gap-16 md:col-span-6">
+          {market.contact === "zalo" ? (
           <section>
             <h2 className="heading-2">{page.zaloRole}</h2>
             <a
@@ -29,6 +30,7 @@ export function ContactPage() {
               <CopyButton value={contacts.zalo} />
             </div>
           </section>
+          ) : null}
           <section>
             <h2 className="heading-2">{page.addressLabel}</h2>
             <p className="heading-3 mt-4">{page.address}</p>

@@ -124,22 +124,24 @@ function colourChoices(id: SeriesId, photos: ProductPhoto[]) {
 }
 
 export function ProductArt({ id }: { id: SeriesId }) {
-  const { lang } = useLanguage();
-  const photos = productImage[id];
+  const { copyLang, market } = useLanguage();
+  const photos = productImage[id].filter(
+    (item) => !(item.metricDiagram && market.units === "in"),
+  );
   const [active, setActive] = useState(0);
   const photo = photos[active] ?? photos[0];
   if (!photo) return null;
   const small = photos.every((item) => item.small);
   const choices = colourChoices(id, photos);
-  const caption = photo.colour?.[lang];
+  const caption = photo.colour?.[copyLang];
 
   return (
     <div>
       {choices.length > 0 ? (
         <p className="mb-6 max-w-[65ch] text-[14px] leading-relaxed text-mute">
-          <span>{colourAvailableLabel[lang]} </span>
+          <span>{colourAvailableLabel[copyLang]} </span>
           {choices.map((item, index) => {
-            const name = item[lang];
+            const name = item[copyLang];
             const selected =
               item.index !== null &&
               photo.swatch === true &&
@@ -164,14 +166,14 @@ export function ProductArt({ id }: { id: SeriesId }) {
           })}
         </p>
       ) : null}
-      <MainPanel photo={photo} alt={photo[lang]} small={small} />
+      <MainPanel photo={photo} alt={photo[copyLang]} small={small} />
       {caption ? <p className="mt-4 text-[14px] text-mute">{caption}</p> : null}
       {photos.length > 1 ? (
         <ul className="mt-6 flex gap-4 overflow-x-auto px-0.5 py-1 md:flex-wrap md:gap-6">
           {photos.map((item, index) => {
             const selected = index === active;
-            const alt = item[lang];
-            const thumbLabel = item.colour?.[lang];
+            const alt = item[copyLang];
+            const thumbLabel = item.colour?.[copyLang];
             return (
               <li key={item.src} className="w-28 shrink-0 md:w-32">
                 <button
@@ -200,7 +202,7 @@ export function ProductArt({ id }: { id: SeriesId }) {
                   <p
                     className={`eyebrow text-center text-mute ${thumbLabel ? "mt-1" : "mt-2"}`}
                   >
-                    {item.label[lang]}
+                    {item.label[copyLang]}
                   </p>
                 ) : null}
               </li>

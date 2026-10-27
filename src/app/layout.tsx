@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Noto_Sans_SC } from "next/font/google";
 import { headers } from "next/headers";
-import { languageTags } from "@/lib/i18n";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { LanguageProvider } from "@/components/language";
 import { OrganizationSchema } from "@/components/schema-org";
+import { marketById, type MarketId } from "@/lib/markets";
 import { SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -42,13 +42,14 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const requestedLang = (await headers()).get("x-yang-language");
-  const lang =
-    requestedLang === "zh" || requestedLang === "en" ? requestedLang : "vi";
+  const marketId: MarketId =
+    requestedLang === "zh" || requestedLang === "en-us" ? requestedLang : "vi";
+  const market = marketById(marketId) ?? marketById("vi")!;
 
   return (
-    <html lang={languageTags[lang]} data-lang={lang} suppressHydrationWarning>
+    <html lang={market.htmlLang} data-lang={market.copyLang} suppressHydrationWarning>
       <head>
-        <OrganizationSchema />
+        <OrganizationSchema marketId={market.id} />
       </head>
       <body
         className={`${viet.variable} ${cjk.variable} flex min-h-screen flex-col bg-paper text-ink antialiased`}

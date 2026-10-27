@@ -238,9 +238,9 @@ html[data-lang="en"] .heading-3 {
 html[data-lang="en"] .btn-quiet {
   letter-spacing: normal;
 }
-html[data-lang="en"] .heading-1-hero > span {
+.heading-1-hero > span {
   display: block;
 }
-html[data-lang="en"] .heading-1-hero > span + span {
+.heading-1-hero > span + span {
   margin-top: 0.15em;
 }

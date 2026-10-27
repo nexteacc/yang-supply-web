@@ -1,72 +1,118 @@
-import {
-  contacts,
-  series,
-  productImage,
-  dictionary,
-  type Lang,
-} from "@/lib/content";
+import { contacts, series, productImage, dictionary } from "@/lib/content";
 import { guides, type GuideSlug } from "@/lib/guides";
-import { localizedPath } from "@/lib/i18n";
+import { markets, type Market, type MarketId } from "@/lib/markets";
 import { SITE_URL } from "@/lib/seo";
 
-export function OrganizationSchema() {
+function pageInLanguage(marketId: MarketId) {
+  if (marketId === "zh") return "zh-Hans";
+  if (marketId === "en-us") return "en-US";
+  return "vi";
+}
+
+function contactPoints(market: Market) {
+  const telephone = `+84-${contacts.zalo.replace(/^0/, "")}`;
+  if (market.id === "vi") {
+    return [
+      {
+        "@type": "ContactPoint",
+        telephone,
+        email: contacts.emails[0],
+        contactType: "sales",
+        areaServed: "VN",
+        availableLanguage: ["vi", "zh", "en"],
+      },
+    ];
+  }
+
+  if (market.schema.telephone) {
+    return [
+      {
+        "@type": "ContactPoint",
+        telephone,
+        email: contacts.emails[0],
+        contactType: "sales",
+        availableLanguage: market.schema.availableLanguage,
+      },
+      ...contacts.emails.slice(1).map((email) => ({
+        "@type": "ContactPoint",
+        email,
+        contactType: "sales",
+        availableLanguage: market.schema.availableLanguage,
+      })),
+    ];
+  }
+
+  return contacts.emails.map((email) => ({
+    "@type": "ContactPoint",
+    email,
+    contactType: "sales",
+    ...(market.schema.areaServed
+      ? { areaServed: market.schema.areaServed.code }
+      : {}),
+    availableLanguage: market.schema.availableLanguage,
+  }));
+}
+
+export function OrganizationSchema({ marketId }: { marketId: MarketId }) {
+  const market = markets[marketId];
+  const organization: Record<string, unknown> = {
+    "@type": "Organization",
+    "@id": `${SITE_URL}/#organization`,
+    name: "YANG SUPPLY",
+    url: SITE_URL,
+    logo: `${SITE_URL}/icon.svg`,
+    description: market.schema.orgDescription,
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "CN",
+    },
+    contactPoint: contactPoints(market),
+  };
+  if (market.schema.areaServed) {
+    organization.areaServed = {
+      "@type": "Country",
+      name: market.schema.areaServed.name,
+    };
+  }
+
+  const graph: Record<string, unknown>[] = [organization];
+
+  if (market.terms && market.pages.cooperation) {
+    graph.push({
+      "@type": "Service",
+      "@id": `${SITE_URL}/#service`,
+      name: market.terms.serviceName,
+      serviceType: "B2B Wholesale DIY Craft Materials Supply",
+      provider: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      ...(market.schema.areaServed
+        ? {
+            areaServed: {
+              "@type": "Country",
+              name: market.schema.areaServed.name,
+            },
+          }
+        : {}),
+      description: market.terms.serviceDescription,
+      termsOfService: `${SITE_URL}${market.pages.cooperation}`,
+    });
+  }
+
+  graph.push({
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: "YANG SUPPLY",
+    publisher: {
+      "@id": `${SITE_URL}/#organization`,
+    },
+    inLanguage: ["vi", "zh-Hans", "en-US"],
+  });
+
   const schema = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${SITE_URL}/#organization`,
-        name: "YANG SUPPLY",
-        url: SITE_URL,
-        logo: `${SITE_URL}/icon.svg`,
-        description:
-          "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
-        address: {
-          "@type": "PostalAddress",
-          addressCountry: "CN",
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "Vietnam",
-        },
-        contactPoint: [
-          {
-            "@type": "ContactPoint",
-            telephone: `+84-${contacts.zalo.replace(/^0/, "")}`,
-            email: contacts.emails[0],
-            contactType: "sales",
-            areaServed: "VN",
-            availableLanguage: ["vi", "zh", "en"],
-          },
-        ],
-      },
-      {
-        "@type": "Service",
-        "@id": `${SITE_URL}/#service`,
-        name: "Cung cấp sỉ nguyên liệu DIY từ Trung Quốc về Việt Nam",
-        serviceType: "B2B Wholesale DIY Craft Materials Supply",
-        provider: {
-          "@id": `${SITE_URL}/#organization`,
-        },
-        areaServed: {
-          "@type": "Country",
-          name: "Vietnam",
-        },
-        description:
-          "Báo giá theo quy cách và số lượng, đặt cọc 80%, từ Trung Quốc về Việt Nam, thanh toán 20% còn lại khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Bù hàng nếu bể vỡ trong vận chuyển (báo kèm ảnh trong 1 ngày sau khi nhận).",
-        termsOfService: `${SITE_URL}/cooperation`,
-      },
-      {
-        "@type": "WebSite",
-        "@id": `${SITE_URL}/#website`,
-        url: SITE_URL,
-        name: "YANG SUPPLY",
-        publisher: {
-          "@id": `${SITE_URL}/#organization`,
-        },
-        inLanguage: ["vi", "zh-Hans", "en"],
-      },
-    ],
+    "@graph": graph,
   };
 
   return (
@@ -77,18 +123,22 @@ export function OrganizationSchema() {
   );
 }
 
-export function ProductsListSchema({ lang }: { lang: Lang }) {
-  const pageUrl = `${SITE_URL}${localizedPath(lang, "/products")}`;
-  const homeUrl = `${SITE_URL}${localizedPath(lang)}`;
+export function ProductsListSchema({ marketId }: { marketId: MarketId }) {
+  const market = markets[marketId];
+  const copy = market.copyLang;
+  const pageUrl = `${SITE_URL}${market.pages.products}`;
+  const homeUrl = `${SITE_URL}${market.pages.home}`;
 
   const items = series.map((item, index) => {
-    const text = item[lang];
-    const photos = productImage[item.id] || [];
+    const text = item[copy];
+    const photos = (productImage[item.id] || []).filter(
+      (photo) => !(photo.metricDiagram && market.units === "in"),
+    );
     const firstPhoto = photos[0]?.src
       ? `${SITE_URL}${photos[0].src}`
       : undefined;
     const specsSummary = text.specs
-      .map((s) => `${s.label}: ${s.value}`)
+      .map((spec) => `${spec.label}: ${spec.value}`)
       .join(" | ");
 
     return {
@@ -108,17 +158,17 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
         "@type": "CollectionPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `${dictionary[lang].products.title} · YANG SUPPLY`,
+        name: `${dictionary[copy].products.title} · YANG SUPPLY`,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         about: {
           "@id": `${SITE_URL}/#organization`,
         },
-        inLanguage: lang === "zh" ? "zh-Hans" : lang,
+        inLanguage: pageInLanguage(marketId),
         mainEntity: {
           "@type": "ItemList",
-          name: `${dictionary[lang].products.title} · YANG SUPPLY`,
+          name: `${dictionary[copy].products.title} · YANG SUPPLY`,
           numberOfItems: items.length,
           itemListElement: items,
         },
@@ -126,18 +176,18 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        name: `${dictionary[lang].products.title} · YANG SUPPLY`,
+        name: `${dictionary[copy].products.title} · YANG SUPPLY`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: dictionary[lang].nav[0].label,
+            name: dictionary[copy].nav[0]?.label,
             item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: dictionary[lang].products.title,
+            name: dictionary[copy].products.title,
             item: pageUrl,
           },
         ],
@@ -153,9 +203,11 @@ export function ProductsListSchema({ lang }: { lang: Lang }) {
   );
 }
 
-export function CooperationPageSchema({ lang }: { lang: Lang }) {
-  const pageUrl = `${SITE_URL}${localizedPath(lang, "/cooperation")}`;
-  const homeUrl = `${SITE_URL}${localizedPath(lang)}`;
+export function CooperationPageSchema({ marketId }: { marketId: MarketId }) {
+  const market = markets[marketId];
+  const copy = market.copyLang;
+  const pageUrl = `${SITE_URL}${market.pages.cooperation}`;
+  const homeUrl = `${SITE_URL}${market.pages.home}`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -164,30 +216,30 @@ export function CooperationPageSchema({ lang }: { lang: Lang }) {
         "@type": "WebPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `${dictionary[lang].cooperation.title} · YANG SUPPLY`,
+        name: `${dictionary[copy].cooperation.title} · YANG SUPPLY`,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         about: {
           "@id": `${SITE_URL}/#service`,
         },
-        inLanguage: lang === "zh" ? "zh-Hans" : lang,
+        inLanguage: pageInLanguage(marketId),
       },
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        name: `${dictionary[lang].cooperation.title} · YANG SUPPLY`,
+        name: `${dictionary[copy].cooperation.title} · YANG SUPPLY`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: dictionary[lang].nav[0].label,
+            name: dictionary[copy].nav[0]?.label,
             item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: dictionary[lang].cooperation.title,
+            name: dictionary[copy].cooperation.title,
             item: pageUrl,
           },
         ],
@@ -203,9 +255,11 @@ export function CooperationPageSchema({ lang }: { lang: Lang }) {
   );
 }
 
-export function ContactPageSchema({ lang }: { lang: Lang }) {
-  const pageUrl = `${SITE_URL}${localizedPath(lang, "/contact")}`;
-  const homeUrl = `${SITE_URL}${localizedPath(lang)}`;
+export function ContactPageSchema({ marketId }: { marketId: MarketId }) {
+  const market = markets[marketId];
+  const copy = market.copyLang;
+  const pageUrl = `${SITE_URL}${market.pages.contact}`;
+  const homeUrl = `${SITE_URL}${market.pages.home}`;
 
   const schema = {
     "@context": "https://schema.org",
@@ -214,30 +268,30 @@ export function ContactPageSchema({ lang }: { lang: Lang }) {
         "@type": "ContactPage",
         "@id": `${pageUrl}#webpage`,
         url: pageUrl,
-        name: `${dictionary[lang].contact.title} · YANG SUPPLY`,
+        name: `${dictionary[copy].contact.title} · YANG SUPPLY`,
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
         mainEntity: {
           "@id": `${SITE_URL}/#organization`,
         },
-        inLanguage: lang === "zh" ? "zh-Hans" : lang,
+        inLanguage: pageInLanguage(marketId),
       },
       {
         "@type": "BreadcrumbList",
         "@id": `${pageUrl}#breadcrumb`,
-        name: `${dictionary[lang].contact.title} · YANG SUPPLY`,
+        name: `${dictionary[copy].contact.title} · YANG SUPPLY`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
-            name: dictionary[lang].nav[0].label,
+            name: dictionary[copy].nav[0]?.label,
             item: homeUrl,
           },
           {
             "@type": "ListItem",
             position: 2,
-            name: dictionary[lang].contact.title,
+            name: dictionary[copy].contact.title,
             item: pageUrl,
           },
         ],

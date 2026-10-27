@@ -93,7 +93,7 @@ export function WorkshopGuideView() {
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
               <dt className="font-medium text-ink">
-                <Link href="/products#petals" className="link-under">
+                <Link href="/san-pham#petals" className="link-under">
                   Cánh hoa acrylic
                 </Link>
               </dt>
@@ -105,7 +105,7 @@ export function WorkshopGuideView() {
             </div>
             <div className="contents">
               <dt className="font-medium text-ink">
-                <Link href="/products#stickers" className="link-under">
+                <Link href="/san-pham#stickers" className="link-under">
                   Sticker đính đá
                 </Link>
               </dt>
@@ -117,7 +117,7 @@ export function WorkshopGuideView() {
             </div>
             <div className="contents">
               <dt className="font-medium text-ink">
-                <Link href="/products#vase" className="link-under">
+                <Link href="/san-pham#vase" className="link-under">
                   Khung bình hoa acrylic
                 </Link>
               </dt>
@@ -129,7 +129,7 @@ export function WorkshopGuideView() {
             </div>
             <div className="contents">
               <dt className="font-medium text-ink">
-                <Link href="/products#starfish" className="link-under">
+                <Link href="/san-pham#starfish" className="link-under">
                   Sao biển resin
                 </Link>
               </dt>
@@ -141,7 +141,7 @@ export function WorkshopGuideView() {
             </div>
             <div className="contents">
               <dt className="font-medium text-ink">
-                <Link href="/products#charm" className="link-under">
+                <Link href="/san-pham#charm" className="link-under">
                   Vòng tay charm Ý
                 </Link>
               </dt>
@@ -335,8 +335,8 @@ export function WorkshopGuideView() {
           </dl>
 
           <div className="mt-8 flex flex-wrap gap-6 text-[14px]">
-            <TextLink href="/products">Xem danh mục sản phẩm</TextLink>
-            <TextLink href="/cooperation">Xem quy trình hợp tác</TextLink>
+            <TextLink href="/san-pham">Xem danh mục sản phẩm</TextLink>
+            <TextLink href="/hop-tac">Xem quy trình hợp tác</TextLink>
             <TextLink href={otherGuide.href}>
               {otherGuide.shortTitle.vi}
             </TextLink>
@@ -375,7 +375,7 @@ export function CharmGuideView() {
           </h2>
           <p className="mt-6 max-w-[60ch]">
             Một chiếc{" "}
-            <Link href="/products#charm" className="link-under">
+            <Link href="/san-pham#charm" className="link-under">
               vòng tay charm Ý
             </Link>{" "}
             được ghép từ các mắt xích chữ nhật nối tiếp nhau. Khi lên danh mục
@@ -604,10 +604,10 @@ export function CharmGuideView() {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-6 text-[14px]">
-            <TextLink href="/products#charm">
+            <TextLink href="/san-pham#charm">
               Xem dòng Vòng tay charm Ý
             </TextLink>
-            <TextLink href="/cooperation">Xem điều khoản hợp tác</TextLink>
+            <TextLink href="/hop-tac">Xem điều khoản hợp tác</TextLink>
             <TextLink href={otherGuide.href}>
               {otherGuide.shortTitle.vi}
             </TextLink>

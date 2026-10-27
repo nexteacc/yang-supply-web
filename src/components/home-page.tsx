@@ -19,15 +19,16 @@ const heroPhoto = Object.values(productImage)
   .find((photo) => photo.src === HERO_SRC);
 
 export function HomePage() {
-  const { lang, t } = useLanguage();
+  const { lang, copyLang, market, t } = useLanguage();
   const home = t.home;
+  const showProcess = market.commerce && home.steps.length > 0 && market.pages.cooperation;
 
   return (
     <div>
       <section className="relative -mt-[104px] sm:-mt-[72px] h-[85svh] min-h-[32rem] overflow-hidden bg-ink md:h-[100svh]">
         <Image
           src={HERO_SRC}
-          alt={heroPhoto ? heroPhoto[lang] : "Yang Supply"}
+          alt={heroPhoto ? heroPhoto[copyLang] : "Yang Supply"}
           fill
           priority
           quality={75}
@@ -52,25 +53,30 @@ export function HomePage() {
             <p className="max-w-[60ch]">{home.lead}</p>
             <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
               <ZaloButton />
-              <TextLink href={localizedPath(lang, "/cooperation")}>
-                {home.seeProcess}
-              </TextLink>
+              {showProcess ? (
+                <TextLink href={market.pages.cooperation!}>
+                  {home.seeProcess}
+                </TextLink>
+              ) : null}
             </div>
-            <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
-              {home.rows.map((row) => (
-                <div key={row.label}>
-                  <dd className="fact-value text-ink">{row.value}</dd>
-                  <dt className="fact-label mt-2 text-mute">{row.label}</dt>
-                  {row.note ? (
-                    <p className="mt-2 max-w-[22ch] text-[13px] font-normal leading-snug text-mute">
-                      {home.noteCaption}
-                    </p>
-                  ) : null}
-                </div>
-              ))}
-            </dl>
+            {home.rows.length > 0 ? (
+              <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
+                {home.rows.map((row) => (
+                  <div key={row.label}>
+                    <dd className="fact-value text-ink">{row.value}</dd>
+                    <dt className="fact-label mt-2 text-mute">{row.label}</dt>
+                    {row.note ? (
+                      <p className="mt-2 max-w-[22ch] text-[13px] font-normal leading-snug text-mute">
+                        {home.noteCaption}
+                      </p>
+                    ) : null}
+                  </div>
+                ))}
+              </dl>
+            ) : null}
           </div>
 
+          {home.values.length > 0 ? (
           <div>
             <h2 className="heading-2">{home.valuesTitle}</h2>
             <ol className="mt-10 flex flex-col gap-10 md:mt-12 md:gap-12">
@@ -90,7 +96,9 @@ export function HomePage() {
               ))}
             </ol>
           </div>
+          ) : null}
 
+          {home.audience.length > 0 ? (
           <div>
             <h2 className="heading-2">{home.audienceTitle}</h2>
             <p className="mt-6 max-w-[60ch]">{home.audienceBody}</p>
@@ -102,6 +110,7 @@ export function HomePage() {
               ))}
             </ul>
           </div>
+          ) : null}
 
           <div>
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
@@ -115,8 +124,10 @@ export function HomePage() {
             </div>
             <ul className="mt-12 flex flex-col gap-16 md:mt-16 md:gap-20">
               {series.map((item, index) => {
-                const text = item[lang];
-                const photo = productImage[item.id][0];
+                const text = item[copyLang];
+                const photo = productImage[item.id].find(
+                  (itemPhoto) => !(itemPhoto.metricDiagram && market.units === "in"),
+                );
                 if (!photo) return null;
                 return (
                   <li key={item.id}>
@@ -126,7 +137,7 @@ export function HomePage() {
                     >
                       <SquareThumb
                         src={photo.src}
-                        alt={photo[lang]}
+                        alt={photo[copyLang]}
                         sizes="(min-width: 768px) 360px, 80vw"
                         className="col-span-12 sm:col-span-5 md:col-span-4"
                       />
@@ -146,6 +157,7 @@ export function HomePage() {
             </ul>
           </div>
 
+          {showProcess ? (
           <div>
             <h2 className="heading-2">{home.processTitle}</h2>
             <p className="mt-6 max-w-[60ch] text-mute">{home.processLead}</p>
@@ -163,24 +175,37 @@ export function HomePage() {
               ))}
             </ol>
             <TextLink
-              href={localizedPath(lang, "/cooperation")}
+              href={market.pages.cooperation!}
               className="mt-10 inline-block"
             >
               {home.seeProcess}
             </TextLink>
           </div>
+          ) : null}
 
           <div>
             <h2 className="heading-2 max-w-[20ch]">{home.ctaTitle}</h2>
             <p className="mt-6 max-w-[60ch] text-mute">{home.ctaBody}</p>
-            <a
-              href={contacts.zaloUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="heading-3 link-under mt-8 inline-block"
-            >
-              {contacts.zalo}
-            </a>
+            {market.contact === "zalo" ? (
+              <a
+                href={contacts.zaloUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="heading-3 link-under mt-8 inline-block"
+              >
+                {contacts.zalo}
+              </a>
+            ) : (
+              <ul className="mt-8 flex flex-col items-start gap-3">
+                {contacts.emails.map((email) => (
+                  <li key={email}>
+                    <a href={`mailto:${email}`} className="link-under break-all text-[14px]">
+                      {email}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
             <div className="mt-8">
               <ZaloButton />
             </div>

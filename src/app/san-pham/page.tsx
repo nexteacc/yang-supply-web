@@ -4,13 +4,13 @@ import { ProductsListSchema } from "@/components/schema-org";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata("zh", "products");
+  return buildMetadata("vi", "products");
 }
 
 export default function Page() {
   return (
     <>
-      <ProductsListSchema lang="zh" />
+      <ProductsListSchema marketId="vi" />
       <ProductsPage />
     </>
   );
