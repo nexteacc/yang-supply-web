@@ -169,7 +169,7 @@ export const markets: Record<MarketId, Market> = {
       home: {
         title: "中国 DIY 手作材料批发 · 发往全球 · YANG SUPPLY",
         description:
-          "YANG SUPPLY 批发亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星和意大利 Charm 手链，供应各国手作工坊、咖啡馆、门店和学校，从中国发货。",
+          "YANG SUPPLY 批发亚克力花瓣、水钻贴纸、亚克力插花花瓶框、树脂海星和意大利 Charm 手链，供应各国手作工坊、咖啡馆、门店和学校，从中国发货。",
         absolute: true,
       },
       products: {
@@ -227,7 +227,7 @@ export const markets: Record<MarketId, Market> = {
       cooperation: {
         title: "How to Order Wholesale Craft Supplies",
         description:
-          "80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. We handle US customs clearance when we arrange shipping.",
+          "How to order wholesale craft supplies from China. 80% deposit, 20% balance. Seven-day quotes, shipping choices and full payment terms for US buyers.",
       },
       contact: {
         title: "Contact Yang Supply for a Wholesale Quote",

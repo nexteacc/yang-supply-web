@@ -498,13 +498,13 @@ export const series: {
     en: {
       name: "Rhinestone Stickers",
       summary:
-        "Large sheets: 3 × 5.1 in. Small-sheet dimensions are not listed. Assorted designs, supplied by the sheet.",
+        "Large sheets: 3 × 5.1 in. Assorted designs, supplied by the sheet.",
       detail: "Designs are subject to the samples confirmed when you email us.",
       specs: [
         {
           label: "Size",
           value:
-            "Large sheets: 3 × 5.1 in. Small-sheet dimensions are not listed",
+            "Large sheets: 3 × 5.1 in",
         },
         {
           label: "Designs",
@@ -705,7 +705,11 @@ export type Copy = {
     noteCaption: string;
     rows: { label: string; value: string; note?: boolean }[];
     valuesTitle: string;
-    values: { title: string; body: string }[];
+    values: {
+      title: string;
+      body: string;
+      link?: { href: string; label: string };
+    }[];
     audienceTitle: string;
     audienceBody: string;
     audience: string[];
@@ -779,11 +783,11 @@ export const dictionary: Record<Lang, Copy> = {
       lead: markets["en-us"].hero.lead,
       seeProcess: "How to Order",
       seeProducts: "View Products",
-      noteCaption: "Product price and shipping quoted separately.",
+      noteCaption: "",
       rows: [
         { label: "From — to", value: "China → United States" },
         { label: "Who we supply", value: "Studios, stores and schools" },
-        { label: "Deposit / balance", value: "80 / 20", note: true },
+        { label: "Deposit / balance", value: "80 / 20" },
         { label: "Shipping", value: "US customs clearance" },
       ],
       valuesTitle: "What We Provide",
@@ -798,7 +802,11 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Payment",
-          body: "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
+          body: "80% deposit, 20% balance.",
+          link: {
+            href: markets["en-us"].pages.cooperation!,
+            label: "Full terms on the Cooperation page.",
+          },
         },
       ],
       audienceTitle: "Who We Supply",
@@ -808,15 +816,14 @@ export const dictionary: Record<Lang, Copy> = {
       seriesTitle: "Our Product Range",
       seriesLead: "Five product lines from our range.",
       processTitle: "Ordering",
-      processLead:
-        "Email the specifications and quantities. We quote the product price and shipping separately. Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+      processLead: "Email the specifications and quantities.",
       steps: [
         "Email your inquiry",
         "Confirm specifications and quantities",
         "Receive a quote",
-        "Pay the 80% deposit on the order total",
+        "Pay the 80% deposit",
         "We arrange shipping and US customs clearance, or you use your own freight forwarder",
-        "Pay the 20% balance on delivery, or before handover to your freight forwarder",
+        "Pay the 20% balance",
       ],
       ctaTitle: "Email Us",
       ctaBody:
@@ -842,11 +849,11 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Receive a quote",
-          body: "Product price and shipping are quoted separately. Prices are not shown on this website.",
+          body: "Product price and shipping are quoted separately.",
         },
         {
           title: "Pay the 80% deposit",
-          body: "Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+          body: "",
         },
         {
           title: "Shipping",
@@ -854,7 +861,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Pay the 20% balance",
-          body: "If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. Pay the balance by international SWIFT bank transfer or USDT/USDC.",
+          body: "",
         },
       ],
       qualityTitle: "Quality",
@@ -864,27 +871,19 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Payment",
       payFigure: "80 / 20",
       payBody:
-        "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Product price and shipping are quoted separately.",
+        "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
       notesTitle: "Quotation terms",
       notes: [
         "Quotes are valid for 7 days.",
         "You can mix colors and designs. Minimum order quantities apply separately to each design and each color.",
         "Samples are charged at the unit price in the relevant quote.",
-        "Report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
+        "For orders we ship, report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
       ],
       faqTitle: "FAQs",
       faq: [
         {
-          q: "How do we pay?",
-          a: "Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
-        },
-        {
-          q: "Do you handle shipping?",
-          a: "We can arrange shipping from China and handle US customs clearance. You can use your own freight forwarder instead. Product price and shipping are quoted separately.",
-        },
-        {
           q: "Are prices listed?",
-          a: "No. Product price and shipping are quoted separately, and nothing is priced on this website.",
+          a: "No. Nothing is priced on this website.",
         },
       ],
     },
@@ -935,13 +934,13 @@ export const dictionary: Record<Lang, Copy> = {
       noteCaption: "",
       rows: [
         { label: "发货", value: "中国，发往全球" },
-        { label: "角色", value: "DIY 手作材料批发" },
+        { label: "我们是", value: "DIY 手作材料批发" },
       ],
       valuesTitle: "产品",
       values: [
         {
           title: "自有系列",
-          body: "亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星和意大利 Charm 手链。",
+          body: "亚克力花瓣、水钻贴纸、亚克力插花花瓶框、树脂海星和意大利 Charm 手链。",
         },
       ],
       audienceTitle: "给谁",
@@ -977,7 +976,7 @@ export const dictionary: Record<Lang, Copy> = {
       faq: [],
     },
     contact: {
-      kicker: "04",
+      kicker: "03",
       title: "联系",
       lead: "可通过 Zalo 或邮件联系。",
       zaloRole: "Zalo",
@@ -1086,15 +1085,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Đặt hàng (cọc 80%)",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.",
+          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam.",
         },
         {
           title: "Vận chuyển",
-          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
+          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
         },
         {
           title: "Thanh toán 20% còn lại",
-          body: "Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng. Nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.",
+          body: "",
         },
       ],
       qualityTitle: "Chất lượng",
@@ -1124,7 +1123,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "Đặt cọc bao nhiêu phần trăm?",
-          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.",
         },
       ],
     },

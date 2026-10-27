@@ -38,7 +38,12 @@ export function ProductsPage() {
 
         <div className="flex flex-col items-start gap-8">
           <h2 className="heading-2 max-w-[20ch]">{t.inquiry}</h2>
-          <ZaloButton />
+          {t.inquiry.trim().toLowerCase() ===
+          (market.contact === "email" ? t.emailCta : t.zaloAdd)
+            .trim()
+            .toLowerCase() ? null : (
+            <ZaloButton />
+          )}
           {market.contact === "email" ? (
             <ul className="flex flex-col items-start gap-3">
               {contacts.emails.map((email) => (

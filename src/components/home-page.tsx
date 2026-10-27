@@ -90,7 +90,17 @@ export function HomePage() {
                   </span>
                   <div className="md:col-span-6">
                     <h3 className="heading-3">{item.title}</h3>
-                    <p className="mt-3 max-w-[60ch] text-mute">{item.body}</p>
+                    <p className="mt-3 max-w-[60ch] text-mute">
+                      {item.body}
+                      {item.link ? (
+                        <>
+                          {" "}
+                          <Link href={item.link.href} className="link-under text-ink">
+                            {item.link.label}
+                          </Link>
+                        </>
+                      ) : null}
+                    </p>
                   </div>
                 </li>
               ))}
@@ -160,7 +170,9 @@ export function HomePage() {
           {showProcess ? (
           <div>
             <h2 className="heading-2">{home.processTitle}</h2>
-            <p className="mt-6 max-w-[60ch] text-mute">{home.processLead}</p>
+            {home.processLead ? (
+              <p className="mt-6 max-w-[60ch] text-mute">{home.processLead}</p>
+            ) : null}
             <ol className="mt-10 flex flex-col gap-8 md:mt-12">
               {home.steps.map((step, index) => (
                 <li
@@ -174,12 +186,6 @@ export function HomePage() {
                 </li>
               ))}
             </ol>
-            <TextLink
-              href={market.pages.cooperation!}
-              className="mt-10 inline-block"
-            >
-              {home.seeProcess}
-            </TextLink>
           </div>
           ) : null}
 
@@ -206,9 +212,14 @@ export function HomePage() {
                 ))}
               </ul>
             )}
-            <div className="mt-8">
-              <ZaloButton />
-            </div>
+            {home.ctaTitle.trim().toLowerCase() ===
+            (market.contact === "email" ? t.emailCta : t.zaloAdd)
+              .trim()
+              .toLowerCase() ? null : (
+              <div className="mt-8">
+                <ZaloButton />
+              </div>
+            )}
           </div>
         </div>
       </Section>
