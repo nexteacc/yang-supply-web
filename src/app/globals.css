@@ -244,3 +244,18 @@ html[data-lang="en"] .btn-quiet {
 .heading-1-hero > span + span {
   margin-top: 0.15em;
 }
+/* English hero only: shipping label at half the primary H1 size. */
+html[data-lang="en"] .heading-1-hero > span + span {
+  margin-top: 0.65em;
+  font-weight: 400;
+  font-size: clamp(16px, 0.5em, 18px);
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: rgb(255 255 255 / 0.72);
+  text-wrap: wrap;
+}
+@media (min-width: 768px) {
+  html[data-lang="en"] .heading-1-hero > span + span {
+    font-size: clamp(20px, 0.5em, 40px);
+  }
+}

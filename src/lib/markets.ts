@@ -209,7 +209,7 @@ export const markets: Record<MarketId, Market> = {
       contact: "contact",
     },
     hero: {
-      title: ["Wholesale Italian Charms", "& Rhinestone Stickers"],
+      title: ["Wholesale Italian Charms", "Shipped from China to the US"],
       lead: "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US. We handle shipping and US customs clearance from China.",
     },
     meta: {
