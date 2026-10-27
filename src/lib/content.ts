@@ -794,11 +794,11 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Quotes and shipping",
-          body: "Product price and shipping are quoted separately. Nothing is priced on this website. We handle shipping and US customs clearance from China.",
+          body: "Product price and shipping are quoted separately. Nothing is priced on this website. We can arrange shipping from China and handle US customs clearance, or you can use your own freight forwarder.",
         },
         {
           title: "Payment",
-          body: "80% deposit and 20% balance, by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
+          body: "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
         },
       ],
       audienceTitle: "Who We Supply",
@@ -809,14 +809,14 @@ export const dictionary: Record<Lang, Copy> = {
       seriesLead: "Five product lines from our range.",
       processTitle: "Ordering",
       processLead:
-        "Email the specifications and quantities. We quote the product price and shipping separately.",
+        "Email the specifications and quantities. We quote the product price and shipping separately. Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
       steps: [
         "Email your inquiry",
         "Confirm specifications and quantities",
         "Receive a quote",
-        "Pay the 80% deposit",
-        "We ship and handle US customs clearance",
-        "Pay the 20% balance",
+        "Pay the 80% deposit on the order total",
+        "We arrange shipping and US customs clearance, or you use your own freight forwarder",
+        "Pay the 20% balance on delivery, or before handover to your freight forwarder",
       ],
       ctaTitle: "Email Us",
       ctaBody:
@@ -846,15 +846,15 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Pay the 80% deposit",
-          body: "Pay the 80% deposit by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
+          body: "Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
         },
         {
           title: "Shipping",
-          body: "We handle shipping and US customs clearance from China.",
+          body: "We can arrange shipping from China and handle US customs clearance. You can use your own freight forwarder instead.",
         },
         {
           title: "Pay the 20% balance",
-          body: "Pay the remaining 20% by international SWIFT bank transfer or USDT/USDC.",
+          body: "If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. Pay the balance by international SWIFT bank transfer or USDT/USDC.",
         },
       ],
       qualityTitle: "Quality",
@@ -864,7 +864,7 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Payment",
       payFigure: "80 / 20",
       payBody:
-        "80% deposit and 20% balance. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Product price and shipping are quoted separately.",
+        "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Product price and shipping are quoted separately.",
       notesTitle: "Quotation terms",
       notes: [
         "Quotes are valid for 7 days.",
@@ -876,11 +876,11 @@ export const dictionary: Record<Lang, Copy> = {
       faq: [
         {
           q: "How do we pay?",
-          a: "By international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The terms are an 80% deposit and a 20% balance.",
+          a: "Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
         },
         {
           q: "Do you handle shipping?",
-          a: "Yes. We handle shipping and US customs clearance from China. Product price and shipping are quoted separately.",
+          a: "We can arrange shipping from China and handle US customs clearance. You can use your own freight forwarder instead. Product price and shipping are quoted separately.",
         },
         {
           q: "Are prices listed?",
