@@ -1,10 +1,11 @@
 # YANG SUPPLY
 
 > Nhà cung cấp sỉ nguyên liệu làm đồ thủ công, phụ kiện DIY từ Trung Quốc chuyển thẳng về Việt Nam.
-> B2B wholesale supplier of DIY craft materials from China to Vietnam.
 
 - Website: https://www.yangsupply.com
-- English pages: https://www.yangsupply.com/en, https://www.yangsupply.com/en/products, https://www.yangsupply.com/en/cooperation, https://www.yangsupply.com/en/contact
+- Trang tiếng Việt: https://www.yangsupply.com/, https://www.yangsupply.com/san-pham, https://www.yangsupply.com/hop-tac, https://www.yangsupply.com/lien-he
+- English pages (United States): https://www.yangsupply.com/en-us, https://www.yangsupply.com/en-us/products, https://www.yangsupply.com/en-us/cooperation, https://www.yangsupply.com/en-us/contact
+- 中文页面: https://www.yangsupply.com/zh, https://www.yangsupply.com/zh/products, https://www.yangsupply.com/zh/contact
 - Đối tượng phục vụ: Xưởng thủ công (workshop), cửa hàng phụ kiện handmade, trường học và trung tâm đào tạo tại Việt Nam.
 - Địa chỉ xuất hàng: Trung Quốc.
 
@@ -54,12 +55,28 @@
 - Zalo tư vấn sỉ: 0986245780 (https://zalo.me/0986245780)
 - Ngôn ngữ hỗ trợ: Tiếng Việt, Tiếng Trung (Tiếng Phổ Thông), English
 
-## English ordering terms
+## 中文
 
-- Yang Supply sells its product range directly to craft workshops, shops and schools in Vietnam.
-- Product unit prices are quoted after specifications and quantities are confirmed. Shipping is charged separately; prices are not listed on the website.
-- Quotes are valid for 7 days. Minimum order quantities apply separately to each design and colour. Samples are charged at the unit price in the relevant quote.
-- Pay by local bank transfer in Vietnam: 80% deposit; the remaining 20% is due on receipt if we arrange shipping, or before handover to your own freight forwarder. The order total includes goods and shipping when we arrange shipping; goods only when using your own freight forwarder.
-- When we arrange shipping from China to Vietnam, the shipping charge includes customs clearance and import duties. When using your own freight forwarder, our delivery obligation is fulfilled on handover to that forwarder.
-- For orders shipped by us, report damage with photos within one day of receiving the goods. Damaged products are replaced, not refunded.
-- Enquiries are supported in Vietnamese, Chinese and English through the contact details above.
+Yang Supply 是 DIY 手作材料批发供应商，把自有系列卖给各国的手作工坊、咖啡馆、门店和学校，从中国发货。
+
+- 页面标题：中国 DIY 手作材料，发往全球。
+- 页面：https://www.yangsupply.com/zh ，https://www.yangsupply.com/zh/products ，https://www.yangsupply.com/zh/contact
+- 产品：亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星、意大利 Charm 手链。本栏只介绍产品和联系方式。
+- 联系（沿用站内已有方式）：
+  - Zalo：0986245780（https://zalo.me/0986245780）
+  - an.yangsupply@agentmail.to
+  - minh.yangsupply@agentmail.to
+  - linh.yangsupply@agentmail.to
+
+## English (United States)
+
+Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US. We handle shipping and US customs clearance from China.
+
+- Pages: https://www.yangsupply.com/en-us, https://www.yangsupply.com/en-us/products, https://www.yangsupply.com/en-us/cooperation, https://www.yangsupply.com/en-us/contact
+- Sizes on the US pages are in inches: acrylic petals 1.8 × 1.6 in; large rhinestone sticker sheets 3 × 5.1 in (small-sheet dimensions are not listed); acrylic flower vase frames 7.1 × 5.9 in; resin starfish large 2 in and small 1 in.
+- Product price and shipping are quoted separately. Prices are not shown on the website.
+- Pay an 80% deposit and a 20% balance by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.
+- We handle shipping and US customs clearance from China.
+- Quotes are valid for 7 days. Minimum order quantities apply separately to each design and color. Samples are charged at the unit price in the relevant quote.
+- Report damage with photos within one day of receiving the goods. Damaged products are replaced, not refunded.
+- Enquiries by email: an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to, linh.yangsupply@agentmail.to

@@ -68,7 +68,14 @@ export function TextLink({
 }
 
 export function ZaloButton({ className = "" }: { className?: string }) {
-  const { t } = useLanguage();
+  const { t, market } = useLanguage();
+  if (market.contact === "email") {
+    return (
+      <a href={`mailto:${contacts.emails[0]}`} className={`btn-quiet ${className}`}>
+        {t.emailCta}
+      </a>
+    );
+  }
   return (
     <a
       href={contacts.zaloUrl}

@@ -1,3 +1,5 @@
+import { markets, navPages, type MarketId, type PageKey } from "@/lib/markets";
+
 export type Lang = "zh" | "vi" | "en";
 
 export const seriesIds = [
@@ -39,10 +41,12 @@ export type ProductPhoto = {
   colour?: Record<Lang, string>;
   /** This photo is one available single colour and may be selected from the list. */
   swatch?: boolean;
+  /** Printed metric callouts. Hidden on inch markets. */
+  metricDiagram?: boolean;
 };
 
 export const colourAvailableLabel = {
-  en: "Available colours:",
+  en: "Available colors:",
   vi: "Màu có sẵn:",
   zh: "可选颜色：",
 } as const;
@@ -59,7 +63,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       zh: "亚克力花瓣多色样品",
       vi: "Mẫu cánh hoa acrylic nhiều màu",
       en: "Assorted acrylic petal samples",
-      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colours" },
+      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colors" },
     },
     {
       src: "/products/kich-thuoc-canh-hoa-acrylic.jpg",
@@ -69,6 +73,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       vi: "Mẫu kích thước cánh hoa acrylic",
       en: "Acrylic petal dimensions",
       colour: { vi: "Kích thước", zh: "尺寸", en: "Dimensions" },
+      metricDiagram: true,
     },
     {
       src: "/products/canh-hoa-acrylic-hong.jpg",
@@ -185,7 +190,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张水钻贴纸，彩色爱心",
       vi: "Sticker đính đá cỡ nhỏ hình tim màu",
-      en: "Small rhinestone sticker sheet with colourful hearts",
+      en: "Small rhinestone sticker sheet with colorful hearts",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
@@ -194,7 +199,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张彩色梅花圆钻水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình hoa mai và hạt tròn nhiều màu",
-      en: "Small rhinestone sticker sheet with colourful plum blossoms and round gems",
+      en: "Small rhinestone sticker sheet with colorful plum blossoms and round gems",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
@@ -203,7 +208,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "小张彩色星星圆钻水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình ngôi sao và hạt tròn nhiều màu",
-      en: "Small rhinestone sticker sheet with colourful stars and round gems",
+      en: "Small rhinestone sticker sheet with colorful stars and round gems",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
@@ -253,8 +258,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "灰色亚克力插花花瓶框（空框）",
       vi: "Khung bình hoa acrylic màu xám, để trống",
-      en: "Empty grey acrylic flower vase frame",
-      colour: { vi: "xám", zh: "灰色", en: "grey" },
+      en: "Empty gray acrylic flower vase frame",
+      colour: { vi: "xám", zh: "灰色", en: "gray" },
       swatch: true,
     },
     {
@@ -276,7 +281,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       zh: "树脂海星多色样品",
       vi: "Mẫu sao biển resin nhiều màu",
       en: "Assorted resin starfish samples",
-      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colours" },
+      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colors" },
     },
     {
       src: "/products/sao-bien-resin-nhieu-mau-2.jpg",
@@ -284,8 +289,8 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       height: 1600,
       zh: "七只多色树脂海星",
       vi: "Bảy sao biển resin nhiều màu",
-      en: "Seven resin starfish in assorted colours",
-      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colours" },
+      en: "Seven resin starfish in assorted colors",
+      colour: { vi: "Nhiều màu", zh: "多色", en: "Assorted colors" },
     },
     {
       src: "/products/sao-bien-resin-trang.jpg",
@@ -436,7 +441,7 @@ export const series: {
     id: "petals",
     en: {
       name: "Acrylic Petals",
-      summary: "Lily-shaped petals, 45 × 40 mm, in 9 colours.",
+      summary: "Lily-shaped petals, 1.8 × 1.6 in, in 9 colors.",
       detail: "Transparent petals for crafts and classes.",
       specs: [
         {
@@ -445,12 +450,12 @@ export const series: {
         },
         {
           label: "Size",
-          value: "45 × 40 mm",
+          value: "1.8 × 1.6 in",
         },
         {
-          label: "Colours",
+          label: "Colors",
           value:
-            "9 colours: red, pink, cherry blossom pink, purple, blue, green, yellow, clear and white",
+            "9 colors: red, pink, cherry blossom pink, purple, blue, green, yellow, clear and white",
         },
         {
           label: "Use",
@@ -493,18 +498,18 @@ export const series: {
     en: {
       name: "Rhinestone Stickers",
       summary:
-        "Large sheets: 7.5 × 13 cm. Small-sheet dimensions are not listed. Assorted designs, supplied by the sheet.",
-      detail: "Designs are subject to the samples confirmed when you enquire.",
+        "Large sheets: 3 × 5.1 in. Small-sheet dimensions are not listed. Assorted designs, supplied by the sheet.",
+      detail: "Designs are subject to the samples confirmed when you email us.",
       specs: [
         {
           label: "Size",
           value:
-            "Large sheets: 7.5 × 13 cm; small-sheet dimensions are not listed",
+            "Large sheets: 3 × 5.1 in. Small-sheet dimensions are not listed",
         },
         {
           label: "Designs",
           value:
-            "Assorted designs, subject to the samples confirmed when you enquire",
+            "Assorted designs, subject to the samples confirmed when you email us",
         },
         {
           label: "Supply unit",
@@ -544,17 +549,17 @@ export const series: {
     id: "vase",
     en: {
       name: "Acrylic Flower Vase Frames",
-      summary: "For flower arrangements. 18 × 15 cm.",
+      summary: "For flower arrangements. 7.1 × 5.9 in.",
       detail:
-        "Available in grey, sky blue, pink and clear. Suitable for flower arrangements and in-store displays.",
+        "Available in gray, sky blue, pink and clear. Suitable for flower arrangements and in-store displays.",
       specs: [
         {
           label: "Size",
-          value: "18 × 15 cm",
+          value: "7.1 × 5.9 in",
         },
         {
-          label: "Colours",
-          value: "Grey, sky blue, pink and clear",
+          label: "Colors",
+          value: "Gray, sky blue, pink and clear",
         },
         {
           label: "Use",
@@ -591,15 +596,15 @@ export const series: {
     id: "starfish",
     en: {
       name: "Resin Starfish",
-      summary: "Decorative pieces with no holes. Large: 5 cm; small: 2.6 cm.",
-      detail: "Available in assorted colours.",
+      summary: "Decorative pieces with no holes. Large: 2 in; small: 1 in.",
+      detail: "Available in assorted colors.",
       specs: [
         {
           label: "Size",
-          value: "Large: 5 cm; small: 2.6 cm. No holes.",
+          value: "Large: 2 in; small: 1 in. No holes.",
         },
         {
-          label: "Colours",
+          label: "Colors",
           value: "Pink, ivory, light purple, white, light blue and navy blue",
         },
         {
@@ -640,7 +645,7 @@ export const series: {
       summary:
         "Modular bracelets, quoted individually according to your selected designs.",
       detail:
-        "A full design catalogue is not listed on this website. Send the designs you would like for a quote.",
+        "A full design catalog is not listed on this website. Email the designs you would like quoted.",
       specs: [
         {
           label: "Type",
@@ -650,17 +655,16 @@ export const series: {
         {
           label: "Quotation",
           value:
-            "Quoted individually by selected design; send your preferred designs to enquire",
+            "Quoted individually by selected design. Email the designs you want quoted.",
         },
       ],
     },
     zh: {
       name: "意大利 Charm 手链",
-      summary: "模块化手链，按所选款式单独报价。",
-      detail: "本站不列款式目录。把想要的图案发来即可询价。",
+      summary: "模块化手链，有珐琅、锆石和圣诞主题。",
+      detail: "本站展示样品，不列完整款式目录。",
       specs: [
         { label: "类型", value: "模块化手链与配件（珐琅、锆石、圣诞主题）" },
-        { label: "报价方式", value: "按所选款式单独报价（发图案询价）" },
       ],
     },
     vi: {
@@ -690,6 +694,7 @@ export type Copy = {
   copied: string;
   copy: string;
   zaloAdd: string;
+  emailCta: string;
   inquiry: string;
   nav: { href: string; label: string }[];
   home: {
@@ -743,6 +748,16 @@ export type Copy = {
   error: { title: string; body: string; retry: string };
 };
 
+function links(
+  id: MarketId,
+  labels: Record<PageKey, string>,
+): { href: string; label: string }[] {
+  return navPages(markets[id]).map(({ key, href }) => ({
+    href,
+    label: labels[key],
+  }));
+}
+
 export const dictionary: Record<Lang, Copy> = {
   en: {
     skip: "Skip to content",
@@ -750,93 +765,96 @@ export const dictionary: Record<Lang, Copy> = {
     close: "Close",
     copied: "Copied",
     copy: "Copy",
-    zaloAdd: "Add on Zalo",
-    inquiry: "Get a Quote",
-    nav: [
-      { href: "/en", label: "Home" },
-      { href: "/en/products", label: "Products" },
-      { href: "/en/cooperation", label: "Ordering" },
-      { href: "/en/contact", label: "Contact" },
-    ],
+    zaloAdd: "Email us",
+    emailCta: "Email us",
+    inquiry: "Email us",
+    nav: links("en-us", {
+      home: "Home",
+      products: "Products",
+      cooperation: "Ordering",
+      contact: "Contact",
+    }),
     home: {
-      title: ["DIY Materials from China", "Delivered to Vietnam"],
-      lead: "Yang Supply is a DIY materials supplier. We sell our product range to craft workshops, shops and schools in Vietnam. We quote product unit prices with shipping charged separately, and take responsibility for product quality.",
+      title: markets["en-us"].hero.title,
+      lead: markets["en-us"].hero.lead,
       seeProcess: "How to Order",
       seeProducts: "View Products",
-      noteCaption: "Quoted per order. Contact us for a quote.",
+      noteCaption: "Product price and shipping quoted separately.",
       rows: [
-        { label: "From — to", value: "China → Vietnam" },
-        { label: "Our role", value: "DIY materials supplier" },
-        { label: "Deposit / on receipt", value: "80 / 20", note: true },
-        { label: "Product quality", value: "Our responsibility" },
+        { label: "From — to", value: "China → United States" },
+        { label: "Who we supply", value: "Studios, stores and schools" },
+        { label: "Deposit / balance", value: "80 / 20", note: true },
+        { label: "Shipping", value: "US customs clearance" },
       ],
       valuesTitle: "What We Provide",
       values: [
         {
           title: "Product supply",
-          body: "We supply the product lines, specifications and quantities you need.",
+          body: "Italian charms, rhinestone stickers, acrylic flowers, acrylic flower vase frames and resin starfish.",
         },
         {
           title: "Quotes and shipping",
-          body: "We quote product unit prices with shipping charged separately. You can use your own freight forwarder, or we can arrange shipping from China to Vietnam.",
+          body: "Product price and shipping are quoted separately. Nothing is priced on this website. We handle shipping and US customs clearance from China.",
         },
         {
-          title: "Quality commitment",
-          body: "We take responsibility for product quality. Our long-term factory partners support our supply and quality.",
+          title: "Payment",
+          body: "80% deposit and 20% balance, by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
         },
       ],
       audienceTitle: "Who We Supply",
-      audienceBody: "We supply craft workshops, shops and schools in Vietnam.",
-      audience: ["Craft workshops", "Shops", "Schools"],
+      audienceBody:
+        "Studios, retail stores and schools in the US.",
+      audience: ["Studios", "Retail stores", "Schools"],
       seriesTitle: "Our Product Range",
       seriesLead: "Five product lines from our range.",
       processTitle: "Ordering",
       processLead:
-        "Once specifications and quantities are confirmed, we quote product unit prices. You can then decide whether to place an order.",
+        "Email the specifications and quantities. We quote the product price and shipping separately.",
       steps: [
-        "Enquire",
+        "Email your inquiry",
         "Confirm specifications and quantities",
         "Receive a quote",
-        "Place your order with an 80% deposit",
-        "Shipping",
-        "Pay the remaining 20%",
+        "Pay the 80% deposit",
+        "We ship and handle US customs clearance",
+        "Pay the 20% balance",
       ],
-      ctaTitle: "Send Your Specifications and Quantities on Zalo",
-      ctaBody: "Use this number for enquiries, quotes and order updates.",
+      ctaTitle: "Email Us",
+      ctaBody:
+        "Inquiries and quotes go by email: an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to or linh.yangsupply@agentmail.to.",
     },
     products: {
       kicker: "02",
       title: "Products",
-      lead: "Five product lines from our range. Prices are not listed on this website. Contact us for a quote.",
+      lead: "Five product lines from our range. Sizes are in inches. Prices are not shown on this website. Email us for a quote.",
     },
     cooperation: {
       kicker: "03",
       title: "Ordering",
-      lead: "We sell our product range directly. Once specifications and quantities are confirmed, we quote product unit prices with shipping charged separately. We take responsibility for product quality.",
+      lead: "We sell our product range directly. Once specifications and quantities are confirmed, we quote the product price and shipping separately. We take responsibility for product quality.",
       steps: [
         {
-          title: "Enquire",
-          body: "Tell us which product line and specifications you need.",
+          title: "Email your inquiry",
+          body: "Email us the product line and specifications you need.",
         },
         {
-          title: "Confirm Specifications and Quantities",
-          body: "Colours, sizes and quantities are confirmed when we discuss your order.",
+          title: "Confirm specifications and quantities",
+          body: "Colors, sizes and quantities are confirmed when we discuss your order.",
         },
         {
-          title: "Receive a Quote",
-          body: "We quote product unit prices with shipping charged separately. Prices are not listed on this website.",
+          title: "Receive a quote",
+          body: "Product price and shipping are quoted separately. Prices are not shown on this website.",
         },
         {
-          title: "Place Your Order",
-          body: "Once confirmed, pay by local bank transfer in Vietnam. An 80% deposit of the order total is required, with the remaining 20% payable on receipt if we arrange shipping, or before handover to your freight forwarder if you arrange shipping.",
+          title: "Pay the 80% deposit",
+          body: "Pay the 80% deposit by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
         },
         {
           title: "Shipping",
-          body: "You can use your own freight forwarder, or we can arrange shipping from China to Vietnam. When we arrange shipping, the shipping charge includes customs clearance and import duties. If you use your own freight forwarder, our delivery obligation is fulfilled when we hand the goods over to your forwarder.",
+          body: "We handle shipping and US customs clearance from China.",
         },
         {
-          title: "Pay the Balance",
-          body: "If we arrange shipping, pay the remaining 20% on receipt of the goods. If you use your own freight forwarder, pay the remaining 20% before we hand the goods over to your forwarder.",
+          title: "Pay the 20% balance",
+          body: "Pay the remaining 20% by international SWIFT bank transfer or USDT/USDC.",
         },
       ],
       qualityTitle: "Quality",
@@ -846,40 +864,43 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Payment",
       payFigure: "80 / 20",
       payBody:
-        "Pay by local bank transfer in Vietnam: 80% of the order total as a deposit. Pay the remaining 20% on receipt if we arrange shipping, or before handover to your freight forwarder if you arrange shipping. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
-      notesTitle: "Quotation Terms",
+        "80% deposit and 20% balance. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Product price and shipping are quoted separately.",
+      notesTitle: "Quotation terms",
       notes: [
         "Quotes are valid for 7 days.",
-        "You can mix colours and designs. Minimum order quantities apply separately to each design and each colour.",
+        "You can mix colors and designs. Minimum order quantities apply separately to each design and each color.",
         "Samples are charged at the unit price in the relevant quote.",
-        "For orders shipped by us, report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
+        "Report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
       ],
       faqTitle: "FAQs",
       faq: [
         {
-          q: "Does shipping include customs clearance and import duties?",
-          a: "Yes. When we arrange shipping, the shipping charge includes customs clearance and import duties.",
+          q: "How do we pay?",
+          a: "By international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The terms are an 80% deposit and a 20% balance.",
         },
         {
-          q: "Can I use my own freight forwarder?",
-          a: "Yes. Our delivery obligation is fulfilled when we hand the goods over to your freight forwarder.",
+          q: "Do you handle shipping?",
+          a: "Yes. We handle shipping and US customs clearance from China. Product price and shipping are quoted separately.",
         },
         {
-          q: "How much is the deposit?",
-          a: "80% of the order total, with the remaining 20% payable on receipt if we arrange shipping, or before handover to your freight forwarder if you arrange shipping. If we arrange shipping, the order total includes the goods and shipping charges. If you use your own freight forwarder, it covers the goods only.",
+          q: "Are prices listed?",
+          a: "No. Product price and shipping are quoted separately, and nothing is priced on this website.",
         },
       ],
     },
     contact: {
       kicker: "04",
       title: "Contact",
-      lead: "Add us on Zalo for enquiries, quotes and order updates. You can contact us in English.",
-      zaloRole: "Zalo",
-      emailRole: "Sales Email",
-      addressLabel: "Location",
+      lead: "Email us for product inquiries and quotes.",
+      zaloRole: "Email",
+      emailRole: "Email",
+      addressLabel: "Ships from",
       address: "China",
     },
-    footer: { line: "DIY materials supplier.", address: "China" },
+    footer: {
+      line: "Wholesale craft supplier, shipping from China.",
+      address: "China",
+    },
     notFound: {
       title: "Page Not Found",
       body: "Return to the home page to explore our products or learn how to order.",
@@ -898,136 +919,79 @@ export const dictionary: Record<Lang, Copy> = {
     copied: "已复制",
     copy: "复制",
     zaloAdd: "添加 Zalo",
-    inquiry: "联系询价",
-    nav: [
-      { href: "/zh", label: "首页" },
-      { href: "/zh/products", label: "产品" },
-      { href: "/zh/cooperation", label: "合作" },
-      { href: "/zh/contact", label: "联系" },
-    ],
+    emailCta: "发邮件",
+    inquiry: "联系",
+    nav: links("zh", {
+      home: "首页",
+      products: "产品",
+      cooperation: "合作",
+      contact: "联系",
+    }),
     home: {
-      title: ["中国 DIY 材料", "发往越南"],
-      lead: "Yang Supply 是 DIY 材料供应商。我们把自有系列卖给越南的手作工坊、店铺和学校：报产品单价，运费另计，质量由我们负责。",
-      seeProcess: "合作流程",
+      title: markets.zh.hero.title,
+      lead: markets.zh.hero.lead,
+      seeProcess: "",
       seeProducts: "看产品",
-      noteCaption: "按单报价，联系询价。",
+      noteCaption: "",
       rows: [
-        { label: "出发 — 送达", value: "中国 → 越南" },
-        { label: "角色", value: "DIY 材料供应商" },
-        { label: "定金 / 货到", value: "80 / 20", note: true },
-        { label: "质量", value: "我们负责" },
+        { label: "发货", value: "中国，发往全球" },
+        { label: "角色", value: "DIY 手作材料批发" },
       ],
-      valuesTitle: "三件事",
+      valuesTitle: "产品",
       values: [
-        { title: "选品供货", body: "按您要的系列、规格和数量供货。" },
         {
-          title: "报价与运输",
-          body: "报产品单价，运费另计。可以用您自己的货代，也可以由我们安排从中国运到越南。",
-        },
-        {
-          title: "质量约定",
-          body: "质量由我们负责。长期合作的工厂支撑供货和品质。",
+          title: "自有系列",
+          body: "亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星和意大利 Charm 手链。",
         },
       ],
-      audienceTitle: "给谁供货",
-      audienceBody: "面向越南的手作工坊、店铺和学校。",
-      audience: ["手作工坊", "店铺", "学校"],
+      audienceTitle: "给谁",
+      audienceBody: "各国的手作工坊、咖啡馆、门店和学校。",
+      audience: ["手作工坊", "咖啡馆", "门店", "学校"],
       seriesTitle: "产品一览",
       seriesLead: "五组自有系列。",
-      processTitle: "合作步骤",
-      processLead: "确认规格和数量后，报产品单价，再决定是否下单。",
-      steps: [
-        "询价",
-        "确认规格与数量",
-        "报价",
-        "下单（定金 80%）",
-        "运输",
-        "支付 20% 尾款",
-      ],
-      ctaTitle: "把规格和数量发到 Zalo",
-      ctaBody: "询价、报价和跟单，加这一个号。",
+      processTitle: "",
+      processLead: "",
+      steps: [],
+      ctaTitle: "联系",
+      ctaBody: "可通过 Zalo 或邮件联系。",
     },
     products: {
       kicker: "02",
       title: "产品",
-      lead: "五组自有系列。价格不在站内公布，联系询价。",
+      lead: "五组自有系列。",
     },
     cooperation: {
-      kicker: "03",
-      title: "合作",
-      lead: "直销自有系列。确认规格和数量后报产品单价，运费另计。质量由我们负责。",
-      steps: [
-        {
-          title: "询价",
-          body: "告诉我们要哪一系列、什么规格。",
-        },
-        {
-          title: "确认规格与数量",
-          body: "颜色、尺寸和数量以沟通时确认为准。",
-        },
-        {
-          title: "报价",
-          body: "报产品单价，运费另计。网站不标价。",
-        },
-        {
-          title: "下单（定金 80%）",
-          body: "确认后，用越南当地银行转账。定金为订单总额的 80%。由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。",
-        },
-        {
-          title: "运输",
-          body: "可以用您自己的货代，也可以由我们安排从中国运到越南。由我们安排运输时，运费已含清关和关税。使用您自己的货代时，我们把货交给您的货代即完成交付。",
-        },
-        {
-          title: "支付 20% 尾款",
-          body: "由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。",
-        },
-      ],
-      qualityTitle: "质量",
-      qualityFigure: "我们负责",
-      qualityBody: "供货和品质由我们负责。长期合作的工厂支撑供应和品质。",
-      payTitle: "付款",
-      payFigure: "80 / 20",
-      payBody:
-        "越南当地银行转账。定金为订单总额的 80%。由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
-      notesTitle: "报价时一并说明",
-      notes: [
-        "报价有效期 7 天。",
-        "可以混色、混款。起订量按每一款、每一色分别计算。",
-        "样品收费，按当次报价的单价。",
-        "由我们运输的订单，收货后1天内拍照反馈，破损产品补发，不退款。",
-      ],
-      faqTitle: "常见问题",
-      faq: [
-        {
-          q: "运费含清关和关税吗？",
-          a: "含。由我们安排运输时，运费已含清关和关税。",
-        },
-        {
-          q: "可以用自己的货代吗？",
-          a: "可以。我们把货交给您的货代即完成交付。",
-        },
-        {
-          q: "定金是多少？",
-          a: "订单总额的 80%。由我们安排运输时，到货付清剩余 20%；使用您自己的货代时，交货给您的货代前付清剩余 20%。由我们运输时总额含货价和运费，自找货代时只算货价。",
-        },
-      ],
+      kicker: "",
+      title: "",
+      lead: "",
+      steps: [],
+      qualityTitle: "",
+      qualityFigure: "",
+      qualityBody: "",
+      payTitle: "",
+      payFigure: "",
+      payBody: "",
+      notesTitle: "",
+      notes: [],
+      faqTitle: "",
+      faq: [],
     },
     contact: {
       kicker: "04",
       title: "联系",
-      lead: "合作、报价和跟单请加 Zalo。",
+      lead: "可通过 Zalo 或邮件联系。",
       zaloRole: "Zalo",
       emailRole: "销售邮件",
       addressLabel: "地址",
       address: "中国",
     },
     footer: {
-      line: "DIY 材料供应商。",
+      line: "DIY 手作材料，从中国发往全球。",
       address: "中国",
     },
     notFound: {
       title: "没有这一页",
-      body: "回到首页继续看产品或合作方式。",
+      body: "回到首页继续看产品或联系方式。",
       back: "回首页",
     },
     error: {
@@ -1043,16 +1007,17 @@ export const dictionary: Record<Lang, Copy> = {
     copied: "Đã chép",
     copy: "Chép",
     zaloAdd: "Thêm Zalo",
+    emailCta: "Email",
     inquiry: "Liên hệ để hỏi giá",
-    nav: [
-      { href: "/", label: "Trang chủ" },
-      { href: "/products", label: "Sản phẩm" },
-      { href: "/cooperation", label: "Hợp tác" },
-      { href: "/contact", label: "Liên hệ" },
-    ],
+    nav: links("vi", {
+      home: "Trang chủ",
+      products: "Sản phẩm",
+      cooperation: "Hợp tác",
+      contact: "Liên hệ",
+    }),
     home: {
-      title: ["Nguyên liệu DIY từ Trung Quốc", "Giao hàng Việt Nam"],
-      lead: "Yang Supply là nhà cung cấp nguyên liệu DIY. Chúng tôi bán các dòng của mình cho xưởng thủ công, cửa hàng và trường học tại Việt Nam: báo giá sản phẩm, phí vận chuyển tính riêng, và chịu trách nhiệm về chất lượng.",
+      title: markets.vi.hero.title,
+      lead: markets.vi.hero.lead,
       seeProcess: "Quy trình hợp tác",
       seeProducts: "Xem sản phẩm",
       noteCaption: "Báo giá. Liên hệ để hỏi giá.",

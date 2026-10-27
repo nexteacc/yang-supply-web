@@ -4,13 +4,13 @@ import { ContactPageSchema } from "@/components/schema-org";
 import { buildMetadata } from "@/lib/seo";
 
 export async function generateMetadata(): Promise<Metadata> {
-  return buildMetadata("zh", "contact");
+  return buildMetadata("vi", "contact");
 }
 
 export default function Page() {
   return (
     <>
-      <ContactPageSchema lang="zh" />
+      <ContactPageSchema marketId="vi" />
       <ContactPage />
     </>
   );

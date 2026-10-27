@@ -9,7 +9,16 @@ const nextConfig: NextConfig = {
     imageSizes: [48, 64, 80, 128, 256, 320, 384],
   },
   async redirects() {
+    const moved = [
+      { source: "/products", destination: "/san-pham" },
+      { source: "/cooperation", destination: "/hop-tac" },
+      { source: "/contact", destination: "/lien-he" },
+      { source: "/en", destination: "/en-us" },
+      { source: "/en/:path*", destination: "/en-us/:path*" },
+      { source: "/zh/cooperation", destination: "/zh/contact" },
+    ];
     return [
+      ...moved.map((rule) => ({ ...rule, statusCode: 301 })),
       {
         source: "/:path*",
         has: [{ type: "host" as const, value: "yang-supply.vercel.app" }],

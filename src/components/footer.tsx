@@ -7,7 +7,7 @@ import { useLanguage } from "@/components/language";
 import { Container, Wordmark } from "@/components/ui";
 
 export function Footer() {
-  const { lang, t } = useLanguage();
+  const { copyLang, market, t } = useLanguage();
   return (
     <footer className="border-t border-line">
       <Container className="grid gap-10 py-[72px] text-[14px] leading-[1.7] sm:grid-cols-2 md:grid-cols-4 md:py-[80px]">
@@ -26,14 +26,16 @@ export function Footer() {
         <nav aria-label="Guides" className="flex flex-col gap-2">
           {guideList.map((guide) => (
             <Link key={guide.slug} href={guide.href} className="link-under w-fit text-ink">
-              {guide.shortTitle[lang]}
+              {guide.shortTitle[copyLang]}
             </Link>
           ))}
         </nav>
         <div className="flex flex-col gap-2">
-          <a href={contacts.zaloUrl} target="_blank" rel="noopener noreferrer" className="link-under w-fit">
-            Zalo {contacts.zalo}
-          </a>
+          {market.contact === "zalo" ? (
+            <a href={contacts.zaloUrl} target="_blank" rel="noopener noreferrer" className="link-under w-fit">
+              Zalo {contacts.zalo}
+            </a>
+          ) : null}
           {contacts.emails.map((email) => (
             <a key={email} href={`mailto:${email}`} className="link-under w-fit break-all text-mute">
               {email}
