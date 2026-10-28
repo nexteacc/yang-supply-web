@@ -19,8 +19,9 @@ export function ProductsPage() {
             <article key={item.id} id={item.id} className="scroll-mt-24">
               <p className="eyebrow text-mute">0{index + 1}</p>
               <h2 className="heading-2 mt-4 max-w-[20ch]">{text.name}</h2>
-              <p className="mt-6 max-w-[60ch]">{text.summary}</p>
-              <p className="mt-3 max-w-[60ch] text-[14px] text-mute">{text.detail}</p>
+              {item.id === "charm" ? (
+                <p className="mt-6 max-w-[60ch] text-[14px] text-mute">{text.detail}</p>
+              ) : null}
               <dl className="mt-6 grid max-w-[65ch] grid-cols-1 gap-y-2 border-t border-line pt-4 text-[14px] sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-x-6">
                 {text.specs.map((spec) => (
                   <div key={spec.label} className="contents">

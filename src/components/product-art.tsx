@@ -148,7 +148,7 @@ export function ProductArt({ id }: { id: SeriesId }) {
               photo.colour?.vi === item.vi;
             return (
               <span key={item.vi}>
-                {index > 0 ? <span aria-hidden="true">, </span> : null}
+                {index > 0 ? <span>{copyLang === "zh" ? "、" : ", "}</span> : null}
                 {item.index === null ? (
                   <span>{name}</span>
                 ) : (

@@ -37,16 +37,16 @@
 ## Hướng dẫn mua sỉ chuyên sâu (Vietnamese Procurement Guides)
 
 - **Nguyên liệu handmade cho workshop: hướng dẫn chọn và đặt sỉ**: https://www.yangsupply.com/huong-dan/nguyen-lieu-handmade-cho-workshop
-  - Cách chọn 5 dòng nguyên liệu thực tế cho buổi học thủ công, công thức ước tính số lượng kèm dự phòng (`số người × định lượng mỗi suất + tỷ lệ dự phòng`), quy tắc chốt màu (tối thiểu tính riêng theo từng mẫu và từng màu) và 5 thông tin cần gửi khi hỏi giá.
+  - Cách chọn 5 dòng nguyên liệu thực tế cho buổi học thủ công, công thức ước tính số lượng kèm dự phòng (`số người × định lượng mỗi suất × (1 + tỷ lệ dự phòng)`), quy tắc chốt màu (tối thiểu tính riêng theo từng mẫu và từng màu) và 5 thông tin cần gửi khi hỏi giá.
 - **Vòng tay charm Ý: hướng dẫn chọn mẫu và đặt sỉ**: https://www.yangsupply.com/huong-dan/vong-tay-charm-y
-  - Cấu tạo ngoại quan vòng tay charm Ý dạng mắt xích, đối chiếu vòng trơn, vòng họa tiết và mắt treo; gợi ý phối mẫu theo chủ đề (hoa SL-001, trái tim SL-002, biển SL-010, Giáng Sinh) và các thông số cần xác nhận trước khi đặt sỉ.
+  - Cấu tạo ngoại quan vòng tay charm Ý dạng mắt xích, đối chiếu vòng trơn, vòng họa tiết và mắt treo; gợi ý chọn phối màu, tham khảo mẫu Giáng Sinh và các thông số cần xác nhận trước khi đặt sỉ.
 
 ## Quy trình đặt hàng sỉ (Ordering Process)
 
 1. **Tư vấn và báo giá**: Khách gửi mẫu, quy cách và số lượng dự kiến qua Zalo.
 2. **Xác nhận đơn**: Chốt đơn giá, chi phí vận chuyển quốc tế và thời gian giao hàng.
 3. **Đặt cọc**: Đặt cọc 80% giá trị đơn hàng để tiến hành đóng gói và vận chuyển.
-4. **Vận chuyển**: Hàng được gửi trực tiếp từ Trung Quốc về địa chỉ khách hàng tại Việt Nam.
+4. **Vận chuyển**: Chúng tôi có thể sắp xếp vận chuyển từ Trung Quốc về Việt Nam, hoặc bàn giao hàng cho đơn vị vận chuyển do khách hàng chọn.
 5. **Nhận hàng và thanh toán**: Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng. Nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.
 6. **Bù hàng hư hỏng**: Với đơn do chúng tôi vận chuyển, báo kèm ảnh trong vòng 1 ngày sau khi nhận hàng. Gửi bù sản phẩm hư hỏng, không hoàn tiền.
 
@@ -57,26 +57,25 @@
 
 ## 中文
 
-Yang Supply 是 DIY 手作材料批发供应商，把自有系列卖给各国的手作工坊、咖啡馆、门店和学校，从中国发货。
+Yang Supply 从中国向全球供应 DIY 手作材料，服务手作工坊、咖啡馆、门店和学校。
 
 - 页面标题：中国 DIY 手作材料，发往全球。
 - 页面：https://www.yangsupply.com/zh ，https://www.yangsupply.com/zh/products ，https://www.yangsupply.com/zh/contact
-- 产品：亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星、意大利 Charm 手链。本栏只介绍产品和联系方式。
+- 产品：亚克力花瓣、水钻贴纸、亚克力插花花瓶框、树脂海星、意大利 Charm 手链。本栏只介绍产品和联系方式。
 - 联系（沿用站内已有方式）：
-  - Zalo：0986245780（https://zalo.me/0986245780）
   - an.yangsupply@agentmail.to
   - minh.yangsupply@agentmail.to
   - linh.yangsupply@agentmail.to
 
 ## English (United States)
 
-Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US. We handle shipping and US customs clearance from China.
+Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.
 
 - Pages: https://www.yangsupply.com/en-us, https://www.yangsupply.com/en-us/products, https://www.yangsupply.com/en-us/cooperation, https://www.yangsupply.com/en-us/contact
 - Sizes on the US pages are in inches: acrylic petals 1.8 × 1.6 in; large rhinestone sticker sheets 3 × 5.1 in (small-sheet dimensions are not listed); acrylic flower vase frames 7.1 × 5.9 in; resin starfish large 2 in and small 1 in.
 - Product price and shipping are quoted separately. Prices are not shown on the website.
 - Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.
-- We can arrange shipping from China and handle US customs clearance. You can use your own freight forwarder instead.
+- We can arrange shipping from China. You can use your own freight forwarder instead.
 - Quotes are valid for 7 days. Minimum order quantities apply separately to each design and color. Samples are charged at the unit price in the relevant quote.
-- Report damage with photos within one day of receiving the goods. Damaged products are replaced, not refunded.
+- For orders shipped by us, report damage with photos within one day of receiving the goods. Damaged products are replaced, not refunded. If you use your own freight forwarder, our delivery obligation ends when we hand the goods over to that forwarder.
 - Enquiries by email: an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to, linh.yangsupply@agentmail.to

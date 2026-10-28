@@ -108,16 +108,16 @@ export const markets: Record<MarketId, Market> = {
     },
     hero: {
       title: ["Nguyên liệu DIY từ Trung Quốc", "Giao hàng Việt Nam"],
-      lead: "Yang Supply là nhà cung cấp nguyên liệu DIY. Chúng tôi bán các dòng của mình cho xưởng thủ công, cửa hàng và trường học tại Việt Nam: báo giá sản phẩm, phí vận chuyển tính riêng, và chịu trách nhiệm về chất lượng.",
+      lead: "Yang Supply cung cấp sỉ nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam. Tiền hàng và phí vận chuyển được báo riêng.",
     },
     meta: {
       home: {
-        title: "Nguyên liệu DIY, handmade giá sỉ từ Trung Quốc",
+        title: "Nguyên liệu & phụ kiện handmade giá sỉ",
         description:
           "Nguồn sỉ nguyên liệu làm đồ thủ công và phụ kiện DIY từ xưởng Trung Quốc giao đến Việt Nam. Chuyên cung cấp cho xưởng handmade, cửa hàng và trường học.",
       },
       products: {
-        title: "Cánh hoa acrylic, sticker đính đá, charm Ý giá sỉ",
+        title: "Phụ kiện handmade giá sỉ: cánh hoa acrylic, sticker đính đá, charm Ý",
         description:
           "Danh mục sỉ cánh hoa acrylic lily, sticker đính đá, khung bình hoa acrylic, sao biển resin và charm Ý. Xem hình ảnh mẫu thực tế và liên hệ nhận báo giá.",
       },
@@ -135,7 +135,7 @@ export const markets: Record<MarketId, Market> = {
     terms: {
       serviceName: "Cung cấp sỉ nguyên liệu DIY từ Trung Quốc về Việt Nam",
       serviceDescription:
-        "Báo giá theo quy cách và số lượng, đặt cọc 80%, từ Trung Quốc về Việt Nam, thanh toán 20% còn lại khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Bù hàng nếu bể vỡ trong vận chuyển (báo kèm ảnh trong 1 ngày sau khi nhận).",
+        "Báo giá theo quy cách và số lượng, đặt cọc 80%, từ Trung Quốc về Việt Nam, thanh toán 20% còn lại khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Với đơn do chúng tôi vận chuyển, bù hàng hư hỏng khi báo kèm ảnh trong 1 ngày sau khi nhận.",
     },
     schema: {
       orgDescription:
@@ -154,7 +154,7 @@ export const markets: Record<MarketId, Market> = {
     copyLang: "zh",
     switchLabel: "中文",
     switchName: "中文",
-    contact: "zalo",
+    contact: "email",
     units: "metric",
     commerce: false,
     slugs: {
@@ -163,13 +163,13 @@ export const markets: Record<MarketId, Market> = {
     },
     hero: {
       title: ["中国 DIY 手作材料", "发往全球"],
-      lead: "Yang Supply 是 DIY 手作材料批发供应商，把自有系列卖给各国的手作工坊、咖啡馆、门店和学校，从中国发货。",
+      lead: "Yang Supply 从中国向全球供应 DIY 手作材料，服务手作工坊、咖啡馆、门店和学校。",
     },
     meta: {
       home: {
         title: "中国 DIY 手作材料批发 · 发往全球 · YANG SUPPLY",
         description:
-          "YANG SUPPLY 批发亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星和意大利 Charm 手链，供应各国手作工坊、咖啡馆、门店和学校，从中国发货。",
+          "YANG SUPPLY 批发亚克力花瓣、水钻贴纸、亚克力插花花瓶框、树脂海星和意大利 Charm 手链，供应各国手作工坊、咖啡馆、门店和学校，从中国发货。",
         absolute: true,
       },
       products: {
@@ -178,16 +178,16 @@ export const markets: Record<MarketId, Market> = {
           "百合亚克力花片、多规格水钻贴纸、插花花瓶框、彩色树脂海星及意大利 Charm 样品一览。实拍图展示。",
       },
       contact: {
-        title: "联系 YANG SUPPLY",
+        title: "联系",
         description:
-          "通过 Zalo（0986245780）或邮件联系 YANG SUPPLY。",
+          "通过邮件联系 YANG SUPPLY。",
       },
     },
     terms: null,
     schema: {
       orgDescription:
-        "Yang Supply 是 DIY 手作材料批发供应商，把自有系列卖给各国的手作工坊、咖啡馆、门店和学校，从中国发货。",
-      telephone: true,
+        "Yang Supply 从中国向全球供应 DIY 手作材料，服务手作工坊、咖啡馆、门店和学校。",
+      telephone: false,
       availableLanguage: ["zh", "en", "vi"],
     },
   }),
@@ -210,13 +210,13 @@ export const markets: Record<MarketId, Market> = {
     },
     hero: {
       title: ["Wholesale Italian Charms", "& Rhinestone Stickers"],
-      lead: "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US. We handle shipping and US customs clearance from China.",
+      lead: "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.",
     },
     meta: {
       home: {
         title: "Italian Charms & Rhinestone Stickers Wholesale | Yang Supply",
         description:
-          "Wholesale craft supplies from China: Italian charms, rhinestone stickers, acrylic flowers. We handle shipping and US customs clearance. Get a quote.",
+          "Wholesale craft supplies from China: Italian charms, rhinestone stickers, acrylic flowers. Get a quote.",
         absolute: true,
       },
       products: {
@@ -227,23 +227,23 @@ export const markets: Record<MarketId, Market> = {
       cooperation: {
         title: "How to Order Wholesale Craft Supplies",
         description:
-          "80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. We handle US customs clearance when we arrange shipping.",
+          "Learn how to request a wholesale quote, arrange shipping and pay for your craft supplies order. Product and shipping costs are quoted separately.",
       },
       contact: {
         title: "Contact Yang Supply for a Wholesale Quote",
         description:
-          "Email Yang Supply for wholesale inquiries. We supply studios, retail stores and schools in the US and handle shipping and US customs clearance from China.",
+          "Email Yang Supply for wholesale inquiries. We supply studios, retail stores and schools in the US.",
       },
     },
     terms: {
       serviceName:
         "Wholesale craft supplies from China to the United States",
       serviceDescription:
-        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the United States. Product price and shipping are quoted separately. Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. We handle US customs clearance when we arrange shipping from China.",
+        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the United States. Product price and shipping are quoted separately. Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
     },
     schema: {
       orgDescription:
-        "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US. We handle shipping and US customs clearance from China.",
+        "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.",
       areaServed: { name: "United States", code: "US" },
       telephone: false,
       availableLanguage: ["en"],
