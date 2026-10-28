@@ -6,7 +6,8 @@ import { dictionary, type Copy, type Lang } from "@/lib/content";
 import { localizedPath, marketFromPathname } from "@/lib/i18n";
 import type { Market, MarketId } from "@/lib/markets";
 
-const STORAGE_KEY = "yang-lang";
+const STORAGE_KEY = "yang-preferred-market";
+const SESSION_KEY = "yang-market-visited";
 
 type LanguageContextValue = {
   lang: MarketId;
@@ -28,13 +29,34 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = market.htmlLang;
     document.documentElement.dataset.lang = market.copyLang;
     try {
-      window.localStorage.setItem(STORAGE_KEY, lang);
+      if (pathname === "/" && !window.sessionStorage.getItem(SESSION_KEY)) {
+        window.sessionStorage.setItem(SESSION_KEY, "1");
+        const saved = window.localStorage.getItem(STORAGE_KEY);
+        const preferred = saved === "vi" || saved === "zh" || saved === "en-us"
+          ? saved
+          : (() => {
+              const language = (navigator.languages?.[0] || navigator.language || "").toLowerCase();
+              if (language === "vi" || language.startsWith("vi-")) return "vi";
+              if (language === "en" || language.startsWith("en-")) return "en-us";
+              return "zh";
+            })();
+        if (preferred !== "vi") router.replace(localizedPath(preferred, "/"));
+      }
     } catch {
-      /* Storage may be disabled. */
+      if (pathname === "/") {
+        const language = (navigator.languages?.[0] || navigator.language || "").toLowerCase();
+        if (!(language === "vi" || language.startsWith("vi-"))) {
+          router.replace(localizedPath(language === "en" || language.startsWith("en-") ? "en-us" : "zh", "/"));
+        }
+      }
     }
-  }, [lang, market.copyLang, market.htmlLang]);
+  }, [lang, market.copyLang, market.htmlLang, pathname, router]);
 
   const setLang = (next: MarketId) => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, next);
+      window.sessionStorage.setItem(SESSION_KEY, "1");
+    } catch {}
     if (next === lang) return;
     router.push(
       localizedPath(next, pathname) +

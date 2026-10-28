@@ -498,13 +498,13 @@ export const series: {
     en: {
       name: "Rhinestone Stickers",
       summary:
-        "Large sheets: 3 × 5.1 in. Small-sheet dimensions are not listed. Assorted designs, supplied by the sheet.",
+        "Large sheets: 3 × 5.1 in; confirm small-sheet dimensions when requesting a quote. Assorted designs, supplied by the sheet.",
       detail: "Designs are subject to the samples confirmed when you email us.",
       specs: [
         {
           label: "Size",
           value:
-            "Large sheets: 3 × 5.1 in. Small-sheet dimensions are not listed",
+            "Large sheets: 3 × 5.1 in; confirm small-sheet dimensions when requesting a quote",
         },
         {
           label: "Designs",
@@ -522,7 +522,7 @@ export const series: {
       summary: "大张 7.5×13cm，小张不标尺寸。多种图案，按张供应。",
       detail: "具体图案以沟通时确认的样品为准。",
       specs: [
-        { label: "规格", value: "大张 7.5×13cm；小张不标尺寸" },
+        { label: "规格", value: "大张 7.5 × 13 cm；小张尺寸询价时确认" },
         { label: "款式", value: "多种图案（以沟通时确认的样品为准）" },
         { label: "供应方式", value: "按张供应" },
       ],
@@ -530,12 +530,12 @@ export const series: {
     vi: {
       name: "Sticker đính đá",
       summary:
-        "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước. Nhiều họa tiết, bán theo tờ.",
+        "Tờ lớn: 7,5 × 13 cm; kích thước tờ nhỏ xác nhận khi hỏi giá. Nhiều họa tiết, bán theo tờ.",
       detail: "Họa tiết chốt theo mẫu khi trao đổi.",
       specs: [
         {
           label: "Quy cách",
-          value: "Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước",
+          value: "Tờ lớn: 7,5 × 13 cm; kích thước tờ nhỏ xác nhận khi hỏi giá",
         },
         {
           label: "Họa tiết",
@@ -645,7 +645,7 @@ export const series: {
       summary:
         "Modular bracelets, quoted individually according to your selected designs.",
       detail:
-        "A full design catalog is not listed on this website. Email the designs you would like quoted.",
+        "Selected samples shown. Email your preferred designs for a quote.",
       specs: [
         {
           label: "Type",
@@ -655,7 +655,7 @@ export const series: {
         {
           label: "Quotation",
           value:
-            "Quoted individually by selected design. Email the designs you want quoted.",
+            "By selected design",
         },
       ],
     },
@@ -671,7 +671,7 @@ export const series: {
       name: "Vòng tay charm Ý",
       summary: "Vòng charm Ý ghép theo mẫu, báo giá theo mẫu bạn chọn.",
       detail:
-        "Website không đăng bảng danh mục. Gửi họa tiết bạn muốn để hỏi giá.",
+        "Hình ảnh chỉ giới thiệu một số mẫu. Gửi mẫu bạn chọn để nhận báo giá.",
       specs: [
         {
           label: "Loại",
@@ -680,7 +680,7 @@ export const series: {
         },
         {
           label: "Báo giá",
-          value: "Báo giá riêng theo mẫu chọn (gửi họa tiết để hỏi giá)",
+          value: "Theo mẫu bạn chọn",
         },
       ],
     },
@@ -767,7 +767,7 @@ export const dictionary: Record<Lang, Copy> = {
     copy: "Copy",
     zaloAdd: "Email us",
     emailCta: "Email us",
-    inquiry: "Email us",
+    inquiry: "Request a quote",
     nav: links("en-us", {
       home: "Home",
       products: "Products",
@@ -784,7 +784,7 @@ export const dictionary: Record<Lang, Copy> = {
         { label: "From — to", value: "China → United States" },
         { label: "Who we supply", value: "Studios, stores and schools" },
         { label: "Deposit / balance", value: "80 / 20", note: true },
-        { label: "Shipping", value: "US customs clearance" },
+        { label: "Shipping", value: "Quoted separately" },
       ],
       valuesTitle: "What We Provide",
       values: [
@@ -794,11 +794,11 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Quotes and shipping",
-          body: "Product price and shipping are quoted separately. Nothing is priced on this website. We can arrange shipping from China and handle US customs clearance, or you can use your own freight forwarder.",
+          body: "Product price and shipping are quoted separately. We can arrange shipping from China, or you can use your own freight forwarder.",
         },
         {
           title: "Payment",
-          body: "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
+          body: "Pay an 80% deposit on the order total. The 20% balance is due on delivery when we arrange shipping, or before handover to your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC.",
         },
       ],
       audienceTitle: "Who We Supply",
@@ -809,28 +809,28 @@ export const dictionary: Record<Lang, Copy> = {
       seriesLead: "Five product lines from our range.",
       processTitle: "Ordering",
       processLead:
-        "Email the specifications and quantities. We quote the product price and shipping separately. Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+        "Send your specifications and quantities by email. We quote product and shipping costs separately.",
       steps: [
         "Email your inquiry",
         "Confirm specifications and quantities",
         "Receive a quote",
         "Pay the 80% deposit on the order total",
-        "We arrange shipping and US customs clearance, or you use your own freight forwarder",
+        "We arrange shipping, or you use your own freight forwarder",
         "Pay the 20% balance on delivery, or before handover to your freight forwarder",
       ],
-      ctaTitle: "Email Us",
+      ctaTitle: "Request a Quote",
       ctaBody:
-        "Inquiries and quotes go by email: an.yangsupply@agentmail.to, minh.yangsupply@agentmail.to or linh.yangsupply@agentmail.to.",
+        "Send us your product specifications and quantities for a quote.",
     },
     products: {
       kicker: "02",
       title: "Products",
-      lead: "Five product lines from our range. Sizes are in inches. Prices are not shown on this website. Email us for a quote.",
+      lead: "Five product lines. Dimensions are in inches. Email your specifications and quantities for a quote.",
     },
     cooperation: {
       kicker: "03",
       title: "Ordering",
-      lead: "We sell our product range directly. Once specifications and quantities are confirmed, we quote the product price and shipping separately. We take responsibility for product quality.",
+      lead: "Send your specifications and quantities for a quote. Product and shipping costs are listed separately.",
       steps: [
         {
           title: "Email your inquiry",
@@ -842,7 +842,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Receive a quote",
-          body: "Product price and shipping are quoted separately. Prices are not shown on this website.",
+          body: "Your quote lists product and shipping costs separately.",
         },
         {
           title: "Pay the 80% deposit",
@@ -850,7 +850,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Shipping",
-          body: "We can arrange shipping from China and handle US customs clearance. You can use your own freight forwarder instead.",
+          body: "We can arrange shipping from China. You can use your own freight forwarder instead.",
         },
         {
           title: "Pay the 20% balance",
@@ -864,13 +864,13 @@ export const dictionary: Record<Lang, Copy> = {
       payTitle: "Payment",
       payFigure: "80 / 20",
       payBody:
-        "Pay an 80% deposit on the order total. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Product price and shipping are quoted separately.",
+        "Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Balance timing depends on your shipping arrangement, as described above.",
       notesTitle: "Quotation terms",
       notes: [
         "Quotes are valid for 7 days.",
         "You can mix colors and designs. Minimum order quantities apply separately to each design and each color.",
         "Samples are charged at the unit price in the relevant quote.",
-        "Report any damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded.",
+        "For orders shipped by us, report damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded. If you use your own freight forwarder, our delivery obligation ends when we hand the goods over to that forwarder.",
       ],
       faqTitle: "FAQs",
       faq: [
@@ -880,7 +880,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           q: "Do you handle shipping?",
-          a: "We can arrange shipping from China and handle US customs clearance. You can use your own freight forwarder instead. Product price and shipping are quoted separately.",
+          a: "We can arrange shipping from China. You can use your own freight forwarder instead. Product price and shipping are quoted separately.",
         },
         {
           q: "Are prices listed?",
@@ -899,7 +899,7 @@ export const dictionary: Record<Lang, Copy> = {
     },
     footer: {
       line: "Wholesale craft supplier, shipping from China.",
-      address: "China",
+      address: "",
     },
     notFound: {
       title: "Page Not Found",
@@ -931,7 +931,7 @@ export const dictionary: Record<Lang, Copy> = {
       title: markets.zh.hero.title,
       lead: markets.zh.hero.lead,
       seeProcess: "",
-      seeProducts: "看产品",
+      seeProducts: "查看产品",
       noteCaption: "",
       rows: [
         { label: "发货", value: "中国，发往全球" },
@@ -941,24 +941,24 @@ export const dictionary: Record<Lang, Copy> = {
       values: [
         {
           title: "自有系列",
-          body: "亚克力花瓣、水钻贴纸、亚克力插花相框、树脂海星和意大利 Charm 手链。",
+          body: "亚克力花瓣、水钻贴纸、亚克力插花花瓶框、树脂海星和意大利 Charm 手链。",
         },
       ],
-      audienceTitle: "给谁",
+      audienceTitle: "服务对象",
       audienceBody: "各国的手作工坊、咖啡馆、门店和学校。",
       audience: ["手作工坊", "咖啡馆", "门店", "学校"],
       seriesTitle: "产品一览",
-      seriesLead: "五组自有系列。",
+      seriesLead: "五类自有产品。",
       processTitle: "",
       processLead: "",
       steps: [],
       ctaTitle: "联系",
-      ctaBody: "可通过 Zalo 或邮件联系。",
+      ctaBody: "可通过邮件联系。",
     },
     products: {
       kicker: "02",
       title: "产品",
-      lead: "五组自有系列。",
+      lead: "五类自有产品。",
     },
     cooperation: {
       kicker: "",
@@ -979,15 +979,15 @@ export const dictionary: Record<Lang, Copy> = {
     contact: {
       kicker: "04",
       title: "联系",
-      lead: "可通过 Zalo 或邮件联系。",
+      lead: "可通过邮件联系。",
       zaloRole: "Zalo",
       emailRole: "销售邮件",
-      addressLabel: "地址",
+      addressLabel: "发货地",
       address: "中国",
     },
     footer: {
       line: "DIY 手作材料，从中国发往全球。",
-      address: "中国",
+      address: "",
     },
     notFound: {
       title: "没有这一页",
@@ -1004,8 +1004,8 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "Tới nội dung",
     menu: "Menu",
     close: "Đóng",
-    copied: "Đã chép",
-    copy: "Chép",
+    copied: "Đã sao chép",
+    copy: "Sao chép",
     zaloAdd: "Thêm Zalo",
     emailCta: "Email",
     inquiry: "Liên hệ để hỏi giá",
@@ -1020,18 +1020,18 @@ export const dictionary: Record<Lang, Copy> = {
       lead: markets.vi.hero.lead,
       seeProcess: "Quy trình hợp tác",
       seeProducts: "Xem sản phẩm",
-      noteCaption: "Báo giá. Liên hệ để hỏi giá.",
+      noteCaption: "Phí vận chuyển tính riêng.",
       rows: [
         { label: "Đi — Đến", value: "Trung Quốc → Việt Nam" },
         { label: "Vai trò", value: "Nhà cung cấp nguyên liệu DIY" },
-        { label: "Cọc / nhận hàng", value: "80 / 20", note: true },
+        { label: "Cọc / thanh toán còn lại", value: "80 / 20", note: true },
         { label: "Chất lượng", value: "Chúng tôi chịu trách nhiệm" },
       ],
-      valuesTitle: "Ba việc",
+      valuesTitle: "Dịch vụ của chúng tôi",
       values: [
         {
           title: "Chọn hàng và cung cấp",
-          body: "Cung cấp theo dòng, quy cách và số lượng bạn cần.",
+          body: "Cung cấp nguyên liệu theo quy cách và số lượng bạn cần.",
         },
         {
           title: "Báo giá và vận chuyển",
@@ -1039,10 +1039,10 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Cam kết chất lượng",
-          body: "Chất lượng do chúng tôi chịu trách nhiệm. Nhà máy hợp tác lâu dài hỗ trợ nguồn hàng và chất lượng.",
+          body: "Chúng tôi chịu trách nhiệm về chất lượng sản phẩm từ các nhà máy đối tác lâu năm.",
         },
       ],
-      audienceTitle: "Phục vụ ai",
+      audienceTitle: "Khách hàng",
       audienceBody:
         "Dành cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
       audience: ["Xưởng DIY", "Cửa hàng", "Trường học"],
@@ -1060,17 +1060,17 @@ export const dictionary: Record<Lang, Copy> = {
         "Thanh toán 20% còn lại",
       ],
       ctaTitle: "Gửi quy cách và số lượng qua Zalo",
-      ctaBody: "Hỏi giá, báo giá và theo đơn — thêm số này.",
+      ctaBody: "Liên hệ để nhận báo giá hoặc theo dõi đơn hàng.",
     },
     products: {
       kicker: "02",
       title: "Sản phẩm",
-      lead: "Năm dòng sản phẩm của chúng tôi. Giá không đăng trên website; liên hệ để nhận báo giá.",
+      lead: "Năm dòng sản phẩm. Gửi quy cách và số lượng để nhận báo giá sỉ.",
     },
     cooperation: {
       kicker: "03",
       title: "Hợp tác",
-      lead: "Bán thẳng các dòng của chúng tôi. Sau khi chốt quy cách và số lượng, chúng tôi báo giá sản phẩm; phí vận chuyển tính riêng. Chất lượng do chúng tôi chịu trách nhiệm.",
+      lead: "Gửi quy cách và số lượng để nhận báo giá. Tiền hàng và phí vận chuyển được báo riêng.",
       steps: [
         {
           title: "Hỏi giá",
@@ -1082,11 +1082,11 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Báo giá",
-          body: "Báo giá sản phẩm; phí vận chuyển tính riêng. Website không niêm yết giá.",
+          body: "Báo giá ghi riêng tiền hàng và phí vận chuyển.",
         },
         {
           title: "Đặt hàng (cọc 80%)",
-          body: "Sau khi chốt, chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.",
+          body: "Sau khi xác nhận đơn, đặt cọc 80% bằng chuyển khoản ngân hàng tại Việt Nam. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ gồm tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
         },
         {
           title: "Vận chuyển",
@@ -1098,13 +1098,13 @@ export const dictionary: Record<Lang, Copy> = {
         },
       ],
       qualityTitle: "Chất lượng",
-      qualityFigure: "Do chúng tôi",
+      qualityFigure: "Chúng tôi chịu trách nhiệm",
       qualityBody:
-        "Nguồn hàng và chất lượng do chúng tôi chịu trách nhiệm. Nhà máy hợp tác lâu dài hỗ trợ việc cung cấp và chất lượng.",
+        "Chúng tôi chịu trách nhiệm về nguồn hàng và chất lượng sản phẩm từ các nhà máy đối tác lâu năm.",
       payTitle: "Thanh toán",
       payFigure: "80 / 20",
       payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
+        "Chuyển khoản ngân hàng tại Việt Nam. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ gồm tiền hàng nếu bạn dùng đơn vị vận chuyển riêng. Thời điểm thanh toán phần còn lại được nêu ở bước 6.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
@@ -1131,10 +1131,10 @@ export const dictionary: Record<Lang, Copy> = {
     contact: {
       kicker: "04",
       title: "Liên hệ",
-      lead: "Muốn hợp tác, báo giá hoặc theo dõi đơn, hãy thêm Zalo.",
+      lead: "Liên hệ qua Zalo để hỏi giá, đặt hàng hoặc theo dõi đơn hàng.",
       zaloRole: "Zalo",
       emailRole: "Email bán hàng",
-      addressLabel: "Địa chỉ",
+      addressLabel: "Gửi hàng từ",
       address: "Trung Quốc",
     },
     footer: {

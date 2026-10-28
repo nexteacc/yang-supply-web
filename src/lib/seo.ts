@@ -23,7 +23,7 @@ export function languageAlternates(page: PageKey): Record<string, string> {
     languages[market.hreflang] = `${SITE_URL}${path}`;
   }
   const zhPath = markets.zh.pages[page];
-  languages["x-default"] = `${SITE_URL}${zhPath ?? markets.zh.pages.home}`;
+  if (zhPath) languages["x-default"] = `${SITE_URL}${zhPath}`;
   return languages;
 }
 

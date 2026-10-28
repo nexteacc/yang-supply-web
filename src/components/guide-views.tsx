@@ -85,7 +85,7 @@ export function WorkshopGuideView() {
           </h2>
           <p className="mt-6 max-w-[60ch]">
             Thay vì mua dàn trải nhiều loại phụ kiện nhỏ lẻ khó kiểm soát tồn
-            kho, các xưởng workshop và lớp học thủ công thường chọn nguyên liệu
+            kho, các xưởng và lớp học thủ công thường chọn nguyên liệu
             xoay quanh thành phẩm chính của buổi học. Hiện tại, Yang Supply cung
             cấp sỉ trực tiếp 5 dòng sản phẩm từ Trung Quốc về Việt Nam:
           </p>
@@ -158,8 +158,8 @@ export function WorkshopGuideView() {
               src="/products/canh-hoa-acrylic-nhieu-mau.jpg"
               width={1600}
               height={1600}
-              alt="Mẫu cánh hoa acrylic nhiều màu tại kho mẫu Yang Supply"
-              caption="Mẫu cánh hoa acrylic hình hoa lily nhiều màu (ảnh chụp mẫu sản phẩm của Yang Supply, không phải ảnh sự kiện khách hàng)."
+              alt="Mẫu cánh hoa acrylic nhiều màu"
+              caption="Mẫu cánh hoa acrylic hình lily nhiều màu."
               sizes="(min-width: 768px) 380px, 90vw"
               priority
             />
@@ -186,8 +186,8 @@ export function WorkshopGuideView() {
             cho giảng viên. Bạn có thể áp dụng công thức cơ bản:
           </p>
           <p className="mt-4 max-w-[60ch] font-medium text-ink">
-            Tổng số lượng cần đặt = (Số người tham gia × Định lượng mỗi suất) +
-            Tỷ lệ dự phòng (10% – 15%)
+            Tổng số lượng cần đặt = Số người tham gia × Định lượng mỗi suất ×
+            (1 + Tỷ lệ dự phòng)
           </p>
           <p className="mt-3 max-w-[60ch] text-[14px] text-mute">
             Lưu ý: Các con số dưới đây chỉ là ví dụ minh họa cách tính, không
@@ -366,6 +366,19 @@ export function CharmGuideView() {
         lead={guide.lead}
       />
 
+      <Container className="pt-10 md:pt-14">
+        <GuideFigure
+          src={guide.heroImage.src}
+          width={guide.heroImage.width}
+          height={guide.heroImage.height}
+          alt={guide.heroImage.alt}
+          caption={guide.heroImage.caption}
+          sizes="(min-width: 768px) 520px, 90vw"
+          maxWidthClass="max-w-[520px]"
+          priority
+        />
+      </Container>
+
       <Container className="flex flex-col gap-[96px] py-[72px] md:gap-[120px] md:py-[120px]">
         {/* Section 01 */}
         <section className="scroll-mt-24">
@@ -419,8 +432,8 @@ export function CharmGuideView() {
               src="/products/charm-y-vong-tron-mau-6.webp"
               width={399}
               height={399}
-              alt="Mẫu vòng tay charm Ý mắt trơn màu bạc (mẫu đối chiếu số 6)"
-              caption="Vòng nền mắt trơn (mẫu số 6)"
+              alt="Mẫu vòng tay charm Ý mắt trơn màu bạc"
+              caption="Vòng nền mắt trơn"
               sizes="199px"
               maxWidthClass="max-w-[199px]"
             />
@@ -428,8 +441,8 @@ export function CharmGuideView() {
               src="/products/charm-y-vong-tron-mau-79.webp"
               width={399}
               height={399}
-              alt="Mẫu vòng tay charm Ý phối mắt họa tiết và chữ (mẫu đối chiếu số 79)"
-              caption="Vòng phối họa tiết (mẫu số 79)"
+              alt="Mẫu vòng tay charm Ý phối mắt họa tiết và chữ"
+              caption="Vòng phối họa tiết"
               sizes="199px"
               maxWidthClass="max-w-[199px]"
             />
@@ -437,8 +450,8 @@ export function CharmGuideView() {
               src="/products/charm-y-mat-hoa-p1-13.webp"
               width={439}
               height={439}
-              alt="Mắt charm Ý kèm mặt treo hình hoa (mẫu đối chiếu số 13)"
-              caption="Mắt treo hình hoa (mẫu số 13)"
+              alt="Mắt charm Ý kèm mặt treo hình hoa"
+              caption="Mắt treo hình hoa"
               sizes="219px"
               maxWidthClass="max-w-[219px]"
             />
@@ -446,8 +459,8 @@ export function CharmGuideView() {
               src="/products/charm-y-mat-sao-p1-67.webp"
               width={439}
               height={439}
-              alt="Mắt charm Ý kèm mặt treo sao biển (mẫu đối chiếu số 67)"
-              caption="Mắt treo sao biển (mẫu số 67)"
+              alt="Mắt charm Ý kèm mặt treo sao biển"
+              caption="Mắt treo sao biển"
               sizes="219px"
               maxWidthClass="max-w-[219px]"
             />
@@ -461,40 +474,10 @@ export function CharmGuideView() {
             Gợi ý phối vòng hoàn chỉnh theo chủ đề
           </h2>
           <p className="mt-6 max-w-[60ch]">
-            Xếp sẵn các mẫu vòng hoàn chỉnh theo tông màu giúp khách tại cửa
-            hàng hoặc học viên workshop dễ hình dung hơn so với chỉ bày mắt rời.
-            Dưới đây là 3 bố cục chủ đề tiêu biểu trong tài liệu mẫu:
+            Khi chọn vòng hoàn chỉnh, bạn có thể bắt đầu từ một tông màu hoặc
+            một họa tiết chính, sau đó chọn các mắt và mặt treo phù hợp. Gửi ảnh
+            mẫu cùng số lượng dự kiến để xác nhận mẫu và nhận báo giá.
           </p>
-
-          <div className="mt-10 grid gap-8 sm:grid-cols-3">
-            <GuideFigure
-              src="/products/charm-y-sl-001.webp"
-              width={711}
-              height={711}
-              alt="Mẫu phối vòng tay charm Ý chủ đề hoa và bướm SL-001"
-              caption="SL-001 · Chủ đề Hoa & Bướm"
-              sizes="(min-width: 768px) 320px, 355px"
-              maxWidthClass="max-w-[355px]"
-            />
-            <GuideFigure
-              src="/products/charm-y-sl-002.webp"
-              width={711}
-              height={711}
-              alt="Mẫu phối vòng tay charm Ý chủ đề trái tim SL-002"
-              caption="SL-002 · Chủ đề Trái tim & Nơ"
-              sizes="(min-width: 768px) 320px, 355px"
-              maxWidthClass="max-w-[355px]"
-            />
-            <GuideFigure
-              src="/products/charm-y-sl-010.webp"
-              width={711}
-              height={711}
-              alt="Mẫu phối vòng tay charm Ý chủ đề biển SL-010"
-              caption="SL-010 · Chủ đề Biển & Vỏ sò"
-              sizes="(min-width: 768px) 320px, 355px"
-              maxWidthClass="max-w-[355px]"
-            />
-          </div>
         </section>
 
         {/* Section 03 */}
@@ -598,7 +581,7 @@ export function CharmGuideView() {
               width={1300}
               height={1300}
               alt="Mắt charm Ý Giáng Sinh hình cây thông đặt cạnh thước đo tham khảo"
-              caption="Ảnh chụp mặt trước và mặt sau đặt cạnh thước đo chỉ mang tính tham khảo trực quan cho mẫu trong hình; ký hiệu dập ở mặt sau không dùng làm cam kết chung về cấp độ vật liệu, chống nước hay chống dị ứng."
+              caption="Ảnh chụp mặt trước đặt cạnh thước đo chỉ mang tính tham khảo trực quan cho mẫu trong hình; vui lòng xác nhận kích thước và chất liệu khi đặt hàng."
               sizes="(min-width: 768px) 400px, 90vw"
             />
           </div>
