@@ -15,9 +15,9 @@ export const contacts = {
   zalo: "0986245780",
   zaloUrl: "https://zalo.me/0986245780",
   emails: [
-    "an.yangsupply@agentmail.to",
-    "minh.yangsupply@agentmail.to",
-    "linh.yangsupply@agentmail.to",
+    "max.yangsupply@agentmail.to",
+    "leo.yangsupply@agentmail.to",
+    "ella.yangsupply@agentmail.to",
   ],
 } as const;
 
