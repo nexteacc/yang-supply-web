@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { useState } from "react";
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { localizedPath } from "@/lib/i18n";
@@ -85,31 +84,6 @@ export function ZaloButton({ className = "" }: { className?: string }) {
     >
       {t.zaloAdd}
     </a>
-  );
-}
-
-export function CopyButton({ value }: { value: string }) {
-  const { t } = useLanguage();
-  const [done, setDone] = useState(false);
-
-  async function onCopy() {
-    try {
-      await navigator.clipboard.writeText(value);
-      setDone(true);
-      window.setTimeout(() => setDone(false), 1500);
-    } catch {
-      setDone(false);
-    }
-  }
-
-  return (
-    <button
-      type="button"
-      onClick={onCopy}
-      className="inline-flex h-11 min-h-11 cursor-pointer items-center text-[14px] font-normal leading-none text-mute"
-    >
-      {done ? t.copied : t.copy}
-    </button>
   );
 }
 

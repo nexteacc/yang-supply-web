@@ -84,10 +84,9 @@ export function WorkshopGuideView() {
             Chọn nguyên liệu theo thành phẩm buổi học
           </h2>
           <p className="mt-6 max-w-[60ch]">
-            Thay vì mua dàn trải nhiều loại phụ kiện nhỏ lẻ khó kiểm soát tồn
-            kho, các xưởng và lớp học thủ công thường chọn nguyên liệu
-            xoay quanh thành phẩm chính của buổi học. Hiện tại, Yang Supply cung
-            cấp sỉ trực tiếp 5 dòng sản phẩm từ Trung Quốc về Việt Nam:
+            Các xưởng và lớp học thủ công thường chọn nguyên liệu xoay quanh
+            thành phẩm chính của buổi học, nhờ vậy tồn kho gọn và dễ kiểm soát. Hiện tại, Yang Supply cung
+            cấp sỉ trực tiếp 5 dòng sản phẩm từ Trung Quốc về Việt Nam; kích thước và màu sắc của từng dòng xem tại <Link href="/san-pham" className="link-under">trang Sản phẩm</Link>:
           </p>
 
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
@@ -98,9 +97,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                Hình cánh hoa lily trong, 45×40mm, 9 màu (đỏ, hồng, hồng anh
-                đào, tím, xanh dương, xanh lá, vàng, trong suốt, trắng). Dùng
-                làm hoa thủ công, cành hoa trang trí và học liệu.
+                Hình cánh hoa lily trong, dùng làm hoa thủ công, cành hoa trang trí và học liệu.
               </dd>
             </div>
             <div className="contents">
@@ -110,9 +107,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                Tờ lớn 7,5×13cm; tờ nhỏ không ghi kích thước. Nhiều họa tiết
-                (trái tim, ngôi sao, hoa mai, hạt tròn), bán theo tờ. Dùng trang
-                trí hộp quà, thiệp, sổ tay trong buổi workshop ngắn.
+                Bán theo tờ, dùng trang trí hộp quà, thiệp, sổ tay trong buổi workshop ngắn.
               </dd>
             </div>
             <div className="contents">
@@ -122,9 +117,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                18×15cm; màu xám, xanh da trời, hồng, trong suốt. Dùng để cắm
-                hoa và trưng bày thành phẩm trên bàn học hoặc cửa hàng (không
-                phải khung ảnh).
+                Giữ được nước, hợp để cắm hoa và bày thành phẩm trên bàn học hoặc quầy cửa hàng.
               </dd>
             </div>
             <div className="contents">
@@ -134,9 +127,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                Cỡ lớn 5cm, cỡ nhỏ 2,6cm, mặt trơn không lỗ; nhiều màu (hồng,
-                màu ngà, tím nhạt, trắng, xanh nhạt, xanh navy). Dùng làm đồ
-                trưng bày và phối tiểu cảnh biển.
+                Dùng làm đồ trưng bày và phối tiểu cảnh biển.
               </dd>
             </div>
             <div className="contents">
@@ -146,9 +137,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                Vòng ghép theo mẫu (tráng men, đính đá zircon, chủ đề Giáng
-                Sinh), báo giá riêng theo mẫu chọn. Phù hợp cho bàn trải nghiệm
-                tự chọn mắt charm ghép vòng tại chỗ.
+                Vòng ghép theo mẫu (tráng men, đính đá zircon, chủ đề Giáng Sinh), phù hợp cho bàn trải nghiệm tự chọn mắt charm ghép vòng tại chỗ.
               </dd>
             </div>
           </dl>
@@ -190,8 +179,7 @@ export function WorkshopGuideView() {
             (1 + Tỷ lệ dự phòng)
           </p>
           <p className="mt-3 max-w-[60ch] text-[14px] text-mute">
-            Lưu ý: Các con số dưới đây chỉ là ví dụ minh họa cách tính, không
-            phải định mức tiêu hao cố định cho mọi buổi học.
+            Lưu ý: Các con số dưới đây là ví dụ minh họa cách tính; khi đặt hàng, hãy thay bằng số người và định lượng thực tế của buổi học.
           </p>
 
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
@@ -213,7 +201,7 @@ export function WorkshopGuideView() {
               <dt className="font-medium text-ink">Ví dụ 3 · Khung bình hoa</dt>
               <dd className="text-mute">
                 15 người × 1 khung/suất = 15 khung; cộng 2 khung mẫu giảng viên
-                → tổng dự kiến 17 khung (18×15cm).
+                → tổng dự kiến 17 khung.
               </dd>
             </div>
           </dl>
@@ -224,15 +212,15 @@ export function WorkshopGuideView() {
               width={1600}
               height={1600}
               alt="Sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu"
-              caption="Mẫu sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu, bán theo tờ; tờ nhỏ có 4 họa tiết: trái tim nhiều màu, trái tim hồng trắng, hoa mai và ngôi sao."
+              caption="Mẫu sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu."
               sizes="(min-width: 768px) 380px, 90vw"
             />
             <GuideFigure
               src="/products/khung-binh-hoa-acrylic-trong-suot.jpg"
               width={1307}
               height={1307}
-              alt="Khung bình hoa acrylic trong suốt 18x15cm cắm hoa cúc hồng minh họa"
-              caption="Mẫu khung bình hoa acrylic trong suốt (18×15cm, dùng cắm hoa và trưng bày, không phải khung ảnh). Hoa cúc hồng trong hình là đạo cụ minh họa, không đi kèm khung."
+              alt="Khung bình hoa acrylic trong suốt cắm hoa cúc hồng minh họa"
+              caption="Khung bình hoa acrylic trong suốt; hoa cúc hồng trong hình được cắm để minh họa."
               sizes="(min-width: 768px) 380px, 90vw"
             />
           </div>
@@ -246,16 +234,10 @@ export function WorkshopGuideView() {
           </h2>
           <p className="mt-6 max-w-[60ch]">
             Bạn có thể trộn màu và trộn mẫu trong cùng một đơn hàng để học viên
-            có nhiều lựa chọn. Khi lên danh sách đặt sỉ, cần lưu ý 3 quy tắc:
+            có nhiều lựa chọn. Khi lên danh sách đặt sỉ, cần lưu ý thêm 2 điều:
           </p>
 
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
-            <div className="contents">
-              <dt className="font-medium text-ink">Trộn mẫu & màu</dt>
-              <dd className="text-mute">
-                Gộp chung nhiều mẫu, nhiều màu trong một đơn.
-              </dd>
-            </div>
             <div className="contents">
               <dt className="font-medium text-ink">Chốt họa tiết thực tế</dt>
               <dd className="text-mute">
@@ -266,7 +248,7 @@ export function WorkshopGuideView() {
             <div className="contents">
               <dt className="font-medium text-ink">Mẫu thử trước buổi học</dt>
               <dd className="text-mute">
-                Mẫu thử có tính phí, áp dụng theo giá thực tế của sản phẩm.
+                Muốn xem hàng trước buổi học, bạn có thể lấy mẫu thử; cách tính phí mẫu nằm ở <Link href="/hop-tac" className="link-under">trang Hợp tác</Link>.
               </dd>
             </div>
           </dl>
@@ -276,12 +258,10 @@ export function WorkshopGuideView() {
         <section className="scroll-mt-24">
           <p className="eyebrow text-mute">04</p>
           <h2 className="heading-2 mt-4 max-w-[22ch]">
-            5 thông tin cần gửi khi hỏi giá và điều khoản đặt hàng
+            5 thông tin cần gửi khi hỏi giá
           </h2>
           <p className="mt-6 max-w-[60ch]">
-            Giá không niêm yết trên website; sau khi chốt quy cách và số lượng,
-            chúng tôi báo đơn giá sản phẩm và tính riêng phí vận chuyển. Khi
-            nhắn Zalo {contacts.zalo}, bạn chỉ cần gửi 5 thông tin:
+            Giá được báo theo từng đơn. Khi nhắn Zalo {contacts.zalo}, bạn chỉ cần gửi 5 thông tin:
           </p>
 
           <ol className="mt-8 flex max-w-[65ch] flex-col gap-3 border-t border-line pt-6 text-[15px]">
@@ -295,42 +275,9 @@ export function WorkshopGuideView() {
             </li>
           </ol>
 
-          <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
-            <div className="contents">
-              <dt className="font-medium text-ink">Hiệu lực báo giá</dt>
-              <dd className="text-mute">Báo giá có hiệu lực 7 ngày.</dd>
-            </div>
-            <div className="contents">
-              <dt className="font-medium text-ink">Thanh toán 80 / 20</dt>
-              <dd className="text-mute">
-                Chuyển khoản ngân hàng tại Việt Nam. Cọc 80% tổng giá trị
-                đơn hàng. Nếu chúng tôi vận chuyển, thanh toán 20% còn lại
-                khi nhận hàng; nếu bạn dùng đơn vị vận chuyển riêng, thanh
-                toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho
-                đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu
-                chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận
-                chuyển riêng.
-              </dd>
-            </div>
-            <div className="contents">
-              <dt className="font-medium text-ink">Vận chuyển</dt>
-              <dd className="text-mute">
-                Nếu chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam, phí
-                vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu dùng
-                đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là
-                hoàn tất. Không cam kết trước mốc giao hàng cố định khi chưa
-                kiểm tra lịch đơn cụ thể.
-              </dd>
-            </div>
-            <div className="contents">
-              <dt className="font-medium text-ink">Bù hàng hư hỏng</dt>
-              <dd className="text-mute">
-                Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận
-                hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù sản
-                phẩm (không hoàn tiền).
-              </dd>
-            </div>
-          </dl>
+          <p className="mt-8 max-w-[60ch]">
+            Điều khoản báo giá, thanh toán, vận chuyển và bù hàng hư hỏng được ghi đầy đủ tại <Link href="/hop-tac" className="link-under">trang Hợp tác</Link>.
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-6 text-[14px]">
             <TextLink href="/san-pham">Xem danh mục sản phẩm</TextLink>
@@ -503,7 +450,7 @@ export function CharmGuideView() {
               width={1250}
               height={1250}
               alt="Bảng 31 mẫu mắt charm Ý chủ đề Giáng Sinh đánh số từ 1 đến 31"
-              caption="Bảng đánh số 1–31 chỉ dùng để gọi vị trí mẫu trong hình này khi hỏi giá; không phải mã SKU cố định và không cam kết sẵn kho mọi số."
+              caption="Bảng đánh số 1–31 giúp bạn gọi đúng vị trí mẫu trong hình này khi hỏi giá."
               sizes="(min-width: 768px) 380px, 90vw"
             />
             <GuideFigure
@@ -532,8 +479,7 @@ export function CharmGuideView() {
             Thông số cần xác nhận trước khi đặt sỉ
           </h2>
           <p className="mt-6 max-w-[60ch]">
-            Vòng và mắt charm Ý được báo giá riêng theo mẫu bạn chọn. Trước khi
-            chốt đơn, hãy xác nhận rõ 4 thông số dưới đây:
+            Trước khi chốt đơn, hãy xác nhận rõ 4 thông số dưới đây:
           </p>
 
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
@@ -561,11 +507,7 @@ export function CharmGuideView() {
             <div className="contents">
               <dt className="font-medium text-ink">4. Số lượng</dt>
               <dd className="text-mute">
-                Có thể trộn mẫu, trộn màu. Đặt cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi
-                vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng
-                đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi
-                chúng tôi bàn giao hàng cho đơn vị đó. Phí vận chuyển tính
-                riêng.
+                Một đơn có thể gồm nhiều mẫu, nhiều màu. Đặt cọc, thanh toán phần còn lại và phí vận chuyển: xem chi tiết ở <Link href="/hop-tac" className="link-under">trang Hợp tác</Link>.
               </dd>
             </div>
           </dl>

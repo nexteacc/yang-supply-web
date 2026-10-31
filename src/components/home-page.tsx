@@ -2,11 +2,43 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { CSSProperties, ReactNode } from "react";
 import { contacts, productImage, series } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { localizedPath } from "@/lib/i18n";
 import { SquareThumb } from "@/components/product-art";
 import { Section, TextLink, ZaloButton } from "@/components/ui";
+
+/** Approximate width in em so a long data-block value can shrink to one line. */
+function factEm(value: string) {
+  let units = 0;
+  for (const ch of value) {
+    const code = ch.codePointAt(0) ?? 0;
+    units += code > 0x2e80 ? 1.05 : 0.62;
+  }
+  return units.toFixed(2);
+}
+
+/** Renders [label](/path) as an internal link. Other text is unchanged. */
+function InlineLinks({ text }: { text: string }) {
+  const pattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const nodes: ReactNode[] = [];
+  let last = 0;
+  let key = 0;
+  for (const match of text.matchAll(pattern)) {
+    const index = match.index ?? 0;
+    if (index > last) nodes.push(text.slice(last, index));
+    nodes.push(
+      <TextLink key={key} href={match[2]}>
+        {match[1]}
+      </TextLink>,
+    );
+    key += 1;
+    last = index + match[0].length;
+  }
+  if (last < text.length) nodes.push(text.slice(last));
+  return <>{nodes}</>;
+}
 
 /**
  * Full-bleed opening photograph. Point this at a calm workbench or petal
@@ -21,7 +53,9 @@ const heroPhoto = Object.values(productImage)
 export function HomePage() {
   const { lang, copyLang, market, t } = useLanguage();
   const home = t.home;
-  const showProcess = market.commerce && home.steps.length > 0 && market.pages.cooperation;
+  const showProcessLink = Boolean(home.seeProcess && market.pages.cooperation);
+  const showProcessSection = showProcessLink && home.steps.length > 0;
+  const twoServiceCards = home.values.length === 2;
 
   return (
     <div>
@@ -53,7 +87,7 @@ export function HomePage() {
             <p className="max-w-[60ch]">{home.lead}</p>
             <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
               <ZaloButton />
-              {showProcess ? (
+              {showProcessLink ? (
                 <TextLink href={market.pages.cooperation!}>
                   {home.seeProcess}
                 </TextLink>
@@ -62,8 +96,13 @@ export function HomePage() {
             {home.rows.length > 0 ? (
               <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
                 {home.rows.map((row) => (
-                  <div key={row.label}>
-                    <dd className="fact-value text-ink">{row.value}</dd>
+                  <div key={row.label} className="fact">
+                    <dd
+                      className="fact-value text-ink"
+                      style={{ "--fact-em": factEm(row.value) } as CSSProperties}
+                    >
+                      {row.value}
+                    </dd>
                     <dt className="fact-label mt-2 text-mute">{row.label}</dt>
                     {row.note ? (
                       <p className="mt-2 max-w-[22ch] text-[13px] font-normal leading-snug text-mute">
@@ -79,18 +118,32 @@ export function HomePage() {
           {home.values.length > 0 ? (
           <div>
             <h2 className="heading-2">{home.valuesTitle}</h2>
-            <ol className="mt-10 flex flex-col gap-10 md:mt-12 md:gap-12">
+            <ol
+              className={
+                twoServiceCards
+                  ? "mt-10 grid grid-cols-1 gap-10 md:mt-12 md:grid-cols-2 md:gap-12"
+                  : "mt-10 flex flex-col gap-10 md:mt-12 md:gap-12"
+              }
+            >
               {home.values.map((item, index) => (
                 <li
                   key={item.title}
-                  className="grid grid-cols-[3rem_minmax(0,1fr)] gap-6 md:grid-cols-12 md:gap-6"
+                  className={
+                    twoServiceCards
+                      ? "grid grid-cols-[3rem_minmax(0,1fr)] gap-6"
+                      : "grid grid-cols-[3rem_minmax(0,1fr)] gap-6 md:grid-cols-12 md:gap-6"
+                  }
                 >
-                  <span className="eyebrow pt-1 text-mute md:col-span-2">
+                  <span
+                    className={`eyebrow pt-1 text-mute ${twoServiceCards ? "" : "md:col-span-2"}`}
+                  >
                     0{index + 1}
                   </span>
-                  <div className="md:col-span-6">
+                  <div className={twoServiceCards ? "" : "md:col-span-6"}>
                     <h3 className="heading-3">{item.title}</h3>
-                    <p className="mt-3 max-w-[60ch] text-mute">{item.body}</p>
+                    <p className="mt-3 max-w-[60ch] text-mute">
+                      <InlineLinks text={item.body} />
+                    </p>
                   </div>
                 </li>
               ))}
@@ -157,7 +210,7 @@ export function HomePage() {
             </ul>
           </div>
 
-          {showProcess ? (
+          {showProcessSection ? (
           <div>
             <h2 className="heading-2">{home.processTitle}</h2>
             <p className="mt-6 max-w-[60ch] text-mute">{home.processLead}</p>

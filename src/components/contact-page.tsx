@@ -2,7 +2,7 @@
 
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
-import { Container, CopyButton, PageIntro, ZaloButton } from "@/components/ui";
+import { Container, PageIntro, ZaloButton } from "@/components/ui";
 
 export function ContactPage() {
   const { market, t } = useLanguage();
@@ -25,9 +25,8 @@ export function ContactPage() {
             >
               {contacts.zalo}
             </a>
-            <div className="mt-8 flex flex-wrap items-center gap-6">
+            <div className="mt-8">
               <ZaloButton />
-              <CopyButton value={contacts.zalo} />
             </div>
           </section>
           ) : null}
@@ -45,9 +44,6 @@ export function ContactPage() {
                 <a href={`mailto:${email}`} className="link-under inline-block break-all text-[14px] text-mute">
                   {email}
                 </a>
-                <div className="mt-2">
-                  <CopyButton value={email} />
-                </div>
               </li>
             ))}
           </ul>

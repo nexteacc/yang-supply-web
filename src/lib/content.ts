@@ -197,18 +197,18 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       src: "/products/sticker-dinh-da-co-nho-hoa-mai-nhieu-mau.jpg",
       width: 1600,
       height: 1600,
-      zh: "小张彩色梅花圆钻水钻贴纸",
+      zh: "小张彩色梅花水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình hoa mai nhiều màu",
-      en: "Small rhinestone sticker sheet with colorful plum blossoms and round gems",
+      en: "Small rhinestone sticker sheet with colorful plum blossoms",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
       src: "/products/sticker-dinh-da-co-nho-ngoi-sao-nhieu-mau.jpg",
       width: 1600,
       height: 1600,
-      zh: "小张彩色星星圆钻水钻贴纸",
+      zh: "小张彩色星星水钻贴纸",
       vi: "Sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu",
-      en: "Small rhinestone sticker sheet with colorful stars and round gems",
+      en: "Small rhinestone sticker sheet with colorful stars",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
     {
@@ -441,7 +441,7 @@ export const series: {
     id: "petals",
     en: {
       name: "Acrylic Petals",
-      summary: "Lily-shaped petals, 1.8 × 1.6 in, in 9 colors.",
+      summary: "Lily-shaped petals in 9 colors.",
       detail: "Transparent petals for crafts and classes.",
       specs: [
         {
@@ -456,6 +456,10 @@ export const series: {
           label: "Colors",
           value:
             "9 colors: red, pink, cherry blossom pink, purple, blue, green, yellow, clear and white",
+        },
+        {
+          label: "Supply unit",
+          value: "By the pack",
         },
         {
           label: "Use",
@@ -474,12 +478,13 @@ export const series: {
           label: "颜色",
           value: "9 种颜色（红、粉、樱花粉、紫、蓝、绿、黄、透明、白）",
         },
+        { label: "供应方式", value: "按包供应" },
         { label: "用途", value: "手作与课程" },
       ],
     },
     vi: {
       name: "Cánh hoa acrylic",
-      summary: "Hình cánh hoa lily, 45×40mm, 9 màu.",
+      summary: "Hình cánh hoa lily, 9 màu.",
       detail: "Cánh hoa trong, dùng cho thủ công và học liệu.",
       specs: [
         { label: "Kiểu dáng", value: "Hình cánh hoa lily trong" },
@@ -489,6 +494,7 @@ export const series: {
           value:
             "9 màu (đỏ, hồng, hồng anh đào, tím, xanh dương, xanh lá, vàng, trong suốt, trắng)",
         },
+        { label: "Đơn vị", value: "Bán theo gói" },
         { label: "Ứng dụng", value: "Thủ công và học liệu" },
       ],
     },
@@ -497,19 +503,17 @@ export const series: {
     id: "stickers",
     en: {
       name: "Rhinestone Stickers",
-      summary:
-        "Large sheets: 3 × 5.1 in; confirm small-sheet dimensions when requesting a quote. Assorted designs, supplied by the sheet.",
+      summary: "Assorted designs, sold by the sheet.",
       detail: "Designs are subject to the samples confirmed when you email us.",
       specs: [
         {
           label: "Size",
-          value:
-            "Large sheets: 3 × 5.1 in; confirm small-sheet dimensions when requesting a quote",
+          value: "Large sheets: 3 × 5.1 in",
         },
         {
           label: "Designs",
           value:
-            "Assorted designs, subject to the samples confirmed when you email us",
+            "Small sheets: colorful hearts, pink-and-white hearts, colorful plum blossoms, colorful stars. Large sheets: assorted designs, subject to the samples confirmed when you email us",
         },
         {
           label: "Supply unit",
@@ -519,27 +523,26 @@ export const series: {
     },
     zh: {
       name: "水钻贴纸",
-      summary: "大张 7.5×13cm，小张不标尺寸。多种图案，按张供应。",
+      summary: "大张 7.5×13cm。多种图案，按张供应。",
       detail: "具体图案以沟通时确认的样品为准。",
       specs: [
-        { label: "规格", value: "大张 7.5 × 13 cm；小张尺寸询价时确认" },
-        { label: "款式", value: "多种图案（以沟通时确认的样品为准）" },
+        { label: "规格", value: "大张 7.5 × 13 cm" },
+        { label: "款式", value: "小张：彩色爱心、粉白爱心、彩色梅花、彩色星星；大张：多种图案（以沟通时确认的样品为准）" },
         { label: "供应方式", value: "按张供应" },
       ],
     },
     vi: {
       name: "Sticker đính đá",
-      summary:
-        "Tờ lớn: 7,5 × 13 cm; kích thước tờ nhỏ xác nhận khi hỏi giá. Nhiều họa tiết, bán theo tờ.",
+      summary: "Nhiều họa tiết, bán theo tờ.",
       detail: "Họa tiết chốt theo mẫu khi trao đổi.",
       specs: [
         {
           label: "Quy cách",
-          value: "Tờ lớn: 7,5 × 13 cm; kích thước tờ nhỏ xác nhận khi hỏi giá",
+          value: "Tờ lớn: 7,5 × 13 cm",
         },
         {
           label: "Họa tiết",
-          value: "Nhiều họa tiết (chốt theo mẫu khi trao đổi)",
+          value: "Tờ nhỏ: trái tim nhiều màu, trái tim hồng trắng, hoa mai nhiều màu, ngôi sao nhiều màu; tờ lớn: nhiều họa tiết (chốt theo mẫu khi trao đổi)",
         },
         { label: "Đơn vị", value: "Bán theo tờ" },
       ],
@@ -549,7 +552,7 @@ export const series: {
     id: "vase",
     en: {
       name: "Acrylic Flower Vase Frames",
-      summary: "For flower arrangements. 7.1 × 5.9 in.",
+      summary: "For flower arrangements.",
       detail:
         "Available in gray, sky blue, pink and clear. Suitable for flower arrangements and in-store displays.",
       specs: [
@@ -563,23 +566,23 @@ export const series: {
         },
         {
           label: "Use",
-          value: "Flower arrangements and in-store displays; not photo frames",
+          value: "Flower arrangements and in-store displays",
         },
       ],
     },
     zh: {
       name: "亚克力插花花瓶框",
-      summary: "用来插花，不是照片相框。18×15cm。",
+      summary: "用来插花。",
       detail: "颜色有灰、天蓝、粉、透明。适合花艺和店内陈列。",
       specs: [
         { label: "尺寸", value: "18×15cm" },
         { label: "颜色", value: "灰、天蓝、粉、透明" },
-        { label: "用途", value: "插花与店内陈列（非照片相框）" },
+        { label: "用途", value: "插花与店内陈列" },
       ],
     },
     vi: {
       name: "Khung bình hoa acrylic",
-      summary: "Dùng để cắm hoa, không phải khung ảnh. 18×15cm.",
+      summary: "Dùng để cắm hoa.",
       detail:
         "Màu xám, xanh da trời, hồng và trong suốt. Phù hợp cắm hoa và trưng bày.",
       specs: [
@@ -587,7 +590,7 @@ export const series: {
         { label: "Màu sắc", value: "Xám, xanh da trời, hồng, trong suốt" },
         {
           label: "Công dụng",
-          value: "Cắm hoa và trưng bày (không phải khung ảnh)",
+          value: "Cắm hoa và trưng bày",
         },
       ],
     },
@@ -596,12 +599,12 @@ export const series: {
     id: "starfish",
     en: {
       name: "Resin Starfish",
-      summary: "Decorative pieces with no holes. Large: 2 in; small: 1 in.",
+      summary: "Decorative resin pieces in six colors.",
       detail: "Available in assorted colors.",
       specs: [
         {
           label: "Size",
-          value: "Large: 2 in; small: 1 in. No holes.",
+          value: "Large: 2 in; small: 1 in.",
         },
         {
           label: "Colors",
@@ -615,20 +618,20 @@ export const series: {
     },
     zh: {
       name: "树脂海星",
-      summary: "摆件。大号 5cm，小号 2.6cm，无孔。",
+      summary: "树脂摆件，六种颜色。",
       detail: "多色。",
       specs: [
-        { label: "尺寸", value: "大号 5cm，小号 2.6cm（无孔）" },
+        { label: "尺寸", value: "大号 5cm，小号 2.6cm" },
         { label: "颜色", value: "多色（粉、象牙白、浅紫、白、浅蓝、深蓝）" },
         { label: "用途", value: "摆件与陈列" },
       ],
     },
     vi: {
       name: "Sao biển resin",
-      summary: "Đồ trưng bày. Cỡ lớn 5cm, cỡ nhỏ 2,6cm, không lỗ.",
+      summary: "Đồ trang trí resin, sáu màu.",
       detail: "Nhiều màu.",
       specs: [
-        { label: "Kích thước", value: "Cỡ lớn 5cm, cỡ nhỏ 2,6cm (không lỗ)" },
+        { label: "Kích thước", value: "Cỡ lớn 5cm, cỡ nhỏ 2,6cm" },
         {
           label: "Màu sắc",
           value:
@@ -642,8 +645,7 @@ export const series: {
     id: "charm",
     en: {
       name: "Italian Charm Bracelets",
-      summary:
-        "Modular bracelets, quoted individually according to your selected designs.",
+      summary: "Modular bracelets assembled from the designs you pick.",
       detail:
         "Selected samples shown. Email your preferred designs for a quote.",
       specs: [
@@ -651,6 +653,10 @@ export const series: {
           label: "Type",
           value:
             "Modular bracelets and charms: enamel, zircon and Christmas designs",
+        },
+        {
+          label: "Link width",
+          value: "9 mm",
         },
         {
           label: "Quotation",
@@ -662,14 +668,15 @@ export const series: {
     zh: {
       name: "意大利 Charm 手链",
       summary: "模块化手链，有珐琅、锆石和圣诞主题。",
-      detail: "本站展示样品，不列完整款式目录。",
+      detail: "这里展示部分样品，选好款式发来即可报价。",
       specs: [
         { label: "类型", value: "模块化手链与配件（珐琅、锆石、圣诞主题）" },
+        { label: "链节宽度", value: "9mm" },
       ],
     },
     vi: {
       name: "Vòng tay charm Ý",
-      summary: "Vòng charm Ý ghép theo mẫu, báo giá theo mẫu bạn chọn.",
+      summary: "Vòng charm Ý ghép theo mẫu.",
       detail:
         "Hình ảnh chỉ giới thiệu một số mẫu. Gửi mẫu bạn chọn để nhận báo giá.",
       specs: [
@@ -677,6 +684,10 @@ export const series: {
           label: "Loại",
           value:
             "Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh)",
+        },
+        {
+          label: "Chiều rộng mắt",
+          value: "9mm",
         },
         {
           label: "Báo giá",
@@ -691,8 +702,6 @@ export type Copy = {
   skip: string;
   menu: string;
   close: string;
-  copied: string;
-  copy: string;
   zaloAdd: string;
   emailCta: string;
   inquiry: string;
@@ -726,13 +735,10 @@ export type Copy = {
     qualityTitle: string;
     qualityFigure: string;
     qualityBody: string;
-    payTitle: string;
-    payFigure: string;
-    payBody: string;
     notesTitle: string;
     notes: string[];
-    faqTitle: string;
-    faq: { q: string; a: string }[];
+    /** Heading + paragraph blocks rendered after quotation terms. */
+    blocksAfterNotes: { title: string; body: string }[];
   };
   contact: {
     kicker: string;
@@ -763,8 +769,6 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "Skip to content",
     menu: "Menu",
     close: "Close",
-    copied: "Copied",
-    copy: "Copy",
     zaloAdd: "Email us",
     emailCta: "Email us",
     inquiry: "Request a quote",
@@ -779,43 +783,24 @@ export const dictionary: Record<Lang, Copy> = {
       lead: markets["en-us"].hero.lead,
       seeProcess: "How to Order",
       seeProducts: "View Products",
-      noteCaption: "Product price and shipping quoted separately.",
+      noteCaption: "",
       rows: [
+        { label: "Minimum per order", value: "$500" },
+        { label: "Paid before shipment", value: "100%" },
+        { label: "Designs and colors in one order", value: "Mix & match" },
         { label: "From — to", value: "China → United States" },
-        { label: "Who we supply", value: "Studios, stores and schools" },
-        { label: "Paid before shipment", value: "100%", note: true },
-        { label: "Shipping", value: "Quoted separately" },
       ],
-      valuesTitle: "What We Provide",
-      values: [
-        {
-          title: "Product supply",
-          body: "Italian charms, rhinestone stickers, acrylic flowers, acrylic flower vase frames and resin starfish.",
-        },
-        {
-          title: "Quotes and shipping",
-          body: "Product price and shipping are quoted separately. We can arrange shipping from China, or you can use your own freight forwarder.",
-        },
-        {
-          title: "Payment",
-          body: "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC.",
-        },
-      ],
+      valuesTitle: "",
+      values: [],
       audienceTitle: "Who We Supply",
       audienceBody:
-        "Studios, retail stores and schools in the US.",
-      audience: ["Studios", "Retail stores", "Schools"],
+        "Boutiques, gift shops, concept stores, online shops, charm bars, DIY workshops, cafés and retail stores in the US.",
+      audience: ["Boutiques & gift shops", "Charm bars", "DIY workshops"],
       seriesTitle: "Our Product Range",
       seriesLead: "Five product lines from our range.",
-      processTitle: "Ordering",
-      processLead:
-        "Send your specifications and quantities by email. We quote product and shipping costs separately.",
-      steps: [
-        "Confirm quote",
-        "Pay in full",
-        "Prepare & pack",
-        "Ship",
-      ],
+      processTitle: "",
+      processLead: "",
+      steps: [],
       ctaTitle: "Request a Quote",
       ctaBody:
         "Send us your product specifications and quantities for a quote.",
@@ -823,7 +808,7 @@ export const dictionary: Record<Lang, Copy> = {
     products: {
       kicker: "02",
       title: "Products",
-      lead: "Five product lines. Dimensions are in inches. Email your specifications and quantities for a quote.",
+      lead: "Five product lines. Dimensions are in inches.",
     },
     cooperation: {
       kicker: "03",
@@ -839,30 +824,21 @@ export const dictionary: Record<Lang, Copy> = {
       qualityFigure: "Our Responsibility",
       qualityBody:
         "We take responsibility for product supply and quality, supported by our long-term factory partners.",
-      payTitle: "Payment",
-      payFigure: "100%",
-      payBody:
-        "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
       notesTitle: "Quotation terms",
       notes: [
+        "The minimum order amount is $500 per order.",
+        "You can mix designs and colors.",
+        "Samples are available at your cost.",
         "Quotes are valid for 7 days.",
-        "You can mix colors and designs. Minimum order quantities apply separately to each design and each color.",
-        "Samples are charged at the unit price in the relevant quote.",
-        "For orders shipped by us, report damage with photos within one day of receiving the goods. Damaged products will be replaced, not refunded. If you use your own freight forwarder, our delivery obligation ends when we hand the goods over to that forwarder.",
       ],
-      faqTitle: "FAQs",
-      faq: [
+      blocksAfterNotes: [
         {
-          q: "How do we pay?",
-          a: "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+          title: "Payment",
+          body: "Pay 100% of the order total before we ship. We accept PayPal, SWIFT bank transfer and USDT/USDC.",
         },
         {
-          q: "Do you handle shipping?",
-          a: "We can arrange shipping from China. You can use your own freight forwarder instead. Product price and shipping are quoted separately.",
-        },
-        {
-          q: "Are prices listed?",
-          a: "No. Product price and shipping are quoted separately, and nothing is priced on this website.",
+          title: "Lead time",
+          body: "Small orders ship in about 3 business days; large or custom orders take about 14 days. Transit time is extra, and shipping time and cost depend on how fast you need the goods.",
         },
       ],
     },
@@ -876,16 +852,16 @@ export const dictionary: Record<Lang, Copy> = {
       address: "China",
     },
     footer: {
-      line: "Wholesale craft supplier, shipping from China.",
+      line: "DIY craft supply chain company, shipping from China.",
       address: "",
     },
     notFound: {
-      title: "Page Not Found",
+      title: "This Link Has Moved",
       body: "Return to the home page to explore our products or learn how to order.",
       back: "Back to Home",
     },
     error: {
-      title: "Page Could Not Load",
+      title: "This Page Hit a Loading Error",
       body: "Please try again.",
       retry: "Try Again",
     },
@@ -894,8 +870,6 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "跳到内容",
     menu: "菜单",
     close: "关闭",
-    copied: "已复制",
-    copy: "复制",
     zaloAdd: "添加 Zalo",
     emailCta: "发邮件",
     inquiry: "联系",
@@ -913,7 +887,7 @@ export const dictionary: Record<Lang, Copy> = {
       noteCaption: "",
       rows: [
         { label: "发货", value: "中国，发往全球" },
-        { label: "角色", value: "DIY 手作材料批发" },
+        { label: "角色", value: "DIY 手作材料供应链公司" },
       ],
       valuesTitle: "产品",
       values: [
@@ -946,13 +920,9 @@ export const dictionary: Record<Lang, Copy> = {
       qualityTitle: "",
       qualityFigure: "",
       qualityBody: "",
-      payTitle: "",
-      payFigure: "",
-      payBody: "",
       notesTitle: "",
       notes: [],
-      faqTitle: "",
-      faq: [],
+      blocksAfterNotes: [],
     },
     contact: {
       kicker: "04",
@@ -964,16 +934,16 @@ export const dictionary: Record<Lang, Copy> = {
       address: "中国",
     },
     footer: {
-      line: "DIY 手作材料，从中国发往全球。",
+      line: "一家 DIY 手作材料供应链公司，从中国发货。",
       address: "",
     },
     notFound: {
-      title: "没有这一页",
+      title: "这个链接已失效",
       body: "回到首页继续看产品或联系方式。",
       back: "回首页",
     },
     error: {
-      title: "页面没有载入",
+      title: "页面载入出错",
       body: "请再试一次。",
       retry: "重试",
     },
@@ -982,8 +952,6 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "Tới nội dung",
     menu: "Menu",
     close: "Đóng",
-    copied: "Đã sao chép",
-    copy: "Sao chép",
     zaloAdd: "Thêm Zalo",
     emailCta: "Email",
     inquiry: "Liên hệ để hỏi giá",
@@ -998,12 +966,12 @@ export const dictionary: Record<Lang, Copy> = {
       lead: markets.vi.hero.lead,
       seeProcess: "Quy trình hợp tác",
       seeProducts: "Xem sản phẩm",
-      noteCaption: "Phí vận chuyển tính riêng.",
+      noteCaption: "",
       rows: [
-        { label: "Đi — Đến", value: "Trung Quốc → Việt Nam" },
-        { label: "Vai trò", value: "Nhà cung cấp nguyên liệu DIY" },
-        { label: "Cọc / thanh toán còn lại", value: "80 / 20", note: true },
+        { label: "Vai trò", value: "Chuỗi cung ứng nguyên liệu handmade" },
         { label: "Chất lượng", value: "Chúng tôi chịu trách nhiệm" },
+        { label: "Cọc / thanh toán còn lại", value: "80 / 20" },
+        { label: "Trong cùng một đơn", value: "Trộn mẫu & màu" },
       ],
       valuesTitle: "Dịch vụ của chúng tôi",
       values: [
@@ -1013,11 +981,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Báo giá và vận chuyển",
-          body: "Báo giá sản phẩm; phí vận chuyển tính riêng. Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam.",
-        },
-        {
-          title: "Cam kết chất lượng",
-          body: "Chúng tôi chịu trách nhiệm về chất lượng sản phẩm từ các nhà máy đối tác lâu năm.",
+          body: "Cách báo giá và các lựa chọn vận chuyển có ở [trang Hợp tác](/hop-tac).",
         },
       ],
       audienceTitle: "Khách hàng",
@@ -1026,24 +990,16 @@ export const dictionary: Record<Lang, Copy> = {
       audience: ["Xưởng DIY", "Cửa hàng", "Trường học"],
       seriesTitle: "Sản phẩm",
       seriesLead: "Năm dòng sản phẩm của chúng tôi.",
-      processTitle: "Các bước hợp tác",
-      processLead:
-        "Sau khi chốt quy cách và số lượng, nhận báo giá sản phẩm, rồi mới quyết định đặt.",
-      steps: [
-        "Hỏi giá",
-        "Xác nhận quy cách và số lượng",
-        "Báo giá",
-        "Đặt hàng (cọc 80%)",
-        "Vận chuyển",
-        "Thanh toán 20% còn lại",
-      ],
+      processTitle: "",
+      processLead: "",
+      steps: [],
       ctaTitle: "Gửi quy cách và số lượng qua Zalo",
       ctaBody: "Liên hệ để nhận báo giá hoặc theo dõi đơn hàng.",
     },
     products: {
       kicker: "02",
       title: "Sản phẩm",
-      lead: "Năm dòng sản phẩm. Gửi quy cách và số lượng để nhận báo giá sỉ.",
+      lead: "Năm dòng sản phẩm.",
     },
     cooperation: {
       kicker: "03",
@@ -1068,7 +1024,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Vận chuyển",
-          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất.",
+          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất. Thời gian vận chuyển về Việt Nam (tính từ khi hàng sản xuất xong, đã gồm khoảng 3 ngày làm việc trong nội địa Trung Quốc): chuyển phát nhanh 4–5 ngày làm việc, tiêu chuẩn 6–7 ngày làm việc, tiết kiệm 9–10 ngày làm việc.",
         },
         {
           title: "Thanh toán 20% còn lại",
@@ -1079,32 +1035,14 @@ export const dictionary: Record<Lang, Copy> = {
       qualityFigure: "Chúng tôi chịu trách nhiệm",
       qualityBody:
         "Chúng tôi chịu trách nhiệm về nguồn hàng và chất lượng sản phẩm từ các nhà máy đối tác lâu năm.",
-      payTitle: "Thanh toán",
-      payFigure: "80 / 20",
-      payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ gồm tiền hàng nếu bạn dùng đơn vị vận chuyển riêng. Thời điểm thanh toán phần còn lại được nêu ở bước 6.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
         "Có thể trộn màu, trộn mẫu.",
-        "Mẫu có tính phí, theo giá thực tế của sản phẩm.",
+        "Hàng mẫu có tính phí, tùy sản phẩm và từng trường hợp; chúng tôi báo số tiền trước khi gửi mẫu.",
         "Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
-      faqTitle: "Câu hỏi thường gặp",
-      faq: [
-        {
-          q: "Phí vận chuyển đã bao gồm thông quan và thuế nhập khẩu chưa?",
-          a: "Có. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu.",
-        },
-        {
-          q: "Tôi có thể dùng đơn vị vận chuyển riêng không?",
-          a: "Có. Chúng tôi giao hàng cho đơn vị vận chuyển của bạn là hoàn tất.",
-        },
-        {
-          q: "Đặt cọc bao nhiêu phần trăm?",
-          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
-        },
-      ],
+      blocksAfterNotes: [],
     },
     contact: {
       kicker: "04",
@@ -1116,16 +1054,16 @@ export const dictionary: Record<Lang, Copy> = {
       address: "Trung Quốc",
     },
     footer: {
-      line: "Nhà cung cấp nguyên liệu DIY.",
+      line: "Công ty chuỗi cung ứng nguyên liệu DIY.",
       address: "Trung Quốc",
     },
     notFound: {
-      title: "Không có trang này",
+      title: "Liên kết này đã thay đổi",
       body: "Quay về trang chủ để xem sản phẩm hoặc cách hợp tác.",
       back: "Về trang chủ",
     },
     error: {
-      title: "Trang chưa tải được",
+      title: "Trang gặp lỗi khi tải",
       body: "Hãy thử lại.",
       retry: "Thử lại",
     },

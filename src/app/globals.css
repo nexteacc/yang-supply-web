@@ -165,10 +165,18 @@ html.lang-boot body {
   color: #ffffff;
 }
 
+.fact {
+  container-type: inline-size;
+  min-width: 0;
+}
+
 .fact-value {
-  font-size: 24px;
+  /* --fact-em is the string's approximate width in em, so only a value that
+     would overflow its cell shrinks. Short values stay at 24px. */
+  font-size: clamp(13px, calc(100cqi / var(--fact-em, 8)), 24px);
   font-weight: 600;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .fact-label {

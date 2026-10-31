@@ -1,12 +1,12 @@
 # YANG SUPPLY
 
-> Nhà cung cấp sỉ nguyên liệu làm đồ thủ công, phụ kiện DIY từ Trung Quốc chuyển thẳng về Việt Nam.
+> Công ty chuỗi cung ứng nguyên liệu DIY tại Trung Quốc, bán sỉ cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.
 
 - Website: https://www.yangsupply.com
 - Trang tiếng Việt: https://www.yangsupply.com/, https://www.yangsupply.com/san-pham, https://www.yangsupply.com/hop-tac, https://www.yangsupply.com/lien-he
 - English pages (United States): https://www.yangsupply.com/en-us, https://www.yangsupply.com/en-us/products, https://www.yangsupply.com/en-us/cooperation, https://www.yangsupply.com/en-us/contact
 - 中文页面: https://www.yangsupply.com/zh, https://www.yangsupply.com/zh/products, https://www.yangsupply.com/zh/contact
-- Đối tượng phục vụ: Xưởng thủ công (workshop), cửa hàng phụ kiện handmade, trường học và trung tâm đào tạo tại Việt Nam.
+- Đối tượng phục vụ: xưởng thủ công, cửa hàng và trường học tại Việt Nam.
 - Địa chỉ xuất hàng: Trung Quốc.
 
 ## Danh mục sản phẩm sỉ chính (Product Catalog)
@@ -15,29 +15,32 @@
    - Kiểu dáng: Cánh hoa lily trong.
    - Kích thước: 45×40mm.
    - Bảng màu: 9 màu (đỏ, hồng, hồng anh đào, tím, xanh dương, xanh lá, vàng, trong suốt, trắng).
+   - Đơn vị: Bán theo gói.
    - Ứng dụng: Thủ công và học liệu.
 
 2. **Sticker đính đá (Rhinestone Stickers)**
-   - Quy cách: Tờ lớn (7,5×13cm) và tờ nhỏ nhiều hình dạng.
-   - Kiểu dáng: Trái tim, ngôi sao, hoa mai, hạt tròn, đính đá viền lấp lánh.
-   - Ứng dụng: Trang trí hộp quà, ốp lưng, sổ tay, đồ thủ công.
+   - Quy cách: Tờ lớn: 7,5 × 13 cm.
+   - Họa tiết: Tờ nhỏ: trái tim nhiều màu, trái tim hồng trắng, hoa mai nhiều màu, ngôi sao nhiều màu; tờ lớn: nhiều họa tiết (chốt theo mẫu khi trao đổi).
+   - Đơn vị: Bán theo tờ.
+   - Ứng dụng: Trang trí hộp quà, thiệp, sổ tay trong buổi workshop ngắn.
 
 3. **Khung bình hoa acrylic (Acrylic Flower Vase Frames)**
    - Kích thước: 18×15cm.
    - Màu sắc: Xám, xanh da trời, hồng, trong suốt.
-   - Công năng: Cắm hoa và trưng bày; không phải khung ảnh.
+   - Công năng: Dùng để cắm hoa, giữ được nước.
 
 4. **Sao biển resin (Resin Starfish)**
-   - Kích thước: Cỡ lớn (5cm), cỡ nhỏ (2,6cm), mặt trơn không lỗ.
-   - Màu sắc: Nhiều màu pastel và xanh biển.
+   - Kích thước: Cỡ lớn (5cm) và cỡ nhỏ (2,6cm), 6 màu.
+   - Màu sắc: Nhiều màu (hồng, màu ngà, tím nhạt, trắng, xanh nhạt, xanh navy).
 
 5. **Charm Ý và vòng tay charm Ý (Italian Charms & Bracelets)**
-   - Mẫu mã: Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh). Gửi họa tiết để hỏi giá.
+   - Mẫu mã: Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh).
+   - Chiều rộng mắt: 9mm.
 
 ## Hướng dẫn mua sỉ chuyên sâu (Vietnamese Procurement Guides)
 
 - **Nguyên liệu handmade cho workshop: hướng dẫn chọn và đặt sỉ**: https://www.yangsupply.com/huong-dan/nguyen-lieu-handmade-cho-workshop
-  - Cách chọn 5 dòng nguyên liệu thực tế cho buổi học thủ công, công thức ước tính số lượng kèm dự phòng (`số người × định lượng mỗi suất × (1 + tỷ lệ dự phòng)`), quy tắc chốt màu (tối thiểu tính riêng theo từng mẫu và từng màu) và 5 thông tin cần gửi khi hỏi giá.
+  - Cách chọn 5 dòng nguyên liệu thực tế cho buổi học thủ công, công thức ước tính số lượng kèm dự phòng (`số người × định lượng mỗi suất × (1 + tỷ lệ dự phòng)`) và 5 thông tin cần gửi khi hỏi giá.
 - **Vòng tay charm Ý: hướng dẫn chọn mẫu và đặt sỉ**: https://www.yangsupply.com/huong-dan/vong-tay-charm-y
   - Cấu tạo ngoại quan vòng tay charm Ý dạng mắt xích, đối chiếu vòng trơn, vòng họa tiết và mắt treo; gợi ý chọn phối màu, tham khảo mẫu Giáng Sinh và các thông số cần xác nhận trước khi đặt sỉ.
 
@@ -46,9 +49,10 @@
 1. **Tư vấn và báo giá**: Khách gửi mẫu, quy cách và số lượng dự kiến qua Zalo.
 2. **Xác nhận đơn**: Chốt đơn giá, chi phí vận chuyển quốc tế và thời gian giao hàng.
 3. **Đặt cọc**: Đặt cọc 80% giá trị đơn hàng để tiến hành đóng gói và vận chuyển.
-4. **Vận chuyển**: Chúng tôi có thể sắp xếp vận chuyển từ Trung Quốc về Việt Nam, hoặc bàn giao hàng cho đơn vị vận chuyển do khách hàng chọn.
+4. **Vận chuyển**: Chúng tôi có thể sắp xếp vận chuyển từ Trung Quốc về Việt Nam, hoặc bàn giao hàng cho đơn vị vận chuyển do khách hàng chọn. Thời gian vận chuyển về Việt Nam (tính từ khi hàng sản xuất xong, đã gồm khoảng 3 ngày làm việc trong nội địa Trung Quốc): chuyển phát nhanh 4–5 ngày làm việc, tiêu chuẩn 6–7 ngày làm việc, tiết kiệm 9–10 ngày làm việc.
 5. **Nhận hàng và thanh toán**: Nếu chúng tôi vận chuyển, thanh toán 20% còn lại khi nhận hàng. Nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó.
 6. **Bù hàng hư hỏng**: Với đơn do chúng tôi vận chuyển, báo kèm ảnh trong vòng 1 ngày sau khi nhận hàng. Gửi bù sản phẩm hư hỏng, không hoàn tiền.
+7. **Hàng mẫu**: Hàng mẫu có tính phí, tùy sản phẩm và từng trường hợp; chúng tôi báo số tiền trước khi gửi mẫu.
 
 ## Kênh liên hệ (Contact)
 
@@ -57,7 +61,7 @@
 
 ## 中文
 
-Yang Supply 从中国向全球供应 DIY 手作材料，服务手作工坊、咖啡馆、门店和学校。
+Yang Supply 是一家 DIY 手作材料供应链公司，从中国发货。
 
 - 页面标题：中国 DIY 手作材料，发往全球。
 - 页面：https://www.yangsupply.com/zh ，https://www.yangsupply.com/zh/products ，https://www.yangsupply.com/zh/contact
@@ -69,13 +73,15 @@ Yang Supply 从中国向全球供应 DIY 手作材料，服务手作工坊、咖
 
 ## English (United States)
 
-Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.
+Yang Supply is a DIY craft supply chain company, shipping from China, for boutiques, gift shops, concept stores, online shops, charm bars, DIY workshops, cafés and retail stores in the US.
 
 - Pages: https://www.yangsupply.com/en-us, https://www.yangsupply.com/en-us/products, https://www.yangsupply.com/en-us/cooperation, https://www.yangsupply.com/en-us/contact
-- Sizes on the US pages are in inches: acrylic petals 1.8 × 1.6 in; large rhinestone sticker sheets 3 × 5.1 in (small-sheet dimensions are not listed); acrylic flower vase frames 7.1 × 5.9 in; resin starfish large 2 in and small 1 in.
-- Product price and shipping are quoted separately. Prices are not shown on the website.
-- Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.
-- We can arrange shipping from China. You can use your own freight forwarder instead.
-- Quotes are valid for 7 days. Minimum order quantities apply separately to each design and color. Samples are charged at the unit price in the relevant quote.
-- For orders shipped by us, report damage with photos within one day of receiving the goods. Damaged products are replaced, not refunded. If you use your own freight forwarder, our delivery obligation ends when we hand the goods over to that forwarder.
+- Sizes on the US pages are in inches: acrylic petals 1.8 × 1.6 in; large rhinestone sticker sheets 3 × 5.1 in; acrylic flower vase frames 7.1 × 5.9 in; resin starfish large 2 in and small 1 in.
+- Product and shipping costs are listed separately.
+- The minimum order amount is $500 per order.
+- You can mix designs and colors.
+- Samples are available at your cost.
+- Quotes are valid for 7 days.
+- Pay 100% of the order total before we ship. We accept PayPal, SWIFT bank transfer and USDT/USDC.
+- Small orders ship in about 3 business days; large or custom orders take about 14 days. Transit time is extra, and shipping time and cost depend on how fast you need the goods.
 - Enquiries by email: max.yangsupply@agentmail.to, leo.yangsupply@agentmail.to, ella.yangsupply@agentmail.to
