@@ -2,12 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { contacts, productImage, series } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { localizedPath } from "@/lib/i18n";
 import { SquareThumb } from "@/components/product-art";
 import { Section, TextLink, ZaloButton } from "@/components/ui";
+
+/** Approximate width in em so a long data-block value can shrink to one line. */
+function factEm(value: string) {
+  let units = 0;
+  for (const ch of value) {
+    const code = ch.codePointAt(0) ?? 0;
+    units += code > 0x2e80 ? 1.05 : 0.62;
+  }
+  return units.toFixed(2);
+}
 
 /** Renders [label](/path) as an internal link. Other text is unchanged. */
 function InlineLinks({ text }: { text: string }) {
@@ -86,8 +96,13 @@ export function HomePage() {
             {home.rows.length > 0 ? (
               <dl className="mt-16 grid grid-cols-1 items-baseline gap-x-8 gap-y-8 py-12 sm:grid-cols-2 lg:grid-cols-4">
                 {home.rows.map((row) => (
-                  <div key={row.label}>
-                    <dd className="fact-value text-ink">{row.value}</dd>
+                  <div key={row.label} className="fact">
+                    <dd
+                      className="fact-value text-ink"
+                      style={{ "--fact-em": factEm(row.value) } as CSSProperties}
+                    >
+                      {row.value}
+                    </dd>
                     <dt className="fact-label mt-2 text-mute">{row.label}</dt>
                     {row.note ? (
                       <p className="mt-2 max-w-[22ch] text-[13px] font-normal leading-snug text-mute">

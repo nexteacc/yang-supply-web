@@ -702,8 +702,6 @@ export type Copy = {
   skip: string;
   menu: string;
   close: string;
-  copied: string;
-  copy: string;
   zaloAdd: string;
   emailCta: string;
   inquiry: string;
@@ -771,8 +769,6 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "Skip to content",
     menu: "Menu",
     close: "Close",
-    copied: "Copied",
-    copy: "Copy",
     zaloAdd: "Email us",
     emailCta: "Email us",
     inquiry: "Request a quote",
@@ -874,8 +870,6 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "跳到内容",
     menu: "菜单",
     close: "关闭",
-    copied: "已复制",
-    copy: "复制",
     zaloAdd: "添加 Zalo",
     emailCta: "发邮件",
     inquiry: "联系",
@@ -958,8 +952,6 @@ export const dictionary: Record<Lang, Copy> = {
     skip: "Tới nội dung",
     menu: "Menu",
     close: "Đóng",
-    copied: "Đã sao chép",
-    copy: "Sao chép",
     zaloAdd: "Thêm Zalo",
     emailCta: "Email",
     inquiry: "Liên hệ để hỏi giá",
