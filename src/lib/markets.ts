@@ -239,7 +239,7 @@ export const markets: Record<MarketId, Market> = {
       serviceName:
         "Wholesale craft supplies from China to the United States",
       serviceDescription:
-        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the United States. Product price and shipping are quoted separately. Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the United States. Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
     },
     schema: {
       orgDescription:

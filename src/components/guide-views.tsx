@@ -223,8 +223,8 @@ export function WorkshopGuideView() {
               src="/products/sticker-dinh-da-co-nho-ngoi-sao-nhieu-mau.jpg"
               width={1600}
               height={1600}
-              alt="Sticker đính đá cỡ nhỏ hình ngôi sao và hạt tròn nhiều màu"
-              caption="Mẫu sticker đính đá cỡ nhỏ hình ngôi sao và hạt tròn nhiều màu, bán theo tờ; họa tiết chốt theo mẫu khi trao đổi."
+              alt="Sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu"
+              caption="Mẫu sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu, bán theo tờ; tờ nhỏ có 4 họa tiết: trái tim nhiều màu, trái tim hồng trắng, hoa mai và ngôi sao."
               sizes="(min-width: 768px) 380px, 90vw"
             />
             <GuideFigure
@@ -242,7 +242,7 @@ export function WorkshopGuideView() {
         <section className="scroll-mt-24">
           <p className="eyebrow text-mute">03</p>
           <h2 className="heading-2 mt-4 max-w-[22ch]">
-            Chốt bảng màu và mức tối thiểu (MOQ)
+            Chốt bảng màu
           </h2>
           <p className="mt-6 max-w-[60ch]">
             Bạn có thể trộn màu và trộn mẫu trong cùng một đơn hàng để học viên
@@ -251,10 +251,9 @@ export function WorkshopGuideView() {
 
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
-              <dt className="font-medium text-ink">MOQ theo mẫu & màu</dt>
+              <dt className="font-medium text-ink">Trộn mẫu & màu</dt>
               <dd className="text-mute">
-                Mức đặt tối thiểu được tính riêng theo từng mẫu và từng màu,
-                không gộp chung tổng số lượng của nhiều màu khác nhau.
+                Gộp chung nhiều mẫu, nhiều màu trong một đơn.
               </dd>
             </div>
             <div className="contents">
@@ -267,8 +266,7 @@ export function WorkshopGuideView() {
             <div className="contents">
               <dt className="font-medium text-ink">Mẫu thử trước buổi học</dt>
               <dd className="text-mute">
-                Mẫu thử có tính phí, áp dụng theo đúng đơn giá của lần báo giá
-                đó.
+                Mẫu thử có tính phí, áp dụng theo giá thực tế của sản phẩm.
               </dd>
             </div>
           </dl>
@@ -418,11 +416,9 @@ export function CharmGuideView() {
               </dd>
             </div>
             <div className="contents">
-              <dt className="font-medium text-ink">Lưu ý đồng bộ mẫu</dt>
+              <dt className="font-medium text-ink">Chuẩn 9mm</dt>
               <dd className="text-mute">
-                Kích thước mắt xích và độ khít khớp nối có thể khác nhau tùy nhà
-                máy; cần xác nhận quy cách theo từng đợt đặt thay vì mặc định
-                mọi nguồn hàng đều lắp lẫn tuyệt đối.
+                Mắt charm rộng chuẩn 9mm.
               </dd>
             </div>
           </dl>
@@ -563,10 +559,9 @@ export function CharmGuideView() {
               </dd>
             </div>
             <div className="contents">
-              <dt className="font-medium text-ink">4. Số lượng & MOQ</dt>
+              <dt className="font-medium text-ink">4. Số lượng</dt>
               <dd className="text-mute">
-                Có thể trộn mẫu, trộn màu; mức tối thiểu tính riêng cho từng mẫu
-                và từng màu. Đặt cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi
+                Có thể trộn mẫu, trộn màu. Đặt cọc 80% tổng giá trị đơn hàng. Nếu chúng tôi
                 vận chuyển, thanh toán 20% còn lại khi nhận hàng; nếu bạn dùng
                 đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi
                 chúng tôi bàn giao hàng cho đơn vị đó. Phí vận chuyển tính

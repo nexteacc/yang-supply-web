@@ -189,7 +189,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       width: 1600,
       height: 1600,
       zh: "小张水钻贴纸，彩色爱心",
-      vi: "Sticker đính đá cỡ nhỏ hình tim màu",
+      vi: "Sticker đính đá cỡ nhỏ hình trái tim nhiều màu",
       en: "Small rhinestone sticker sheet with colorful hearts",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
@@ -198,7 +198,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       width: 1600,
       height: 1600,
       zh: "小张彩色梅花圆钻水钻贴纸",
-      vi: "Sticker đính đá cỡ nhỏ hình hoa mai và hạt tròn nhiều màu",
+      vi: "Sticker đính đá cỡ nhỏ hình hoa mai nhiều màu",
       en: "Small rhinestone sticker sheet with colorful plum blossoms and round gems",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
@@ -207,7 +207,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       width: 1600,
       height: 1600,
       zh: "小张彩色星星圆钻水钻贴纸",
-      vi: "Sticker đính đá cỡ nhỏ hình ngôi sao và hạt tròn nhiều màu",
+      vi: "Sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu",
       en: "Small rhinestone sticker sheet with colorful stars and round gems",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
@@ -783,7 +783,7 @@ export const dictionary: Record<Lang, Copy> = {
       rows: [
         { label: "From — to", value: "China → United States" },
         { label: "Who we supply", value: "Studios, stores and schools" },
-        { label: "Deposit / balance", value: "80 / 20", note: true },
+        { label: "Paid before shipment", value: "100%", note: true },
         { label: "Shipping", value: "Quoted separately" },
       ],
       valuesTitle: "What We Provide",
@@ -798,7 +798,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Payment",
-          body: "Pay an 80% deposit on the order total. The 20% balance is due on delivery when we arrange shipping, or before handover to your own freight forwarder. Pay by international SWIFT bank transfer or USDT/USDC.",
+          body: "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC.",
         },
       ],
       audienceTitle: "Who We Supply",
@@ -811,12 +811,10 @@ export const dictionary: Record<Lang, Copy> = {
       processLead:
         "Send your specifications and quantities by email. We quote product and shipping costs separately.",
       steps: [
-        "Email your inquiry",
-        "Confirm specifications and quantities",
-        "Receive a quote",
-        "Pay the 80% deposit on the order total",
-        "We arrange shipping, or you use your own freight forwarder",
-        "Pay the 20% balance on delivery, or before handover to your freight forwarder",
+        "Confirm quote",
+        "Pay in full",
+        "Prepare & pack",
+        "Ship",
       ],
       ctaTitle: "Request a Quote",
       ctaBody:
@@ -832,39 +830,19 @@ export const dictionary: Record<Lang, Copy> = {
       title: "Ordering",
       lead: "Send your specifications and quantities for a quote. Product and shipping costs are listed separately.",
       steps: [
-        {
-          title: "Email your inquiry",
-          body: "Email us the product line and specifications you need.",
-        },
-        {
-          title: "Confirm specifications and quantities",
-          body: "Colors, sizes and quantities are confirmed when we discuss your order.",
-        },
-        {
-          title: "Receive a quote",
-          body: "Your quote lists product and shipping costs separately.",
-        },
-        {
-          title: "Pay the 80% deposit",
-          body: "Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
-        },
-        {
-          title: "Shipping",
-          body: "We can arrange shipping from China. You can use your own freight forwarder instead.",
-        },
-        {
-          title: "Pay the 20% balance",
-          body: "If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. Pay the balance by international SWIFT bank transfer or USDT/USDC.",
-        },
+        { title: "Confirm quote", body: "" },
+        { title: "Pay in full", body: "" },
+        { title: "Prepare & pack", body: "" },
+        { title: "Ship", body: "" },
       ],
       qualityTitle: "Quality",
       qualityFigure: "Our Responsibility",
       qualityBody:
         "We take responsibility for product supply and quality, supported by our long-term factory partners.",
       payTitle: "Payment",
-      payFigure: "80 / 20",
+      payFigure: "100%",
       payBody:
-        "Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. Balance timing depends on your shipping arrangement, as described above.",
+        "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
       notesTitle: "Quotation terms",
       notes: [
         "Quotes are valid for 7 days.",
@@ -876,7 +854,7 @@ export const dictionary: Record<Lang, Copy> = {
       faq: [
         {
           q: "How do we pay?",
-          a: "Pay an 80% deposit on the order total by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. If we arrange shipping, the remaining 20% is paid on delivery. If you use your own freight forwarder, the remaining 20% is paid in full before we hand the goods over to that forwarder. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+          a: "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
         },
         {
           q: "Do you handle shipping?",
@@ -1108,8 +1086,8 @@ export const dictionary: Record<Lang, Copy> = {
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
-        "Có thể trộn màu, trộn mẫu. Mức tối thiểu tính theo từng mẫu và từng màu.",
-        "Mẫu có tính phí, theo đơn giá của lần báo giá đó.",
+        "Có thể trộn màu, trộn mẫu.",
+        "Mẫu có tính phí, theo giá thực tế của sản phẩm.",
         "Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
       faqTitle: "Câu hỏi thường gặp",
