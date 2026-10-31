@@ -20,7 +20,9 @@ export function CooperationPage() {
               <span className="eyebrow pt-2 text-mute md:col-span-2">0{index + 1}</span>
               <div className="md:col-span-7">
                 <h2 className="heading-2">{step.title}</h2>
-                <p className="mt-4 max-w-[60ch] text-mute">{step.body}</p>
+                {step.body ? (
+                  <p className="mt-4 max-w-[60ch] text-mute">{step.body}</p>
+                ) : null}
               </div>
             </li>
           ))}

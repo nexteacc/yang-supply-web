@@ -811,12 +811,10 @@ export const dictionary: Record<Lang, Copy> = {
       processLead:
         "Send your specifications and quantities by email. We quote product and shipping costs separately.",
       steps: [
-        "Email your inquiry",
-        "Confirm specifications and quantities",
-        "Receive a quote",
-        "Confirm your quote and pay the order in full.",
-        "We prepare and pack your order.",
-        "We ship it to you, or hand it to your own freight forwarder.",
+        "Confirm your quote",
+        "Pay in full",
+        "We prepare and pack your order",
+        "We ship your order",
       ],
       ctaTitle: "Request a Quote",
       ctaBody:
@@ -832,30 +830,10 @@ export const dictionary: Record<Lang, Copy> = {
       title: "Ordering",
       lead: "Send your specifications and quantities for a quote. Product and shipping costs are listed separately.",
       steps: [
-        {
-          title: "Email your inquiry",
-          body: "Email us the product line and specifications you need.",
-        },
-        {
-          title: "Confirm specifications and quantities",
-          body: "Colors, sizes and quantities are confirmed when we discuss your order.",
-        },
-        {
-          title: "Receive a quote",
-          body: "Your quote lists product and shipping costs separately.",
-        },
-        {
-          title: "Confirm your quote and pay the order in full",
-          body: "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
-        },
-        {
-          title: "Prepare and pack",
-          body: "We prepare and pack your order.",
-        },
-        {
-          title: "Ship",
-          body: "We ship it to you, or hand it to your own freight forwarder.",
-        },
+        { title: "Confirm your quote", body: "" },
+        { title: "Pay in full", body: "" },
+        { title: "We prepare and pack your order", body: "" },
+        { title: "We ship your order", body: "" },
       ],
       qualityTitle: "Quality",
       qualityFigure: "Our Responsibility",
