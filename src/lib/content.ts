@@ -811,10 +811,10 @@ export const dictionary: Record<Lang, Copy> = {
       processLead:
         "Send your specifications and quantities by email. We quote product and shipping costs separately.",
       steps: [
-        "Confirm your quote",
+        "Confirm quote",
         "Pay in full",
-        "We prepare and pack your order",
-        "We ship your order",
+        "Prepare & pack",
+        "Ship",
       ],
       ctaTitle: "Request a Quote",
       ctaBody:
@@ -830,10 +830,10 @@ export const dictionary: Record<Lang, Copy> = {
       title: "Ordering",
       lead: "Send your specifications and quantities for a quote. Product and shipping costs are listed separately.",
       steps: [
-        { title: "Confirm your quote", body: "" },
+        { title: "Confirm quote", body: "" },
         { title: "Pay in full", body: "" },
-        { title: "We prepare and pack your order", body: "" },
-        { title: "We ship your order", body: "" },
+        { title: "Prepare & pack", body: "" },
+        { title: "Ship", body: "" },
       ],
       qualityTitle: "Quality",
       qualityFigure: "Our Responsibility",
