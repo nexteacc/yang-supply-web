@@ -57,7 +57,7 @@ export const guides: Record<GuideSlug, GuideMeta> = {
       height: 1600,
       alt: "Mẫu cánh hoa acrylic nhiều màu dùng cho thủ công và học liệu",
       caption:
-        "Mẫu cánh hoa acrylic hình lily (45×40mm, 9 màu).",
+        "Mẫu cánh hoa acrylic hình lily.",
       sourceNote: "public/products/canh-hoa-acrylic-nhieu-mau.jpg (existing asset)",
     },
   },

@@ -737,15 +737,10 @@ export type Copy = {
     qualityTitle: string;
     qualityFigure: string;
     qualityBody: string;
-    payTitle: string;
-    payFigure: string;
-    payBody: string;
     notesTitle: string;
     notes: string[];
     /** Heading + paragraph blocks rendered after quotation terms. */
     blocksAfterNotes: { title: string; body: string }[];
-    faqTitle: string;
-    faq: { q: string; a: string }[];
   };
   contact: {
     kicker: string;
@@ -833,10 +828,6 @@ export const dictionary: Record<Lang, Copy> = {
       qualityFigure: "Our Responsibility",
       qualityBody:
         "We take responsibility for product supply and quality, supported by our long-term factory partners.",
-      payTitle: "Payment",
-      payFigure: "100%",
-      payBody:
-        "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available.",
       notesTitle: "Quotation terms",
       notes: [
         "The minimum order amount is $500 per order.",
@@ -852,21 +843,6 @@ export const dictionary: Record<Lang, Copy> = {
         {
           title: "Lead time",
           body: "Small orders ship in about 3 business days; large or custom orders take about 14 days. Transit time is extra, and shipping time and cost depend on how fast you need the goods.",
-        },
-      ],
-      faqTitle: "FAQs",
-      faq: [
-        {
-          q: "How do we pay?",
-          a: "Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. Card checkout is not available. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
-        },
-        {
-          q: "Do you handle shipping?",
-          a: "We can arrange shipping from China. You can use your own freight forwarder instead. Product price and shipping are quoted separately.",
-        },
-        {
-          q: "Are prices listed?",
-          a: "No. Product price and shipping are quoted separately, and nothing is priced on this website.",
         },
       ],
     },
@@ -950,14 +926,9 @@ export const dictionary: Record<Lang, Copy> = {
       qualityTitle: "",
       qualityFigure: "",
       qualityBody: "",
-      payTitle: "",
-      payFigure: "",
-      payBody: "",
       notesTitle: "",
       notes: [],
       blocksAfterNotes: [],
-      faqTitle: "",
-      faq: [],
     },
     contact: {
       kicker: "04",
@@ -1072,10 +1043,6 @@ export const dictionary: Record<Lang, Copy> = {
       qualityFigure: "Chúng tôi chịu trách nhiệm",
       qualityBody:
         "Chúng tôi chịu trách nhiệm về nguồn hàng và chất lượng sản phẩm từ các nhà máy đối tác lâu năm.",
-      payTitle: "Thanh toán",
-      payFigure: "80 / 20",
-      payBody:
-        "Chuyển khoản ngân hàng tại Việt Nam. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ gồm tiền hàng nếu bạn dùng đơn vị vận chuyển riêng. Thời điểm thanh toán phần còn lại được nêu ở bước 6.",
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
@@ -1084,21 +1051,6 @@ export const dictionary: Record<Lang, Copy> = {
         "Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
       blocksAfterNotes: [],
-      faqTitle: "Câu hỏi thường gặp",
-      faq: [
-        {
-          q: "Phí vận chuyển đã bao gồm thông quan và thuế nhập khẩu chưa?",
-          a: "Có. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu.",
-        },
-        {
-          q: "Tôi có thể dùng đơn vị vận chuyển riêng không?",
-          a: "Có. Chúng tôi giao hàng cho đơn vị vận chuyển của bạn là hoàn tất.",
-        },
-        {
-          q: "Đặt cọc bao nhiêu phần trăm?",
-          a: "80% tổng giá trị đơn, 20% còn lại thanh toán khi nhận hàng nếu chúng tôi vận chuyển; nếu bạn dùng đơn vị vận chuyển riêng, thanh toán đủ 20% còn lại trước khi chúng tôi bàn giao hàng cho đơn vị đó. Tổng giá trị gồm tiền hàng và phí vận chuyển nếu chúng tôi vận chuyển; chỉ tiền hàng nếu bạn dùng đơn vị vận chuyển riêng.",
-        },
-      ],
     },
     contact: {
       kicker: "04",
