@@ -84,9 +84,8 @@ export function WorkshopGuideView() {
             Chọn nguyên liệu theo thành phẩm buổi học
           </h2>
           <p className="mt-6 max-w-[60ch]">
-            Thay vì mua dàn trải nhiều loại phụ kiện nhỏ lẻ khó kiểm soát tồn
-            kho, các xưởng và lớp học thủ công thường chọn nguyên liệu
-            xoay quanh thành phẩm chính của buổi học. Hiện tại, Yang Supply cung
+            Các xưởng và lớp học thủ công thường chọn nguyên liệu xoay quanh
+            thành phẩm chính của buổi học, nhờ vậy tồn kho gọn và dễ kiểm soát. Hiện tại, Yang Supply cung
             cấp sỉ trực tiếp 5 dòng sản phẩm từ Trung Quốc về Việt Nam; kích thước và màu sắc của từng dòng xem tại <Link href="/san-pham" className="link-under">trang Sản phẩm</Link>:
           </p>
 
@@ -118,7 +117,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                Dùng để cắm hoa và trưng bày thành phẩm trên bàn học hoặc cửa hàng (không phải khung ảnh).
+                Giữ được nước, hợp để cắm hoa và bày thành phẩm trên bàn học hoặc quầy cửa hàng.
               </dd>
             </div>
             <div className="contents">
@@ -128,7 +127,7 @@ export function WorkshopGuideView() {
                 </Link>
               </dt>
               <dd className="text-mute">
-                Mặt trơn, không lỗ; dùng làm đồ trưng bày và phối tiểu cảnh biển.
+                Dùng làm đồ trưng bày và phối tiểu cảnh biển.
               </dd>
             </div>
             <div className="contents">
@@ -180,8 +179,7 @@ export function WorkshopGuideView() {
             (1 + Tỷ lệ dự phòng)
           </p>
           <p className="mt-3 max-w-[60ch] text-[14px] text-mute">
-            Lưu ý: Các con số dưới đây chỉ là ví dụ minh họa cách tính, không
-            phải định mức tiêu hao cố định cho mọi buổi học.
+            Lưu ý: Các con số dưới đây là ví dụ minh họa cách tính; khi đặt hàng, hãy thay bằng số người và định lượng thực tế của buổi học.
           </p>
 
           <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
@@ -222,7 +220,7 @@ export function WorkshopGuideView() {
               width={1307}
               height={1307}
               alt="Khung bình hoa acrylic trong suốt cắm hoa cúc hồng minh họa"
-              caption="Mẫu khung bình hoa acrylic trong suốt. Hoa cúc hồng trong hình là đạo cụ minh họa, không đi kèm khung."
+              caption="Khung bình hoa acrylic trong suốt; hoa cúc hồng trong hình được cắm để minh họa."
               sizes="(min-width: 768px) 380px, 90vw"
             />
           </div>
@@ -263,7 +261,7 @@ export function WorkshopGuideView() {
             5 thông tin cần gửi khi hỏi giá
           </h2>
           <p className="mt-6 max-w-[60ch]">
-            Giá không niêm yết trên website. Khi nhắn Zalo {contacts.zalo}, bạn chỉ cần gửi 5 thông tin:
+            Giá được báo theo từng đơn. Khi nhắn Zalo {contacts.zalo}, bạn chỉ cần gửi 5 thông tin:
           </p>
 
           <ol className="mt-8 flex max-w-[65ch] flex-col gap-3 border-t border-line pt-6 text-[15px]">
@@ -452,7 +450,7 @@ export function CharmGuideView() {
               width={1250}
               height={1250}
               alt="Bảng 31 mẫu mắt charm Ý chủ đề Giáng Sinh đánh số từ 1 đến 31"
-              caption="Bảng đánh số 1–31 chỉ dùng để gọi vị trí mẫu trong hình này khi hỏi giá; không phải mã SKU cố định và không cam kết sẵn kho mọi số."
+              caption="Bảng đánh số 1–31 giúp bạn gọi đúng vị trí mẫu trong hình này khi hỏi giá."
               sizes="(min-width: 768px) 380px, 90vw"
             />
             <GuideFigure

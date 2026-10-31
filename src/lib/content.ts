@@ -552,7 +552,7 @@ export const series: {
     id: "vase",
     en: {
       name: "Acrylic Flower Vase Frames",
-      summary: "For flower arrangements, not for photos.",
+      summary: "For flower arrangements.",
       detail:
         "Available in gray, sky blue, pink and clear. Suitable for flower arrangements and in-store displays.",
       specs: [
@@ -566,23 +566,23 @@ export const series: {
         },
         {
           label: "Use",
-          value: "Flower arrangements and in-store displays; not photo frames",
+          value: "Flower arrangements and in-store displays",
         },
       ],
     },
     zh: {
       name: "亚克力插花花瓶框",
-      summary: "用来插花，不是照片相框。18×15cm。",
+      summary: "用来插花。",
       detail: "颜色有灰、天蓝、粉、透明。适合花艺和店内陈列。",
       specs: [
         { label: "尺寸", value: "18×15cm" },
         { label: "颜色", value: "灰、天蓝、粉、透明" },
-        { label: "用途", value: "插花与店内陈列（非照片相框）" },
+        { label: "用途", value: "插花与店内陈列" },
       ],
     },
     vi: {
       name: "Khung bình hoa acrylic",
-      summary: "Dùng để cắm hoa, không phải khung ảnh.",
+      summary: "Dùng để cắm hoa.",
       detail:
         "Màu xám, xanh da trời, hồng và trong suốt. Phù hợp cắm hoa và trưng bày.",
       specs: [
@@ -590,7 +590,7 @@ export const series: {
         { label: "Màu sắc", value: "Xám, xanh da trời, hồng, trong suốt" },
         {
           label: "Công dụng",
-          value: "Cắm hoa và trưng bày (không phải khung ảnh)",
+          value: "Cắm hoa và trưng bày",
         },
       ],
     },
@@ -599,12 +599,12 @@ export const series: {
     id: "starfish",
     en: {
       name: "Resin Starfish",
-      summary: "Decorative pieces with no holes.",
+      summary: "Decorative resin pieces in six colors.",
       detail: "Available in assorted colors.",
       specs: [
         {
           label: "Size",
-          value: "Large: 2 in; small: 1 in. No holes.",
+          value: "Large: 2 in; small: 1 in.",
         },
         {
           label: "Colors",
@@ -618,20 +618,20 @@ export const series: {
     },
     zh: {
       name: "树脂海星",
-      summary: "摆件。大号 5cm，小号 2.6cm，无孔。",
+      summary: "树脂摆件，六种颜色。",
       detail: "多色。",
       specs: [
-        { label: "尺寸", value: "大号 5cm，小号 2.6cm（无孔）" },
+        { label: "尺寸", value: "大号 5cm，小号 2.6cm" },
         { label: "颜色", value: "多色（粉、象牙白、浅紫、白、浅蓝、深蓝）" },
         { label: "用途", value: "摆件与陈列" },
       ],
     },
     vi: {
       name: "Sao biển resin",
-      summary: "Đồ trưng bày, không lỗ.",
+      summary: "Đồ trang trí resin, sáu màu.",
       detail: "Nhiều màu.",
       specs: [
-        { label: "Kích thước", value: "Cỡ lớn 5cm, cỡ nhỏ 2,6cm (không lỗ)" },
+        { label: "Kích thước", value: "Cỡ lớn 5cm, cỡ nhỏ 2,6cm" },
         {
           label: "Màu sắc",
           value:
@@ -668,7 +668,7 @@ export const series: {
     zh: {
       name: "意大利 Charm 手链",
       summary: "模块化手链，有珐琅、锆石和圣诞主题。",
-      detail: "本站展示样品，不列完整款式目录。",
+      detail: "这里展示部分样品，选好款式发来即可报价。",
       specs: [
         { label: "类型", value: "模块化手链与配件（珐琅、锆石、圣诞主题）" },
         { label: "链节宽度", value: "9mm" },
@@ -856,12 +856,12 @@ export const dictionary: Record<Lang, Copy> = {
       address: "",
     },
     notFound: {
-      title: "Page Not Found",
+      title: "This Link Has Moved",
       body: "Return to the home page to explore our products or learn how to order.",
       back: "Back to Home",
     },
     error: {
-      title: "Page Could Not Load",
+      title: "This Page Hit a Loading Error",
       body: "Please try again.",
       retry: "Try Again",
     },
@@ -938,12 +938,12 @@ export const dictionary: Record<Lang, Copy> = {
       address: "",
     },
     notFound: {
-      title: "没有这一页",
+      title: "这个链接已失效",
       body: "回到首页继续看产品或联系方式。",
       back: "回首页",
     },
     error: {
-      title: "页面没有载入",
+      title: "页面载入出错",
       body: "请再试一次。",
       retry: "重试",
     },
@@ -1024,7 +1024,7 @@ export const dictionary: Record<Lang, Copy> = {
         },
         {
           title: "Vận chuyển",
-          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất. Thời gian vận chuyển về Việt Nam (đã gồm khoảng 3 ngày làm việc trong nội địa Trung Quốc, chưa gồm thời gian sản xuất): chuyển phát nhanh 4–5 ngày làm việc, tiêu chuẩn 6–7 ngày làm việc, tiết kiệm 9–10 ngày làm việc.",
+          body: "Bạn có thể dùng đơn vị vận chuyển của mình, hoặc để chúng tôi sắp xếp vận chuyển từ Trung Quốc về Việt Nam. Nếu chúng tôi vận chuyển, phí vận chuyển đã gồm thủ tục hải quan và thuế nhập khẩu. Nếu bạn dùng đơn vị vận chuyển riêng, chúng tôi giao hàng cho đơn vị đó là hoàn tất. Thời gian vận chuyển về Việt Nam (tính từ khi hàng sản xuất xong, đã gồm khoảng 3 ngày làm việc trong nội địa Trung Quốc): chuyển phát nhanh 4–5 ngày làm việc, tiêu chuẩn 6–7 ngày làm việc, tiết kiệm 9–10 ngày làm việc.",
         },
         {
           title: "Thanh toán 20% còn lại",
@@ -1058,12 +1058,12 @@ export const dictionary: Record<Lang, Copy> = {
       address: "Trung Quốc",
     },
     notFound: {
-      title: "Không có trang này",
+      title: "Liên kết này đã thay đổi",
       body: "Quay về trang chủ để xem sản phẩm hoặc cách hợp tác.",
       back: "Về trang chủ",
     },
     error: {
-      title: "Trang chưa tải được",
+      title: "Trang gặp lỗi khi tải",
       body: "Hãy thử lại.",
       retry: "Thử lại",
     },
