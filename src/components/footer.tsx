@@ -61,7 +61,7 @@ export function Footer() {
           ))}
         </div>
       </Container>
-      <div className="border-t border-line">
+      <div>
         <Container className="py-12 md:py-16">
           <p className="leading-[2] text-mute">© YANG SUPPLY</p>
         </Container>
