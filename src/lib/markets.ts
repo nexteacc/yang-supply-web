@@ -210,7 +210,7 @@ export const markets: Record<MarketId, Market> = {
     },
     hero: {
       title: ["Wholesale Italian Charms", "& Rhinestone Stickers"],
-      lead: "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios and retail stores in the US.",
+      lead: "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.",
     },
     meta: {
       home: {
@@ -232,18 +232,18 @@ export const markets: Record<MarketId, Market> = {
       contact: {
         title: "Contact Yang Supply for a Wholesale Quote",
         description:
-          "Email Yang Supply for wholesale inquiries. We supply studios and retail stores in the US.",
+          "Email Yang Supply for wholesale inquiries. We supply studios, retail stores and schools in the US.",
       },
     },
     terms: {
       serviceName:
         "Wholesale craft supplies from China to the United States",
       serviceDescription:
-        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios and retail stores in the United States. Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the United States. Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
     },
     schema: {
       orgDescription:
-        "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios and retail stores in the US.",
+        "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.",
       areaServed: { name: "United States", code: "US" },
       telephone: false,
       availableLanguage: ["en"],

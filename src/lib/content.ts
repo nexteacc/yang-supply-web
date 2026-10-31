@@ -782,7 +782,7 @@ export const dictionary: Record<Lang, Copy> = {
       noteCaption: "Product price and shipping quoted separately.",
       rows: [
         { label: "From — to", value: "China → United States" },
-        { label: "Who we supply", value: "Studios and stores" },
+        { label: "Who we supply", value: "Studios, stores and schools" },
         { label: "Paid before shipment", value: "100%", note: true },
         { label: "Shipping", value: "Quoted separately" },
       ],
@@ -803,8 +803,8 @@ export const dictionary: Record<Lang, Copy> = {
       ],
       audienceTitle: "Who We Supply",
       audienceBody:
-        "Studios and retail stores in the US.",
-      audience: ["Studios", "Retail stores"],
+        "Studios, retail stores and schools in the US.",
+      audience: ["Studios", "Retail stores", "Schools"],
       seriesTitle: "Our Product Range",
       seriesLead: "Five product lines from our range.",
       processTitle: "Ordering",
@@ -1086,8 +1086,8 @@ export const dictionary: Record<Lang, Copy> = {
       notesTitle: "Lưu ý khi báo giá",
       notes: [
         "Báo giá có hiệu lực 7 ngày.",
-        "Một đơn có thể trộn nhiều màu và nhiều mẫu.",
-        "Hàng mẫu tính phí theo giá thực tế của sản phẩm.",
+        "Có thể trộn màu, trộn mẫu.",
+        "Mẫu có tính phí, theo giá thực tế của sản phẩm.",
         "Với đơn do chúng tôi vận chuyển: trong vòng 1 ngày sau khi nhận hàng, nếu hàng hư hãy chụp ảnh gửi lại, chúng tôi sẽ gửi bù (không hoàn tiền).",
       ],
       faqTitle: "Câu hỏi thường gặp",
