@@ -242,7 +242,7 @@ export function WorkshopGuideView() {
         <section className="scroll-mt-24">
           <p className="eyebrow text-mute">03</p>
           <h2 className="heading-2 mt-4 max-w-[22ch]">
-            Chốt bảng màu và mức tối thiểu (MOQ)
+            Chốt bảng màu
           </h2>
           <p className="mt-6 max-w-[60ch]">
             Bạn có thể trộn màu và trộn mẫu trong cùng một đơn hàng để học viên
