@@ -224,7 +224,7 @@ export function WorkshopGuideView() {
               width={1600}
               height={1600}
               alt="Sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu"
-              caption="Mẫu sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu, bán theo tờ; tờ nhỏ có họa tiết trái tim, hoa mai và ngôi sao."
+              caption="Mẫu sticker đính đá cỡ nhỏ hình ngôi sao nhiều màu, bán theo tờ; tờ nhỏ có 4 họa tiết: trái tim nhiều màu, trái tim hồng trắng, hoa mai và ngôi sao."
               sizes="(min-width: 768px) 380px, 90vw"
             />
             <GuideFigure

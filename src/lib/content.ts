@@ -189,7 +189,7 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       width: 1600,
       height: 1600,
       zh: "小张水钻贴纸，彩色爱心",
-      vi: "Sticker đính đá cỡ nhỏ hình tim màu",
+      vi: "Sticker đính đá cỡ nhỏ hình trái tim nhiều màu",
       en: "Small rhinestone sticker sheet with colorful hearts",
       label: { zh: "小张", vi: "Cỡ nhỏ", en: "Small sheet" },
     },
