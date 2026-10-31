@@ -7,6 +7,15 @@ import { Container, PageIntro, ZaloButton } from "@/components/ui";
 export function CooperationPage() {
   const { market, t } = useLanguage();
   const page = t.cooperation;
+  const quality = page.qualityBody ? (
+    <section>
+      <h2 className="heading-3">{page.qualityTitle}</h2>
+      <p className="mt-4 max-w-[60ch] text-mute">{page.qualityBody}</p>
+    </section>
+  ) : null;
+  // US order is intro → steps → quotation terms → payment → lead time.
+  // The existing Quality block stays on the page, after those blocks.
+  const qualityAfterTerms = market.id === "en-us";
 
   return (
     <div>
@@ -29,12 +38,7 @@ export function CooperationPage() {
         </ol>
         ) : null}
 
-        {page.qualityBody ? (
-          <section>
-            <h2 className="heading-3">{page.qualityTitle}</h2>
-            <p className="mt-4 max-w-[60ch] text-mute">{page.qualityBody}</p>
-          </section>
-        ) : null}
+        {qualityAfterTerms ? null : quality}
 
         {page.notes.length > 0 ? (
         <section>
@@ -46,6 +50,15 @@ export function CooperationPage() {
           </ul>
         </section>
         ) : null}
+
+        {page.blocksAfterNotes.map((block) => (
+          <section key={block.title}>
+            <h2 className="heading-2">{block.title}</h2>
+            <p className="mt-8 max-w-[60ch]">{block.body}</p>
+          </section>
+        ))}
+
+        {qualityAfterTerms ? quality : null}
 
         <div className="flex flex-col items-start gap-6">
           <ZaloButton />

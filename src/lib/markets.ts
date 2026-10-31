@@ -108,7 +108,7 @@ export const markets: Record<MarketId, Market> = {
     },
     hero: {
       title: ["Nguyên liệu DIY từ Trung Quốc", "Giao hàng Việt Nam"],
-      lead: "Yang Supply cung cấp sỉ nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam. Tiền hàng và phí vận chuyển được báo riêng.",
+      lead: "Yang Supply là công ty chuỗi cung ứng nguyên liệu DIY tại Trung Quốc, chuyên bán sỉ cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
     },
     meta: {
       home: {
@@ -139,7 +139,7 @@ export const markets: Record<MarketId, Market> = {
     },
     schema: {
       orgDescription:
-        "Nhà cung cấp nguyên liệu DIY từ Trung Quốc cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
+        "Công ty chuỗi cung ứng nguyên liệu DIY tại Trung Quốc, bán sỉ cho xưởng thủ công, cửa hàng và trường học tại Việt Nam.",
       areaServed: { name: "Vietnam", code: "VN" },
       telephone: true,
       availableLanguage: ["vi", "zh", "en"],
@@ -210,7 +210,7 @@ export const markets: Record<MarketId, Market> = {
     },
     hero: {
       title: ["Wholesale Italian Charms", "& Rhinestone Stickers"],
-      lead: "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.",
+      lead: "Yang Supply is a DIY craft supply chain company based in China, selling our own product lines wholesale to US businesses.",
     },
     meta: {
       home: {
@@ -232,18 +232,18 @@ export const markets: Record<MarketId, Market> = {
       contact: {
         title: "Contact Yang Supply for a Wholesale Quote",
         description:
-          "Email Yang Supply for wholesale inquiries. We supply studios, retail stores and schools in the US.",
+          "Email Yang Supply for wholesale inquiries from US boutiques, gift shops, charm bars, DIY workshops and retail stores.",
       },
     },
     terms: {
       serviceName:
         "Wholesale craft supplies from China to the United States",
       serviceDescription:
-        "Wholesale Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the United States. Pay 100% of the order total before we ship. Product and freight are quoted separately. Pay by international SWIFT bank transfer or USDT/USDC. The order total is the product price plus our shipping when we arrange shipping, and the product price only when you use your own freight forwarder.",
+        "Wholesale DIY craft materials for US boutiques, gift shops, charm bars, DIY workshops and retail stores. Minimum order amount $500 per order; 100% payment before shipment by PayPal, SWIFT or USDT/USDC; product and shipping quoted separately.",
     },
     schema: {
       orgDescription:
-        "Yang Supply is a wholesale craft supplier of Italian charms, rhinestone stickers, acrylic flowers and resin starfish for studios, retail stores and schools in the US.",
+        "Yang Supply is a China-based DIY craft supply chain company that wholesales Italian charm bracelets, acrylic flower vase frames, rhinestone stickers, acrylic petals and resin starfish to US businesses.",
       areaServed: { name: "United States", code: "US" },
       telephone: false,
       availableLanguage: ["en"],
