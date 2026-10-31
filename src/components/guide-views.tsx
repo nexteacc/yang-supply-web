@@ -413,8 +413,7 @@ export function CharmGuideView() {
             <div className="contents">
               <dt className="font-medium text-ink">Chuẩn 9mm</dt>
               <dd className="text-mute">
-                Mắt charm của chúng tôi rộng chuẩn 9mm, lắp vừa với các mắt
-                charm Ý 9mm khác.
+                Mắt charm rộng chuẩn 9mm.
               </dd>
             </div>
           </dl>
