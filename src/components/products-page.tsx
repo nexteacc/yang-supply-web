@@ -33,6 +33,19 @@ export function ProductsPage() {
               <div className="mt-10 md:mt-12">
                 <ProductArt id={item.id} />
               </div>
+              {item.id === "charm" ? (
+                <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:justify-between">
+                  <p className="max-w-[60ch] text-[14px] text-mute">
+                    {t.moreNote.body}
+                  </p>
+                  <a
+                    href={market.pages.contact}
+                    className="link-under shrink-0 text-[14px]"
+                  >
+                    {t.moreNote.cta}
+                  </a>
+                </div>
+              ) : null}
             </article>
           );
         })}

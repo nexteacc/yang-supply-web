@@ -426,6 +426,102 @@ export const productImage: Record<SeriesId, ProductPhoto[]> = {
       vi: "Charm Ý đính đá zircon nhiều mẫu",
       en: "Assorted Italian charms with zircon stones",
     },
+    {
+      src: "/products/vong-tay-charm-y-day-thun-noi.webp",
+      width: 1024,
+      height: 1024,
+      zh: "装配完成的意大利 Charm 手链与备用链节",
+      vi: "Vòng tay charm Ý đã ghép kèm mắt rời",
+      en: "Assembled Italian charm bracelets with spare links",
+    },
+    {
+      src: "/products/vong-tay-charm-y-day-thun-module.webp",
+      width: 1000,
+      height: 1000,
+      zh: "彩色弹力基链，多种颜色",
+      vi: "Vòng nền mắt trơn day thun nhiều màu",
+      en: "Elastic base bracelets in assorted colours",
+    },
+    {
+      src: "/products/charm-y-trang-men-nhieu-hinh.webp",
+      width: 1200,
+      height: 1200,
+      zh: "混装珐琅图案链节样品",
+      vi: "Mẫu mắt tráng men nhiều họa tiết",
+      en: "Assorted enamel charm links",
+    },
+    {
+      src: "/products/charm-y-chu-love-trang-men.webp",
+      width: 1000,
+      height: 1000,
+      zh: "LOVE 字样珐琅链节",
+      vi: "Mắt tráng men chữ LOVE",
+      en: "Enamel LOVE charm link",
+    },
+    {
+      src: "/products/charm-y-kem-que-trang-men.webp",
+      width: 1000,
+      height: 1000,
+      zh: "冰棒图案珐琅链节",
+      vi: "Mắt tráng men hình kem que",
+      en: "Popsicle enamel charm link",
+    },
+    {
+      src: "/products/charm-y-chu-cai-trang-men-hong.webp",
+      width: 1004,
+      height: 1004,
+      zh: "粉色珐琅字母链节",
+      vi: "Mắt chữ cái tráng men màu hồng",
+      en: "Pink enamel letter charm link",
+    },
+    {
+      src: "/products/charm-y-bang-chu-cai.webp",
+      width: 1200,
+      height: 1200,
+      zh: "A 至 Z 全套字母链节",
+      vi: "Bộ mắt chữ cái A đến Z",
+      en: "Full A to Z letter charm set",
+    },
+    {
+      src: "/products/charm-y-dau-chan-cho.webp",
+      width: 1200,
+      height: 1200,
+      zh: "猫狗爪印链节，多色可选",
+      vi: "Mắt hình dấu chân chó mèo nhiều màu",
+      en: "Paw print charm links in assorted colours",
+    },
+    {
+      src: "/products/charm-y-buom-hoa-gau.webp",
+      width: 1340,
+      height: 1340,
+      zh: "蝴蝶、花朵与小熊图案链节",
+      vi: "Mắt họa tiết bướm, hoa và gấu",
+      en: "Butterfly, flower and bear charm links",
+    },
+    {
+      src: "/products/charm-y-12-cung-hoang-dao.webp",
+      width: 1200,
+      height: 1200,
+      zh: "十二星座符号链节",
+      vi: "Mắt 12 cung hoàng đạo",
+      en: "Twelve zodiac charm links",
+    },
+    {
+      src: "/products/charm-y-co-quoc-gia.webp",
+      width: 1280,
+      height: 1280,
+      zh: "国旗图案链节与装配手链",
+      vi: "Mắt cờ quốc gia và vòng đã ghép",
+      en: "National flag charm links on an assembled bracelet",
+    },
+    {
+      src: "/products/dung-cu-thao-charm-y.webp",
+      width: 1920,
+      height: 1920,
+      zh: "链节拆装工具",
+      vi: "Dụng cụ tháo mắt charm",
+      en: "Charm link removal tool",
+    },
   ],
 };
 
@@ -655,13 +751,20 @@ export const series: {
             "Modular bracelets and charms: enamel, zircon and Christmas designs",
         },
         {
+          label: "Material",
+          value: "304 stainless steel, plated or enamel finished",
+        },
+        {
           label: "Link width",
           value: "9 mm",
         },
         {
+          label: "Assembly",
+          value: "Press-fit links; add or remove links as needed",
+        },
+        {
           label: "Quotation",
-          value:
-            "By selected design",
+          value: "By selected design",
         },
       ],
     },
@@ -671,7 +774,10 @@ export const series: {
       detail: "这里展示部分样品，选好款式发来即可报价。",
       specs: [
         { label: "类型", value: "模块化手链与配件（珐琅、锆石、圣诞主题）" },
+        { label: "材质", value: "304 不锈钢，电镀或珐琅工艺" },
         { label: "链节宽度", value: "9mm" },
+        { label: "组合方式", value: "插入式拼接，可自行增减链节" },
+        { label: "报价", value: "按所选款式报价" },
       ],
     },
     vi: {
@@ -686,8 +792,16 @@ export const series: {
             "Vòng charm Ý ghép theo mẫu (tráng men, đính đá zircon, Giáng Sinh)",
         },
         {
+          label: "Chất liệu",
+          value: "Thép không gỉ 304, mạ hoặc tráng men",
+        },
+        {
           label: "Chiều rộng mắt",
           value: "9mm",
+        },
+        {
+          label: "Cách ghép",
+          value: "Mắt ghép nối, thêm bớt theo nhu cầu",
         },
         {
           label: "Báo giá",
@@ -705,6 +819,8 @@ export type Copy = {
   zaloAdd: string;
   emailCta: string;
   inquiry: string;
+  /** Inline note after a series gallery: samples are a subset of the range. */
+  moreNote: { body: string; cta: string };
   nav: { href: string; label: string }[];
   home: {
     title: [string, string];
@@ -772,6 +888,10 @@ export const dictionary: Record<Lang, Copy> = {
     zaloAdd: "Email us",
     emailCta: "Email us",
     inquiry: "Request a quote",
+    moreNote: {
+      body: "These are only some of the designs. More patterns and colours are available.",
+      cta: "Ask for the full range",
+    },
     nav: links("en-us", {
       home: "Home",
       products: "Products",
@@ -873,6 +993,10 @@ export const dictionary: Record<Lang, Copy> = {
     zaloAdd: "添加 Zalo",
     emailCta: "发邮件",
     inquiry: "联系",
+    moreNote: {
+      body: "以上只是部分款式，我们还有更多图案与配色。",
+      cta: "联系看更多款式",
+    },
     nav: links("zh", {
       home: "首页",
       products: "产品",
@@ -955,6 +1079,10 @@ export const dictionary: Record<Lang, Copy> = {
     zaloAdd: "Thêm Zalo",
     emailCta: "Email",
     inquiry: "Liên hệ để hỏi giá",
+    moreNote: {
+      body: "Đây chỉ là một phần mẫu. Xưởng còn nhiều họa tiết và màu khác.",
+      cta: "Liên hệ xem thêm mẫu",
+    },
     nav: links("vi", {
       home: "Trang chủ",
       products: "Sản phẩm",
