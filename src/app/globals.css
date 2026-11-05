@@ -1,4 +1,21 @@
 @import "tailwindcss";
+@import "./chill-gothic.css";
+
+@font-face {
+  font-family: "ChillDIN";
+  src: url("/fonts/chill/ChillDINVF.ttf") format("truetype");
+  font-weight: 325 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html[data-lang="zh"] body {
+  font-family: "ChillDIN", "Yang Supply Gothic Web", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+html[data-lang="en"] body {
+  font-family: "ChillDIN", var(--font-viet), sans-serif;
+}
 
 @theme inline {
   --color-ink: #1c1916;
