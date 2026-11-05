@@ -10,11 +10,11 @@
 }
 
 html[data-lang="zh"] body {
-  font-family: "ChillDIN", "Yang Supply Gothic Web", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --font-site: "ChillDIN", "Yang Supply Gothic Web", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
 
 html[data-lang="en"] body {
-  font-family: "ChillDIN", var(--font-viet), sans-serif;
+  --font-site: "ChillDIN", "Yang Supply Gothic Web", sans-serif;
 }
 
 @theme inline {
@@ -23,12 +23,8 @@ html[data-lang="en"] body {
   --color-line: #e4dfd6;
   --color-well: #f2f0ec;
   --color-paper: #ffffff;
-  --font-sans:
-    var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei",
-    ui-sans-serif, sans-serif;
-  --font-display:
-    var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei",
-    ui-sans-serif, sans-serif;
+  --font-sans: var(--font-site);
+  --font-display: var(--font-site);
 }
 
 html {
@@ -50,12 +46,18 @@ html {
 body {
   background: #ffffff;
   color: #1c1916;
-  font-family:
+  --font-site:
     var(--font-viet), var(--font-cjk), "PingFang SC", "Microsoft YaHei",
     ui-sans-serif, sans-serif;
+  font-family: var(--font-site);
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
+}
+
+/* Keep native controls and explicit font utilities on the same locale stack. */
+html:is([data-lang="zh"], [data-lang="en"]) :is(button, input, select, textarea) {
+  font-family: var(--font-site);
 }
 
 @media (min-width: 768px) {
