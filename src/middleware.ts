@@ -37,6 +37,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next|api|icon.svg|favicon.ico|robots.txt|sitemap.xml|llms.txt|products/).*)",
+    "/((?!_next|api|icon.svg|favicon.ico|robots.txt|sitemap.xml|llms.txt|products/|[A-Za-z0-9-]{8,128}\\.txt).*)",
   ],
 };

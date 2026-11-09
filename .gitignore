@@ -42,3 +42,7 @@ next-env.d.ts
 
 # local source drops (pricing notes stay off the site)
 uploads/
+
+# Written at build time so IndexNow can tell this production deploy is live.
+public/indexnow-stamp.txt
+.indexnow/
