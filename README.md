@@ -38,6 +38,22 @@ npm start
 
 正式站点为 https://www.yangsupply.com，由 Vercel 托管。改动通过独立分支与 PR 预览，合并 main 后按部署配置上线。如需自行部署，在一台能运行 Node.js 的服务器上执行 `npm install`、`npm run build`、`npm start`，把进程托管在你自己的域名后面即可。
 
+## IndexNow
+
+页面新增、更新或删除后，用 [IndexNow](https://www.indexnow.org/documentation) 通知搜索引擎。密钥文件在仓库的 `public/{密钥}.txt`，上线后位于 `https://www.yangsupply.com/{密钥}.txt`，正文就是密钥本身。
+
+合并到 `main` 并且这次生产部署已经在正式域名上提供该密钥文件后，GitHub Actions 会读取当时的 `https://www.yangsupply.com/sitemap.xml`，只提交其中的 `<loc>`。上一份站点地图里已经消失的地址会一并提交，用来通知删除。请求发到 `https://api.indexnow.org/indexnow`，正文包含 `host`、`key`、`keyLocation` 和 `urlList`。这一次提交会分享给 Bing 和其他参与 IndexNow 的引擎。
+
+预览部署和 pull request 不会提交。正式域名上还读不到密钥文件时，脚本会退出，不会发请求。
+
+只通知某一个新增、更新或已删除的地址：
+
+```bash
+npm run indexnow -- --url https://www.yangsupply.com/san-pham
+```
+
+不带参数时，会在密钥文件已经上线后提交当前正式站点地图里的全部地址。
+
 构建是静态页面加 Node 服务，不需要数据库，也不需要环境变量。
 
 ## 产品图
