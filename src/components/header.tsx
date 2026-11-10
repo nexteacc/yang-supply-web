@@ -138,7 +138,7 @@ export function Header() {
               type="button"
               className="inline-flex h-11 min-w-11 cursor-pointer items-center justify-center text-[13px] uppercase tracking-[0.1em] text-ink lg:hidden"
               aria-expanded={open}
-              aria-controls="mobile-nav"
+              aria-controls={open ? "mobile-nav" : undefined}
               onClick={() => setOpen((value) => !value)}
             >
               {open ? t.close : t.menu}

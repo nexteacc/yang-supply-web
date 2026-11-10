@@ -9,6 +9,12 @@ function pageInLanguage(marketId: MarketId) {
   return "vi";
 }
 
+/** Vietnam and the US publish different offers, so they must not share one @id. */
+function serviceId(market: Market): string | null {
+  if (!market.terms || !market.pages.cooperation) return null;
+  return `${SITE_URL}${market.pages.cooperation}#service`;
+}
+
 function contactPoints(market: Market) {
   const telephone = `+84-${contacts.zalo.replace(/^0/, "")}`;
   if (market.id === "vi") {
@@ -77,11 +83,13 @@ export function OrganizationSchema({ marketId }: { marketId: MarketId }) {
 
   const graph: Record<string, unknown>[] = [organization];
 
-  if (market.terms && market.pages.cooperation) {
+  const terms = market.terms;
+  const cooperationPath = market.pages.cooperation;
+  if (terms && cooperationPath) {
     graph.push({
       "@type": "Service",
-      "@id": `${SITE_URL}/#service`,
-      name: market.terms.serviceName,
+      "@id": `${SITE_URL}${cooperationPath}#service`,
+      name: terms.serviceName,
       serviceType: "B2B Wholesale DIY Craft Materials Supply",
       provider: {
         "@id": `${SITE_URL}/#organization`,
@@ -94,8 +102,8 @@ export function OrganizationSchema({ marketId }: { marketId: MarketId }) {
             },
           }
         : {}),
-      description: market.terms.serviceDescription,
-      termsOfService: `${SITE_URL}${market.pages.cooperation}`,
+      description: terms.serviceDescription,
+      termsOfService: `${SITE_URL}${cooperationPath}`,
     });
   }
 
@@ -206,8 +214,11 @@ export function ProductsListSchema({ marketId }: { marketId: MarketId }) {
 export function CooperationPageSchema({ marketId }: { marketId: MarketId }) {
   const market = markets[marketId];
   const copy = market.copyLang;
-  const pageUrl = `${SITE_URL}${market.pages.cooperation}`;
+  const cooperationPath = market.pages.cooperation;
+  if (!cooperationPath) return null;
+  const pageUrl = `${SITE_URL}${cooperationPath}`;
   const homeUrl = `${SITE_URL}${market.pages.home}`;
+  const offerId = serviceId(market);
 
   const schema = {
     "@context": "https://schema.org",
@@ -220,9 +231,7 @@ export function CooperationPageSchema({ marketId }: { marketId: MarketId }) {
         isPartOf: {
           "@id": `${SITE_URL}/#website`,
         },
-        about: {
-          "@id": `${SITE_URL}/#service`,
-        },
+        ...(offerId ? { about: { "@id": offerId } } : {}),
         inLanguage: pageInLanguage(marketId),
       },
       {

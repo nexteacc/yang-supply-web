@@ -56,9 +56,9 @@ export default async function RootLayout({
       >
         <LanguageProvider>
           <Header />
-          <div id="content" className="flex-1 pt-[104px] sm:pt-[72px]">
+          <main id="content" className="flex-1 pt-[104px] sm:pt-[72px]">
             {children}
-          </div>
+          </main>
           <Footer />
         </LanguageProvider>
       </body>
