@@ -82,10 +82,6 @@ html:is([data-lang="zh"], [data-lang="en"]) :is(button, input, select, textarea)
   }
 }
 
-html.lang-boot body {
-  visibility: hidden;
-}
-
 .heading-1 {
   font-weight: 600;
   font-size: clamp(40px, 6vw, 80px);

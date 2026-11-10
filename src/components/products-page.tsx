@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { contacts, series } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { ProductArt } from "@/components/product-art";
@@ -38,12 +39,12 @@ export function ProductsPage() {
                   <p className="max-w-[60ch] text-[14px] text-mute">
                     {t.moreNote.body}
                   </p>
-                  <a
+                  <Link
                     href={market.pages.contact}
                     className="link-under shrink-0 text-[14px]"
                   >
                     {t.moreNote.cta}
-                  </a>
+                  </Link>
                 </div>
               ) : null}
             </article>

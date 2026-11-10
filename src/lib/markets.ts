@@ -267,10 +267,6 @@ export function marketFromPrefixParam(param: string): Market | undefined {
   return marketList.find((market) => market.prefix === `/${param}`);
 }
 
-export function pagePath(market: Market, page: PageKey): string | null {
-  return market.pages[page];
-}
-
 export function navPages(market: Market): { key: PageKey; href: string }[] {
   return pageKeys.flatMap((key) => {
     const href = market.pages[key];
