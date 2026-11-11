@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/language";
 
 const slides = [
- ['01-overview','','Acrylic petals, rhinestone stickers and a silver Italian charm bracelet'],
+ ['01-overview','','Acrylic flower frame, petals, rhinestone stickers and a silver Italian charm bracelet'],
  ['02-acrylic-petals','#petals','Five translucent acrylic flowers'],
  ['03-rhinestone-stickers','#stickers','Overlapping sheets of colorful rhinestone stickers'],
  ['04-charm-links','#charm','Six individual links: evil eye, cherries, letter A, seashell and starfish, flower, and paw print'],
