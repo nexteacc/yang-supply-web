@@ -68,7 +68,7 @@ export function HomeHero() {
 
   useEffect(() => {
     if (hovered || focused || hidden || reducedMotion) return;
-    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 6000);
+    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 4000);
     return () => window.clearTimeout(timer);
   }, [active, hovered, focused, hidden, reducedMotion, interaction]);
 
