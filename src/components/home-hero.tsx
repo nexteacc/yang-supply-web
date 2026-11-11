@@ -124,29 +124,38 @@ export function HomeHero() {
           className="aspect-[6/5] w-full object-cover md:aspect-video md:h-full"
         />
       </picture>
-      <div className="relative z-10 flex justify-end px-4 pb-3 md:absolute md:bottom-2 md:right-2 md:pb-0">
-        {slides.map(([name], index) => (
-          <button
-            key={name}
-            type="button"
-            aria-label={copy[copyLang][index][0]}
-            aria-pressed={active === index}
-            onClick={() => choose(index)}
-            className="grid size-11 cursor-pointer place-items-center"
-          >
-            <span aria-hidden className={`size-2.5 rounded-full border border-ink ${active === index ? "bg-ink" : "bg-white"}`} />
-          </button>
-        ))}
-        {!reducedMotion && (
-          <button
-            type="button"
-            aria-label={paused ? labels.play : labels.pause}
-            onClick={() => setPaused((value) => !value)}
-            className="grid size-11 cursor-pointer place-items-center"
-          >
-            <span aria-hidden>{paused ? "▶" : "Ⅱ"}</span>
-          </button>
-        )}
+      <div className="relative z-10 flex justify-center pb-4 md:absolute md:inset-x-0 md:bottom-4 md:pb-0">
+        <div className="flex items-center rounded-full border border-black/10 bg-white px-1.5 text-ink shadow-sm">
+          {slides.map(([name], index) => (
+            <button
+              key={name}
+              type="button"
+              aria-label={copy[copyLang][index][0]}
+              aria-pressed={active === index}
+              onClick={() => choose(index)}
+              className="grid h-11 w-9 cursor-pointer place-items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-ink"
+            >
+              <span
+                aria-hidden
+                className={`h-1.5 rounded-full motion-safe:transition-[width,background-color] ${active === index ? "w-4 bg-ink" : "w-1.5 bg-ink/40"}`}
+              />
+            </button>
+          ))}
+          {!reducedMotion && (
+            <button
+              type="button"
+              aria-label={paused ? labels.play : labels.pause}
+              onClick={() => setPaused((value) => !value)}
+              className="grid size-11 cursor-pointer place-items-center rounded-full text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-ink"
+            >
+              {paused ? (
+                <span aria-hidden className="ml-0.5 border-y-[5px] border-l-[7px] border-y-transparent border-l-current" />
+              ) : (
+                <span aria-hidden className="h-2.5 w-2 border-x-2 border-current" />
+              )}
+            </button>
+          )}
+        </div>
       </div>
     </section>
   );
