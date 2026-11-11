@@ -37,15 +37,14 @@ const copy = {
 };
 
 const controls = {
-  en: { label: "Product highlights", pause: "Pause slideshow", play: "Play slideshow" },
-  zh: { label: "产品展示", pause: "暂停轮播", play: "播放轮播" },
-  vi: { label: "Sản phẩm nổi bật", pause: "Dừng trình chiếu", play: "Phát trình chiếu" },
+  en: { label: "Product highlights" },
+  zh: { label: "产品展示" },
+  vi: { label: "Sản phẩm nổi bật" },
 };
 
 export function HomeHero() {
   const { copyLang, market } = useLanguage();
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -68,10 +67,10 @@ export function HomeHero() {
   }, []);
 
   useEffect(() => {
-    if (paused || hovered || focused || hidden || reducedMotion) return;
+    if (hovered || focused || hidden || reducedMotion) return;
     const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 6000);
     return () => window.clearTimeout(timer);
-  }, [active, paused, hovered, focused, hidden, reducedMotion, interaction]);
+  }, [active, hovered, focused, hidden, reducedMotion, interaction]);
 
   const [file, anchor, alt] = slides[active];
   const [title, description, cta] = copy[copyLang][active];
@@ -125,7 +124,7 @@ export function HomeHero() {
         />
       </picture>
       <div className="relative z-10 flex justify-center pb-4 md:absolute md:inset-x-0 md:bottom-4 md:pb-0">
-        <div className="flex items-center rounded-full border border-black/10 bg-white px-1.5 text-ink shadow-sm">
+        <div className="flex items-center text-ink">
           {slides.map(([name], index) => (
             <button
               key={name}
@@ -133,7 +132,7 @@ export function HomeHero() {
               aria-label={copy[copyLang][index][0]}
               aria-pressed={active === index}
               onClick={() => choose(index)}
-              className="grid h-11 w-9 cursor-pointer place-items-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-ink"
+              className="grid h-11 w-9 cursor-pointer place-items-center rounded-full border-0 bg-transparent focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-ink"
             >
               <span
                 aria-hidden
@@ -141,18 +140,6 @@ export function HomeHero() {
               />
             </button>
           ))}
-          {!reducedMotion && (
-            <button
-              type="button"
-              aria-label={paused ? labels.play : labels.pause}
-              onClick={() => setPaused((value) => !value)}
-              className="grid size-11 cursor-pointer place-items-center rounded-full text-ink/70 hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-ink"
-            >
-              {paused ? (
-                <span aria-hidden className="ml-0.5 border-y-[5px] border-l-[7px] border-y-transparent border-l-current" />
-              ) : (
-                <span aria-hidden className="h-2.5 w-2 border-x-2 border-current" />
-              )}
             </button>
           )}
         </div>
