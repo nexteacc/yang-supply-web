@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { HomeHero } from "@/components/home-hero";
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { contacts, productImage, series } from "@/lib/content";
@@ -40,16 +40,6 @@ function InlineLinks({ text }: { text: string }) {
   return <>{nodes}</>;
 }
 
-/**
- * Full-bleed opening photograph. Point this at a calm workbench or petal
- * scene when one exists. The scrim and the HTML headline stay as they are.
- */
-const HERO_SRC = "/products/sticker-dinh-da-co-lon-hop-qua.jpg";
-
-const heroPhoto = Object.values(productImage)
-  .flat()
-  .find((photo) => photo.src === HERO_SRC);
-
 export function HomePage() {
   const { lang, copyLang, market, t } = useLanguage();
   const home = t.home;
@@ -59,27 +49,8 @@ export function HomePage() {
 
   return (
     <div>
-      <section className="relative -mt-[104px] sm:-mt-[72px] h-[85svh] min-h-[32rem] overflow-hidden bg-ink md:h-[100svh]">
-        <Image
-          src={HERO_SRC}
-          alt={heroPhoto ? heroPhoto[copyLang] : "Yang Supply"}
-          fill
-          priority
-          quality={75}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-        <div
-          className="hero-scrim pointer-events-none absolute inset-0"
-          aria-hidden
-        />
-        <div className="hero-copy relative z-10 flex h-full flex-col items-center justify-center px-5 pt-[104px] sm:pt-[72px] text-center text-white">
-          <h1 className="heading-1-hero mx-auto max-w-[12em] text-balance md:max-w-[14em]">
-            <span className="md:block">{home.title[0]}</span>{" "}
-            <span className="md:block">{home.title[1]}</span>
-          </h1>
-        </div>
-      </section>
+      <HomeHero />
+
 
       <Section>
         <div className="flex flex-col gap-[72px] md:gap-[120px]">
