@@ -14,11 +14,7 @@ export type SeriesId = (typeof seriesIds)[number];
 export const contacts = {
   zalo: "0986245780",
   zaloUrl: "https://zalo.me/0986245780",
-  emails: [
-    "max.yangsupply@agentmail.to",
-    "leo.yangsupply@agentmail.to",
-    "ella.yangsupply@agentmail.to",
-  ],
+  emails: ["max@yangsupply.com"],
 } as const;
 
 export type ProductPhoto = {
