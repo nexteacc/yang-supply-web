@@ -65,9 +65,7 @@ npm run indexnow -- --url https://www.yangsupply.com/san-pham
 ## 联系方式
 
 - Zalo：0986245780
-- max.yangsupply@agentmail.to
-- leo.yangsupply@agentmail.to
-- ella.yangsupply@agentmail.to
+- max@yangsupply.com
 - 地址：中国
 
 ## 语言与英文内容
