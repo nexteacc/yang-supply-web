@@ -140,8 +140,6 @@ export function HomeHero() {
               />
             </button>
           ))}
-            </button>
-          )}
         </div>
       </div>
     </section>
