@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "@/components/language";
 
 const slides = [
- ['01-overview','','Acrylic petals, rhinestone stickers and a silver Italian charm bracelet'],
+ ['01-overview','','Acrylic flower frame, petals, rhinestone stickers and a silver Italian charm bracelet'],
  ['02-acrylic-petals','#petals','Five translucent acrylic flowers'],
  ['03-rhinestone-stickers','#stickers','Overlapping sheets of colorful rhinestone stickers'],
  ['04-charm-links','#charm','Six individual links: evil eye, cherries, letter A, seashell and starfish, flower, and paw print'],
@@ -37,15 +37,14 @@ const copy = {
 };
 
 const controls = {
-  en: { label: "Product highlights", pause: "Pause slideshow", play: "Play slideshow" },
-  zh: { label: "产品展示", pause: "暂停轮播", play: "播放轮播" },
-  vi: { label: "Sản phẩm nổi bật", pause: "Dừng trình chiếu", play: "Phát trình chiếu" },
+  en: { label: "Product highlights" },
+  zh: { label: "产品展示" },
+  vi: { label: "Sản phẩm nổi bật" },
 };
 
 export function HomeHero() {
   const { copyLang, market } = useLanguage();
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocused] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -68,10 +67,10 @@ export function HomeHero() {
   }, []);
 
   useEffect(() => {
-    if (paused || hovered || focused || hidden || reducedMotion) return;
-    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 6000);
+    if (hovered || focused || hidden || reducedMotion) return;
+    const timer = window.setTimeout(() => setActive((index) => (index + 1) % slides.length), 4000);
     return () => window.clearTimeout(timer);
-  }, [active, paused, hovered, focused, hidden, reducedMotion, interaction]);
+  }, [active, hovered, focused, hidden, reducedMotion, interaction]);
 
   const [file, anchor, alt] = slides[active];
   const [title, description, cta] = copy[copyLang][active];
@@ -124,29 +123,24 @@ export function HomeHero() {
           className="aspect-[6/5] w-full object-cover md:aspect-video md:h-full"
         />
       </picture>
-      <div className="relative z-10 flex justify-end px-4 pb-3 md:absolute md:bottom-2 md:right-2 md:pb-0">
-        {slides.map(([name], index) => (
-          <button
-            key={name}
-            type="button"
-            aria-label={copy[copyLang][index][0]}
-            aria-pressed={active === index}
-            onClick={() => choose(index)}
-            className="grid size-11 cursor-pointer place-items-center"
-          >
-            <span aria-hidden className={`size-2.5 rounded-full border border-ink ${active === index ? "bg-ink" : "bg-white"}`} />
-          </button>
-        ))}
-        {!reducedMotion && (
-          <button
-            type="button"
-            aria-label={paused ? labels.play : labels.pause}
-            onClick={() => setPaused((value) => !value)}
-            className="grid size-11 cursor-pointer place-items-center"
-          >
-            <span aria-hidden>{paused ? "▶" : "Ⅱ"}</span>
-          </button>
-        )}
+      <div className="relative z-10 flex justify-center pb-4 md:absolute md:inset-x-0 md:bottom-4 md:pb-0">
+        <div className="flex items-center text-ink">
+          {slides.map(([name], index) => (
+            <button
+              key={name}
+              type="button"
+              aria-label={copy[copyLang][index][0]}
+              aria-pressed={active === index}
+              onClick={() => choose(index)}
+              className="grid h-11 w-9 cursor-pointer place-items-center rounded-full border-0 bg-transparent focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-ink"
+            >
+              <span
+                aria-hidden
+                className={`h-1.5 rounded-full motion-safe:transition-[width,background-color] ${active === index ? "w-4 bg-ink" : "w-1.5 bg-ink/40"}`}
+              />
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
