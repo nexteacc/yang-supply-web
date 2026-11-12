@@ -251,6 +251,21 @@ html.lang-boot body {
     margin-left: auto;
   }
 }
+
+/* Phone header controls are 16–20px of text beside a 44px menu button.
+   Padding grows the hit box; the matching negative margin keeps the glyphs
+   and the flex line where they were. Horizontal slop stays inside the existing
+   12px gaps so the brand, languages, and menu never cover each other. */
+@media (max-width: 1023px) {
+  .tap-brand {
+    padding: 20px 0 8px;
+    margin: -20px 0 -8px;
+  }
+  .tap-lang {
+    padding: 12px 8px;
+    margin: -12px -8px;
+  }
+}
 @media (min-width: 640px) {
   html {
     scroll-padding-top: 88px;

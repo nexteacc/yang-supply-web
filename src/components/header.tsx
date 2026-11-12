@@ -48,7 +48,7 @@ function LangSwitch() {
               }}
               aria-current={active ? "page" : undefined}
               aria-label={item.switchName}
-              className={`whitespace-nowrap transition-colors ${active ? "font-medium text-ink" : "text-mute hover:text-ink"}`}
+              className={`tap-lang whitespace-nowrap transition-colors ${active ? "font-medium text-ink" : "text-mute hover:text-ink"}`}
             >
               {item.switchLabel}
             </Link>

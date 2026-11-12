@@ -25,7 +25,7 @@ export function Wordmark({ className = "" }: { className?: string }) {
   return (
     <Link
       href={localizedPath(lang)}
-      className={`inline-block shrink-0 whitespace-nowrap text-[16px] font-bold uppercase leading-none tracking-[0.14em] text-ink md:text-[22px] ${className}`}
+      className={`tap-brand inline-block shrink-0 whitespace-nowrap text-[16px] font-bold uppercase leading-none tracking-[0.14em] text-ink md:text-[22px] ${className}`}
     >
       Yang Supply
     </Link>
