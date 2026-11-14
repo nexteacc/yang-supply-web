@@ -54,7 +54,7 @@ export function Footer() {
             <a
               key={email}
               href={`mailto:${email}`}
-              className={`${linkItem} break-all text-mute`}
+              className={`${linkItem} text-mute`}
             >
               {email}
             </a>

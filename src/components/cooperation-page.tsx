@@ -17,7 +17,7 @@ export function CooperationPage({
   const quality = page.qualityBody ? (
     <section>
       <h2 className="heading-3">{page.qualityTitle}</h2>
-      <p className="mt-4 max-w-[60ch] text-mute">{page.qualityBody}</p>
+      <p className="mt-4 measure text-mute">{page.qualityBody}</p>
     </section>
   ) : null;
   // US order is intro → steps → wholesale terms table → quality.
@@ -37,7 +37,7 @@ export function CooperationPage({
               <div className="md:col-span-7">
                 <h2 className="heading-2">{step.title}</h2>
                 {step.body ? (
-                  <p className="mt-4 max-w-[60ch] text-mute">{step.body}</p>
+                  <p className="mt-4 measure text-mute">{step.body}</p>
                 ) : null}
               </div>
             </li>
@@ -52,7 +52,7 @@ export function CooperationPage({
         ) : page.notes.length > 0 ? (
         <section>
           <h2 className="heading-2">{page.notesTitle}</h2>
-          <ul className="mt-8 flex max-w-[60ch] flex-col gap-4">
+          <ul className="mt-8 flex measure flex-col gap-4">
             {page.notes.map((note) => (
               <li key={note}>{note}</li>
             ))}
@@ -65,7 +65,7 @@ export function CooperationPage({
           : page.blocksAfterNotes.map((block) => (
           <section key={block.title}>
             <h2 className="heading-2">{block.title}</h2>
-            <p className="mt-8 max-w-[60ch]">{block.body}</p>
+            <p className="mt-8 measure">{block.body}</p>
           </section>
         ))}
 
@@ -77,7 +77,7 @@ export function CooperationPage({
           <ZaloButton />
           {market.contact === "email"
             ? contacts.emails.map((email) => (
-                <a key={email} href={`mailto:${email}`} className="link-under break-all text-[14px]">
+                <a key={email} href={`mailto:${email}`} className="link-under text-[14px]">
                   {email}
                 </a>
               ))

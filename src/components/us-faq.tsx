@@ -2,6 +2,8 @@
  * Visible US FAQs. The same strings feed the page and the FAQPage JSON-LD.
  */
 
+import { keepText } from "@/components/text-units";
+
 type FaqItem = { question: string; answer: string };
 
 const productFaqs: readonly FaqItem[] = [
@@ -94,16 +96,16 @@ function FaqSection({ items }: { items: readonly FaqItem[] }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(items)) }}
       />
-      <div className="border-t border-line">
+      <section className="border-t border-line">
         {items.map((item) => (
           <details key={item.question} className="border-b border-line">
-            <summary className="cursor-pointer py-5 text-ink heading-3">
-              {item.question}
+            <summary className="measure cursor-pointer py-5 text-ink heading-3">
+              {keepText(item.question)}
             </summary>
-            <p className="max-w-[65ch] pb-6 text-mute">{item.answer}</p>
+            <p className="measure pb-6 text-mute">{keepText(item.answer)}</p>
           </details>
         ))}
-      </div>
+      </section>
     </section>
   );
 }

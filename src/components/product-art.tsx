@@ -11,6 +11,7 @@ import {
   type Lang,
 } from "@/lib/content";
 import { useLanguage } from "@/components/language";
+import { InlineList } from "@/components/text-units";
 
 export function SquareThumb({
   src,
@@ -138,32 +139,30 @@ export function ProductArt({ id }: { id: SeriesId }) {
   return (
     <div>
       {choices.length > 0 ? (
-        <p className="mb-6 max-w-[65ch] text-[14px] leading-relaxed text-mute">
-          <span>{colourAvailableLabel[copyLang]} </span>
-          {choices.map((item, index) => {
-            const name = item[copyLang];
-            const selected =
-              item.index !== null &&
-              photo.swatch === true &&
-              photo.colour?.vi === item.vi;
-            return (
-              <span key={item.vi}>
-                {index > 0 ? <span>{copyLang === "zh" ? "、" : ", "}</span> : null}
-                {item.index === null ? (
-                  <span>{name}</span>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setActive(item.index as number)}
-                    aria-pressed={selected}
-                    className={`cursor-pointer hover:text-ink focus-visible:text-ink ${selected ? "text-ink" : ""}`}
-                  >
-                    {name}
-                  </button>
-                )}
-              </span>
-            );
-          })}
+        <p className="measure mb-6 text-[14px] leading-relaxed text-mute">
+          <span data-keep="">{colourAvailableLabel[copyLang]}</span>{" "}
+          <InlineList
+            separator={copyLang === "zh" ? "、" : ", "}
+            items={choices.map((item) => {
+              const name = item[copyLang];
+              const selected =
+                item.index !== null &&
+                photo.swatch === true &&
+                photo.colour?.vi === item.vi;
+              if (item.index === null) return name;
+              return (
+                <button
+                  key={item.vi}
+                  type="button"
+                  onClick={() => setActive(item.index as number)}
+                  aria-pressed={selected}
+                  className={`cursor-pointer hover:text-ink focus-visible:text-ink ${selected ? "text-ink" : ""}`}
+                >
+                  {name}
+                </button>
+              );
+            })}
+          />
         </p>
       ) : null}
       <MainPanel photo={photo} alt={photo[copyLang]} small={small} />
@@ -194,7 +193,7 @@ export function ProductArt({ id }: { id: SeriesId }) {
                   />
                 </button>
                 {thumbLabel ? (
-                  <p className="mt-2 text-center text-[12px] leading-snug text-mute">
+                  <p data-keep="" className="mt-2 text-center text-[12px] leading-snug text-mute">
                     {thumbLabel}
                   </p>
                 ) : null}

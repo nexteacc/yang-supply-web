@@ -4,7 +4,7 @@
  */
 
 import { Fragment } from "react";
-import { renderMeasuredText } from "@/components/us-table-text";
+import { keepText } from "@/components/text-units";
 
 type SourceLink = { label: string; href: string };
 type CellPart = string | SourceLink;
@@ -126,10 +126,10 @@ function ComparisonCell({ parts }: { parts: readonly CellPart[] }) {
         rel="noopener nofollow"
         className="link-under is-active"
       >
-        {part.label}
+        {keepText(part.label)}
       </a>
     ) : (
-      <Fragment key={index}>{renderMeasuredText(part)}</Fragment>
+      <Fragment key={index}>{keepText(part)}</Fragment>
     ),
   );
 }
@@ -171,7 +171,7 @@ export function UsWholesaleComparisonTable() {
         </tbody>
         </table>
       </div>
-      <ul className="mt-8 flex max-w-[65ch] flex-col gap-4 text-pretty text-[14px] break-normal">
+      <ul className="measure mt-8 flex flex-col gap-4 text-[14px]">
         {tableNotes.map((note) => (
           <li key={typeof note[0] === "string" ? note[0] : note[0].href}>
             <ComparisonCell parts={note} />
