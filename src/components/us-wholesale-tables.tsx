@@ -4,79 +4,7 @@
  */
 
 import { UsWholesaleComparisonTable } from "@/components/us-comparison-table";
-
-type TableProps = {
-  caption: string;
-  headers: readonly string[];
-  rows: readonly (readonly string[])[];
-  /** Wide tables scroll inside the page instead of stretching the layout. */
-  scroll: boolean;
-};
-
-function WholesaleTable({ caption, headers, rows, scroll }: TableProps) {
-  return (
-    <div
-      className={
-        scroll
-          ? "@container min-w-0 max-w-full overflow-x-auto"
-          : "min-w-0 max-w-full"
-      }
-    >
-      <table
-        className={`w-full border-collapse text-left text-[14px] leading-normal ${
-          scroll ? "min-w-[720px]" : "table-fixed"
-        }`}
-      >
-        <caption
-          className={`caption-top mb-8 text-left text-ink heading-2 ${
-            scroll ? "w-[100cqi] max-w-full" : ""
-          }`}
-        >
-          {caption}
-        </caption>
-        <thead>
-          <tr>
-            {headers.map((header) => (
-              <th
-                key={header}
-                scope="col"
-                className="border-b border-line py-3 pr-6 align-bottom font-normal text-mute last:pr-0"
-              >
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr key={row[0]}>
-              {row.map((cell, index) =>
-                index === 0 ? (
-                  <th
-                    key={headers[index]}
-                    scope="row"
-                    className={`border-b border-line py-4 pr-6 align-top font-normal text-ink ${
-                      scroll ? "min-w-[10rem]" : "w-[42%] sm:w-[16rem]"
-                    }`}
-                  >
-                    {cell}
-                  </th>
-                ) : (
-                  <td
-                    key={headers[index]}
-                    className="border-b border-line py-4 pr-6 align-top font-normal break-words text-ink last:pr-0"
-                  >
-                    {cell}
-                  </td>
-                ),
-              )}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-}
+import { renderMeasuredText } from "@/components/us-table-text";
 
 const productSpecHeaders = [
   "Product",
@@ -136,23 +64,69 @@ const wholesaleTermRows = [
 
 export function UsProductSpecTable() {
   return (
-    <WholesaleTable
-      caption="Yang Supply wholesale product specifications"
-      headers={productSpecHeaders}
-      rows={productSpecRows}
-      scroll
-    />
+    <div className="us-card-scroll">
+      <table className="us-spec-table">
+        <caption className="heading-2 text-ink">
+          Yang Supply wholesale product specifications
+        </caption>
+        <colgroup>
+          <col />
+          <col />
+          <col />
+          <col />
+        </colgroup>
+        <thead>
+          <tr>
+            {productSpecHeaders.map((header) => (
+              <th key={header} scope="col">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {productSpecRows.map((row) => (
+            <tr key={row[0]}>
+              <th scope="row">{row[0]}</th>
+              {row.slice(1).map((cell, index) => (
+                <td key={productSpecHeaders[index + 1]} data-label={productSpecHeaders[index + 1]}>
+                  {renderMeasuredText(cell)}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
 export function UsWholesaleTermsTable() {
   return (
-    <WholesaleTable
-      caption="Yang Supply US wholesale terms"
-      headers={wholesaleTermHeaders}
-      rows={wholesaleTermRows}
-      scroll={false}
-    />
+    <table className="us-terms-table">
+      <caption className="heading-2 text-ink">Yang Supply US wholesale terms</caption>
+      <colgroup>
+        <col />
+        <col />
+      </colgroup>
+      <thead>
+        <tr>
+          {wholesaleTermHeaders.map((header) => (
+            <th key={header} scope="col">
+              {header}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {wholesaleTermRows.map((row) => (
+          <tr key={row[0]}>
+            <th scope="row">{row[0]}</th>
+            <td>{renderMeasuredText(row[1])}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
 

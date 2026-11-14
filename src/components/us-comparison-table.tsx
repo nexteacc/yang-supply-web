@@ -4,6 +4,7 @@
  */
 
 import { Fragment } from "react";
+import { renderMeasuredText } from "@/components/us-table-text";
 
 type SourceLink = { label: string; href: string };
 type CellPart = string | SourceLink;
@@ -128,7 +129,7 @@ function ComparisonCell({ parts }: { parts: readonly CellPart[] }) {
         {part.label}
       </a>
     ) : (
-      <Fragment key={index}>{part}</Fragment>
+      <Fragment key={index}>{renderMeasuredText(part)}</Fragment>
     ),
   );
 }
@@ -136,19 +137,21 @@ function ComparisonCell({ parts }: { parts: readonly CellPart[] }) {
 export function UsWholesaleComparisonTable() {
   return (
     <div className="min-w-0 max-w-full">
-      <div className="@container min-w-0 max-w-full overflow-x-auto">
-        <table className="w-full min-w-[960px] border-collapse text-left text-[14px] leading-normal">
-        <caption className="caption-top mb-8 w-[100cqi] max-w-full text-left text-ink heading-2">
+      <div className="us-card-scroll">
+        <table className="us-compare-table">
+        <caption className="heading-2 text-ink">
           How Yang Supply wholesale terms compare with Faire and Etsy
         </caption>
+        <colgroup>
+          <col />
+          <col />
+          <col />
+          <col />
+        </colgroup>
         <thead>
           <tr>
             {headers.map((header, index) => (
-              <th
-                key={header || "corner"}
-                scope="col"
-                className="border-b border-line py-3 pr-6 align-bottom font-normal text-mute last:pr-0"
-              >
+              <th key={header || "corner"} scope="col">
                 {index === 0 ? null : header}
               </th>
             ))}
@@ -157,17 +160,9 @@ export function UsWholesaleComparisonTable() {
         <tbody>
           {rows.map((row) => (
             <tr key={row.label}>
-              <th
-                scope="row"
-                className="min-w-[9.5rem] border-b border-line py-4 pr-6 align-top font-normal text-ink"
-              >
-                {row.label}
-              </th>
+              <th scope="row">{row.label}</th>
               {row.cells.map((cell, index) => (
-                <td
-                  key={headers[index + 1]}
-                  className="border-b border-line py-4 pr-6 align-top font-normal break-words text-ink last:pr-0"
-                >
+                <td key={headers[index + 1]} data-label={headers[index + 1]}>
                   <ComparisonCell parts={cell} />
                 </td>
               ))}
@@ -176,7 +171,7 @@ export function UsWholesaleComparisonTable() {
         </tbody>
         </table>
       </div>
-      <ul className="mt-8 flex max-w-[65ch] flex-col gap-4 text-[14px]">
+      <ul className="mt-8 flex max-w-[65ch] flex-col gap-4 text-pretty text-[14px] break-normal">
         {tableNotes.map((note) => (
           <li key={typeof note[0] === "string" ? note[0] : note[0].href}>
             <ComparisonCell parts={note} />
