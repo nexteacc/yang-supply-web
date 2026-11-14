@@ -7,7 +7,7 @@ import { Fragment, type ReactNode } from "react";
 const measured =
   /(\babout\s+\d+\s+business\s+days\b|\babout\s+\d+(?:\.\d+)?\s+days\b|\d+(?:\.\d+)?\s×\s\d+(?:\.\d+)?\s(?:in|mm)\b|\d+\s+business\s+days\b|\$\d[\d,]*|\(?\d+(?:\.\d+)?\s+(?:in|mm|days)\b\)?|(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4})/g;
 
-const pairedSizes = /^Large: (.+); small: (.+)$/;
+const pairedSizes = /^(Large: .+); (Small: .+)$/;
 
 function renderPieces(text: string): ReactNode[] {
   const nodes: ReactNode[] = [];
@@ -32,9 +32,9 @@ export function renderMeasuredText(text: string): ReactNode {
   if (!paired) return renderPieces(text);
   return (
     <Fragment>
-      <span className="us-keep">{renderPieces(`Large: ${paired[1]}`)}</span>
+      <span className="us-keep">{renderPieces(paired[1])}</span>
       <br />
-      <span className="us-keep">{renderPieces(`small: ${paired[2]}`)}</span>
+      <span className="us-keep">{renderPieces(paired[2])}</span>
     </Fragment>
   );
 }

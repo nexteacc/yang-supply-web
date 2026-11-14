@@ -23,7 +23,7 @@ const productSpecRows = [
   [
     "Rhinestone Stickers",
     "Large sheets: 3 × 5.1 in",
-    "Large sheets: hearts, plum blossoms, stars, round, square, oval, octagon and teardrop gems, 65 to 126 gems per sheet. Small sheets: colorful hearts, pink-and-white hearts, colorful plum blossoms, colorful stars",
+    "Large sheets: hearts, plum blossoms, stars, round, square, oval, octagon and teardrop gems, in designs with 126, 96, 90, 88, 80 or 65 gems per sheet, among others. Small sheets: colorful hearts, pink-and-white hearts, colorful plum blossoms, colorful stars",
     "Sold by the sheet. Each gem has its own adhesive backing.",
   ],
   [
@@ -34,7 +34,7 @@ const productSpecRows = [
   ],
   [
     "Resin Starfish",
-    "Large: 2 in; small: 1 in",
+    "Large: 2 in; Small: 1 in",
     "Ivory, light blue, light purple, navy blue, pink, white",
     "",
   ],
