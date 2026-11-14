@@ -1,6 +1,9 @@
 /**
  * Fails when a sitemap page overflows, a prose block ends on one ordinary
  * word, an unbreakable item wraps, or a number is split from its unit.
+ * A non-last line is premature only when more than 25% of the content
+ * width is empty and the next word or nowrap unit would fit there.
+ * Nav items and <br> breaks (Large / Small size lines) are intentional.
  *
  * Usage: BASE_URL=http://127.0.0.1:3456 node scripts/line-breaks.mjs
  */
@@ -37,17 +40,10 @@ const phrases = [
   "SWIFT bank transfer",
   "pink-and-white",
   "business days",
-  "Acrylic Flower Vase Frames",
-  "Italian charm",
-  "stainless steel",
   "Net 60",
   "Apple Pay",
   "Google Pay",
   "Stripe Link",
-  "pink-and-white hearts",
-  "colorful plum blossoms",
-  "colorful hearts",
-  "colorful stars",
   "Klarna Installments",
   "American Express",
   "US bank transfer",
@@ -55,13 +51,6 @@ const phrases = [
   "USDT/USDC",
   "PayPal",
   "Faire Pay",
-  "plum blossoms",
-  "teardrop gems",
-  "fresh flowers",
-  "bubble wrap",
-  "gift cards",
-  "team badges",
-  "in-store displays",
 ];
 
 /** Reviewer's ruler. Phrase list is passed in. */
@@ -97,6 +86,7 @@ const detect = (phraseList) => {
           right: rc[rc.length - 1].right,
           left: rc[0].left,
           multi: rc.length > 1,
+          node: n,
         });
       }
     }
@@ -114,6 +104,49 @@ const detect = (phraseList) => {
       const mx = Math.max(...widths);
       if (last.length === 1 || widths[widths.length - 1] < 0.35 * mx) {
         res.push({ type: `widow(${last.map((x) => x.w).join(" ")})`, text: t });
+      }
+      const cs = getComputedStyle(el);
+      const inNav = Boolean(el.closest("nav, header"));
+      const boxSource = cs.display === "inline" && el.parentElement ? el.parentElement : el;
+      const boxCs = boxSource === el ? cs : getComputedStyle(boxSource);
+      const padL = parseFloat(boxCs.paddingLeft) || 0;
+      const padR = parseFloat(boxCs.paddingRight) || 0;
+      const box = boxSource.getBoundingClientRect();
+      const contentLeft = box.left + padL;
+      const contentRight = box.right - padR;
+      const contentWidth = contentRight - contentLeft;
+      const probe = document.createElement("span");
+      probe.style.cssText = `position:absolute;visibility:hidden;white-space:pre;font:${cs.font}`;
+      probe.textContent = " ";
+      document.body.appendChild(probe);
+      const space = probe.getBoundingClientRect().width || 4;
+      probe.remove();
+      const unitWidth = (word) => {
+        const keep = word.node.parentElement && word.node.parentElement.closest("[data-keep]");
+        if (keep && el.contains(keep)) return keep.getBoundingClientRect().width;
+        return word.right - word.left;
+      };
+      const separatedByBr = (from, to) => {
+        const range = document.createRange();
+        range.setStartAfter(from.node);
+        range.setEndBefore(to.node);
+        return Boolean(range.cloneContents().querySelector("br"));
+      };
+      if (!inNav && contentWidth > 0) {
+        for (let i = 0; i < lines.length - 1; i += 1) {
+          const line = lines[i];
+          const next = lines[i + 1].ws[0];
+          const prev = line.ws[line.ws.length - 1];
+          if (separatedByBr(prev, next)) continue;
+          const leftover = contentRight - prev.right;
+          const needed = space + unitWidth(next);
+          if (leftover > contentWidth * 0.25 && needed <= leftover + 0.5) {
+            res.push({
+              type: `premature ${Math.round(leftover)}px "${prev.w} / ${next.w}"`,
+              text: t,
+            });
+          }
+        }
       }
     }
     for (let i = 0; i < words.length - 1; i += 1) {
@@ -180,6 +213,13 @@ for (const width of widths) {
         for (const node of nodes) node.open = true;
       });
     }
+    await page
+      .waitForFunction(() => typeof window.__fitProse === "function", { timeout: 8000 })
+      .catch(() => undefined);
+    await page.evaluate(async () => {
+      await document.fonts.ready;
+      if (window.__fitProse) window.__fitProse();
+    });
     const found = await page.evaluate(detect, phrases);
     const real = found.filter((item) => !ignored(item));
     summary.push({ width, path, count: real.length, ignored: found.length - real.length });

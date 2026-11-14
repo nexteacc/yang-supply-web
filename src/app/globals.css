@@ -256,7 +256,7 @@ html.lang-boot body {
     scroll-padding-top: 88px;
   }
 }
-html[data-lang="en"] :is(h1, h2, h3, h4) {
+html[data-lang="en"] h1 {
   text-wrap: balance;
 }
 html[data-lang="en"] .btn-quiet {
@@ -272,16 +272,28 @@ html[data-lang="en"] .btn-quiet {
 /* Wholesale tables. Cards below 640px keep the same <table> in the HTML. */
 /* Shared line breaking. Headings balance in Latin; Chinese stays on normal wrap. */
 @layer base {
-  :is(h1, h2, h3, h4) {
+  h1 {
     text-wrap: balance;
   }
 
-  html[data-lang="zh"] :is(h1, h2, h3, h4) {
+  html[data-lang="zh"] h1 {
     text-wrap: wrap;
   }
 
-  :is(p, li, td, th, dd, dt, summary, figcaption, caption) {
-    text-wrap: balance;
+  :is(h2, h3, h4, summary) {
+    text-wrap: wrap;
+    hyphens: none;
+  }
+
+  p {
+    text-wrap: pretty;
+    hyphens: none;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  :is(li, td, dd, dt, figcaption, caption) {
+    text-wrap: pretty;
     hyphens: none;
     overflow-wrap: normal;
     word-break: normal;
@@ -292,9 +304,9 @@ html[data-lang="en"] .btn-quiet {
   }
 }
 
-/* Shared prose measure. 42rem is 672px, the ~65ch desktop width. */
+/* Shared prose measure. 48rem is 768px, just wide enough for a 68ch line plus the longest one-line note. */
 html {
-  --prose: 42rem;
+  --prose: 48rem;
 }
 
 .measure {
@@ -372,7 +384,7 @@ html {
 }
 
 .us-terms-table {
-  max-width: 46rem;
+  max-width: 40rem;
   table-layout: auto;
 }
 
@@ -396,35 +408,55 @@ html {
   }
 
   .us-spec-table {
-    min-width: 68rem;
+    min-width: 74rem;
   }
 
   .us-spec-table col:nth-child(1) {
-    width: 15rem;
+    width: 14rem;
   }
 
   .us-spec-table col:nth-child(2) {
-    width: 13rem;
+    width: 16rem;
   }
 
   .us-spec-table col:nth-child(3) {
-    width: 40%;
+    width: 22rem;
+  }
+
+  .us-spec-table col:nth-child(4) {
+    width: 22rem;
+  }
+
+  .us-terms-table {
+    table-layout: fixed;
+  }
+
+  .us-terms-table col:nth-child(1) {
+    width: 12rem;
+  }
+
+  .us-terms-table col:nth-child(2) {
+    width: 28rem;
   }
 
   .us-compare-table {
-    min-width: 60rem;
+    min-width: 72rem;
   }
 
   .us-compare-table col:nth-child(1) {
-    width: 11rem;
+    width: 12rem;
   }
 
   .us-compare-table col:nth-child(2) {
-    width: 22%;
+    width: 18rem;
   }
 
   .us-compare-table col:nth-child(3) {
-    width: 34%;
+    width: 24rem;
+  }
+
+  .us-compare-table col:nth-child(4) {
+    width: 18rem;
   }
 
   .us-spec-table th,

@@ -5,38 +5,15 @@ import { Fragment, type ReactNode } from "react";
  * does not match inside a longer one.
  */
 const phrases = [
-  "Acrylic Flower Vase Frames",
-  "Acrylic Flower Vase Frame",
-  "Italian Charm Bracelets",
-  "colorful plum blossoms",
-  "pink-and-white hearts",
   "cherry blossom pink",
-  "Rhinestone Stickers",
   "SWIFT bank transfer",
   "Klarna Installments",
-  "in-store displays",
   "American Express",
   "US bank transfer",
-  "stainless steel",
-  "colorful hearts",
-  "colorful stars",
-  "plum blossoms",
-  "teardrop gems",
-  "fresh flowers",
-  "bubble wrap",
-  "gift cards",
-  "team badges",
-  "Resin Starfish",
-  "Acrylic Petals",
-  "$500 per order",
-  "gems per sheet",
-  "bank transfer",
-  "Italian charm",
-  "business days",
   "pink-and-white",
   "light purple",
+  "bank transfer",
   "Stripe Link",
-  "$500 minimum",
   "navy blue",
   "light blue",
   "Apple Pay",
@@ -49,7 +26,7 @@ const phrases = [
 ].sort((a, b) => b.length - a.length);
 
 const unitSource =
-  String.raw`\babout\s+\d+\s+business\s+days\b|\babout\s+\d+(?:\.\d+)?\s+days\b|\d+(?:\.\d+)?\s×\s\d+(?:\.\d+)?\s(?:in|mm)\b|\d+\s+business\s+days\b|\$\d[\d,]*|\(?\d+(?:\.\d+)?\s+(?:in|mm|days)\b\)?|\b[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+\b`;
+  String.raw`\d+(?:\.\d+)?\s×\s\d+(?:\.\d+)?\s(?:in|mm)\b|\d+\s+business\s+days\b|\$\d[\d,]*|\(?\d+(?:\.\d+)?\s+(?:in|mm|days)\b\)?|\b[A-Za-z0-9]+(?:-[A-Za-z0-9]+)+\b`;
 
 function escapeRegExp(value: string) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");

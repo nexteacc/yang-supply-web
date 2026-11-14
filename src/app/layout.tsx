@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Noto_Sans_SC } from "next/font/google";
 import { headers } from "next/headers";
+import { FitProse } from "@/components/fit-prose";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { LanguageProvider } from "@/components/language";
@@ -55,6 +56,7 @@ export default async function RootLayout({
         className={`${viet.variable} ${cjk.variable} flex min-h-screen flex-col bg-paper text-ink antialiased`}
       >
         <LanguageProvider>
+          <FitProse />
           <Header />
           <div id="content" className="flex-1 pt-[104px] sm:pt-[72px]">
             {children}
