@@ -885,7 +885,7 @@ export const dictionary: Record<Lang, Copy> = {
     emailCta: "Email us",
     inquiry: "Request a quote",
     moreNote: {
-      body: "These are only some of the designs. More patterns and colours are available.",
+      body: "These are only some of the designs. More patterns and colors are available.",
       cta: "Ask for the full range",
     },
     nav: links("en-us", {

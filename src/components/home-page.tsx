@@ -55,7 +55,7 @@ export function HomePage() {
       <Section>
         <div className="flex flex-col gap-[72px] md:gap-[120px]">
           <div>
-            <p className="max-w-[60ch]">{home.lead}</p>
+            <p className="measure">{home.lead}</p>
             <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-8">
               <ZaloButton />
               {showProcessLink ? (
@@ -112,7 +112,7 @@ export function HomePage() {
                   </span>
                   <div className={twoServiceCards ? "" : "md:col-span-6"}>
                     <h3 className="heading-3">{item.title}</h3>
-                    <p className="mt-3 max-w-[60ch] text-mute">
+                    <p className="mt-3 measure text-mute">
                       <InlineLinks text={item.body} />
                     </p>
                   </div>
@@ -125,10 +125,10 @@ export function HomePage() {
           {home.audience.length > 0 ? (
           <div>
             <h2 className="heading-2">{home.audienceTitle}</h2>
-            <p className="mt-6 max-w-[60ch]">{home.audienceBody}</p>
-            <ul className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 md:grid-cols-12">
+            <p className="mt-6 measure">{home.audienceBody}</p>
+            <ul className="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
               {home.audience.map((name) => (
-                <li key={name} className="heading-3 md:col-span-3">
+                <li key={name} className="heading-3">
                   {name}
                 </li>
               ))}
@@ -140,7 +140,7 @@ export function HomePage() {
             <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
               <div>
                 <h2 className="heading-2">{home.seriesTitle}</h2>
-                <p className="mt-6 max-w-[60ch] text-mute">{home.seriesLead}</p>
+                <p className="mt-6 measure text-mute">{home.seriesLead}</p>
               </div>
               <TextLink href={localizedPath(lang, "/products")}>
                 {home.seeProducts}
@@ -170,7 +170,7 @@ export function HomePage() {
                         <h3 className="heading-3 link-under mt-3">
                           {text.name}
                         </h3>
-                        <p className="mt-3 max-w-[60ch] text-[14px] text-mute">
+                        <p className="mt-3 measure text-[14px] text-mute">
                           {text.summary}
                         </p>
                       </div>
@@ -184,7 +184,7 @@ export function HomePage() {
           {showProcessSection ? (
           <div>
             <h2 className="heading-2">{home.processTitle}</h2>
-            <p className="mt-6 max-w-[60ch] text-mute">{home.processLead}</p>
+            <p className="mt-6 measure text-mute">{home.processLead}</p>
             <ol className="mt-10 flex flex-col gap-8 md:mt-12">
               {home.steps.map((step, index) => (
                 <li
@@ -194,7 +194,7 @@ export function HomePage() {
                   <span className="eyebrow pt-1 text-mute md:col-span-2">
                     0{index + 1}
                   </span>
-                  <p className="max-w-[60ch] md:col-span-6">{step}</p>
+                  <p className="measure md:col-span-6">{step}</p>
                 </li>
               ))}
             </ol>
@@ -209,7 +209,7 @@ export function HomePage() {
 
           <div>
             <h2 className="heading-2 max-w-[20ch]">{home.ctaTitle}</h2>
-            <p className="mt-6 max-w-[60ch] text-mute">{home.ctaBody}</p>
+            <p className="mt-6 measure text-mute">{home.ctaBody}</p>
             {market.contact === "zalo" ? (
               <a
                 href={contacts.zaloUrl}
@@ -223,7 +223,7 @@ export function HomePage() {
               <ul className="mt-8 flex flex-col items-start gap-3">
                 {contacts.emails.map((email) => (
                   <li key={email}>
-                    <a href={`mailto:${email}`} className="link-under break-all text-[14px]">
+                    <a href={`mailto:${email}`} className="link-under text-[14px]">
                       {email}
                     </a>
                   </li>

@@ -19,7 +19,7 @@ function GuideHeader({
       <h1 className="mt-4 max-w-[20ch] text-[32px] font-semibold leading-[1.15] text-ink md:text-[52px]">
         {title}
       </h1>
-      <p className="mt-6 max-w-[60ch] text-mute">{lead}</p>
+      <p className="mt-6 measure text-mute">{lead}</p>
     </Container>
   );
 }
@@ -83,13 +83,13 @@ export function WorkshopGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Chọn nguyên liệu theo thành phẩm buổi học
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Các xưởng và lớp học thủ công thường chọn nguyên liệu xoay quanh
             thành phẩm chính của buổi học, nhờ vậy tồn kho gọn và dễ kiểm soát. Hiện tại, Yang Supply cung
             cấp sỉ trực tiếp 5 dòng sản phẩm từ Trung Quốc về Việt Nam; kích thước và màu sắc của từng dòng xem tại <Link href="/san-pham" className="link-under">trang Sản phẩm</Link>:
           </p>
 
-          <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
+          <dl className="mt-8 grid measure grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
               <dt className="font-medium text-ink">
                 <Link href="/san-pham#petals" className="link-under">
@@ -169,20 +169,20 @@ export function WorkshopGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Công thức ước tính số lượng kèm tỷ lệ dự phòng
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Trong lớp học thủ công, học viên mới thao tác thường cần thêm nguyên
             liệu dự phòng cho các trường hợp rơi rớt, dán lệch hoặc làm mẫu thử
             cho giảng viên. Bạn có thể áp dụng công thức cơ bản:
           </p>
-          <p className="mt-4 max-w-[60ch] font-medium text-ink">
+          <p className="mt-4 measure font-medium text-ink">
             Tổng số lượng cần đặt = Số người tham gia × Định lượng mỗi suất ×
             (1 + Tỷ lệ dự phòng)
           </p>
-          <p className="mt-3 max-w-[60ch] text-[14px] text-mute">
+          <p className="mt-3 measure text-[14px] text-mute">
             Lưu ý: Các con số dưới đây là ví dụ minh họa cách tính; khi đặt hàng, hãy thay bằng số người và định lượng thực tế của buổi học.
           </p>
 
-          <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
+          <dl className="mt-8 grid measure grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
               <dt className="font-medium text-ink">Ví dụ 1 · Cánh hoa</dt>
               <dd className="text-mute">
@@ -232,12 +232,12 @@ export function WorkshopGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Chốt bảng màu
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Bạn có thể trộn màu và trộn mẫu trong cùng một đơn hàng để học viên
             có nhiều lựa chọn. Khi lên danh sách đặt sỉ, cần lưu ý thêm 2 điều:
           </p>
 
-          <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
+          <dl className="mt-8 grid measure grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
               <dt className="font-medium text-ink">Chốt họa tiết thực tế</dt>
               <dd className="text-mute">
@@ -260,11 +260,11 @@ export function WorkshopGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             5 thông tin cần gửi khi hỏi giá
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Giá được báo theo từng đơn. Khi nhắn Zalo {contacts.zalo}, bạn chỉ cần gửi 5 thông tin:
           </p>
 
-          <ol className="mt-8 flex max-w-[65ch] flex-col gap-3 border-t border-line pt-6 text-[15px]">
+          <ol className="mt-8 flex measure flex-col gap-3 border-t border-line pt-6 text-[15px]">
             <li>1. Dòng sản phẩm cần đặt (trong 5 dòng hàng trên).</li>
             <li>2. Quy cách kích thước và danh sách màu sắc / họa tiết.</li>
             <li>3. Số lượng dự kiến cho từng mẫu và từng màu.</li>
@@ -275,7 +275,7 @@ export function WorkshopGuideView() {
             </li>
           </ol>
 
-          <p className="mt-8 max-w-[60ch]">
+          <p className="mt-8 measure">
             Điều khoản báo giá, thanh toán, vận chuyển và bù hàng hư hỏng được ghi đầy đủ tại <Link href="/hop-tac" className="link-under">trang Hợp tác</Link>.
           </p>
 
@@ -331,7 +331,7 @@ export function CharmGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Cấu tạo ngoại quan vòng tay charm Ý dạng mắt xích
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Một chiếc{" "}
             <Link href="/san-pham#charm" className="link-under">
               vòng tay charm Ý
@@ -341,7 +341,7 @@ export function CharmGuideView() {
             3 nhóm chi tiết ngoại quan dưới đây:
           </p>
 
-          <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
+          <dl className="mt-8 grid measure grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
               <dt className="font-medium text-ink">Vòng nền mắt trơn</dt>
               <dd className="text-mute">
@@ -416,7 +416,7 @@ export function CharmGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Gợi ý phối vòng hoàn chỉnh theo chủ đề
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Khi chọn vòng hoàn chỉnh, bạn có thể bắt đầu từ một tông màu hoặc
             một họa tiết chính, sau đó chọn các mắt và mặt treo phù hợp. Gửi ảnh
             mẫu cùng số lượng dự kiến để xác nhận mẫu và nhận báo giá.
@@ -429,7 +429,7 @@ export function CharmGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Bộ sưu tập charm Ý Giáng Sinh và bảng số định vị
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Nhóm charm tráng men tông đỏ – xanh lá – trắng (cây thông, ông già
             Noel, tuần lộc, người tuyết, tất quà) phù hợp làm bộ sưu tập theo
             mùa lễ hội cuối năm.
@@ -478,11 +478,11 @@ export function CharmGuideView() {
           <h2 className="heading-2 mt-4 max-w-[22ch]">
             Thông số cần xác nhận trước khi đặt sỉ
           </h2>
-          <p className="mt-6 max-w-[60ch]">
+          <p className="mt-6 measure">
             Trước khi chốt đơn, hãy xác nhận rõ 4 thông số dưới đây:
           </p>
 
-          <dl className="mt-8 grid max-w-[65ch] grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
+          <dl className="mt-8 grid measure grid-cols-1 gap-y-4 border-t border-line pt-6 text-[14px] sm:grid-cols-[12rem_minmax(0,1fr)] sm:gap-x-6">
             <div className="contents">
               <dt className="font-medium text-ink">1. Kích thước mắt</dt>
               <dd className="text-mute">

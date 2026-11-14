@@ -41,7 +41,7 @@ export function ContactPage() {
           <ul className="mt-6 flex flex-col gap-8">
             {contacts.emails.map((email) => (
               <li key={email}>
-                <a href={`mailto:${email}`} className="link-under inline-block break-all text-[14px] text-mute">
+                <a href={`mailto:${email}`} className="link-under inline-block text-[14px] text-mute">
                   {email}
                 </a>
               </li>

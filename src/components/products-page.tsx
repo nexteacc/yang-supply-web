@@ -1,11 +1,31 @@
 "use client";
 
-import { contacts, series } from "@/lib/content";
+import type { ReactNode } from "react";
+import { contacts, series, type SeriesId } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { ProductArt } from "@/components/product-art";
+import { keepText } from "@/components/text-units";
 import { Container, PageIntro, ZaloButton } from "@/components/ui";
 
-export function ProductsPage() {
+/**
+ * English spec rows already stated in the US wholesale table.
+ * Shape, use, charm type and quotation stay, because the table does not say them.
+ */
+const usSpecsRepeatedInTable: Record<SeriesId, readonly string[]> = {
+  petals: ["Size", "Colors", "Supply unit"],
+  stickers: ["Size", "Designs", "Supply unit"],
+  vase: ["Size", "Colors"],
+  starfish: ["Size", "Colors"],
+  charm: ["Material", "Link width", "Assembly"],
+};
+
+export function ProductsPage({
+  specTable = null,
+  faq = null,
+}: {
+  specTable?: ReactNode;
+  faq?: ReactNode;
+}) {
   const { copyLang, market, t } = useLanguage();
 
   return (
@@ -13,29 +33,34 @@ export function ProductsPage() {
       <PageIntro kicker={t.products.kicker} title={t.products.title} lead={t.products.lead} />
 
       <Container className="flex flex-col gap-[120px] py-[72px] md:gap-[144px] md:py-[120px]">
+        {specTable}
         {series.map((item, index) => {
           const text = item[copyLang];
+          const repeated = specTable ? usSpecsRepeatedInTable[item.id] : [];
+          const specs = text.specs.filter((spec) => !repeated.includes(spec.label));
           return (
             <article key={item.id} id={item.id} className="scroll-mt-24">
               <p className="eyebrow text-mute">0{index + 1}</p>
               <h2 className="heading-2 mt-4 max-w-[20ch]">{text.name}</h2>
               {item.id === "charm" ? (
-                <p className="mt-6 max-w-[60ch] text-[14px] text-mute">{text.detail}</p>
+                <p className="mt-6 measure text-[14px] text-mute">{text.detail}</p>
               ) : null}
-              <dl className="mt-6 grid max-w-[65ch] grid-cols-1 gap-y-2 border-t border-line pt-4 text-[14px] sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-x-6">
-                {text.specs.map((spec) => (
+              {specs.length > 0 ? (
+              <dl className="mt-6 grid measure grid-cols-1 gap-y-2 border-t border-line pt-4 text-[14px] sm:grid-cols-[9rem_minmax(0,1fr)] sm:gap-x-6">
+                {specs.map((spec) => (
                   <div key={spec.label} className="contents">
                     <dt className="text-mute">{spec.label}</dt>
-                    <dd className="text-ink">{spec.value}</dd>
+                    <dd className="text-ink">{keepText(spec.value)}</dd>
                   </div>
                 ))}
               </dl>
+              ) : null}
               <div className="mt-10 md:mt-12">
                 <ProductArt id={item.id} />
               </div>
               {item.id === "charm" ? (
                 <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-baseline sm:justify-between">
-                  <p className="max-w-[60ch] text-[14px] text-mute">
+                  <p className="measure text-[14px] text-mute">
                     {t.moreNote.body}
                   </p>
                   <a
@@ -50,6 +75,8 @@ export function ProductsPage() {
           );
         })}
 
+        {faq}
+
         <div className="flex flex-col items-start gap-8">
           <h2 className="heading-2 max-w-[20ch]">{t.inquiry}</h2>
           <ZaloButton />
@@ -57,7 +84,7 @@ export function ProductsPage() {
             <ul className="flex flex-col items-start gap-3">
               {contacts.emails.map((email) => (
                 <li key={email}>
-                  <a href={`mailto:${email}`} className="link-under break-all text-[14px]">
+                  <a href={`mailto:${email}`} className="link-under text-[14px]">
                     {email}
                   </a>
                 </li>

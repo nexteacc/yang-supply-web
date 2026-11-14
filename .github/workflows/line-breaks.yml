@@ -1,0 +1,31 @@
+name: Line breaks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Start the site
+        run: |
+          npm start &
+          for i in $(seq 1 40); do
+            curl -sf http://127.0.0.1:3000/ >/dev/null && exit 0
+            sleep 2
+          done
+          echo "server did not start" >&2
+          exit 1
+      - run: BASE_URL=http://127.0.0.1:3000 npm run check:lines

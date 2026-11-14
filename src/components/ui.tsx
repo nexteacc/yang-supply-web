@@ -100,7 +100,7 @@ export function PageIntro({
     <Container className="pt-[72px] md:pt-[120px]">
       <Kicker>{kicker}</Kicker>
       <h1 className="heading-1 mt-4">{title}</h1>
-      <p className="mt-6 max-w-[60ch] text-mute">{lead}</p>
+      <p className="mt-6 measure text-mute">{lead}</p>
     </Container>
   );
 }

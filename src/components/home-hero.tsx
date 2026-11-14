@@ -96,7 +96,7 @@ export function HomeHero() {
           : "text-balance text-[clamp(2.1rem,4.4vw,4.9rem)] leading-[1.03] tracking-tight font-semibold"}>
           {title}
         </h1>
-        <p className="mt-4 max-w-[30ch] text-mute md:mt-5">{description}</p>
+        <p className="measure mt-4 text-mute md:mt-5">{description}</p>
         <Link href={market.pages.products + anchor} className="mt-5 inline-block bg-ink px-5 py-3 text-sm text-white md:mt-7">
           {cta}
         </Link>

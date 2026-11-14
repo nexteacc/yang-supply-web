@@ -8,7 +8,7 @@ export default function Error({ reset }: { error: Error & { digest?: string }; r
   return (
     <Container className="py-[72px] md:py-[120px]">
       <h1 className="heading-1">{t.error.title}</h1>
-      <p className="mt-6 max-w-[60ch] text-mute">{t.error.body}</p>
+      <p className="mt-6 measure text-mute">{t.error.body}</p>
       <button type="button" onClick={reset} className="btn-quiet mt-10 cursor-pointer">
         {t.error.retry}
       </button>
