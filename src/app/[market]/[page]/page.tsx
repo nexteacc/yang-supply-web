@@ -3,6 +3,11 @@ import { notFound } from "next/navigation";
 import { ContactPage } from "@/components/contact-page";
 import { CooperationPage } from "@/components/cooperation-page";
 import { ProductsPage } from "@/components/products-page";
+import { UsOrderingFaq, UsProductFaq } from "@/components/us-faq";
+import {
+  UsCooperationTables,
+  UsProductSpecTable,
+} from "@/components/us-wholesale-tables";
 import {
   ContactPageSchema,
   CooperationPageSchema,
@@ -56,7 +61,10 @@ export default async function Page({ params }: Props) {
     return (
       <>
         <ProductsListSchema marketId={resolved.id} />
-        <ProductsPage />
+        <ProductsPage
+          specTable={resolved.id === "en-us" ? <UsProductSpecTable /> : null}
+          faq={resolved.id === "en-us" ? <UsProductFaq /> : null}
+        />
       </>
     );
   }
@@ -64,7 +72,10 @@ export default async function Page({ params }: Props) {
     return (
       <>
         <CooperationPageSchema marketId={resolved.id} />
-        <CooperationPage />
+        <CooperationPage
+          termsTable={resolved.id === "en-us" ? <UsCooperationTables /> : null}
+          faq={resolved.id === "en-us" ? <UsOrderingFaq /> : null}
+        />
       </>
     );
   }

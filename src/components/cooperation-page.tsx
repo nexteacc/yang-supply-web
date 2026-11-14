@@ -1,10 +1,17 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { contacts } from "@/lib/content";
 import { useLanguage } from "@/components/language";
 import { Container, PageIntro, ZaloButton } from "@/components/ui";
 
-export function CooperationPage() {
+export function CooperationPage({
+  termsTable = null,
+  faq = null,
+}: {
+  termsTable?: ReactNode;
+  faq?: ReactNode;
+}) {
   const { market, t } = useLanguage();
   const page = t.cooperation;
   const quality = page.qualityBody ? (
@@ -13,8 +20,8 @@ export function CooperationPage() {
       <p className="mt-4 max-w-[60ch] text-mute">{page.qualityBody}</p>
     </section>
   ) : null;
-  // US order is intro → steps → quotation terms → payment → lead time.
-  // The existing Quality block stays on the page, after those blocks.
+  // US order is intro → steps → wholesale terms table → quality.
+  // The table replaces quotation terms, payment and lead time.
   const qualityAfterTerms = market.id === "en-us";
 
   return (
@@ -40,7 +47,9 @@ export function CooperationPage() {
 
         {qualityAfterTerms ? null : quality}
 
-        {page.notes.length > 0 ? (
+        {termsTable ? (
+          termsTable
+        ) : page.notes.length > 0 ? (
         <section>
           <h2 className="heading-2">{page.notesTitle}</h2>
           <ul className="mt-8 flex max-w-[60ch] flex-col gap-4">
@@ -51,7 +60,9 @@ export function CooperationPage() {
         </section>
         ) : null}
 
-        {page.blocksAfterNotes.map((block) => (
+        {termsTable
+          ? null
+          : page.blocksAfterNotes.map((block) => (
           <section key={block.title}>
             <h2 className="heading-2">{block.title}</h2>
             <p className="mt-8 max-w-[60ch]">{block.body}</p>
@@ -59,6 +70,8 @@ export function CooperationPage() {
         ))}
 
         {qualityAfterTerms ? quality : null}
+
+        {faq}
 
         <div className="flex flex-col items-start gap-6">
           <ZaloButton />
